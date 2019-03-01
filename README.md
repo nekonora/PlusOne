@@ -9,4 +9,4 @@ Counters can be created and deleted (duh), but also personalized with these feat
 - Custom unit: what am I counting again?
 - Custom completion goal: a nice little bar shows your progress through a value you specify.
 
-![](https://imgur.com/lDK0Avk.png) ![](https://imgur.com/gNgLeRP.png) 
+![](https://i.imgur.com/VESfEjQ.png)
