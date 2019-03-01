@@ -15,6 +15,7 @@
 		FA43DFFC2208395F002F0DAD /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43DFFB2208395F002F0DAD /* Counter.swift */; };
 		FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43DFFD22083AC9002F0DAD /* CountersCVC.swift */; };
 		FA43E00022083B2A002F0DAD /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43DFFF22083B2A002F0DAD /* CounterCell.swift */; };
+		FA48444722294D5200D4F47D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48444622294D5200D4F47D /* String+.swift */; };
 		FA9FA01E22208638003AB865 /* UICVC+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA01D22208638003AB865 /* UICVC+Additions.swift */; };
 		FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA02122208B19003AB865 /* CountersDataSource.swift */; };
 		FAB7916922269B900073732D /* CounterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7916822269B900073732D /* CounterDetailVC.swift */; };
@@ -31,6 +32,7 @@
 		FA43DFFB2208395F002F0DAD /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		FA43DFFD22083AC9002F0DAD /* CountersCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCVC.swift; sourceTree = "<group>"; };
 		FA43DFFF22083B2A002F0DAD /* CounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
+		FA48444622294D5200D4F47D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA9FA01D22208638003AB865 /* UICVC+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICVC+Additions.swift"; sourceTree = "<group>"; };
 		FA9FA02122208B19003AB865 /* CountersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersDataSource.swift; sourceTree = "<group>"; };
 		FAB7916822269B900073732D /* CounterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDetailVC.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				FA9FA01F22208745003AB865 /* Views */,
 				FA9FA020222087BF003AB865 /* Controllers */,
 				FA9FA02122208B19003AB865 /* CountersDataSource.swift */,
+				FA48444622294D5200D4F47D /* String+.swift */,
 				FA43DFEF2208381C002F0DAD /* Assets.xcassets */,
 				FA43DFEC2208381A002F0DAD /* Main.storyboard */,
 				FA43DFF12208381C002F0DAD /* LaunchScreen.storyboard */,
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA43DFFC2208395F002F0DAD /* Counter.swift in Sources */,
+				FA48444722294D5200D4F47D /* String+.swift in Sources */,
 				FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */,
 				FA9FA01E22208638003AB865 /* UICVC+Additions.swift in Sources */,
 				FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */,

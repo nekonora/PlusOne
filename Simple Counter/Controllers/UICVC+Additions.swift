@@ -11,6 +11,7 @@ import UIKit
 
 extension UICollectionViewController: CounterCellDelegate {
 	
+	
 	@objc func didTapStepper(dataSource: CountersDataSource, id: UUID, newValue: Float) {
 		
 		if var tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
@@ -21,6 +22,7 @@ extension UICollectionViewController: CounterCellDelegate {
 			
 			dataSource.saveToDefaults()
 		}
+		
 		collectionView.reloadData()
 		
 	}

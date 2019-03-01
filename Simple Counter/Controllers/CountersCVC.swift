@@ -54,7 +54,9 @@ class CountersCVC: UICollectionViewController {
 			
 			self.collectionView.performBatchUpdates({
 				self.collectionView?.insertItems(at: [indexPath])
+				self.collectionView?.reloadData()
 			}, completion: nil)
+			
 		}))
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 		

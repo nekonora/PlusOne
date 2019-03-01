@@ -26,7 +26,6 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	}
 	
 	
-	
 	var counter		: CounterStruct!
 	var dataSource	: CountersDataSource!
 	
@@ -34,7 +33,6 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		print(counter)
 		
 		setupTextFields()
 		setupSaveButton()
@@ -70,7 +68,8 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			textField.delegate = self
 		}
 		
-		nameTextField.text 			= counter.name
+		
+		nameTextField.text 			= String(counter.name)
 		stepsTextField.text 		= String(counter.steps)
 		unitTextField.text 			= counter.unit
 		completionTextField.text 	= String(counter.completionValue)
@@ -78,17 +77,42 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	
 	@objc fileprivate func saveTapped() {
+		
+		
+
+//		let stepsNumber 		= numberFormatter.number(from: (stepsTextField.text ?? "1"))
+//		let stepsFloat		 	= stepsNumber!.floatValue
+//
+//		let completionNumber 	= numberFormatter.number(from: completionTextField.text ?? "0")
+//		let completionFloat	 	= completionNumber!.floatValue
+		
+//		let stepsFloat = (stepsTextField.text! as NSString).floatValue
+//		let completionFloat = (completionTextField.text! as NSString).floatValue
+		
+	
 		let newName 			= nameTextField.text ?? ""
-		let newSteps 			= stepsTextField.text ?? "1.0"
 		let newUnit 			= unitTextField.text ?? ""
-		let newCompletionValue 	= completionTextField.text ?? "0.0"
+		let newSteps			: Float
+		let newCompletion		: Float
+		
+		if let stepsString = stepsTextField.text {
+			newSteps = stepsString.floatValue
+		} else {
+			newSteps = 1.0
+		}
+		
+		if let completionString = completionTextField.text {
+			newCompletion = completionString.floatValue
+		} else {
+			newCompletion = 0.0
+		}
 		
 		updateCounter(dataSource			: dataSource,
 					  id					: counter.id,
 					  newName				: newName,
-					  newSteps				: Float(newSteps)!,
+					  newSteps				: newSteps,
 					  newUnit				: newUnit,
-					  newCompletionValue	: Float(newCompletionValue)!)
+					  newCompletionValue	: newCompletion)
 		
 		navigationController?.popViewController(animated: true)
 	}

@@ -26,12 +26,17 @@ class CounterCell: UICollectionViewCell {
 	@IBOutlet var progressBar	: UIProgressView!
 	
 	
+	// Properties
+	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+	
+	
 	// Methods
 	
 	@IBAction func stepperChanged(_ sender: Any) {
 		if let cellDelegate = delegate {
 			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
-			
+			feedbackGenerator.impactOccurred()
+			feedbackGenerator.prepare()
 			cellDelegate.didTapStepper(dataSource: data, id: counterItem.id, newValue: Float(stepperUI.value))
 		}
 	}
@@ -50,6 +55,12 @@ class CounterCell: UICollectionViewCell {
 	var dataSource	: CountersDataSource!
 	var counterItem	: CounterStruct!
 	var delegate	: UICollectionViewController?
+	
+	
+	// Overrides
+	override func awakeFromNib() {
+		feedbackGenerator.prepare()
+	}
 	
 	
 }

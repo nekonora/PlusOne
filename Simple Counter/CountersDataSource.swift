@@ -42,13 +42,22 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 		cell.TitleLabel.text 		= counter.name
 		cell.unitLabel.text			= counter.unit
 		cell.stepperUI.stepValue 	= Double(counter.steps)
+		cell.stepperUI.value		= Double(counter.value)
 		
 		if counter.completionValue! != 0 {
 			let percentage = (counter.value / counter.completionValue)
 			cell.progressBar.progress = percentage
+		} else {
+			cell.progressBar.progress = 0.0
 		}
 		
-		cell.CounterLabel.text 	= String(counter.value)
+		
+		let formatter = NumberFormatter()
+		formatter.maximumFractionDigits = 2
+		formatter.minimumFractionDigits = 0  // or you might use `2` here, too
+		formatter.numberStyle = .decimal
+		
+		cell.CounterLabel.text = formatter.string(from: NSNumber(value: counter.value))
 		
 		return cell
 	}
@@ -95,7 +104,6 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 		if let encoded = try? encoder.encode(counters){
 			defaults.set(encoded, forKey: "UserCounters")
 		}
-		print("Data saved")
 	}
 	
 	
