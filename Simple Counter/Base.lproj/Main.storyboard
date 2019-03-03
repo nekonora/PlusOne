@@ -54,9 +54,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XI5-QY-XKx">
-                                            <rect key="frame" x="223" y="60" width="22" height="22"/>
+                                            <rect key="frame" x="215" y="60" width="30" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="22" id="kE4-Kc-dWd"/>
+                                                <constraint firstAttribute="width" constant="30" id="kE4-Kc-dWd"/>
                                                 <constraint firstAttribute="height" constant="22" id="kka-Br-x5J"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>

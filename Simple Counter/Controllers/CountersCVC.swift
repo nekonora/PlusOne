@@ -15,11 +15,13 @@ class CountersCVC: UICollectionViewController {
 	
 	// Properties
 	var dataSource = CountersDataSource()
-	
+	let noCountersView = UILabel()
 	
 	// Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		collectionView.addSubview(noCountersView)
 		
 		dataSource.cellDelegate = self
 		
@@ -30,7 +32,7 @@ class CountersCVC: UICollectionViewController {
 	
 	
 	override func viewWillAppear(_ animated: Bool) {
-		collectionView.reloadData()
+		setupView()
 	}
 	
 	
@@ -54,7 +56,7 @@ class CountersCVC: UICollectionViewController {
 			
 			self.collectionView.performBatchUpdates({
 				self.collectionView?.insertItems(at: [indexPath])
-				self.collectionView?.reloadData()
+				self.setupView()
 			}, completion: nil)
 			
 		}))
@@ -65,6 +67,17 @@ class CountersCVC: UICollectionViewController {
 	
 	
 	// Private methods
+	
+	fileprivate func setupView() {
+		collectionView.reloadData()
+		if dataSource.countersList.count == 0 {
+			loadNoCounterAlert(bool: true)
+		} else {
+			loadNoCounterAlert(bool: false)
+		}
+	}
+	
+	
 	fileprivate func setupStyle() {
 		navigationController?.navigationBar.barStyle = .blackTranslucent
 		navigationController?.navigationBar.barTintColor = UIColor(named: "notQuiteBlack")
@@ -75,5 +88,41 @@ class CountersCVC: UICollectionViewController {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
 	}
 
+	
+	fileprivate func loadNoCounterAlert(bool: Bool) {
+		if bool {
+			noCountersView.isHidden = false
+			collectionView.addSubview(noCountersView)
+			
+			noCountersView.translatesAutoresizingMaskIntoConstraints = false
+			
+			collectionView.addConstraints([
+				NSLayoutConstraint(item: noCountersView, attribute: .centerX, relatedBy: .equal, toItem: collectionView, attribute: .centerX, multiplier: 1.0, constant: 0),
+				NSLayoutConstraint(item: noCountersView, attribute: .centerY, relatedBy: .equal, toItem: collectionView, attribute: .centerY, multiplier: 1.0, constant: -100),
+				NSLayoutConstraint(item: noCountersView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 300),
+				NSLayoutConstraint(item: noCountersView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100)
+				])
+			
+			noCountersView.textColor 		= UIColor(named: "notQuiteWhite")!
+			noCountersView.layer.opacity 	= 0.6
+			noCountersView.textAlignment	= .center
+			noCountersView.numberOfLines	= 0
+			
+			let boldText  = "Add"
+			let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+			let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
+			
+			let normalText: NSMutableAttributedString = "\nYou have no counters at the moment.\n\nPlease tap \"\(attributedString)\" at the top to create one."
+			
+			let normalString = NSMutableAttributedString(string:normalText)
+			
+			noCountersView.attributedText = normalString
+			
+			
+		} else {
+			noCountersView.isHidden = true
+		}
+	}
+	
 	
 }
