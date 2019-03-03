@@ -25,6 +25,9 @@ class CounterCell: UICollectionViewCell {
 	@IBOutlet var stepperUI		: UIStepper!
 	@IBOutlet var progressBar	: UIProgressView!
 	
+	@IBOutlet var tagIconImageView: UIImageView!
+	@IBOutlet var tagLabel: UILabel!
+	
 	
 	// Properties
 	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
@@ -60,6 +63,9 @@ class CounterCell: UICollectionViewCell {
 	// Overrides
 	override func awakeFromNib() {
 		feedbackGenerator.prepare()
+		
+		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
+		tagIconImageView.tintColor = UIColor(named: "pastelOrange")!
 	}
 	
 	

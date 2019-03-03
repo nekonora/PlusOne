@@ -108,15 +108,20 @@ class CountersCVC: UICollectionViewController {
 			noCountersView.textAlignment	= .center
 			noCountersView.numberOfLines	= 0
 			
-			let boldText  = "Add"
-			let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
-			let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
+			let attributedText = NSMutableAttributedString(
+				string: "You don't have any counters at the moment.\n\nPlease tap the \"",
+				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .semibold)])
 			
-			let normalText: NSMutableAttributedString = "\nYou have no counters at the moment.\n\nPlease tap \"\(attributedString)\" at the top to create one."
+			attributedText.append(NSAttributedString(
+				string: "Add",
+				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .heavy)]))
 			
-			let normalString = NSMutableAttributedString(string:normalText)
+			attributedText.append(NSAttributedString(
+				string: "\" button to add a counter.",
+				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .semibold)]))
 			
-			noCountersView.attributedText = normalString
+			noCountersView.attributedText = attributedText
+			
 			
 			
 		} else {

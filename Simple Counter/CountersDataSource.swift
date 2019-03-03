@@ -57,7 +57,15 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 		formatter.minimumFractionDigits = 0  // or you might use `2` here, too
 		formatter.numberStyle = .decimal
 		
-		cell.CounterLabel.text = formatter.string(from: NSNumber(value: counter.value))
+		if cell.stepperUI.value > 999999 {
+			let dividedNumber = cell.stepperUI.value / 1000
+			var formattedNumber = formatter.string(from: NSNumber(value: dividedNumber))!
+			print(formattedNumber)
+			formattedNumber.append("k")
+			cell.CounterLabel.text = formattedNumber
+		} else {
+			cell.CounterLabel.text = formatter.string(from: NSNumber(value: counter.value))
+		}
 		
 		return cell
 	}
