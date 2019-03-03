@@ -18,6 +18,8 @@
 		FA48444722294D5200D4F47D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48444622294D5200D4F47D /* String+.swift */; };
 		FA9FA01E22208638003AB865 /* UICVC+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA01D22208638003AB865 /* UICVC+Additions.swift */; };
 		FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA02122208B19003AB865 /* CountersDataSource.swift */; };
+		FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46177222C0D2D00F65AF4 /* Helpers.swift */; };
+		FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46179222C0F3C00F65AF4 /* CounterV2.swift */; };
 		FAB7916922269B900073732D /* CounterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7916822269B900073732D /* CounterDetailVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		FA48444622294D5200D4F47D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA9FA01D22208638003AB865 /* UICVC+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICVC+Additions.swift"; sourceTree = "<group>"; };
 		FA9FA02122208B19003AB865 /* CountersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersDataSource.swift; sourceTree = "<group>"; };
+		FAA46177222C0D2D00F65AF4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		FAA46179222C0F3C00F65AF4 /* CounterV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterV2.swift; sourceTree = "<group>"; };
 		FAB7916822269B900073732D /* CounterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,8 +75,7 @@
 				FA43DFFA2208393A002F0DAD /* Models */,
 				FA9FA01F22208745003AB865 /* Views */,
 				FA9FA020222087BF003AB865 /* Controllers */,
-				FA9FA02122208B19003AB865 /* CountersDataSource.swift */,
-				FA48444622294D5200D4F47D /* String+.swift */,
+				FAA46177222C0D2D00F65AF4 /* Helpers.swift */,
 				FA43DFEF2208381C002F0DAD /* Assets.xcassets */,
 				FA43DFEC2208381A002F0DAD /* Main.storyboard */,
 				FA43DFF12208381C002F0DAD /* LaunchScreen.storyboard */,
@@ -86,6 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				FA43DFFB2208395F002F0DAD /* Counter.swift */,
+				FAA46179222C0F3C00F65AF4 /* CounterV2.swift */,
+				FA48444622294D5200D4F47D /* String+.swift */,
+				FA9FA02122208B19003AB865 /* CountersDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,7 +189,9 @@
 				FA43DFFC2208395F002F0DAD /* Counter.swift in Sources */,
 				FA48444722294D5200D4F47D /* String+.swift in Sources */,
 				FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */,
+				FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */,
 				FA9FA01E22208638003AB865 /* UICVC+Additions.swift in Sources */,
+				FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */,
 				FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */,
 				FAB7916922269B900073732D /* CounterDetailVC.swift in Sources */,
 				FA0C0CB7222498EB005BF573 /* CustomButton.swift in Sources */,
