@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6515A57FC60620364F207BA /* Pods_Simple_Counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648D0582FDFD4C0D898CAFEA /* Pods_Simple_Counter.framework */; };
 		FA0C0CB7222498EB005BF573 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C0CB6222498EB005BF573 /* CustomButton.swift */; };
+		FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA112D4C222D92FF00741832 /* TagsManager.swift */; };
+		FA224E58223D362100594428 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA224E57223D362100594428 /* RootViewController.swift */; };
 		FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43DFE82208381A002F0DAD /* AppDelegate.swift */; };
 		FA43DFEE2208381A002F0DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA43DFEC2208381A002F0DAD /* Main.storyboard */; };
 		FA43DFF02208381C002F0DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43DFEF2208381C002F0DAD /* Assets.xcassets */; };
@@ -24,7 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16A6F0698E566B003F9E8304 /* Pods-Simple Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Counter.debug.xcconfig"; path = "Target Support Files/Pods-Simple Counter/Pods-Simple Counter.debug.xcconfig"; sourceTree = "<group>"; };
+		396BCB8B72FD22DE6B631996 /* Pods-Simple Counter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Counter.release.xcconfig"; path = "Target Support Files/Pods-Simple Counter/Pods-Simple Counter.release.xcconfig"; sourceTree = "<group>"; };
+		648D0582FDFD4C0D898CAFEA /* Pods_Simple_Counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0C0CB6222498EB005BF573 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		FA112D4C222D92FF00741832 /* TagsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsManager.swift; sourceTree = "<group>"; };
+		FA224E57223D362100594428 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FA43DFE52208381A002F0DAD /* Simple Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA43DFE82208381A002F0DAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA43DFED2208381A002F0DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6515A57FC60620364F207BA /* Pods_Simple_Counter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51574A4F73309558926D0714 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				648D0582FDFD4C0D898CAFEA /* Pods_Simple_Counter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9E7CA7E3F7BA749B734720A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16A6F0698E566B003F9E8304 /* Pods-Simple Counter.debug.xcconfig */,
+				396BCB8B72FD22DE6B631996 /* Pods-Simple Counter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FA43DFDC2208381A002F0DAD = {
 			isa = PBXGroup;
 			children = (
 				FA43DFE72208381A002F0DAD /* Simple Counter */,
 				FA43DFE62208381A002F0DAD /* Products */,
+				E9E7CA7E3F7BA749B734720A /* Pods */,
+				51574A4F73309558926D0714 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +120,7 @@
 				FAA46179222C0F3C00F65AF4 /* CounterV2.swift */,
 				FA48444622294D5200D4F47D /* String+.swift */,
 				FA9FA02122208B19003AB865 /* CountersDataSource.swift */,
+				FA112D4C222D92FF00741832 /* TagsManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +137,7 @@
 		FA9FA020222087BF003AB865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA224E57223D362100594428 /* RootViewController.swift */,
 				FA43DFFD22083AC9002F0DAD /* CountersCVC.swift */,
 				FA9FA01D22208638003AB865 /* UICVC+Additions.swift */,
 				FAB7916822269B900073732D /* CounterDetailVC.swift */,
@@ -122,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA43DFF72208381C002F0DAD /* Build configuration list for PBXNativeTarget "Simple Counter" */;
 			buildPhases = (
+				0ABBE642EF6F0BC767A5AC8E /* [CP] Check Pods Manifest.lock */,
 				FA43DFE12208381A002F0DAD /* Sources */,
 				FA43DFE22208381A002F0DAD /* Frameworks */,
 				FA43DFE32208381A002F0DAD /* Resources */,
+				F917D0018BB504C504F79F03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,6 +213,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0ABBE642EF6F0BC767A5AC8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Simple Counter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F917D0018BB504C504F79F03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA43DFE12208381A002F0DAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -189,11 +263,13 @@
 				FA43DFFC2208395F002F0DAD /* Counter.swift in Sources */,
 				FA48444722294D5200D4F47D /* String+.swift in Sources */,
 				FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */,
+				FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */,
 				FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */,
 				FA9FA01E22208638003AB865 /* UICVC+Additions.swift in Sources */,
 				FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */,
 				FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */,
 				FAB7916922269B900073732D /* CounterDetailVC.swift in Sources */,
+				FA224E58223D362100594428 /* RootViewController.swift in Sources */,
 				FA0C0CB7222498EB005BF573 /* CustomButton.swift in Sources */,
 				FA43E00022083B2A002F0DAD /* CounterCell.swift in Sources */,
 				FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */,
@@ -340,6 +416,7 @@
 		};
 		FA43DFF82208381C002F0DAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16A6F0698E566B003F9E8304 /* Pods-Simple Counter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -358,6 +435,7 @@
 		};
 		FA43DFF92208381C002F0DAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 396BCB8B72FD22DE6B631996 /* Pods-Simple Counter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

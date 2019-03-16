@@ -8,11 +8,13 @@
 
 
 import UIKit
+import TaggerKit
 
 
 class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	
+	// MARK: - Outlets
 	@IBOutlet var scrollView: UIScrollView!
 	@IBOutlet var textFieldsUI: [UITextField]!
 	
@@ -21,30 +23,91 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	@IBOutlet var unitTextField: UITextField!
 	@IBOutlet var completionTextField: UITextField!
 	
+	@IBOutlet var tagsTextField: TKTextField!
+	
+	@IBOutlet var allTagsWrapper: UIView!
+	@IBOutlet var tagsWrapperView: UIView!
+	
+	@IBOutlet var tagsContainerView: UIView!
+	@IBOutlet var allTagsContainer: UIView!
+	
+	@IBAction func tagsTextFieldEditingBegin(_ sender: Any) {
+		UIView.animate(withDuration: 0.3){ [unowned self] in
+			self.allTagsWrapper.isHidden 	= false
+			self.allTagsWrapper.alpha 		= 1
+		}
+	}
+	
+	@IBAction func tagsTextFieldEndEditing(_ sender: Any) {
+		UIView.animate(withDuration: 0.3){ [unowned self] in
+			self.allTagsWrapper.isHidden 	= true
+			self.allTagsWrapper.alpha 		= 0
+		}
+	}
+	
 	@IBAction func deleteTapped(_ sender: Any) {
 		deleteCounter(dataSource: dataSource)
 	}
 	
 	
-	var counter		: CounterStruct!
-	var dataSource	: CountersDataSource!
+	// MARK: - Properties
+	var counter			: CounterV2!
+	var dataSource		: CountersDataSource!
+	var tagsManager 	= TagsManager()
+	
+	let counterTagsCollection 	= TKCollectionView()
+	let allTagsCollection		= TKCollectionView()
 	
 	
+	// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		
 		setupTextFields()
 		setupSaveButton()
+		
+		allTagsWrapper.isHidden = true
+		allTagsWrapper.alpha 	= 0
 		
 		let notificationCenter = NotificationCenter.default
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 		
 		title = counter.name!
+		
+		// TaggerKit stuff
+		let allTags = tagsManager.loadFromDefaults()
+		
+//		counterTagsCollection.tags = ["Tech", "Design", "Writing", "Social Media"]
+		counterTagsCollection.tags = counter.tags
+		
+//		allTagsCollection.tags = ["Cars", "Skateboard", "Freetime", "Humor", "Travel", "Music", "Places", "Journalism", "Music", "Sports"]
+		allTagsCollection.tags = allTags
+		
+		
+		counterTagsCollection.action = .removeTag
+
+		counterTagsCollection.delegate = self
+		allTagsCollection.delegate = self
+		
+		allTagsCollection.receiver = counterTagsCollection
+		
+		allTagsCollection.action = .addTag
+		
+		tagsTextField.sender 	= allTagsCollection
+		tagsTextField.receiver 	= counterTagsCollection
+		
+		setupTags()
+		
+		add(counterTagsCollection, toView: tagsContainerView)
+		add(allTagsCollection, toView: allTagsContainer)
+		
+		setupTagsTextField()
+		
     }
 	
 	
+	// MARK: - Setup Methods
 	fileprivate func setupSaveButton() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
 			title: "Save",
@@ -68,7 +131,6 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			textField.delegate = self
 		}
 		
-		
 		nameTextField.text 			= String(counter.name)
 		stepsTextField.text 		= String(counter.steps)
 		unitTextField.text 			= counter.unit
@@ -76,24 +138,46 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	}
 	
 	
+	func setupTagsTextField() {
+		tagsTextField.layer.cornerRadius =  15
+		let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
+		tagsTextField.leftView = leftView
+		tagsTextField.leftViewMode = .always
+		
+		tagsTextField.layer.borderWidth = 1.0
+		tagsTextField.layer.borderColor = UIColor(named: "greenPastel")!.cgColor
+		tagsTextField.keyboardAppearance = UIKeyboardAppearance.dark
+	}
+	
+	
+	func setupTags() {
+		allTagsCollection.customFont = UIFont.boldSystemFont(ofSize: 14)
+		allTagsCollection.customBackgroundColor = UIColor(named: "greenPastel")!
+		
+		counterTagsCollection.customFont = UIFont.boldSystemFont(ofSize: 14)
+		counterTagsCollection.customBackgroundColor = UIColor(named: "pastelOrange")!
+	}
+	
+	
+	// MARK: - TaggerKit delegate
+	override func tagIsBeingAdded(name: String?) {
+		print(counterTagsCollection.tags)
+	}
+	
+	
+	override func tagIsBeingRemoved(name: String?) {
+		//
+	}
+	
+	
+	// MARK: - Action methods
 	@objc fileprivate func saveTapped() {
 		
-		
-
-//		let stepsNumber 		= numberFormatter.number(from: (stepsTextField.text ?? "1"))
-//		let stepsFloat		 	= stepsNumber!.floatValue
-//
-//		let completionNumber 	= numberFormatter.number(from: completionTextField.text ?? "0")
-//		let completionFloat	 	= completionNumber!.floatValue
-		
-//		let stepsFloat = (stepsTextField.text! as NSString).floatValue
-//		let completionFloat = (completionTextField.text! as NSString).floatValue
-		
-	
 		let newName 			= nameTextField.text ?? ""
 		let newUnit 			= unitTextField.text ?? ""
 		let newSteps			: Float
 		let newCompletion		: Float
+		let newTags				= counterTagsCollection.tags
 		
 		if let stepsString = stepsTextField.text {
 			newSteps = stepsString.floatValue
@@ -107,12 +191,20 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			newCompletion = 0.0
 		}
 		
+		for tag in newTags {
+			let allTags = tagsManager.loadFromDefaults()
+			if !allTags.contains(tag) {
+				tagsManager.addTag(named: tag)
+			}
+		}
+		
 		updateCounter(dataSource			: dataSource,
 					  id					: counter.id,
 					  newName				: newName,
 					  newSteps				: newSteps,
 					  newUnit				: newUnit,
-					  newCompletionValue	: newCompletion)
+					  newCompletionValue	: newCompletion,
+					  newTags				: newTags )
 		
 		navigationController?.popViewController(animated: true)
 	}
@@ -139,15 +231,17 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 					   newName				: String,
 					   newSteps				: Float,
 					   newUnit				: String,
-					   newCompletionValue	: Float ) {
+					   newCompletionValue	: Float,
+					   newTags				: [String]) {
 		
-		if var tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
+		if let tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
 			let index = dataSource.countersList.index{$0.id == id}
 			
 			tempCounter.name 			= newName
 			tempCounter.steps 			= newSteps
 			tempCounter.unit 			= newUnit
 			tempCounter.completionValue = newCompletionValue
+			tempCounter.tags			= newTags
 			
 			dataSource.countersList.remove(at: index!)
 			dataSource.countersList.insert(tempCounter, at: index!)

@@ -13,21 +13,19 @@ import UIKit
 class CountersCVC: UICollectionViewController {
 
 	
-	// Properties
+	// MARK: - Properties
 	var dataSource = CountersDataSource()
 	let noCountersView = UILabel()
 	
-	// Methods
+	
+	// MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		collectionView.addSubview(noCountersView)
-		
 		dataSource.cellDelegate = self
-		
 		collectionView.dataSource = dataSource
 		
-		setupStyle()
+		collectionView.addSubview(noCountersView)
     }
 	
 	
@@ -36,60 +34,18 @@ class CountersCVC: UICollectionViewController {
 	}
 	
 	
-	// UI methods
-	@objc func addTapped() {
-		let alert = UIAlertController(title: "Name", message: "Enter a name for the counter", preferredStyle: .alert)
-		
-		alert.addTextField { (textField) in
-			textField.text = ""
-			textField.keyboardAppearance = UIKeyboardAppearance.dark
-		}
-		
-		alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
-			let textField 	= alert?.textFields![0]
-			self.dataSource.addCounter(with: textField!.text!)
-			
-			let indexPath = IndexPath(
-				item: 0,
-				section: 0
-			)
-			
-			self.collectionView.performBatchUpdates({
-				self.collectionView?.insertItems(at: [indexPath])
-				self.setupView()
-			}, completion: nil)
-			
-		}))
-		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-		
-		self.present(alert, animated: true, completion: nil)
-	}
-	
-	
 	// Private methods
-	
-	fileprivate func setupView() {
+	func setupView() {
 		collectionView.reloadData()
 		if dataSource.countersList.count == 0 {
-			loadNoCounterAlert(bool: true)
+			loadNoCounterView(bool: true)
 		} else {
-			loadNoCounterAlert(bool: false)
+			loadNoCounterView(bool: false)
 		}
 	}
 	
 	
-	fileprivate func setupStyle() {
-		navigationController?.navigationBar.barStyle = .blackTranslucent
-		navigationController?.navigationBar.barTintColor = UIColor(named: "notQuiteBlack")
-		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
-		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
-		
-		navigationItem.title = "My Counters"
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
-	}
-
-	
-	fileprivate func loadNoCounterAlert(bool: Bool) {
+	fileprivate func loadNoCounterView(bool: Bool) {
 		if bool {
 			noCountersView.isHidden = false
 			collectionView.addSubview(noCountersView)
@@ -121,8 +77,6 @@ class CountersCVC: UICollectionViewController {
 				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .semibold)]))
 			
 			noCountersView.attributedText = attributedText
-			
-			
 			
 		} else {
 			noCountersView.isHidden = true

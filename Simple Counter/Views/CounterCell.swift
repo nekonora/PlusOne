@@ -18,7 +18,7 @@ protocol CounterCellDelegate {
 class CounterCell: UICollectionViewCell {
 	
 	
-	// UI Outlets
+	// MARK: - UI Outlets
 	@IBOutlet var TitleLabel	: UILabel!
 	@IBOutlet var CounterLabel	: UILabel!
 	@IBOutlet var unitLabel		: UILabel!
@@ -28,12 +28,8 @@ class CounterCell: UICollectionViewCell {
 	@IBOutlet var tagIconImageView: UIImageView!
 	@IBOutlet var tagLabel: UILabel!
 	
-	
-	// Properties
-	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
-	
-	
-	// Methods
+
+	// MARK: - UI Actions
 	
 	@IBAction func stepperChanged(_ sender: Any) {
 		if let cellDelegate = delegate {
@@ -54,16 +50,22 @@ class CounterCell: UICollectionViewCell {
 	}
 	
 	
-	// Properties
+	// MARK: - Properties
+	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
 	var dataSource	: CountersDataSource!
-	var counterItem	: CounterStruct!
+	var counterItem	: CounterV2!
 	var delegate	: UICollectionViewController?
 	
 	
-	// Overrides
+	// MARK: - Lifecycle Methods
 	override func awakeFromNib() {
 		feedbackGenerator.prepare()
-		
+		setupTagsIcon()
+	}
+	
+	
+	// MARK: - Private methods
+	func setupTagsIcon() {
 		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
 		tagIconImageView.tintColor = UIColor(named: "pastelOrange")!
 	}

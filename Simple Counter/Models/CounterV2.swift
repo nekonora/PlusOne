@@ -8,7 +8,8 @@
 
 import Foundation
 
-class CounterV2 {
+
+class CounterV2: Codable {
 	
 	var id 				: UUID!
 	var name			: String!
@@ -27,5 +28,6 @@ class CounterV2 {
 		self.completionValue = completionValue
 		self.tags = tags
 	}
+	
 	
 }

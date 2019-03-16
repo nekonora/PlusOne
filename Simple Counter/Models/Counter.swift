@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct CounterStruct: Codable {
 	
 	var id 				: UUID!

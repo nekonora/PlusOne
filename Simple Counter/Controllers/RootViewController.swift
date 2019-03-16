@@ -1,0 +1,142 @@
+//
+//  RootViewController.swift
+//  Simple Counter
+//
+//  Created by Filippo Zaffoni on 16/03/2019.
+//  Copyright © 2019 Filippo Zaffoni. All rights reserved.
+//
+
+
+import UIKit
+import Menu
+
+
+class RootViewController: UIViewController {
+	
+	
+	// MARK: - Outlets
+	@IBOutlet var collectionViewContainer: UIView!
+	
+	
+	// MARK: - Properties
+	var countersCollection: CountersCVC {
+		get {
+			let ctrl = children.first(where: { $0 is CountersCVC })
+			return ctrl as! CountersCVC
+		}
+	}
+
+	
+	// MARK: - Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupStyle()
+		
+		setupMenuButtons()
+    }
+	
+
+	// MARK: - Private Methods
+	fileprivate func setupStyle() {
+		navigationController?.navigationBar.barStyle = .blackTranslucent
+		navigationController?.navigationBar.barTintColor = UIColor(named: "notQuiteBlack")
+		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
+		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
+		
+		navigationItem.title = "My Counters"
+//		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+	}
+	
+	fileprivate func setupMenuButtons() {
+		struct PlusOneTheme: MenuTheme {
+			let font = UIFont.systemFont(ofSize: 16, weight: .medium)
+			let textColor = UIColor(named: "greenPastel")!
+			let brightTintColor = UIColor.black
+			let darkTintColor = UIColor.black
+			let highlightedTextColor = UIColor.white
+			let highlightedBackgroundColor = UIColor(named: "greenPastel")!
+			let backgroundTint = UIColor(red:0.18, green:0.77, blue:0.71, alpha: 0.15)
+			let gestureBarTint = UIColor(named: "greenPastel")!
+			let blurEffect = UIBlurEffect(style: .dark)
+			let shadowColor = UIColor.black
+			let shadowOpacity: Float = 0.3
+			let shadowRadius: CGFloat = 7.0
+			let separatorColor = UIColor(white: 1, alpha: 0.1)
+			public init() {}
+		}
+		
+		
+		let viewMenu = MenuView(title: "View", theme: PlusOneTheme()) { () -> [MenuItem] in
+			return [
+				ShortcutMenuItem(name: "Orginize by Counters", shortcut: nil, action: {}),
+				ShortcutMenuItem(name: "Organize by Tags", shortcut: nil, action: {}),
+				SeparatorMenuItem(),
+				ShortcutMenuItem(name: "View big cells", shortcut: nil, action: {}),
+				ShortcutMenuItem(name: "View medium cells", shortcut: nil, action: {}),
+				]
+		}
+		
+		let countersMenu = MenuView(title: "Counters", theme: PlusOneTheme()) { () -> [MenuItem] in
+			return [
+				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: {self.addTapped()}),
+				SeparatorMenuItem(),
+				ShortcutMenuItem(name: "Manage tags", shortcut: ([.command], "T"), action: {}),
+				SeparatorMenuItem(),
+				ShortcutMenuItem(name: "Settings...", shortcut: ([.command], ","), action: {}),
+				]
+		}
+		
+		countersMenu.contentAlignment = .left
+		
+		view.addSubview(viewMenu)
+		view.addSubview(countersMenu)
+		
+		viewMenu.tintColor = UIColor(named: "greenPastel")!
+		countersMenu.tintColor = UIColor(named: "greenPastel")!
+		
+		viewMenu.snp.makeConstraints { (make) -> Void in
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(10)
+			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.leftMargin).offset(10)
+			make.height.equalTo(40)
+		}
+		
+		countersMenu.snp.makeConstraints { (make) -> Void in
+			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(10)
+			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.rightMargin).offset(-10)
+			make.height.equalTo(40)
+		}
+		
+	}
+	
+	
+	// UI methods
+	@objc func addTapped() {
+		let alert = UIAlertController(title: "Name", message: "Enter a name for the counter", preferredStyle: .alert)
+
+		alert.addTextField { (textField) in
+			textField.text = ""
+			textField.keyboardAppearance = UIKeyboardAppearance.dark
+		}
+
+		alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
+			let textField 	= alert?.textFields![0]
+			self.countersCollection.dataSource.addCounter(with: textField!.text!)
+
+			let indexPath = IndexPath(
+				item: 0,
+				section: 0
+			)
+
+			self.countersCollection.collectionView.performBatchUpdates({
+				self.countersCollection.collectionView.insertItems(at: [indexPath])
+				self.countersCollection.setupView()
+			}, completion: nil)
+
+		}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+		self.present(alert, animated: true, completion: nil)
+	}
+	
+}

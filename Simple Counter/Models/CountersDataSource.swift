@@ -6,16 +6,21 @@
 //  Copyright © 2019 Filippo Zaffoni. All rights reserved.
 //
 
+
 import UIKit
+import Menu
+
 
 class CountersDataSource: NSObject, UICollectionViewDataSource {
 	
 	
+	// MARK: - Properties
 	let defaults 			= UserDefaults.standard
-	var countersList 		= [CounterStruct]()
+	var countersList 		= [CounterV2]()
 	weak var cellDelegate	: UICollectionViewController?
 	
 	
+	// MARK: - Lifecyle Methods
 	override init() {
 		super.init()
 		
@@ -23,9 +28,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 	}
 	
 	
-	// MARK : - UICollectionViewDataSource methods
-	
-	
+	// MARK: - UICollectionViewDataSource methods
 	// Number of items in section
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return countersList.count
@@ -36,6 +39,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell 	= collectionView.dequeueReusableCell(withReuseIdentifier: "Counter", for: indexPath) as! CounterCell
 		let counter = countersList[indexPath.item]
+		let tags 	= counter.tags!
 		
 		cell.delegate 				= cellDelegate
 		cell.counterItem 			= counter
@@ -67,20 +71,44 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 			cell.CounterLabel.text = formatter.string(from: NSNumber(value: counter.value))
 		}
 		
+		
+			
+		switch tags.count {
+		case 0:
+			cell.tagLabel.isHidden = true
+			cell.tagIconImageView.isHidden = true
+		case 1:
+			cell.tagLabel.isHidden = false
+			cell.tagIconImageView.isHidden = false
+			
+			cell.tagLabel.text = tags.first
+			cell.tagIconImageView.image = UIImage(named: "tag")!
+			cell.setupTagsIcon()
+		default:
+			cell.tagLabel.isHidden = false
+			cell.tagIconImageView.isHidden = false
+			
+			cell.tagLabel.text = "\(tags.count) tags"
+			cell.tagIconImageView.image = UIImage(named: "multipleTags")!
+			cell.setupTagsIcon()
+			
+			
+		}
+		
 		return cell
 	}
 	
 	
-	func counter(at index: Int) -> CounterStruct {
+	func counter(at index: Int) -> CounterV2 {
 		return countersList[index]
 	}
 	
 	
-	func loadFromDefaults() -> [CounterStruct] {
-		let noCounter = [CounterStruct]()
+	func loadFromDefaults() -> [CounterV2] {
+		let noCounter = [CounterV2]()
 		if let objects = UserDefaults.standard.value(forKey: "UserCounters") as? Data {
 			let decoder = JSONDecoder()
-			if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [CounterStruct] {
+			if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [CounterV2] {
 				return objectsDecoded
 			} else {
 				return noCounter
@@ -93,12 +121,13 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 	
 	func addCounter(with name: String) {
 		let newID = UUID()
-		let newCounter 	= CounterStruct(id: newID,
-										name			: name,
-										value			: Float(0),
-										steps			: Float(1),
-										unit			: "",
-										completionValue	: Float(0))
+		let newCounter 	= CounterV2(id				: newID,
+									name			: name,
+									value			: Float(0),
+									steps			: Float(1),
+									unit			: "",
+									completionValue	: Float(0),
+									tags			: [String]())
 		
 		countersList.insert(newCounter, at: 0)
 		saveToDefaults()

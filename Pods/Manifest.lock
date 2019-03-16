@@ -1,0 +1,24 @@
+PODS:
+  - Menu (0.0.1):
+    - SnapKit
+  - SnapKit (4.2.0)
+  - TaggerKit (0.4.0)
+
+DEPENDENCIES:
+  - Menu
+  - TaggerKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Menu
+    - SnapKit
+    - TaggerKit
+
+SPEC CHECKSUMS:
+  Menu: a1e69a2e8e641192ddec0cf55cd380cde6e27b1e
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  TaggerKit: 48860b380726ac696a042305cdc40a2a360ff01e
+
+PODFILE CHECKSUM: bb5262069833cad4223d2cbb7d08258eb6b297c2
+
+COCOAPODS: 1.7.0.beta.2
