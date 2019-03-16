@@ -25,6 +25,24 @@ class RootViewController: UIViewController {
 			return ctrl as! CountersCVC
 		}
 	}
+	
+	var mediumLayout: UICollectionViewFlowLayout {
+		let _flowLayout = UICollectionViewFlowLayout()
+		_flowLayout.itemSize = CGSize(width: 190, height: 150)
+		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+		_flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+		_flowLayout.minimumInteritemSpacing = 10.0
+		return _flowLayout
+	}
+	
+	var bigLayout: UICollectionViewFlowLayout {
+		let _flowLayout = UICollectionViewFlowLayout()
+		_flowLayout.itemSize = CGSize(width: 300, height: 150)
+		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+		_flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+		_flowLayout.minimumInteritemSpacing = 10.0
+		return _flowLayout
+	}
 
 	
 	// MARK: - Lifecycle Methods
@@ -66,20 +84,19 @@ class RootViewController: UIViewController {
 			public init() {}
 		}
 		
-		
 		let viewMenu = MenuView(title: "View", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
 				ShortcutMenuItem(name: "Orginize by Counters", shortcut: nil, action: {}),
 				ShortcutMenuItem(name: "Organize by Tags", shortcut: nil, action: {}),
 				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "View big cells", shortcut: nil, action: {}),
-				ShortcutMenuItem(name: "View medium cells", shortcut: nil, action: {}),
+				ShortcutMenuItem(name: "View big cells", shortcut: nil, action: { [unowned self] in self.setBigLayout()}),
+				ShortcutMenuItem(name: "View medium cells", shortcut: nil, action: { [unowned self] in self.setMediumLayout()}),
 				]
 		}
 		
 		let countersMenu = MenuView(title: "Counters", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
-				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: {self.addTapped()}),
+				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: { [unowned self] in self.addTapped()}),
 				SeparatorMenuItem(),
 				ShortcutMenuItem(name: "Manage tags", shortcut: ([.command], "T"), action: {}),
 				SeparatorMenuItem(),
@@ -114,8 +131,10 @@ class RootViewController: UIViewController {
 	@objc func addTapped() {
 		let alert = UIAlertController(title: "Name", message: "Enter a name for the counter", preferredStyle: .alert)
 
+		
 		alert.addTextField { (textField) in
 			textField.text = ""
+			textField.textColor = UIColor.white
 			textField.keyboardAppearance = UIKeyboardAppearance.dark
 		}
 
@@ -138,5 +157,20 @@ class RootViewController: UIViewController {
 
 		self.present(alert, animated: true, completion: nil)
 	}
+	
+	
+	@objc func setMediumLayout() {
+		UIView.animate(withDuration: 0.3){ [unowned self] in
+			self.countersCollection.collectionView.collectionViewLayout = self.mediumLayout
+		}
+	}
+	
+	
+	@objc func setBigLayout() {
+		UIView.animate(withDuration: 0.3){ [unowned self] in
+			self.countersCollection.collectionView.collectionViewLayout = self.bigLayout
+		}
+	}
+	
 	
 }

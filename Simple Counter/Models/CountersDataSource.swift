@@ -11,7 +11,7 @@ import UIKit
 import Menu
 
 
-class CountersDataSource: NSObject, UICollectionViewDataSource {
+class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	
 	// MARK: - Properties
@@ -29,13 +29,11 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 	
 	
 	// MARK: - UICollectionViewDataSource methods
-	// Number of items in section
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return countersList.count
 	}
 	
 	
-	// Cell for item at...
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell 	= collectionView.dequeueReusableCell(withReuseIdentifier: "Counter", for: indexPath) as! CounterCell
 		let counter = countersList[indexPath.item]
@@ -55,7 +53,6 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 			cell.progressBar.progress = 0.0
 		}
 		
-		
 		let formatter = NumberFormatter()
 		formatter.maximumFractionDigits = 2
 		formatter.minimumFractionDigits = 0  // or you might use `2` here, too
@@ -71,8 +68,6 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 			cell.CounterLabel.text = formatter.string(from: NSNumber(value: counter.value))
 		}
 		
-		
-			
 		switch tags.count {
 		case 0:
 			cell.tagLabel.isHidden = true
@@ -91,14 +86,26 @@ class CountersDataSource: NSObject, UICollectionViewDataSource {
 			cell.tagLabel.text = "\(tags.count) tags"
 			cell.tagIconImageView.image = UIImage(named: "multipleTags")!
 			cell.setupTagsIcon()
-			
-			
 		}
 		
 		return cell
 	}
 	
 	
+	// MARK: - UICollectionViewDelegateFlowLayout Methods
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		
+		let totalCellWidth = 300 * collectionView.numberOfItems(inSection: 0)
+		let totalSpacingWidth = 10 * (collectionView.numberOfItems(inSection: 0) - 1)
+		
+		let leftInset = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+		let rightInset = leftInset
+		
+		return UIEdgeInsets(top: 10, left: leftInset, bottom: 10, right: rightInset)
+	}
+	
+	
+	// MARK: - Private Methods
 	func counter(at index: Int) -> CounterV2 {
 		return countersList[index]
 	}
