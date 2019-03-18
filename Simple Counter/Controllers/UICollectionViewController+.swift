@@ -6,6 +6,7 @@
 //  Copyright © 2019 Filippo Zaffoni. All rights reserved.
 //
 
+
 import UIKit
 
 
@@ -14,7 +15,7 @@ extension UICollectionViewController: CounterCellDelegate {
 	
 	@objc func didTapStepper(dataSource: CountersDataSource, id: UUID, newValue: Float) {
 		
-		if var tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
+		if let tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
 			let index = dataSource.countersList.index{$0.id == id}
 			tempCounter.value = newValue
 			dataSource.countersList.remove(at: index!)

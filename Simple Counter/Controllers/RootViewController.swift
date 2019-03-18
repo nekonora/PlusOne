@@ -15,9 +15,23 @@ class RootViewController: UIViewController {
 	
 	
 	// MARK: - Outlets
+	@IBOutlet var stackView: UIStackView!
+	@IBOutlet var addCounterView: UIView!
 	@IBOutlet var collectionViewContainer: UIView!
 	
 	
+	// MARK: - UIActions
+	@IBAction func newCounterCancelTapped(_ sender: Any) {
+		UIView.animate(withDuration: 0.3){ [unowned self] in
+			self.addCounterView.isHidden 	= true
+			self.addCounterView.alpha		= 0
+		}
+	}
+	
+	@IBAction func newCounterSaveTapped(_ sender: Any) {
+	}
+	
+
 	// MARK: - Properties
 	var countersCollection: CountersCVC {
 		get {
@@ -63,7 +77,9 @@ class RootViewController: UIViewController {
 		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
 		
 		navigationItem.title = "My Counters"
-//		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+		
+		addCounterView.isHidden = true
+		addCounterView.alpha	= 0.0
 	}
 	
 	fileprivate func setupMenuButtons() {
@@ -129,12 +145,17 @@ class RootViewController: UIViewController {
 	
 	// UI methods
 	@objc func addTapped() {
+//		UIView.animate(withDuration: 0.3){ [unowned self] in
+//			self.addCounterView.isHidden 	= false
+//			self.addCounterView.alpha		= 1
+//		}
+		
 		let alert = UIAlertController(title: "Name", message: "Enter a name for the counter", preferredStyle: .alert)
 
-		
+
 		alert.addTextField { (textField) in
 			textField.text = ""
-			textField.textColor = UIColor.white
+			textField.placeholder = "Counter's name"
 			textField.keyboardAppearance = UIKeyboardAppearance.dark
 		}
 

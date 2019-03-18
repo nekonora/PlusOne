@@ -113,7 +113,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 	
 	func loadFromDefaults() -> [CounterV2] {
 		let noCounter = [CounterV2]()
-		if let objects = UserDefaults.standard.value(forKey: "UserCounters") as? Data {
+		if let objects = UserDefaults.standard.value(forKey: "UserCountersV2") as? Data {
 			let decoder = JSONDecoder()
 			if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [CounterV2] {
 				return objectsDecoded
@@ -146,7 +146,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		
 		let encoder = JSONEncoder()
 		if let encoded = try? encoder.encode(counters){
-			defaults.set(encoded, forKey: "UserCounters")
+			defaults.set(encoded, forKey: "UserCountersV2")
 		}
 	}
 	

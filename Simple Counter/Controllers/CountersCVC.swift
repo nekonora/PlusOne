@@ -69,11 +69,11 @@ class CountersCVC: UICollectionViewController {
 				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .semibold)])
 			
 			attributedText.append(NSAttributedString(
-				string: "Add",
+				string: "Counters",
 				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .heavy)]))
 			
 			attributedText.append(NSAttributedString(
-				string: "\" button to add a counter.",
+				string: "\" button to add a new counter.",
 				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .semibold)]))
 			
 			noCountersView.attributedText = attributedText

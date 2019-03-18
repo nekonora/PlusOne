@@ -17,36 +17,41 @@ class ModelValidator {
 	static func updateModel() {
 		
 		let defaults = UserDefaults.standard
+		var needsToBeUpdated = false
 		
-		if let objects = defaults.value(forKey: "UserCounters") as? Data {
+		if let objects = defaults.value(forKey: "UserCountersV2") as? Data {
 			let decoder = JSONDecoder()
-			
-			if (try? decoder.decode(Array.self, from: objects) as [CounterV2]) != nil {
-				
-				print("\nModel is up to date\n")
-				
-			} else if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [CounterStruct] {
-				
-				var updatedObjectArray = [CounterV2]()
-				
-				for object in objectsDecoded {
-					let updatedObject = CounterV2(
-						id: 				object.id,
-						name: 				object.name,
-						value: 				object.value,
-						steps: 				object.steps,
-						unit: 				object.unit,
-						completionValue: 	object.completionValue,
+			if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [CounterV2] {
+				print(objectsDecoded)
+				print("Model is up to date")
+			}
+		} else {
+			needsToBeUpdated = true
+		}
+		
+		if needsToBeUpdated {
+			if let objects = defaults.value(forKey: "UserCounters") as? Data {
+				let decoder = JSONDecoder()
+				if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [CounterV2] {
+					var updatedObjectArray = [CounterV2]()
+					for object in objectsDecoded {
+						let updatedObject = CounterV2(
+							id: 				object.id,
+							name: 				object.name,
+							value: 				object.value,
+							steps: 				object.steps,
+							unit: 				object.unit,
+							completionValue: 	object.completionValue,
+							
+							tags: 				object.tags ?? [String]())					// New property
 						
-						tags: 				[String]())					// New property
+						updatedObjectArray.append(updatedObject)
+					}
 					
-					updatedObjectArray.append(updatedObject)
-				}
-				
-				let encoder = JSONEncoder()
-				if let encoded = try? encoder.encode(updatedObjectArray){
-					defaults.set(encoded, forKey: "UserCounters")
-					print("\nModel correctly updated!\n")
+					let encoder = JSONEncoder()
+					if let encoded = try? encoder.encode(updatedObjectArray){
+						defaults.set(encoded, forKey: "UserCountersV2")
+					}
 				}
 			}
 		}
