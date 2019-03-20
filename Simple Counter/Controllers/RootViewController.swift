@@ -40,10 +40,10 @@ class RootViewController: UIViewController {
 		}
 	}
 	
-	var mediumLayout: UICollectionViewFlowLayout {
+	var smallLayout: UICollectionViewFlowLayout {
 		let _flowLayout = UICollectionViewFlowLayout()
-		_flowLayout.itemSize = CGSize(width: 190, height: 150)
-		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+		_flowLayout.itemSize = CGSize(width: 176, height: 170)
+		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 20, right: 5)
 		_flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
 		return _flowLayout
@@ -51,12 +51,14 @@ class RootViewController: UIViewController {
 	
 	var bigLayout: UICollectionViewFlowLayout {
 		let _flowLayout = UICollectionViewFlowLayout()
-		_flowLayout.itemSize = CGSize(width: 300, height: 150)
-		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+		_flowLayout.itemSize = CGSize(width: 300, height: 175)
+		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
 		_flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
 		return _flowLayout
 	}
+	
+	let defaults = UserDefaults.standard
 
 	
 	// MARK: - Lifecycle Methods
@@ -72,14 +74,27 @@ class RootViewController: UIViewController {
 	// MARK: - Private Methods
 	fileprivate func setupStyle() {
 		navigationController?.navigationBar.barStyle = .blackTranslucent
-		navigationController?.navigationBar.barTintColor = UIColor(named: "notQuiteBlack")
 		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
 		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
+
+//		self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+//
+//		navigationController?.navigationBar.barTintColor = UIColor(named: "notQuiteBlack")!
+//		navigationController?.navigationBar.isTranslucent = false
+//		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//		navigationController?.navigationBar.shadowImage = UIImage()
 		
 		navigationItem.title = "My Counters"
 		
 		addCounterView.isHidden = true
 		addCounterView.alpha	= 0.0
+		
+		if defaults.bool(forKey: "CellLayoutIsBig") {
+			countersCollection.collectionView.collectionViewLayout = bigLayout
+		} else {
+			countersCollection.collectionView.collectionViewLayout = smallLayout
+		}
+		
 	}
 	
 	fileprivate func setupMenuButtons() {
@@ -106,7 +121,7 @@ class RootViewController: UIViewController {
 				ShortcutMenuItem(name: "Organize by Tags", shortcut: nil, action: {}),
 				SeparatorMenuItem(),
 				ShortcutMenuItem(name: "View big cells", shortcut: nil, action: { [unowned self] in self.setBigLayout()}),
-				ShortcutMenuItem(name: "View medium cells", shortcut: nil, action: { [unowned self] in self.setMediumLayout()}),
+				ShortcutMenuItem(name: "View small cells", shortcut: nil, action: { [unowned self] in self.setSmallLayout()}),
 				]
 		}
 		
@@ -120,7 +135,8 @@ class RootViewController: UIViewController {
 				]
 		}
 		
-		countersMenu.contentAlignment = .left
+		countersMenu.contentAlignment 	= .left
+		viewMenu.contentAlignment		= .center
 		
 		view.addSubview(viewMenu)
 		view.addSubview(countersMenu)
@@ -130,7 +146,7 @@ class RootViewController: UIViewController {
 		
 		viewMenu.snp.makeConstraints { (make) -> Void in
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(10)
-			make.left.equalTo(self.view.safeAreaLayoutGuide.snp.leftMargin).offset(10)
+			make.right.equalTo(countersMenu.snp.leftMargin).offset(-20)
 			make.height.equalTo(40)
 		}
 		
@@ -180,10 +196,11 @@ class RootViewController: UIViewController {
 	}
 	
 	
-	@objc func setMediumLayout() {
+	@objc func setSmallLayout() {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
-			self.countersCollection.collectionView.collectionViewLayout = self.mediumLayout
+			self.countersCollection.collectionView.collectionViewLayout = self.smallLayout
 		}
+		defaults.set(false, forKey: "CellLayoutIsBig")
 	}
 	
 	
@@ -191,6 +208,7 @@ class RootViewController: UIViewController {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.countersCollection.collectionView.collectionViewLayout = self.bigLayout
 		}
+		defaults.set(true, forKey: "CellLayoutIsBig")
 	}
 	
 	

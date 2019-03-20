@@ -790,42 +790,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11CA9C9C41325E2BCF9999FE832FAF5C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TaggerKit/TaggerKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TaggerKit/TaggerKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/TaggerKit/TaggerKit.modulemap";
-				PRODUCT_MODULE_NAME = TaggerKit;
-				PRODUCT_NAME = TaggerKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		22AA21C0794BCDEADF146873A61C3C1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0815BC4B7565E514D002EE29D58213FC /* SnapKit.xcconfig */;
@@ -899,6 +863,22 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		400EEC511D798AAA4221E00B5AE03864 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TaggerKit";
+				INFOPLIST_FILE = "Target Support Files/TaggerKit/ResourceBundle-TaggerKit-TaggerKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = TaggerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 		4093433A309EFE160336AC736594AB22 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1034,75 +1014,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		5BB6AB0393D4EFE2E44DD92D0CB6E568 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TaggerKit";
-				INFOPLIST_FILE = "Target Support Files/TaggerKit/ResourceBundle-TaggerKit-TaggerKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = TaggerKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		6A35814C2278A66CA3F9023AC253F55B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TaggerKit/TaggerKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TaggerKit/TaggerKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/TaggerKit/TaggerKit.modulemap";
-				PRODUCT_MODULE_NAME = TaggerKit;
-				PRODUCT_NAME = TaggerKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7CD2DB9790D207DA44D0F2E8CCD5AA9E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TaggerKit";
-				INFOPLIST_FILE = "Target Support Files/TaggerKit/ResourceBundle-TaggerKit-TaggerKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = TaggerKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
 		};
 		7F13EB635C819A8D40074DC1D1353A86 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1240,6 +1151,95 @@
 			};
 			name = Release;
 		};
+		B97440A619E9780C479FF36791B3F385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TaggerKit";
+				INFOPLIST_FILE = "Target Support Files/TaggerKit/ResourceBundle-TaggerKit-TaggerKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = TaggerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		CD203B61455CC8CDCBE8081E18A80649 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TaggerKit/TaggerKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TaggerKit/TaggerKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/TaggerKit/TaggerKit.modulemap";
+				PRODUCT_MODULE_NAME = TaggerKit;
+				PRODUCT_NAME = TaggerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DFC8E55CF82739D212290BC1C6F2E0AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17CEA6FEE6BE63E4291EDCD808B7B4E2 /* TaggerKit.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TaggerKit/TaggerKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TaggerKit/TaggerKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/TaggerKit/TaggerKit.modulemap";
+				PRODUCT_MODULE_NAME = TaggerKit;
+				PRODUCT_NAME = TaggerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1255,8 +1255,8 @@
 		333A1E7DB45541CA54960DEC1CC59B0F /* Build configuration list for PBXNativeTarget "TaggerKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				11CA9C9C41325E2BCF9999FE832FAF5C /* Debug */,
-				6A35814C2278A66CA3F9023AC253F55B /* Release */,
+				DFC8E55CF82739D212290BC1C6F2E0AF /* Debug */,
+				CD203B61455CC8CDCBE8081E18A80649 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1282,8 +1282,8 @@
 		B1B5AD014EF8F1F5970A0D5DC537F49D /* Build configuration list for PBXNativeTarget "TaggerKit-TaggerKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5BB6AB0393D4EFE2E44DD92D0CB6E568 /* Debug */,
-				7CD2DB9790D207DA44D0F2E8CCD5AA9E /* Release */,
+				B97440A619E9780C479FF36791B3F385 /* Debug */,
+				400EEC511D798AAA4221E00B5AE03864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -2,7 +2,7 @@ PODS:
   - Menu (0.0.1):
     - SnapKit
   - SnapKit (4.2.0)
-  - TaggerKit (0.4.0)
+  - TaggerKit (0.4.1)
 
 DEPENDENCIES:
   - Menu
@@ -17,7 +17,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Menu: a1e69a2e8e641192ddec0cf55cd380cde6e27b1e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  TaggerKit: 48860b380726ac696a042305cdc40a2a360ff01e
+  TaggerKit: d9e6b222a5b6878c3a35376eabb7dd079c37c75a
 
 PODFILE CHECKSUM: bb5262069833cad4223d2cbb7d08258eb6b297c2
 

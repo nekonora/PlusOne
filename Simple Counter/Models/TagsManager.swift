@@ -45,7 +45,7 @@ class TagsManager {
 	
 	func loadFromDefaults() -> [String] {
 		let noTags = [String]()
-		if let objects = UserDefaults.standard.value(forKey: "UserTags") as? Data {
+		if let objects = defaults.value(forKey: "UserTags") as? Data {
 			let decoder = JSONDecoder()
 			if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [String] {
 				return objectsDecoded
