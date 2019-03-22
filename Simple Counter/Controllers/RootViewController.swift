@@ -41,20 +41,22 @@ class RootViewController: UIViewController {
 	}
 	
 	var smallLayout: UICollectionViewFlowLayout {
-		let _flowLayout = UICollectionViewFlowLayout()
-		_flowLayout.itemSize = CGSize(width: 176, height: 170)
-		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 20, right: 5)
-		_flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+		let _flowLayout 					= UICollectionViewFlowLayout()
+		_flowLayout.itemSize 				= CGSize(width: 176, height: 170)
+		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 5, bottom: 20, right: 5)
+		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
+		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
 	
 	var bigLayout: UICollectionViewFlowLayout {
-		let _flowLayout = UICollectionViewFlowLayout()
-		_flowLayout.itemSize = CGSize(width: 300, height: 175)
-		_flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
-		_flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+		let _flowLayout 					= UICollectionViewFlowLayout()
+		_flowLayout.itemSize 				= CGSize(width: 300, height: 175)
+		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
+		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
+		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
 	
@@ -95,33 +97,39 @@ class RootViewController: UIViewController {
 			countersCollection.collectionView.collectionViewLayout = smallLayout
 		}
 		
+		if defaults.bool(forKey: "ViewByTags") {
+			viewByTags()
+		} else {
+			viewByCounters()
+		}
+		
 	}
 	
 	fileprivate func setupMenuButtons() {
 		struct PlusOneTheme: MenuTheme {
-			let font = UIFont.systemFont(ofSize: 16, weight: .medium)
-			let textColor = UIColor(named: "greenPastel")!
-			let brightTintColor = UIColor.black
-			let darkTintColor = UIColor.black
-			let highlightedTextColor = UIColor.white
-			let highlightedBackgroundColor = UIColor(named: "greenPastel")!
-			let backgroundTint = UIColor(red:0.18, green:0.77, blue:0.71, alpha: 0.15)
-			let gestureBarTint = UIColor(named: "greenPastel")!
-			let blurEffect = UIBlurEffect(style: .dark)
-			let shadowColor = UIColor.black
-			let shadowOpacity: Float = 0.3
-			let shadowRadius: CGFloat = 7.0
-			let separatorColor = UIColor(white: 1, alpha: 0.1)
+			let font 						= UIFont.systemFont(ofSize: 16, weight: .medium)
+			let textColor 					= UIColor(named: "greenPastel")!
+			let brightTintColor 			= UIColor.black
+			let darkTintColor 				= UIColor.black
+			let highlightedTextColor 		= UIColor.white
+			let highlightedBackgroundColor 	= UIColor(named: "greenPastel")!
+			let backgroundTint 				= UIColor(red:0.18, green:0.77, blue:0.71, alpha: 0.15)
+			let gestureBarTint 				= UIColor(named: "greenPastel")!
+			let blurEffect 					= UIBlurEffect(style: .dark)
+			let shadowColor 				= UIColor.black
+			let shadowOpacity				: Float = 0.3
+			let shadowRadius				: CGFloat = 7.0
+			let separatorColor 				= UIColor(white: 1, alpha: 0.1)
 			public init() {}
 		}
 		
 		let viewMenu = MenuView(title: "View", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
-				ShortcutMenuItem(name: "Orginize by Counters", shortcut: nil, action: {}),
-				ShortcutMenuItem(name: "Organize by Tags", shortcut: nil, action: {}),
+				ShortcutMenuItem(name: "Orginize by Counters", shortcut: nil, action: { [unowned self] in self.viewByCounters() }),
+				ShortcutMenuItem(name: "Organize by Tags", shortcut: nil, action: { [unowned self] in self.viewByTags() }),
 				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "View big cells", shortcut: nil, action: { [unowned self] in self.setBigLayout()}),
-				ShortcutMenuItem(name: "View small cells", shortcut: nil, action: { [unowned self] in self.setSmallLayout()}),
+				ShortcutMenuItem(name: "View big cells", shortcut: nil, action: { [unowned self] in self.setBigLayout() }),
+				ShortcutMenuItem(name: "View small cells", shortcut: nil, action: { [unowned self] in self.setSmallLayout() }),
 				]
 		}
 		
@@ -202,6 +210,18 @@ class RootViewController: UIViewController {
 	}
 	
 	// View menu methods
+	@objc func viewByCounters() {
+		defaults.set(false, forKey: "ViewByTags")
+		countersCollection.dataSource.reorganizeBy(order: .counters)
+		countersCollection.collectionView.reloadData()
+	}
+	
+	@objc func viewByTags() {
+		defaults.set(true, forKey: "ViewByTags")
+		countersCollection.dataSource.reorganizeBy(order: .tags)
+		countersCollection.collectionView.reloadData()
+	}
+	
 	@objc func setSmallLayout() {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.countersCollection.collectionView.collectionViewLayout = self.smallLayout

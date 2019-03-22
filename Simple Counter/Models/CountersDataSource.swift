@@ -11,12 +11,22 @@ import UIKit
 import Menu
 
 
+enum orderBy {
+	case counters
+	case tags
+}
+
+
 class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	
 	// MARK: - Properties
 	let defaults 			= UserDefaults.standard
 	var countersList 		= [CounterV2]()
+	var tagsManager 		= TagsManager()
+	var tagsList 			= [String]()
+	var grouping 			= orderBy.counters
+	var tagsGroupedCounters = [[Int]]()				// [indexes of counters where the tag is]
 	weak var cellDelegate	: UICollectionViewController?
 	
 	
@@ -24,20 +34,64 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 	override init() {
 		super.init()
 		
-		countersList = loadFromDefaults()
+		countersList 	= loadFromDefaults()
+		tagsList 		= tagsManager.loadFromDefaults()
 	}
 	
 	
 	// MARK: - UICollectionViewDataSource methods
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		switch grouping {
+		case .counters:
+			return 1
+		case .tags:
+			return tagsList.count
+		}
+	}
+	
+	
+	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		switch grouping {
+		case .counters:
+			let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "tagHeader", for: indexPath) as! TagHeaderView
+			header.titleLabel.text = "\(countersList.count) counters"
+			return header
+		case .tags:
+			let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "tagHeader", for: indexPath) as! TagHeaderView
+			header.titleLabel.text = tagsList[indexPath.section]
+			return header
+		}
+	}
+	
+	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return countersList.count
+		switch grouping {
+		case .counters:
+			return countersList.count
+		case .tags:
+			let numberOfCountersByTag = tagsGroupedCounters[section].count
+			return numberOfCountersByTag
+		}
+		
 	}
 	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell 	= collectionView.dequeueReusableCell(withReuseIdentifier: "Counter", for: indexPath) as! CounterCell
-		let counter = countersList[indexPath.item]
-		let tags 	= counter.tags!
+		
+		let counter : CounterV2
+		let tags 	: [String]
+		
+		switch grouping {
+		case .counters:
+			counter 	= countersList[indexPath.item]
+			tags = counter.tags!
+		case .tags:
+			let indexes 		= tagsGroupedCounters[indexPath.section]
+			let counterIndex	= indexes[indexPath.item]
+			counter		= countersList[counterIndex]
+			tags = counter.tags!
+		}
 		
 		cell.delegate 				= cellDelegate
 		cell.counterItem 			= counter
@@ -158,6 +212,35 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		if let encoded = try? encoder.encode(counters){
 			defaults.set(encoded, forKey: "UserCountersV2")
 		}
+	}
+	
+	
+	func reorganizeBy(order: orderBy) {
+		switch order {
+		case .counters:
+			grouping = .counters
+		case .tags:
+			
+			grouping = .tags
+			tagsGroupedCounters = arrayOfTags()
+		}
+	}
+	
+	
+	fileprivate func arrayOfTags() -> [[Int]] {
+		var countersByTags 	= [[String]]()
+		var arrayByTags		= [[Int]]()
+		for counter in countersList {
+			countersByTags.append(counter.tags)
+		}
+		
+		for tag in tagsList {
+			let indexes = countersByTags.enumerated().filter {
+				$0.element.contains(tag)
+				}.map{$0.offset}
+			arrayByTags.append(indexes)
+		}
+		return arrayByTags
 	}
 	
 	

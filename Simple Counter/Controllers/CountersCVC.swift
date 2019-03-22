@@ -24,6 +24,7 @@ class CountersCVC: UICollectionViewController {
 		
 		dataSource.cellDelegate = self
 		collectionView.dataSource = dataSource
+		collectionView?.register(TagHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "tagHeader")
 		
 		collectionView.addSubview(noCountersView)
     }
