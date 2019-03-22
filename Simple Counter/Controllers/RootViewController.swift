@@ -127,11 +127,9 @@ class RootViewController: UIViewController {
 		
 		let countersMenu = MenuView(title: "Counters", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
-				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: { [unowned self] in self.addTapped()}),
+				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: { [unowned self] in self.addTapped() }),
 				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "Manage tags", shortcut: ([.command], "T"), action: {}),
-				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "Settings...", shortcut: ([.command], ","), action: {}),
+				ShortcutMenuItem(name: "Settings...", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
 				]
 		}
 		
@@ -196,6 +194,14 @@ class RootViewController: UIViewController {
 	}
 	
 	
+	// Counters menu methods
+	@objc func settingsTapped() {
+		if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+			navigationController?.pushViewController(vc, animated: true)
+		}
+	}
+	
+	// View menu methods
 	@objc func setSmallLayout() {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.countersCollection.collectionView.collectionViewLayout = self.smallLayout

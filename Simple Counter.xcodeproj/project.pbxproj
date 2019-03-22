@@ -19,6 +19,8 @@
 		FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43DFFD22083AC9002F0DAD /* CountersCVC.swift */; };
 		FA43E00022083B2A002F0DAD /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43DFFF22083B2A002F0DAD /* CounterCell.swift */; };
 		FA48444722294D5200D4F47D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48444622294D5200D4F47D /* String+.swift */; };
+		FA5997A42244E526004FAEAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5997A32244E526004FAEAA /* SettingsViewController.swift */; };
+		FA5997AA2244E853004FAEAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5997A92244E853004FAEAA /* Settings.storyboard */; };
 		FA9FA01E22208638003AB865 /* UICollectionViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA01D22208638003AB865 /* UICollectionViewController+.swift */; };
 		FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA02122208B19003AB865 /* CountersDataSource.swift */; };
 		FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46177222C0D2D00F65AF4 /* Helpers.swift */; };
@@ -43,6 +45,8 @@
 		FA43DFFD22083AC9002F0DAD /* CountersCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCVC.swift; sourceTree = "<group>"; };
 		FA43DFFF22083B2A002F0DAD /* CounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
 		FA48444622294D5200D4F47D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		FA5997A32244E526004FAEAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FA5997A92244E853004FAEAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FA9FA01D22208638003AB865 /* UICollectionViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+.swift"; sourceTree = "<group>"; };
 		FA9FA02122208B19003AB865 /* CountersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersDataSource.swift; sourceTree = "<group>"; };
 		FAA46177222C0D2D00F65AF4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -103,9 +107,9 @@
 				FA43DFFA2208393A002F0DAD /* Models */,
 				FA9FA01F22208745003AB865 /* Views */,
 				FA9FA020222087BF003AB865 /* Controllers */,
+				FA5997A62244E790004FAEAA /* Storyboards */,
 				FAA46177222C0D2D00F65AF4 /* Helpers.swift */,
 				FA43DFEF2208381C002F0DAD /* Assets.xcassets */,
-				FA43DFEC2208381A002F0DAD /* Main.storyboard */,
 				FA43DFF12208381C002F0DAD /* LaunchScreen.storyboard */,
 				FA43DFE82208381A002F0DAD /* AppDelegate.swift */,
 				FA43DFF42208381C002F0DAD /* Info.plist */,
@@ -125,6 +129,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FA5997A62244E790004FAEAA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA43DFEC2208381A002F0DAD /* Main.storyboard */,
+				FA5997A92244E853004FAEAA /* Settings.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		FA9FA01F22208745003AB865 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +154,7 @@
 				FA43DFFD22083AC9002F0DAD /* CountersCVC.swift */,
 				FA9FA01D22208638003AB865 /* UICollectionViewController+.swift */,
 				FAB7916822269B900073732D /* CounterDetailVC.swift */,
+				FA5997A32244E526004FAEAA /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +222,7 @@
 				FA43DFF32208381C002F0DAD /* LaunchScreen.storyboard in Resources */,
 				FA43DFF02208381C002F0DAD /* Assets.xcassets in Resources */,
 				FA43DFEE2208381A002F0DAD /* Main.storyboard in Resources */,
+				FA5997AA2244E853004FAEAA /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +284,7 @@
 				FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */,
 				FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */,
 				FAB7916922269B900073732D /* CounterDetailVC.swift in Sources */,
+				FA5997A42244E526004FAEAA /* SettingsViewController.swift in Sources */,
 				FA224E58223D362100594428 /* RootViewController.swift in Sources */,
 				FA0C0CB7222498EB005BF573 /* CustomButton.swift in Sources */,
 				FA43E00022083B2A002F0DAD /* CounterCell.swift in Sources */,

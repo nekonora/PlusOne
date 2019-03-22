@@ -49,8 +49,11 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		if counter.completionValue! != 0 {
 			let percentage = (counter.value / counter.completionValue)
 			cell.progressBar.progress = percentage
+			cell.progressBar.progressTintColor 	= UIColor(named: "greenPastel")!
 		} else {
-			cell.progressBar.progress = 0.0
+			cell.progressBar.progress 			= 1.0
+			cell.progressBar.progressTintColor 	= UIColor.white.withAlphaComponent(0.1)
+			
 		}
 		
 		let formatter = NumberFormatter()
@@ -68,23 +71,30 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			cell.CounterLabel.text = formatter.string(from: NSNumber(value: counter.value))
 		}
 		
+		
+		// Default values
+		cell.tagLabel.textColor = UIColor(named: "pastelOrange")!
+		
 		switch tags.count {
 		case 0:
-			cell.tagLabel.isHidden = true
-			cell.tagIconImageView.isHidden = true
-		case 1:
-			cell.tagLabel.isHidden = false
-			cell.tagIconImageView.isHidden = false
+			cell.tagLabel.isHidden 			= false
+			cell.tagIconImageView.isHidden 	= true
 			
-			cell.tagLabel.text = tags.first
-			cell.tagIconImageView.image = UIImage(named: "tag")!
+			cell.tagLabel.text				= "No tags"
+			cell.tagLabel.textColor			= UIColor.white.withAlphaComponent(0.3)
+		case 1:
+			cell.tagLabel.isHidden 			= false
+			cell.tagIconImageView.isHidden 	= false
+			
+			cell.tagLabel.text 				= tags.first
+			cell.tagIconImageView.image 	= UIImage(named: "tag")!
 			cell.setupTagsIcon()
 		default:
-			cell.tagLabel.isHidden = false
-			cell.tagIconImageView.isHidden = false
+			cell.tagLabel.isHidden 			= false
+			cell.tagIconImageView.isHidden 	= false
 			
-			cell.tagLabel.text = "\(tags.count) tags"
-			cell.tagIconImageView.image = UIImage(named: "multipleTags")!
+			cell.tagLabel.text 				= "\(tags.count) tags"
+			cell.tagIconImageView.image 	= UIImage(named: "multipleTags")!
 			cell.setupTagsIcon()
 		}
 		

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="egD-sv-WKY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="kWp-hh-6dI">
+            <objects>
+                <viewController storyboardIdentifier="Settings" title="Settings" id="egD-sv-WKY" customClass="SettingsViewController" customModule="Simple_Counter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dE4-kQ-MAM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="AYn-4m-MRR">
+                                <rect key="frame" x="0.0" y="278.5" width="375" height="130"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-9k-Gzh">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get in touch on twitter:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-g6-BAf">
+                                                <rect key="frame" x="20" y="25.5" width="136" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                <color key="textColor" name="notQuiteWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwc-ta-MD2">
+                                                <rect key="frame" x="176" y="32.5" width="119" height="1"/>
+                                                <color key="backgroundColor" name="greenPastel"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="rtS-0L-Q3E"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF5-Ll-rUf">
+                                                <rect key="frame" x="310" y="10.5" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="amj-uf-w7q"/>
+                                                    <constraint firstAttribute="width" constant="45" id="oze-G9-wF8"/>
+                                                </constraints>
+                                                <state key="normal" image="twitter"/>
+                                                <connections>
+                                                    <action selector="twitterButtonTapped:" destination="egD-sv-WKY" eventType="touchUpInside" id="6ad-fS-7Rj"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plus1 - Version 1.1 Beta - Build 11006" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys5-Wo-Q7r">
+                                                <rect key="frame" x="64" y="78" width="247.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" name="notQuiteWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@_nknr - Filippo Zaffoni - 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhk-Tg-Ehn">
+                                                <rect key="frame" x="96.5" y="105" width="182" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="2PY-rE-Nxy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                <color key="textColor" name="notQuiteWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ezw-g6-BAf" firstAttribute="leading" secondItem="NLf-9k-Gzh" secondAttribute="leading" constant="20" id="3Rv-zP-oH7"/>
+                                            <constraint firstItem="ys5-Wo-Q7r" firstAttribute="centerX" secondItem="NLf-9k-Gzh" secondAttribute="centerX" id="BSf-tk-rpD"/>
+                                            <constraint firstItem="vhk-Tg-Ehn" firstAttribute="top" secondItem="ys5-Wo-Q7r" secondAttribute="bottom" constant="10" id="I7G-7P-GVH"/>
+                                            <constraint firstAttribute="bottom" secondItem="ezw-g6-BAf" secondAttribute="bottom" constant="90" id="JvQ-Hq-vL6"/>
+                                            <constraint firstItem="pwc-ta-MD2" firstAttribute="centerY" secondItem="ezw-g6-BAf" secondAttribute="centerY" id="Wfm-vY-fZt"/>
+                                            <constraint firstItem="pwc-ta-MD2" firstAttribute="leading" secondItem="ezw-g6-BAf" secondAttribute="trailing" constant="20" id="c8K-BL-jBs"/>
+                                            <constraint firstAttribute="trailing" secondItem="xF5-Ll-rUf" secondAttribute="trailing" constant="20" id="che-AF-YHX"/>
+                                            <constraint firstItem="xF5-Ll-rUf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ezw-g6-BAf" secondAttribute="trailing" constant="30" id="fhk-ZA-dek"/>
+                                            <constraint firstItem="vhk-Tg-Ehn" firstAttribute="centerX" secondItem="NLf-9k-Gzh" secondAttribute="centerX" id="iuS-G9-vcr"/>
+                                            <constraint firstAttribute="height" constant="130" id="ki8-Eq-Tt6"/>
+                                            <constraint firstItem="xF5-Ll-rUf" firstAttribute="leading" secondItem="pwc-ta-MD2" secondAttribute="trailing" constant="15" id="mBO-y5-KUS"/>
+                                            <constraint firstItem="xF5-Ll-rUf" firstAttribute="centerY" secondItem="ezw-g6-BAf" secondAttribute="centerY" id="nKd-94-dKi"/>
+                                            <constraint firstAttribute="bottom" secondItem="vhk-Tg-Ehn" secondAttribute="bottom" constant="10" id="pS3-71-k0A"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NLf-9k-Gzh" firstAttribute="centerX" secondItem="AYn-4m-MRR" secondAttribute="centerX" id="IYu-rg-sfx"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="notQuiteBlack"/>
+                        <color key="tintColor" name="greenPastel"/>
+                        <constraints>
+                            <constraint firstItem="AYn-4m-MRR" firstAttribute="width" secondItem="arb-yt-pjv" secondAttribute="width" id="0Xh-qZ-m8B"/>
+                            <constraint firstItem="AYn-4m-MRR" firstAttribute="centerX" secondItem="arb-yt-pjv" secondAttribute="centerX" id="1CA-Vj-zQd"/>
+                            <constraint firstItem="AYn-4m-MRR" firstAttribute="centerY" secondItem="arb-yt-pjv" secondAttribute="centerY" id="yeQ-Tu-okZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="arb-yt-pjv"/>
+                    </view>
+                    <connections>
+                        <outlet property="stackView" destination="AYn-4m-MRR" id="QiR-xy-Ijp"/>
+                        <outlet property="twitterButtonOutlet" destination="xF5-Ll-rUf" id="0Bd-xN-DTh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3m-rR-n0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="195"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="twitter" width="67.5" height="67.5"/>
+        <namedColor name="greenPastel">
+            <color red="0.1803921568627451" green="0.7686274509803922" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="notQuiteBlack">
+            <color red="0.0039215686274509803" green="0.086274509803921567" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="notQuiteWhite">
+            <color red="0.99215686274509807" green="1" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" name="greenPastel"/>
+</document>

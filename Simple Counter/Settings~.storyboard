@@ -79,7 +79,6 @@
                                         </label>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="As9-bM-bel">
                                             <rect key="frame" x="10" y="90" width="280" height="2.5"/>
-                                            <color key="progressTintColor" name="greenPastel"/>
                                         </progressView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I72-Xh-s0X" userLabel="Tags">
                                             <rect key="frame" x="214.5" y="101.5" width="75.5" height="24"/>
@@ -97,7 +96,7 @@
                                                         <constraint firstAttribute="height" constant="24" id="0se-mk-XzD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                    <color key="textColor" name="pastelOrange"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -659,7 +658,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTm-yJ-k0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1409" y="601"/>
+            <point key="canvasLocation" x="3903" y="-93"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="O8v-2R-FPF">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" title="Settings" id="OMa-Vs-yH1" customClass="SettingsViewController" customModule="Simple_Counter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BOc-KY-fMA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="notQuiteBlack"/>
+                        <color key="tintColor" name="greenPastel"/>
+                        <viewLayoutGuide key="safeArea" id="vmX-Ye-Ea2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0B-5s-ALj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2351" y="608"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6xK-rh-DHr">
@@ -697,9 +712,6 @@
         </namedColor>
         <namedColor name="notQuiteWhite">
             <color red="0.99215686274509807" green="1" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="pastelOrange">
-            <color red="1" green="0.62352941176470589" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pastelRed">
             <color red="0.90588235294117647" green="0.11372549019607843" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
