@@ -219,7 +219,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		if notification.name == UIResponder.keyboardWillHideNotification {
 			scrollView.contentInset = UIEdgeInsets.zero
 		} else {
-			scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+			scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 180, right: 0)
 		}
 
 		scrollView.scrollIndicatorInsets = scrollView.contentInset

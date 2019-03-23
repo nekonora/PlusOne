@@ -43,7 +43,7 @@ class ThemableAlertVC: UIViewController {
 	
 	// MARK: - Properties
 	var delegate: CustomAlertViewDelegate?
-	let accentColor = UIColor(named: "greenPastel")?.withAlphaComponent(0.6)
+	let accentColor = UIColor(named: "greenPastel")?.withAlphaComponent(0.2)
 	
 	
 	// MARK: - Lifecylce Methods
@@ -65,14 +65,17 @@ class ThemableAlertVC: UIViewController {
 	// MARK: - Private Methods
 	fileprivate func setupView() {
 		wrapperView.layer.cornerRadius 	= 15
-		wrapperView.backgroundColor 	= UIColor(red:0.07, green:0.33, blue:0.30, alpha:1.0)
+		wrapperView.backgroundColor 	= UIColor(red:0.07, green:0.33, blue:0.30, alpha:0.6)
+		setBlurView(view: wrapperView)
 		titleLabel.textColor 			= UIColor(named: "notQuiteWhite")!
 		descriptionLabel.textColor 		= UIColor(named: "notQuiteWhite")!
 		descriptionLabel.alpha			= 0.7
 		textField.backgroundColor		= UIColor(named: "notQuiteBlack")?.withAlphaComponent(0.5)
 		textField.textColor				= UIColor(named: "notQuiteWhite")!
-		textField.keyboardAppearance = UIKeyboardAppearance.dark
-		self.view.backgroundColor 		= UIColor.black.withAlphaComponent(0.4)
+		textField.keyboardAppearance 	= UIKeyboardAppearance.dark
+		textField.attributedPlaceholder = NSAttributedString(string: "Name",
+															 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.6)])
+		self.view.backgroundColor 		= UIColor.black.withAlphaComponent(0.6)
 		
 		titleLabel.text					= "Counter's name"
 		descriptionLabel.text			= "Enter a name for the counter"
@@ -87,5 +90,15 @@ class ThemableAlertVC: UIViewController {
 		})
 	}
 
+	fileprivate func setBlurView(view: UIView) {
+		let blurView = UIVisualEffectView()
+		blurView.frame = view.bounds
+		blurView.effect = UIBlurEffect(style: .dark)
+		blurView.layer.cornerRadius = 15
+		blurView.clipsToBounds = true
+		view.addSubview(blurView)
+		view.sendSubviewToBack(blurView)
+	}
+	
 	
 }

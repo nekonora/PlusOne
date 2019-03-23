@@ -142,13 +142,13 @@ class RootViewController: UIViewController {
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(10)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.rightMargin).offset(-10)
 			make.height.equalTo(40)
+			
 		}
-		
 	}
 	
 	fileprivate func cleanTags() {
 		let tagsManager 	= countersCollection.dataSource.tagsManager
-		var allTags 		= tagsManager.loadFromDefaults()
+		let allTags 		= tagsManager.loadFromDefaults()
 		var recurrentTags	= [Int]()
 		
 		for (index, tag) in allTags.enumerated() {
@@ -164,13 +164,11 @@ class RootViewController: UIViewController {
 			$0.element == 0
 			}.map{$0.offset}
 		
-		for index in indexesOfUnusedTags {
-			allTags.remove(at: index)
-		}
+		let filteredTagsArray = allTags.enumerated().filter({ !indexesOfUnusedTags.contains($0.0) }).map { $0.1 }
 		
-		print("\nTags to remove: \(indexesOfUnusedTags), all tags will be: \(allTags)\n")
+		print("\nTags to remove: \(indexesOfUnusedTags), all tags will be: \(filteredTagsArray)\n")
 		
-		tagsManager.saveToDefaults(allTags: allTags)
+		tagsManager.saveToDefaults(allTags: filteredTagsArray)
 	}
 	
 	
@@ -193,6 +191,7 @@ class RootViewController: UIViewController {
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	}
+	
 	
 	// View menu methods
 	@objc func viewByCounters() {
