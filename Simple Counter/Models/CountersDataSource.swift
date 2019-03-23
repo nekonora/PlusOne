@@ -45,7 +45,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		case .counters:
 			return 1
 		case .tags:
-			return tagsList.count
+			return tagsGroupedCounters.count
 		}
 	}
 	
@@ -220,7 +220,6 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		case .counters:
 			grouping = .counters
 		case .tags:
-			
 			grouping = .tags
 			tagsGroupedCounters = arrayOfTags()
 		}
@@ -228,8 +227,11 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 	
 	
 	fileprivate func arrayOfTags() -> [[Int]] {
+		tagsList 			= tagsManager.loadFromDefaults()
 		var countersByTags 	= [[String]]()
 		var arrayByTags		= [[Int]]()
+		if let index 		= tagsList.firstIndex(of: "No Tags") { tagsList.remove(at: index) }
+		
 		for counter in countersList {
 			countersByTags.append(counter.tags)
 		}
@@ -240,6 +242,16 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 				}.map{$0.offset}
 			arrayByTags.append(indexes)
 		}
+		
+		let indexesOfNoTag 	= countersByTags.enumerated().filter {
+			$0.element.isEmpty
+			}.map{$0.offset}
+		
+		if !indexesOfNoTag.isEmpty {
+			if !tagsList.contains("No Tags") { tagsList.append("No Tags") }
+			arrayByTags.append(indexesOfNoTag)
+		}
+		
 		return arrayByTags
 	}
 	

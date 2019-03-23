@@ -12,6 +12,9 @@
 		FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA112D4C222D92FF00741832 /* TagsManager.swift */; };
 		FA14C82B22457F4C0087D3C9 /* TagHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C82A22457F4C0087D3C9 /* TagHeaderView.swift */; };
 		FA224E58223D362100594428 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA224E57223D362100594428 /* RootViewController.swift */; };
+		FA2F912722467C0100D31762 /* ThemableAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F912622467C0100D31762 /* ThemableAlertVC.swift */; };
+		FA2F912922467D5E00D31762 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F912822467D5E00D31762 /* UIButton+.swift */; };
+		FA2F912E2246825500D31762 /* ThemableAlertVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2F912D2246825500D31762 /* ThemableAlertVC.storyboard */; };
 		FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43DFE82208381A002F0DAD /* AppDelegate.swift */; };
 		FA43DFEE2208381A002F0DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA43DFEC2208381A002F0DAD /* Main.storyboard */; };
 		FA43DFF02208381C002F0DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43DFEF2208381C002F0DAD /* Assets.xcassets */; };
@@ -37,6 +40,9 @@
 		FA112D4C222D92FF00741832 /* TagsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsManager.swift; sourceTree = "<group>"; };
 		FA14C82A22457F4C0087D3C9 /* TagHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagHeaderView.swift; sourceTree = "<group>"; };
 		FA224E57223D362100594428 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		FA2F912622467C0100D31762 /* ThemableAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableAlertVC.swift; sourceTree = "<group>"; };
+		FA2F912822467D5E00D31762 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		FA2F912D2246825500D31762 /* ThemableAlertVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ThemableAlertVC.storyboard; sourceTree = "<group>"; };
 		FA43DFE52208381A002F0DAD /* Simple Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA43DFE82208381A002F0DAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA43DFED2208381A002F0DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 				FA9FA020222087BF003AB865 /* Controllers */,
 				FA5997A62244E790004FAEAA /* Storyboards */,
 				FAA46177222C0D2D00F65AF4 /* Helpers.swift */,
+				FA2F912822467D5E00D31762 /* UIButton+.swift */,
 				FA43DFEF2208381C002F0DAD /* Assets.xcassets */,
 				FA43DFF12208381C002F0DAD /* LaunchScreen.storyboard */,
 				FA43DFE82208381A002F0DAD /* AppDelegate.swift */,
@@ -136,6 +143,7 @@
 			children = (
 				FA43DFEC2208381A002F0DAD /* Main.storyboard */,
 				FA5997A92244E853004FAEAA /* Settings.storyboard */,
+				FA2F912D2246825500D31762 /* ThemableAlertVC.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 				FA9FA01D22208638003AB865 /* UICollectionViewController+.swift */,
 				FAB7916822269B900073732D /* CounterDetailVC.swift */,
 				FA5997A32244E526004FAEAA /* SettingsViewController.swift */,
+				FA2F912622467C0100D31762 /* ThemableAlertVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 				FA43DFF32208381C002F0DAD /* LaunchScreen.storyboard in Resources */,
 				FA43DFF02208381C002F0DAD /* Assets.xcassets in Resources */,
 				FA43DFEE2208381A002F0DAD /* Main.storyboard in Resources */,
+				FA2F912E2246825500D31762 /* ThemableAlertVC.storyboard in Resources */,
 				FA5997AA2244E853004FAEAA /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +291,8 @@
 				FA14C82B22457F4C0087D3C9 /* TagHeaderView.swift in Sources */,
 				FA43DFFC2208395F002F0DAD /* Counter.swift in Sources */,
 				FA48444722294D5200D4F47D /* String+.swift in Sources */,
+				FA2F912722467C0100D31762 /* ThemableAlertVC.swift in Sources */,
+				FA2F912922467D5E00D31762 /* UIButton+.swift in Sources */,
 				FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */,
 				FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */,
 				FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */,

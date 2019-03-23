@@ -16,12 +16,16 @@ class TagHeaderView: UICollectionReusableView {
 	// MARK: - Properties
 	var titleLabel: UILabel = {
 		let label = UILabel()
-		label.custom(title: "Title", font: .systemFont(ofSize: 16), titleColor: UIColor(named: "notQuiteWhite")!, textAlignment: .left, numberOfLines: 1)
+		label.custom(title			: "",
+					 font			: .boldSystemFont(ofSize: 16),
+					 titleColor		: UIColor(named: "notQuiteWhite")!,
+					 textAlignment	: .center,
+					 numberOfLines	: 1)
 		return label
 	}()
 	
-	var lineDivider1 = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 1))
-	var lineDivider2 = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 1))
+	var lineDivider1 = UIView()
+	var lineDivider2 = UIView()
 	
 	
 	// MARK: - Lifecycle Methods
@@ -42,22 +46,34 @@ class TagHeaderView: UICollectionReusableView {
 extension TagHeaderView : ViewSetable {
 	
 	func setupViews() {
-		autoresizingMask = [.flexibleWidth, .flexibleHeight]
-		lineDivider1.backgroundColor = UIColor(named: "greenPastel")
-		lineDivider2.backgroundColor = UIColor(named: "greenPastel")
+		autoresizingMask 				= [.flexibleWidth, .flexibleHeight]
+		lineDivider1.backgroundColor 	= UIColor(named: "greenPastel")
+		lineDivider2.backgroundColor 	= UIColor(named: "greenPastel")
 		addSubview(titleLabel)
-//		addSubview(lineDivider1)
-//		addSubview(lineDivider2)
+		addSubview(lineDivider1)
+		addSubview(lineDivider2)
 	}
 	
 	func setupConstraints() {
-		titleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-		titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-		titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-		titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+		titleLabel.snp.makeConstraints { (make) in
+			make.top.bottom.equalToSuperview()
+			make.centerY.centerX.equalToSuperview()
+		}
 		
+		lineDivider1.snp.makeConstraints { (make) in
+			make.height.equalTo(1)
+			make.right.equalTo(titleLabel.snp.left).offset(-20)
+			make.left.equalToSuperview().offset(20)
+			make.centerY.equalToSuperview()
+		}
+		
+		lineDivider2.snp.makeConstraints { (make) in
+			make.height.equalTo(1)
+			make.left.equalTo(titleLabel.snp.right).offset(20)
+			make.right.equalToSuperview().offset(-20)
+			make.centerY.equalToSuperview()
+		}
 	}
-	
 	
 }
 

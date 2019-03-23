@@ -161,7 +161,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	// MARK: - TaggerKit delegate
 	override func tagIsBeingAdded(name: String?) {
-		print(counterTagsCollection.tags)
+		//
 	}
 	
 	

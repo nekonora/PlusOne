@@ -16,20 +16,7 @@ class RootViewController: UIViewController {
 	
 	// MARK: - Outlets
 	@IBOutlet var stackView: UIStackView!
-	@IBOutlet var addCounterView: UIView!
 	@IBOutlet var collectionViewContainer: UIView!
-	
-	
-	// MARK: - UIActions
-	@IBAction func newCounterCancelTapped(_ sender: Any) {
-		UIView.animate(withDuration: 0.3){ [unowned self] in
-			self.addCounterView.isHidden 	= true
-			self.addCounterView.alpha		= 0
-		}
-	}
-	
-	@IBAction func newCounterSaveTapped(_ sender: Any) {
-	}
 	
 
 	// MARK: - Properties
@@ -68,29 +55,25 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
 
         setupStyle()
-		
 		setupMenuButtons()
     }
-	
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		cleanTags()
+		setupLayout()
+	}
 
 	// MARK: - Private Methods
 	fileprivate func setupStyle() {
 		navigationController?.navigationBar.barStyle = .blackTranslucent
 		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
 		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
-
-//		self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-//
-//		navigationController?.navigationBar.barTintColor = UIColor(named: "notQuiteBlack")!
-//		navigationController?.navigationBar.isTranslucent = false
-//		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//		navigationController?.navigationBar.shadowImage = UIImage()
 		
 		navigationItem.title = "My Counters"
-		
-		addCounterView.isHidden = true
-		addCounterView.alpha	= 0.0
-		
+	}
+	
+	fileprivate func setupLayout() {
 		if defaults.bool(forKey: "CellLayoutIsBig") {
 			countersCollection.collectionView.collectionViewLayout = bigLayout
 		} else {
@@ -102,7 +85,6 @@ class RootViewController: UIViewController {
 		} else {
 			viewByCounters()
 		}
-		
 	}
 	
 	fileprivate func setupMenuButtons() {
@@ -164,41 +146,44 @@ class RootViewController: UIViewController {
 		
 	}
 	
+	fileprivate func cleanTags() {
+		let tagsManager 	= countersCollection.dataSource.tagsManager
+		var allTags 		= tagsManager.loadFromDefaults()
+		var recurrentTags	= [Int]()
+		
+		for (index, tag) in allTags.enumerated() {
+			recurrentTags.append(0)
+			for counter in countersCollection.dataSource.countersList {
+				if counter.tags.contains(tag) {
+					recurrentTags[index] += 1
+				}
+			}
+		}
+		
+		let indexesOfUnusedTags = recurrentTags.enumerated().filter {
+			$0.element == 0
+			}.map{$0.offset}
+		
+		for index in indexesOfUnusedTags {
+			allTags.remove(at: index)
+		}
+		
+		print("\nTags to remove: \(indexesOfUnusedTags), all tags will be: \(allTags)\n")
+		
+		tagsManager.saveToDefaults(allTags: allTags)
+	}
+	
 	
 	// UI methods
 	@objc func addTapped() {
-//		UIView.animate(withDuration: 0.3){ [unowned self] in
-//			self.addCounterView.isHidden 	= false
-//			self.addCounterView.alpha		= 1
-//		}
-		
-		let alert = UIAlertController(title: "Name", message: "Enter a name for the counter", preferredStyle: .alert)
-
-
-		alert.addTextField { (textField) in
-			textField.text = ""
-			textField.placeholder = "Counter's name"
-			textField.keyboardAppearance = UIKeyboardAppearance.dark
-		}
-
-		alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
-			let textField 	= alert?.textFields![0]
-			self.countersCollection.dataSource.addCounter(with: textField!.text!)
-
-			let indexPath = IndexPath(
-				item: 0,
-				section: 0
-			)
-
-			self.countersCollection.collectionView.performBatchUpdates({
-				self.countersCollection.collectionView.insertItems(at: [indexPath])
-				self.countersCollection.setupView()
-			}, completion: nil)
-
-		}))
-		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-
-		self.present(alert, animated: true, completion: nil)
+		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
+		let addAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
+		addAlert.providesPresentationContextTransitionStyle = true
+		addAlert.definesPresentationContext = true
+		addAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+		addAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+		addAlert.delegate = self
+		self.present(addAlert, animated: true, completion: nil)
 	}
 	
 	
@@ -238,4 +223,20 @@ class RootViewController: UIViewController {
 	}
 	
 	
+}
+
+
+extension RootViewController: CustomAlertViewDelegate {
+	func okButtonTapped(textFieldValue: String) {
+		self.countersCollection.dataSource.addCounter(with: textFieldValue)
+		self.countersCollection.collectionView.reloadData()
+		
+		cleanTags()
+		setupLayout()
+	}
+	
+	
+	func cancelButtonTapped() {
+		//
+	}
 }
