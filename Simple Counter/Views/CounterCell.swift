@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Menu
 
 
 protocol CounterCellDelegate {
 	func didTapStepper(dataSource: CountersDataSource, id: UUID, newValue: Float)
 	func didTapEdit(dataSource: CountersDataSource, id: UUID)
+	
+	func didTapCustomize(dataSource: CountersDataSource, id: UUID)
+	func didTapDelete(dataSource: CountersDataSource, id: UUID)
+	func didTapResetTo(dataSource: CountersDataSource, id: UUID)
 }
 
 
@@ -30,7 +35,6 @@ class CounterCell: UICollectionViewCell {
 	
 
 	// MARK: - UI Actions
-	
 	@IBAction func stepperChanged(_ sender: Any) {
 		if let cellDelegate = delegate {
 			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
@@ -61,6 +65,7 @@ class CounterCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		feedbackGenerator.prepare()
 		setupTagsIcon()
+		setupContextualButton()
 	}
 	
 	
@@ -68,6 +73,68 @@ class CounterCell: UICollectionViewCell {
 	func setupTagsIcon() {
 		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
 		tagIconImageView.tintColor = UIColor(named: "pastelOrange")!
+	}
+	
+	func setupContextualButton() {
+		struct PlusOneTheme: MenuTheme {
+			let font 						= UIFont.systemFont(ofSize: 16, weight: .medium)
+			let textColor 					= UIColor(named: "greenPastel")!
+			let brightTintColor 			= UIColor.black
+			let darkTintColor 				= UIColor.black
+			let highlightedTextColor 		= UIColor.white
+			let highlightedBackgroundColor 	= UIColor(named: "greenPastel")!
+			let backgroundTint 				= UIColor(red:0.18, green:0.77, blue:0.71, alpha: 0.15)
+			let gestureBarTint 				= UIColor(named: "greenPastel")!
+			let blurEffect 					= UIBlurEffect(style: .dark)
+			let shadowColor 				= UIColor.black
+			let shadowOpacity				: Float = 0.3
+			let shadowRadius				: CGFloat = 7.0
+			let separatorColor 				= UIColor(white: 1, alpha: 0.1)
+			public init() {}
+		}
+		
+		let contextualMenu = MenuView(title: "  ", theme: PlusOneTheme()) { () -> [MenuItem] in
+			return [
+				ShortcutMenuItem(name: "Customize..", shortcut: nil, action: { [unowned self] in self.selectedCustomize() }),
+				ShortcutMenuItem(name: "Reset to..", shortcut: nil, action: {}),
+				SeparatorMenuItem(),
+				ShortcutMenuItem(name: "Delete", shortcut: nil, action: { [unowned self] in self.selectedDelete() }),
+				]
+		}
+		
+		contextualMenu.contentAlignment = .left
+		addSubview(contextualMenu)
+		contextualMenu.tintColor = UIColor(named: "greenPastel")!
+		
+		contextualMenu.snp.makeConstraints { (make) -> Void in
+			make.top.equalToSuperview().offset(0)
+			make.right.equalToSuperview().offset(-10)
+			make.height.equalTo(30)
+			make.width.equalTo(55)
+		}
+	}
+	
+	
+	// MARK: - Menu Actions
+	fileprivate func selectedCustomize() {
+		if let cellDelegate = delegate {
+			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
+			cellDelegate.didTapCustomize(dataSource: data, id: counterItem.id)
+		}
+	}
+	
+	fileprivate func selectedResetTo() {
+		if let cellDelegate = delegate {
+			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
+//			cellDelegate.didTapCustomize(dataSource: data, id: counterItem.id)
+		}
+	}
+	
+	fileprivate func selectedDelete() {
+		if let cellDelegate = delegate {
+			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
+			cellDelegate.didTapDelete(dataSource: data, id: counterItem.id)
+		}
 	}
 	
 	

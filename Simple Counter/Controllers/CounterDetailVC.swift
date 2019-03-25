@@ -78,10 +78,8 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		// TaggerKit stuff
 		let allTags = tagsManager.loadFromDefaults()
 		
-//		counterTagsCollection.tags = ["Tech", "Design", "Writing", "Social Media"]
 		counterTagsCollection.tags = counter.tags
 		
-//		allTagsCollection.tags = ["Cars", "Skateboard", "Freetime", "Humor", "Travel", "Music", "Places", "Journalism", "Music", "Sports"]
 		allTagsCollection.tags = allTags
 		
 		

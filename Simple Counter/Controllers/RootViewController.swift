@@ -33,6 +33,7 @@ class RootViewController: UIViewController {
 		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 5, bottom: 20, right: 5)
 		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
+		_flowLayout.minimumLineSpacing		= 30.0
 		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
@@ -43,6 +44,7 @@ class RootViewController: UIViewController {
 		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
 		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
+		_flowLayout.minimumLineSpacing		= 30.0
 		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
@@ -119,7 +121,7 @@ class RootViewController: UIViewController {
 			return [
 				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: { [unowned self] in self.addTapped() }),
 				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "Settings...", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
+				ShortcutMenuItem(name: "Settings..", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
 				]
 		}
 		

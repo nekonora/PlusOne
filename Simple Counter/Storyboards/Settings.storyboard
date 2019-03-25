@@ -49,8 +49,8 @@
                                                     <action selector="twitterButtonTapped:" destination="egD-sv-WKY" eventType="touchUpInside" id="6ad-fS-7Rj"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plus1 - Version 1.1 Beta - Build 11007" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys5-Wo-Q7r">
-                                                <rect key="frame" x="64.5" y="78" width="246" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plus1 - Version 1.1 Beta - Build 11008" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys5-Wo-Q7r">
+                                                <rect key="frame" x="64" y="78" width="247.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" name="notQuiteWhite"/>
                                                 <nil key="highlightedColor"/>

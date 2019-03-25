@@ -35,7 +35,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73t-b3-TBs">
-                                            <rect key="frame" x="10" y="10" width="40" height="20.5"/>
+                                            <rect key="frame" x="10" y="6" width="40" height="20.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="EIK-Su-Was"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="pmb-fi-tzu"/>
@@ -44,7 +44,7 @@
                                             <color key="textColor" name="notQuiteWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZ0-C5-Ww8">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZ0-C5-Ww8">
                                             <rect key="frame" x="250" y="10" width="40" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Ter-2V-MkB"/>
@@ -125,7 +125,7 @@
                                     <constraint firstItem="OZ0-C5-Ww8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="73t-b3-TBs" secondAttribute="trailing" constant="10" id="GCv-JL-7Mi"/>
                                     <constraint firstItem="XI5-QY-XKx" firstAttribute="bottom" secondItem="DeP-Ik-d5c" secondAttribute="bottom" id="GMh-OL-QZ2"/>
                                     <constraint firstAttribute="trailing" secondItem="snE-tb-ccG" secondAttribute="trailing" constant="10" id="Lst-7c-yWK"/>
-                                    <constraint firstItem="73t-b3-TBs" firstAttribute="top" secondItem="P5q-Pp-RgY" secondAttribute="top" constant="10" id="Pec-FK-IeC"/>
+                                    <constraint firstItem="73t-b3-TBs" firstAttribute="top" secondItem="P5q-Pp-RgY" secondAttribute="top" constant="6" id="Pec-FK-IeC"/>
                                     <constraint firstAttribute="trailing" secondItem="DeP-Ik-d5c" secondAttribute="trailing" constant="10" id="Sho-52-1qE"/>
                                     <constraint firstItem="DeP-Ik-d5c" firstAttribute="leading" secondItem="XI5-QY-XKx" secondAttribute="trailing" constant="10" id="VO9-Vu-HYi"/>
                                     <constraint firstItem="73t-b3-TBs" firstAttribute="leading" secondItem="P5q-Pp-RgY" secondAttribute="leading" constant="10" id="VY1-dT-B6N"/>
@@ -220,7 +220,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ygR-Vk-Bho">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IoD-LV-q3V" userLabel="Name">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -542,7 +542,7 @@
                                                     <constraint firstItem="VdO-Q0-SKK" firstAttribute="centerX" secondItem="ShW-cY-qzy" secondAttribute="centerX" id="zmz-Q4-Kbs"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tof-oq-dE3" userLabel="Delete">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tof-oq-dE3" userLabel="Delete">
                                                 <rect key="frame" x="0.0" y="700" width="375" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmL-k2-Pr9">
