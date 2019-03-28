@@ -10,10 +10,10 @@
 import UIKit
 
 
-extension UICollectionViewController: CounterCellDelegate {
+extension CountersCVC: CounterCellDelegate {
 	
 	
-	@objc func didTapCustomize(dataSource: CountersDataSource, id: UUID) {
+	@objc func didTapCustomize(id: UUID) {
 		if let counter = dataSource.countersList.filter( { $0.id == id } ).first {
 			if let vc = storyboard?.instantiateViewController(withIdentifier: "CounterDetailVC") as? CounterDetailVC {
 				vc.counter 		= counter
@@ -24,7 +24,7 @@ extension UICollectionViewController: CounterCellDelegate {
 	}
 	
 	
-	@objc func didTapDelete(dataSource: CountersDataSource, id: UUID) {
+	@objc func didTapDelete(id: UUID) {
 		if let counter = dataSource.countersList.filter( { $0.id == id } ).first {
 			let alert = UIAlertController(
 				title: "Delete the counter?",
@@ -32,9 +32,9 @@ extension UICollectionViewController: CounterCellDelegate {
 				preferredStyle: .alert)
 			
 			alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
-				let index = dataSource.countersList.index{$0.id == id}
-				dataSource.countersList.remove(at: index!)
-				dataSource.saveToDefaults()
+				let index = self.dataSource.countersList.index{$0.id == id}
+				self.dataSource.countersList.remove(at: index!)
+				self.dataSource.saveToDefaults()
 				self.collectionView.reloadData()
 			}))
 			alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
@@ -44,12 +44,12 @@ extension UICollectionViewController: CounterCellDelegate {
 	}
 	
 	
-	@objc func didTapResetTo(dataSource: CountersDataSource, id: UUID) {
+	@objc func didTapResetTo(id: UUID) {
 		//
 	}
 	
 	
-	@objc func didTapStepper(dataSource: CountersDataSource, id: UUID, newValue: Float) {
+	@objc func didTapStepper(id: UUID, newValue: Float) {
 		
 		if let tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
 			let index = dataSource.countersList.index{$0.id == id}
@@ -61,11 +61,10 @@ extension UICollectionViewController: CounterCellDelegate {
 		}
 		
 		collectionView.reloadData()
-		
 	}
 	
 	
-	@objc func didTapEdit(dataSource: CountersDataSource, id: UUID) {
+	@objc func didTapEdit(id: UUID) {
 		if let counter = dataSource.countersList.filter( { $0.id == id } ).first {
 			if let vc = storyboard?.instantiateViewController(withIdentifier: "CounterDetailVC") as? CounterDetailVC {
 				vc.counter 		= counter

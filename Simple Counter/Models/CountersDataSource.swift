@@ -27,13 +27,12 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 	var tagsList 			= [String]()
 	var grouping 			= orderBy.counters
 	var tagsGroupedCounters = [[Int]]()				// [indexes of counters where the tag is]
-	weak var cellDelegate	: UICollectionViewController?
+	weak var cellDelegate	: CountersCVC?
 	
 	
 	// MARK: - Lifecyle Methods
 	override init() {
 		super.init()
-		
 		countersList 	= loadFromDefaults()
 		tagsList 		= tagsManager.loadFromDefaults()
 	}
@@ -84,13 +83,13 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		
 		switch grouping {
 		case .counters:
-			counter 	= countersList[indexPath.item]
-			tags = counter.tags!
+			counter 			= countersList[indexPath.item]
+			tags 				= counter.tags!
 		case .tags:
 			let indexes 		= tagsGroupedCounters[indexPath.section]
 			let counterIndex	= indexes[indexPath.item]
-			counter		= countersList[counterIndex]
-			tags = counter.tags!
+			counter				= countersList[counterIndex]
+			tags 				= counter.tags!
 		}
 		
 		cell.delegate 				= cellDelegate
@@ -159,11 +158,11 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 	// MARK: - UICollectionViewDelegateFlowLayout Methods
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		
-		let totalCellWidth = 300 * collectionView.numberOfItems(inSection: 0)
-		let totalSpacingWidth = 10 * (collectionView.numberOfItems(inSection: 0) - 1)
+		let totalCellWidth 		= 300 * collectionView.numberOfItems(inSection: 0)
+		let totalSpacingWidth 	= 10 * (collectionView.numberOfItems(inSection: 0) - 1)
 		
-		let leftInset = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-		let rightInset = leftInset
+		let leftInset 			= (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+		let rightInset 			= leftInset
 		
 		return UIEdgeInsets(top: 10, left: leftInset, bottom: 10, right: rightInset)
 	}

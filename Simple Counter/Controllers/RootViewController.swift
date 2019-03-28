@@ -72,7 +72,7 @@ class RootViewController: UIViewController {
 		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
 		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
 		
-		navigationItem.title = "My Counters"
+		navigationItem.title = "Counters"
 	}
 	
 	fileprivate func setupLayout() {
@@ -167,9 +167,7 @@ class RootViewController: UIViewController {
 			}.map{$0.offset}
 		
 		let filteredTagsArray = allTags.enumerated().filter({ !indexesOfUnusedTags.contains($0.0) }).map { $0.1 }
-		
-		print("\nTags to remove: \(indexesOfUnusedTags), all tags will be: \(filteredTagsArray)\n")
-		
+
 		tagsManager.saveToDefaults(allTags: filteredTagsArray)
 	}
 	
@@ -231,7 +229,6 @@ extension RootViewController: CustomAlertViewDelegate {
 	func okButtonTapped(textFieldValue: String) {
 		self.countersCollection.dataSource.addCounter(with: textFieldValue)
 		self.countersCollection.collectionView.reloadData()
-		
 		cleanTags()
 		setupLayout()
 	}

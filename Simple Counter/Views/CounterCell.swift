@@ -11,12 +11,12 @@ import Menu
 
 
 protocol CounterCellDelegate {
-	func didTapStepper(dataSource: CountersDataSource, id: UUID, newValue: Float)
-	func didTapEdit(dataSource: CountersDataSource, id: UUID)
+	func didTapStepper(id: UUID, newValue: Float)
+	func didTapEdit(id: UUID)
 	
-	func didTapCustomize(dataSource: CountersDataSource, id: UUID)
-	func didTapDelete(dataSource: CountersDataSource, id: UUID)
-	func didTapResetTo(dataSource: CountersDataSource, id: UUID)
+	func didTapCustomize(id: UUID)
+	func didTapDelete(id: UUID)
+	func didTapResetTo(id: UUID)
 }
 
 
@@ -37,19 +37,17 @@ class CounterCell: UICollectionViewCell {
 	// MARK: - UI Actions
 	@IBAction func stepperChanged(_ sender: Any) {
 		if let cellDelegate = delegate {
-			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
 			feedbackGenerator.impactOccurred()
 			feedbackGenerator.prepare()
-			cellDelegate.didTapStepper(dataSource: data, id: counterItem.id, newValue: Float(stepperUI.value))
+			cellDelegate.didTapStepper(id: counterItem.id, newValue: Float(stepperUI.value))
 		}
 	}
 	
 	
 	@IBAction func editButtonPressed(_ sender: Any) {
 		if let cellDelegate = delegate {
-			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
 			
-			cellDelegate.didTapEdit(dataSource: data, id: counterItem.id)
+			cellDelegate.didTapEdit(id: counterItem.id)
 		}
 	}
 	
@@ -58,7 +56,7 @@ class CounterCell: UICollectionViewCell {
 	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
 	var dataSource	: CountersDataSource!
 	var counterItem	: CounterV2!
-	var delegate	: UICollectionViewController?
+	var delegate	: CountersCVC?
 	
 	
 	// MARK: - Lifecycle Methods
@@ -93,7 +91,8 @@ class CounterCell: UICollectionViewCell {
 			public init() {}
 		}
 		
-		let contextualMenu = MenuView(title: "  ", theme: PlusOneTheme()) { () -> [MenuItem] in
+		
+		let contextualMenu = MenuView(title: "...", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
 				ShortcutMenuItem(name: "Customize..", shortcut: nil, action: { [unowned self] in self.selectedCustomize() }),
 				ShortcutMenuItem(name: "Reset to..", shortcut: nil, action: {}),
@@ -118,22 +117,19 @@ class CounterCell: UICollectionViewCell {
 	// MARK: - Menu Actions
 	fileprivate func selectedCustomize() {
 		if let cellDelegate = delegate {
-			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
-			cellDelegate.didTapCustomize(dataSource: data, id: counterItem.id)
+			cellDelegate.didTapCustomize(id: counterItem.id)
 		}
 	}
 	
 	fileprivate func selectedResetTo() {
-		if let cellDelegate = delegate {
-			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
+//		if let cellDelegate = delegate {
 //			cellDelegate.didTapCustomize(dataSource: data, id: counterItem.id)
-		}
+//		}
 	}
 	
 	fileprivate func selectedDelete() {
 		if let cellDelegate = delegate {
-			let data = cellDelegate.collectionView.dataSource as! CountersDataSource
-			cellDelegate.didTapDelete(dataSource: data, id: counterItem.id)
+			cellDelegate.didTapDelete(id: counterItem.id)
 		}
 	}
 	
