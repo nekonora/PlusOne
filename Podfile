@@ -6,7 +6,7 @@ target 'Simple Counter' do
   use_frameworks!
 
   # Pods for Simple Counter
-  pod 'TaggerKit', :path => '/Users/filippozaffoni/Dev/TaggerKit'
+  pod 'TaggerKit'
   pod 'Menu'
 
 end

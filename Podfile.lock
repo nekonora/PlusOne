@@ -6,22 +6,19 @@ PODS:
 
 DEPENDENCIES:
   - Menu
-  - TaggerKit (from `/Users/filippozaffoni/Dev/TaggerKit`)
+  - TaggerKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Menu
     - SnapKit
-
-EXTERNAL SOURCES:
-  TaggerKit:
-    :path: "/Users/filippozaffoni/Dev/TaggerKit"
+    - TaggerKit
 
 SPEC CHECKSUMS:
   Menu: a1e69a2e8e641192ddec0cf55cd380cde6e27b1e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  TaggerKit: a2bf72ce03b89fa6f5c948dcdb2f110a1b704731
+  TaggerKit: 3404402e7ac4c73aa96949e6f10c6e066ddf792a
 
-PODFILE CHECKSUM: 553884a62b4718aaf5c8bf86d4132e064aacbaa4
+PODFILE CHECKSUM: bb5262069833cad4223d2cbb7d08258eb6b297c2
 
 COCOAPODS: 1.6.1
