@@ -233,7 +233,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 					   newTags				: [String]) {
 		
 		if let tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
-			let index = dataSource.countersList.index{$0.id == id}
+			let index = dataSource.countersList.firstIndex{$0.id == id}
 			
 			tempCounter.name 			= newName
 			tempCounter.steps 			= newSteps
@@ -256,7 +256,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			preferredStyle: .alert)
 
 		alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
-			let index = dataSource.countersList.index{$0.name == self.counter.name}
+			let index = dataSource.countersList.firstIndex{$0.name == self.counter.name}
 			dataSource.countersList.remove(at: index!)
 			dataSource.saveToDefaults()
 			self.navigationController?.popViewController(animated: true)

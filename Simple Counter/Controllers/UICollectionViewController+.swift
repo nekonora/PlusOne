@@ -32,7 +32,7 @@ extension CountersCVC: CounterCellDelegate {
 				preferredStyle: .alert)
 			
 			alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
-				let index = self.dataSource.countersList.index{$0.id == id}
+				let index = self.dataSource.countersList.firstIndex{$0.id == id}
 				self.dataSource.countersList.remove(at: index!)
 				self.dataSource.saveToDefaults()
 				self.collectionView.reloadData()
@@ -52,7 +52,7 @@ extension CountersCVC: CounterCellDelegate {
 	@objc func didTapStepper(id: UUID, newValue: Float) {
 		
 		if let tempCounter = dataSource.countersList.filter( { $0.id == id } ).first {
-			let index = dataSource.countersList.index{$0.id == id}
+			let index = dataSource.countersList.firstIndex{$0.id == id}
 			tempCounter.value = newValue
 			dataSource.countersList.remove(at: index!)
 			dataSource.countersList.insert(tempCounter, at: index!)
