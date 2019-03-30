@@ -56,17 +56,24 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		countersCollection.dataSource.cellDelegate = self
         setupStyle()
 		setupMenuButtons()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		cleanTags()
-		setupLayout()
+		reloadView()
 	}
+	
 
 	// MARK: - Private Methods
+	func reloadView() {
+		cleanTags()
+		setupLayout()
+		countersCollection.setupView()
+	}
+	
 	fileprivate func setupStyle() {
 		navigationController?.navigationBar.barStyle = .blackTranslucent
 		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
@@ -231,6 +238,7 @@ extension RootViewController: CustomAlertViewDelegate {
 		self.countersCollection.collectionView.reloadData()
 		cleanTags()
 		setupLayout()
+		countersCollection.setupView()
 	}
 	
 	

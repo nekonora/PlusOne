@@ -22,7 +22,7 @@ class CountersCVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		dataSource.cellDelegate = self
+//		dataSource.cellDelegate = self
 		collectionView.dataSource = dataSource
 		collectionView?.register(TagHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "tagHeader")
 		

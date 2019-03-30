@@ -56,7 +56,7 @@ class CounterCell: UICollectionViewCell {
 	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
 	var dataSource	: CountersDataSource!
 	var counterItem	: CounterV2!
-	var delegate	: CountersCVC?
+	var delegate	: RootViewController?
 	
 	
 	// MARK: - Lifecycle Methods

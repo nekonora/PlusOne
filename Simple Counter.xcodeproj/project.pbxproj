@@ -25,7 +25,7 @@
 		FA48444722294D5200D4F47D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48444622294D5200D4F47D /* String+.swift */; };
 		FA5997A42244E526004FAEAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5997A32244E526004FAEAA /* SettingsViewController.swift */; };
 		FA5997AA2244E853004FAEAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5997A92244E853004FAEAA /* Settings.storyboard */; };
-		FA9FA01E22208638003AB865 /* UICollectionViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA01D22208638003AB865 /* UICollectionViewController+.swift */; };
+		FA9FA01E22208638003AB865 /* RootViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA01D22208638003AB865 /* RootViewController+.swift */; };
 		FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA02122208B19003AB865 /* CountersDataSource.swift */; };
 		FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46177222C0D2D00F65AF4 /* Helpers.swift */; };
 		FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46179222C0F3C00F65AF4 /* CounterV2.swift */; };
@@ -55,7 +55,7 @@
 		FA48444622294D5200D4F47D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA5997A32244E526004FAEAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA5997A92244E853004FAEAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		FA9FA01D22208638003AB865 /* UICollectionViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+.swift"; sourceTree = "<group>"; };
+		FA9FA01D22208638003AB865 /* RootViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController+.swift"; sourceTree = "<group>"; };
 		FA9FA02122208B19003AB865 /* CountersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersDataSource.swift; sourceTree = "<group>"; };
 		FAA46177222C0D2D00F65AF4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FAA46179222C0F3C00F65AF4 /* CounterV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterV2.swift; sourceTree = "<group>"; };
@@ -162,8 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				FA224E57223D362100594428 /* RootViewController.swift */,
+				FA9FA01D22208638003AB865 /* RootViewController+.swift */,
 				FA43DFFD22083AC9002F0DAD /* CountersCVC.swift */,
-				FA9FA01D22208638003AB865 /* UICollectionViewController+.swift */,
 				FAB7916822269B900073732D /* CounterDetailVC.swift */,
 				FA5997A32244E526004FAEAA /* SettingsViewController.swift */,
 				FA2F912622467C0100D31762 /* ThemableAlertVC.swift */,
@@ -308,7 +308,7 @@
 				FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */,
 				FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */,
 				FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */,
-				FA9FA01E22208638003AB865 /* UICollectionViewController+.swift in Sources */,
+				FA9FA01E22208638003AB865 /* RootViewController+.swift in Sources */,
 				FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */,
 				FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */,
 				FAB7916922269B900073732D /* CounterDetailVC.swift in Sources */,

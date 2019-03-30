@@ -27,7 +27,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 	var tagsList 			= [String]()
 	var grouping 			= orderBy.counters
 	var tagsGroupedCounters = [[Int]]()				// [indexes of counters where the tag is]
-	weak var cellDelegate	: CountersCVC?
+	weak var cellDelegate	: RootViewController?
 	
 	
 	// MARK: - Lifecyle Methods
@@ -88,6 +88,11 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		case .tags:
 			let indexes 		= tagsGroupedCounters[indexPath.section]
 			let counterIndex	= indexes[indexPath.item]
+			// When in tag view it is loading counter indexes from before the deletion
+			print("\nLoading index:   \(counterIndex)")
+			for (index, _) in countersList.enumerated() {
+				print(index)
+			}
 			counter				= countersList[counterIndex]
 			tags 				= counter.tags!
 		}
