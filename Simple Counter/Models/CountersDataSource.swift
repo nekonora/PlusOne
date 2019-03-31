@@ -88,11 +88,6 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		case .tags:
 			let indexes 		= tagsGroupedCounters[indexPath.section]
 			let counterIndex	= indexes[indexPath.item]
-			// When in tag view it is loading counter indexes from before the deletion
-			print("\nLoading index:   \(counterIndex)")
-			for (index, _) in countersList.enumerated() {
-				print(index)
-			}
 			counter				= countersList[counterIndex]
 			tags 				= counter.tags!
 		}
