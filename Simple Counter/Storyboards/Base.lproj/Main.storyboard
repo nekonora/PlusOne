@@ -39,7 +39,7 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="pmb-fi-tzu"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                            <color key="textColor" name="notQuiteWhite"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZ0-C5-Ww8">
@@ -60,7 +60,7 @@
                                                 <constraint firstAttribute="width" constant="22" id="kIB-hp-LDV"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="textColor" name="notQuiteWhite"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeP-Ik-d5c">
@@ -70,7 +70,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="zNS-2R-k6q"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
-                                            <color key="textColor" name="notQuiteWhite"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="As9-bM-bel">
@@ -175,8 +175,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="notQuiteBlack"/>
-                        <color key="tintColor" name="notQuiteWhite"/>
                         <constraints>
                             <constraint firstItem="qeL-hJ-us7" firstAttribute="centerX" secondItem="sN8-lp-CNs" secondAttribute="centerX" id="SvQ-Xs-GsX"/>
                             <constraint firstItem="qeL-hJ-us7" firstAttribute="width" secondItem="sN8-lp-CNs" secondAttribute="width" id="Wq8-xY-AfL"/>

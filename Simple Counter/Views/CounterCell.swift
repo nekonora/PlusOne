@@ -53,27 +53,35 @@ class CounterCell: UICollectionViewCell {
 	
 	
 	// MARK: - Properties
-	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
-	var dataSource	: CountersDataSource!
-	var counterItem	: CounterV2!
-	var delegate	: RootViewController?
+	let feedbackGenerator 	= UIImpactFeedbackGenerator(style: .light)
+	let theme 				= ThemeManager.currentTheme()
+	var dataSource			: CountersDataSource!
+	var counterItem			: CounterV2!
+	var delegate			: RootViewController?
 	
 	
 	// MARK: - Lifecycle Methods
 	override func awakeFromNib() {
 		feedbackGenerator.prepare()
-		setupTagsIcon()
+		setupTheme()
 		setupContextualButton()
 	}
 	
 	
 	// MARK: - Private methods
-	func setupTagsIcon() {
+	func setupTheme() {
+		TitleLabel.textColor 	= theme.textColor
+		CounterLabel.textColor 	= theme.textColor
+		unitLabel.textColor 	= theme.textColor
+		stepperUI.tintColor		= theme.tintColor
+		progressBar.tintColor	= theme.tintColor
+		
 		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
-		tagIconImageView.tintColor = UIColor(named: "pastelOrange")!
+		tagIconImageView.tintColor = theme.tagsColor
 	}
 	
 	func setupContextualButton() {
+	
 		struct PlusOneTheme: MenuTheme {
 			let font 						= UIFont.systemFont(ofSize: 16, weight: .medium)
 			let textColor 					= UIColor(named: "greenPastel")!
@@ -103,7 +111,7 @@ class CounterCell: UICollectionViewCell {
 		
 		contextualMenu.contentAlignment = .left
 		addSubview(contextualMenu)
-		contextualMenu.tintColor = UIColor(named: "greenPastel")!
+		contextualMenu.tintColor = theme.tintColor //UIColor(named: "greenPastel")!
 		
 		contextualMenu.snp.makeConstraints { (make) -> Void in
 			make.top.equalToSuperview().offset(0)

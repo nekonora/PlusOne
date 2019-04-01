@@ -20,7 +20,8 @@ class RootViewController: UIViewController {
 	
 
 	// MARK: - Properties
-	var countersCollection: CountersCVC {
+	let theme 				= ThemeManager.currentTheme()
+	var countersCollection	: CountersCVC {
 		get {
 			let ctrl = children.first(where: { $0 is CountersCVC })
 			return ctrl as! CountersCVC
@@ -55,10 +56,12 @@ class RootViewController: UIViewController {
 	// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		navigationItem.title = "Counters"
 
 		countersCollection.dataSource.cellDelegate = self
-        setupStyle()
 		setupMenuButtons()
+		setupTheme()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -71,15 +74,8 @@ class RootViewController: UIViewController {
 	func reloadView() {
 		cleanTags()
 		setupLayout()
+		setupTheme()
 		countersCollection.setupView()
-	}
-	
-	fileprivate func setupStyle() {
-		navigationController?.navigationBar.barStyle = .blackTranslucent
-		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
-		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
-		
-		navigationItem.title = "Counters"
 	}
 	
 	fileprivate func setupLayout() {
@@ -94,6 +90,14 @@ class RootViewController: UIViewController {
 		} else {
 			viewByCounters()
 		}
+	}
+	
+	fileprivate func setupTheme() {
+		view.backgroundColor = theme.backgroundColor
+		
+//		navigationController?.navigationBar.barStyle = .blackTranslucent
+		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
+		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
 	}
 	
 	fileprivate func setupMenuButtons() {

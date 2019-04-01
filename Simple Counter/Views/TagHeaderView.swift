@@ -14,11 +14,12 @@ class TagHeaderView: UICollectionReusableView {
 	
 	
 	// MARK: - Properties
+	let theme = ThemeManager.currentTheme()
 	var titleLabel: UILabel = {
 		let label = UILabel()
 		label.custom(title			: "",
 					 font			: .boldSystemFont(ofSize: 16),
-					 titleColor		: UIColor(named: "notQuiteWhite")!,
+					 titleColor		: UIColor.white,
 					 textAlignment	: .center,
 					 numberOfLines	: 1)
 		return label
@@ -47,8 +48,9 @@ extension TagHeaderView : ViewSetable {
 	
 	func setupViews() {
 		autoresizingMask 				= [.flexibleWidth, .flexibleHeight]
-		lineDivider1.backgroundColor 	= UIColor(named: "greenPastel")
-		lineDivider2.backgroundColor 	= UIColor(named: "greenPastel")
+		lineDivider1.backgroundColor 	= theme.tintColor
+		lineDivider2.backgroundColor 	= lineDivider1.backgroundColor
+		titleLabel.textColor			= theme.textColor
 		addSubview(titleLabel)
 		addSubview(lineDivider1)
 		addSubview(lineDivider2)

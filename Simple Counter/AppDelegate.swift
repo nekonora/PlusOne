@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		UINavigationBar.appearance().shadowImage = UIImage()
 		
-		ThemeManager.applyTheme(theme: .sunrise)
+		ThemeManager.applyTheme(theme: .ocean)
 		
 		return true
 	}

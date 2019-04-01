@@ -29,6 +29,7 @@ THEMES:
 
 import UIKit
 import Foundation
+import Menu
 
 
 extension UIColor {
@@ -190,3 +191,4 @@ class ThemeManager {
 		UISwitch.appearance().thumbTintColor = theme.tintColor
 	}
 }
+

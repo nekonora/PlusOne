@@ -96,7 +96,13 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		cell.counterItem 			= counter
 		cell.TitleLabel.text 		= counter.name
 		cell.unitLabel.text			= counter.unit
-		cell.stepperUI.stepValue 	= Double(counter.steps)
+		
+		if counter.steps == 0 {
+			cell.stepperUI.stepValue 	= Double(1)
+		} else {
+			cell.stepperUI.stepValue 	= Double(counter.steps)
+		}
+		
 		cell.stepperUI.value		= Double(counter.value)
 		
 		if counter.completionValue! != 0 {
@@ -141,14 +147,14 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			
 			cell.tagLabel.text 				= tags.first
 			cell.tagIconImageView.image 	= UIImage(named: "tag")!
-			cell.setupTagsIcon()
+			cell.setupTheme()
 		default:
 			cell.tagLabel.isHidden 			= false
 			cell.tagIconImageView.isHidden 	= false
 			
 			cell.tagLabel.text 				= "\(tags.count) tags"
 			cell.tagIconImageView.image 	= UIImage(named: "multipleTags")!
-			cell.setupTagsIcon()
+			cell.setupTheme()
 		}
 		
 		return cell
