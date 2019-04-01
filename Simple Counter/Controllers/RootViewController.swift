@@ -17,6 +17,7 @@ class RootViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var collectionViewContainer: UIView!
+	@IBOutlet var titleLabel: UILabel!
 	
 
 	// MARK: - Properties
@@ -57,11 +58,13 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		navigationItem.title = "Counters"
+//		navigationItem.title = "Counters"
 
+		titleLabel.textColor 	= theme.textColor
+		titleLabel.text			= "Counters"
+		
 		countersCollection.dataSource.cellDelegate = self
 		setupMenuButtons()
-		setupTheme()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -192,6 +195,14 @@ class RootViewController: UIViewController {
 		addAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
 		addAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 		addAlert.delegate = self
+		
+		addAlert.alertTitle 		= "Add Counter"
+		addAlert.alertDescription 	= "Write a name for the counter"
+		addAlert.alertOkButtonText 	= "Add"
+		addAlert.alertKeyboardType 	= .default
+		addAlert.alertPlaceholder 	= "Name"
+		addAlert.alertAction		= .addCounter
+		
 		self.present(addAlert, animated: true, completion: nil)
 	}
 	
@@ -201,6 +212,14 @@ class RootViewController: UIViewController {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
 			navigationController?.pushViewController(vc, animated: true)
 		}
+	}
+	
+	@objc func addCounter(name: String) {
+		countersCollection.dataSource.addCounter(with: name)
+		countersCollection.collectionView.reloadData()
+		cleanTags()
+		setupLayout()
+		countersCollection.setupView()
 	}
 	
 	
@@ -232,19 +251,23 @@ class RootViewController: UIViewController {
 		defaults.set(true, forKey: "CellLayoutIsBig")
 	}
 	
-	
 }
 
 
 extension RootViewController: CustomAlertViewDelegate {
-	func okButtonTapped(textFieldValue: String) {
-		self.countersCollection.dataSource.addCounter(with: textFieldValue)
-		self.countersCollection.collectionView.reloadData()
-		cleanTags()
-		setupLayout()
-		countersCollection.setupView()
+	func okButtonTapped(counterID: UUID?, alertType: alertType, textFieldValue: String) {
+		switch alertType {
+		case .addCounter:
+			addCounter(name: textFieldValue)
+		case .resetCounter:
+			guard counterID != nil else { return }
+			let newValue = (textFieldValue as NSString).floatValue
+			resetCounter(id: counterID!, value: newValue)
+		case .deleteCounter:
+			guard counterID != nil else { return }
+			deleteCounter(id: counterID!)
+		}
 	}
-	
 	
 	func cancelButtonTapped() {
 		//

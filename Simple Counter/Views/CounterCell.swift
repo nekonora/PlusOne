@@ -103,7 +103,7 @@ class CounterCell: UICollectionViewCell {
 		let contextualMenu = MenuView(title: "...", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
 				ShortcutMenuItem(name: "Customize..", shortcut: nil, action: { [unowned self] in self.selectedCustomize() }),
-				ShortcutMenuItem(name: "Reset to..", shortcut: nil, action: {}),
+				ShortcutMenuItem(name: "Reset to..", shortcut: nil, action: { [unowned self] in self.selectedResetTo() }),
 				SeparatorMenuItem(),
 				ShortcutMenuItem(name: "Delete", shortcut: nil, action: { [unowned self] in self.selectedDelete() }),
 				]
@@ -130,9 +130,9 @@ class CounterCell: UICollectionViewCell {
 	}
 	
 	fileprivate func selectedResetTo() {
-//		if let cellDelegate = delegate {
-//			cellDelegate.didTapCustomize(dataSource: data, id: counterItem.id)
-//		}
+		if let cellDelegate = delegate {
+			cellDelegate.didTapResetTo(id: counterItem.id)
+		}
 	}
 	
 	fileprivate func selectedDelete() {
