@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			barMetrics: .default)
 		
 		UINavigationBar.appearance().shadowImage = UIImage()
+		
+		ThemeManager.applyTheme(theme: .sunrise)
+		
 		return true
 	}
 

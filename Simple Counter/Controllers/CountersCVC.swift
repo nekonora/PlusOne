@@ -14,18 +14,16 @@ class CountersCVC: UICollectionViewController {
 
 	
 	// MARK: - Properties
-	var dataSource = CountersDataSource()
-	let noCountersView = UILabel()
+	let theme 			= ThemeManager.currentTheme()
+	var dataSource 		= CountersDataSource()
+	let noCountersView 	= UILabel()
 	
 	
 	// MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-//		dataSource.cellDelegate = self
 		collectionView.dataSource = dataSource
 		collectionView?.register(TagHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "tagHeader")
-		
 		collectionView.addSubview(noCountersView)
     }
 	
@@ -35,14 +33,20 @@ class CountersCVC: UICollectionViewController {
 	}
 	
 	
-	// Private methods
+	// MARK: - Private methods
 	func setupView() {
+		setupTheme()
 		collectionView.reloadData()
 		if dataSource.countersList.count == 0 {
 			loadNoCounterView(bool: true)
 		} else {
 			loadNoCounterView(bool: false)
 		}
+	}
+	
+	
+	fileprivate func setupTheme() {
+		collectionView.backgroundColor = theme.backgroundColor
 	}
 	
 	
@@ -60,7 +64,7 @@ class CountersCVC: UICollectionViewController {
 				NSLayoutConstraint(item: noCountersView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100)
 				])
 			
-			noCountersView.textColor 		= UIColor(named: "notQuiteWhite")!
+			noCountersView.textColor 		= theme.textColor
 			noCountersView.layer.opacity 	= 0.6
 			noCountersView.textAlignment	= .center
 			noCountersView.numberOfLines	= 0

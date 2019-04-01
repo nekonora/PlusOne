@@ -25,6 +25,7 @@
 		FA48444722294D5200D4F47D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48444622294D5200D4F47D /* String+.swift */; };
 		FA5997A42244E526004FAEAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5997A32244E526004FAEAA /* SettingsViewController.swift */; };
 		FA5997AA2244E853004FAEAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5997A92244E853004FAEAA /* Settings.storyboard */; };
+		FA91C4262251EE3500776157 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91C4252251EE3500776157 /* ThemeManager.swift */; };
 		FA9FA01E22208638003AB865 /* RootViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA01D22208638003AB865 /* RootViewController+.swift */; };
 		FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA02122208B19003AB865 /* CountersDataSource.swift */; };
 		FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46177222C0D2D00F65AF4 /* Helpers.swift */; };
@@ -55,6 +56,7 @@
 		FA48444622294D5200D4F47D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA5997A32244E526004FAEAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA5997A92244E853004FAEAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		FA91C4252251EE3500776157 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		FA9FA01D22208638003AB865 /* RootViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController+.swift"; sourceTree = "<group>"; };
 		FA9FA02122208B19003AB865 /* CountersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersDataSource.swift; sourceTree = "<group>"; };
 		FAA46177222C0D2D00F65AF4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -116,11 +118,10 @@
 				FA9FA01F22208745003AB865 /* Views */,
 				FA9FA020222087BF003AB865 /* Controllers */,
 				FA5997A62244E790004FAEAA /* Storyboards */,
-				FAA46177222C0D2D00F65AF4 /* Helpers.swift */,
-				FA2F912822467D5E00D31762 /* UIButton+.swift */,
+				FA91C4242251EE0D00776157 /* Utilities_Helpers */,
+				FA43DFE82208381A002F0DAD /* AppDelegate.swift */,
 				FA43DFEF2208381C002F0DAD /* Assets.xcassets */,
 				FA43DFF12208381C002F0DAD /* LaunchScreen.storyboard */,
-				FA43DFE82208381A002F0DAD /* AppDelegate.swift */,
 				FA43DFF42208381C002F0DAD /* Info.plist */,
 			);
 			path = "Simple Counter";
@@ -148,12 +149,22 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		FA91C4242251EE0D00776157 /* Utilities_Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FAA46177222C0D2D00F65AF4 /* Helpers.swift */,
+				FA91C4252251EE3500776157 /* ThemeManager.swift */,
+			);
+			path = Utilities_Helpers;
+			sourceTree = "<group>";
+		};
 		FA9FA01F22208745003AB865 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				FA43DFFF22083B2A002F0DAD /* CounterCell.swift */,
 				FA14C82A22457F4C0087D3C9 /* TagHeaderView.swift */,
 				FA0C0CB6222498EB005BF573 /* CustomButton.swift */,
+				FA2F912822467D5E00D31762 /* UIButton+.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 				FA48444722294D5200D4F47D /* String+.swift in Sources */,
 				FA2F912722467C0100D31762 /* ThemableAlertVC.swift in Sources */,
 				FA2F912922467D5E00D31762 /* UIButton+.swift in Sources */,
+				FA91C4262251EE3500776157 /* ThemeManager.swift in Sources */,
 				FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */,
 				FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */,
 				FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */,

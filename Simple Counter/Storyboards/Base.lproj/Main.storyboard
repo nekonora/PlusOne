@@ -18,8 +18,6 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="bBG-I2-4xq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="341"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="notQuiteBlack"/>
-                        <color key="tintColor" name="notQuiteWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="p8t-Xg-Kkf">
                             <size key="itemSize" width="300" height="175"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -50,9 +48,7 @@
                                                 <constraint firstAttribute="width" constant="40" id="Ter-2V-MkB"/>
                                                 <constraint firstAttribute="height" constant="20" id="svp-AP-Oz9"/>
                                             </constraints>
-                                            <state key="normal" title="Edit">
-                                                <color key="titleColor" name="greenPastel"/>
-                                            </state>
+                                            <state key="normal" title="Edit"/>
                                             <connections>
                                                 <action selector="editButtonPressed:" destination="P5q-Pp-RgY" eventType="touchUpInside" id="0R6-gW-fie"/>
                                             </connections>
@@ -111,7 +107,6 @@
                                         </view>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-9999999" maximumValue="9999999" translatesAutoresizingMaskIntoConstraints="NO" id="snE-tb-ccG">
                                             <rect key="frame" x="196" y="135.5" width="94" height="29"/>
-                                            <color key="tintColor" name="greenPastel"/>
                                             <connections>
                                                 <action selector="stepperChanged:" destination="P5q-Pp-RgY" eventType="valueChanged" id="JZW-K6-R67"/>
                                             </connections>
