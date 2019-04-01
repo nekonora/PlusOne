@@ -132,8 +132,8 @@ class RootViewController: UIViewController {
 				]
 		}
 		
-		countersMenu.contentAlignment 	= .left
 		viewMenu.contentAlignment		= .center
+		countersMenu.contentAlignment 	= .left
 		
 		view.addSubview(viewMenu)
 		view.addSubview(countersMenu)
@@ -146,13 +146,13 @@ class RootViewController: UIViewController {
 			make.right.equalTo(countersMenu.snp.leftMargin).offset(-20)
 			make.height.equalTo(40)
 		}
-		
+
 		countersMenu.snp.makeConstraints { (make) -> Void in
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(10)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.rightMargin).offset(-10)
 			make.height.equalTo(40)
-			
 		}
+		
 	}
 	
 	fileprivate func cleanTags() {
