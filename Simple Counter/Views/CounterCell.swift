@@ -24,6 +24,7 @@ class CounterCell: UICollectionViewCell {
 	
 	
 	// MARK: - UI Outlets
+	@IBOutlet weak var smoothView: SmoothView!
 	@IBOutlet var TitleLabel	: UILabel!
 	@IBOutlet var CounterLabel	: UILabel!
 	@IBOutlet var unitLabel		: UILabel!
@@ -78,17 +79,17 @@ class CounterCell: UICollectionViewCell {
 		
 //		backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
 		
-		let backgroundView = SmoothView()
-		backgroundView.frame = bounds
-		backgroundView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-		backgroundView.flx_smoothCorners = true
-		backgroundView.layer.cornerRadius = 15
-		addSubview(backgroundView)
-		sendSubviewToBack(backgroundView)
-		backgroundView.snp.makeConstraints { (make) -> Void in
-			make.width.equalToSuperview()
-			make.height.equalToSuperview()
-		}
+//		let smoothView = SmoothView()
+		smoothView.frame = bounds
+		smoothView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+		smoothView.flx_smoothCorners = true
+		smoothView.layer.cornerRadius = 15
+//		addSubview(smoothView)
+//		sendSubviewToBack(smoothView)
+//		smoothView.snp.makeConstraints { (make) -> Void in
+//			make.width.equalToSuperview()
+//			make.height.equalToSuperview()
+//		}
 		
 		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
 		tagIconImageView.tintColor = theme.tagsColor

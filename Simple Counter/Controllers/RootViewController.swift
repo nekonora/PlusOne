@@ -230,19 +230,17 @@ class RootViewController: UIViewController {
 	// Counters menu methods
 	@objc func addCounter(name: String) {
 		countersCollection.dataSource.addCounter(with: name)
+		reloadView()
 		countersCollection.collectionView.reloadData()
-		cleanTags()
-		setupLayout()
-		countersCollection.setupView()
+//		cleanTags()
+//		setupLayout()
+//		countersCollection.setupView()
 	}
 	
 	@objc func deleteAllCounters() {
-		countersCollection.dataSource.countersList.removeAll()
-		countersCollection.dataSource.saveToDefaults()
+		countersCollection.dataSource.removeAllCounters()
+		reloadView()
 		countersCollection.collectionView.reloadData()
-		cleanTags()
-		setupLayout()
-		countersCollection.setupView()
 	}
 	
 	@objc func settingsTapped() {

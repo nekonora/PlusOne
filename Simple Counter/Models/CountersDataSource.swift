@@ -209,6 +209,10 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		saveToDefaults()
 	}
 	
+	func removeAllCounters() {
+		countersList.removeAll(keepingCapacity: false)
+		saveToDefaults()
+	}
 	
 	func saveToDefaults() {
 		let counters = countersList

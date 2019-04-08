@@ -70,7 +70,7 @@ class ThemableAlertVC: UIViewController {
 	// MARK: - Lifecylce Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		if alertAction != alertType.deleteCounter { textField.becomeFirstResponder() }
+		if alertAction != alertType.deleteCounter && alertAction != alertType.deleteAll { textField.becomeFirstResponder() }
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -94,7 +94,7 @@ class ThemableAlertVC: UIViewController {
 		descriptionLabel.alpha			= 0.7
 		
 		if alertAction == alertType.deleteCounter || alertAction == alertType.deleteAll {
-			textField.isHidden				= true
+			textField.isHidden = true
 			okButton.setAttributedTitle(NSAttributedString(string: alertOkButtonText ?? "",
 														   attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
 																		NSAttributedString.Key.foregroundColor: theme.deletionColor]),
@@ -108,7 +108,7 @@ class ThemableAlertVC: UIViewController {
 																 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.6)])
 		}
 		
-		self.view.backgroundColor 		= UIColor.black.withAlphaComponent(0.6)
+		self.view.backgroundColor 		= UIColor.black.withAlphaComponent(0.8)
 		
 		titleLabel.text					= alertTitle ?? ""
 		descriptionLabel.text			= alertDescription ?? ""
@@ -117,7 +117,7 @@ class ThemableAlertVC: UIViewController {
 	fileprivate func animateView() {
 		wrapperView.alpha = 0;
 		self.wrapperView.frame.origin.y = self.wrapperView.frame.origin.y + 50
-		UIView.animate(withDuration: 0.4, animations: { () -> Void in
+		UIView.animate(withDuration: 0.3, animations: { () -> Void in
 			self.wrapperView.alpha = 1.0;
 			self.wrapperView.frame.origin.y = self.wrapperView.frame.origin.y - 50
 		})

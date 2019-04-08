@@ -25,10 +25,10 @@ extension RootViewController: CounterCellDelegate {
 	func didTapDelete(id: UUID) {
 		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
 		let deleteAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
-		deleteAlert.providesPresentationContextTransitionStyle = true
-		deleteAlert.definesPresentationContext = true
-		deleteAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-		deleteAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+		deleteAlert.providesPresentationContextTransitionStyle 	= true
+		deleteAlert.definesPresentationContext 					= true
+		deleteAlert.modalPresentationStyle 						= UIModalPresentationStyle.overCurrentContext
+		deleteAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
 		deleteAlert.delegate = self
 		
 		deleteAlert.alertTitle 			= "Delete Counter"
