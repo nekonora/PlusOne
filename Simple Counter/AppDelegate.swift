@@ -16,18 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 		ModelValidator.updateModel()
 		
+		ThemeManager.applyTheme(theme: .ocean)
+		
 		UINavigationBar.appearance().setBackgroundImage(
 			UIImage(),
 			for: .any,
 			barMetrics: .default)
-		
+
 		UINavigationBar.appearance().shadowImage = UIImage()
+		
 		return true
 	}
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
-		self.window?.tintColor = UIColor(named: "greenPastel")!
+//		self.window?.tintColor = ThemeManager.currentTheme().backgroundColor
 		
 		return true
 	}

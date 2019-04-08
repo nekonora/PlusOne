@@ -24,6 +24,7 @@ class CounterCell: UICollectionViewCell {
 	
 	
 	// MARK: - UI Outlets
+	@IBOutlet weak var smoothView: SmoothView!
 	@IBOutlet var TitleLabel	: UILabel!
 	@IBOutlet var CounterLabel	: UILabel!
 	@IBOutlet var unitLabel		: UILabel!
@@ -53,27 +54,49 @@ class CounterCell: UICollectionViewCell {
 	
 	
 	// MARK: - Properties
-	let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
-	var dataSource	: CountersDataSource!
-	var counterItem	: CounterV2!
-	var delegate	: CountersCVC?
+	let feedbackGenerator 	= UIImpactFeedbackGenerator(style: .light)
+	let theme 				= ThemeManager.currentTheme()
+	var dataSource			: CountersDataSource!
+	var counterItem			: CounterV2!
+	var delegate			: RootViewController?
 	
 	
 	// MARK: - Lifecycle Methods
 	override func awakeFromNib() {
 		feedbackGenerator.prepare()
-		setupTagsIcon()
+		setupTheme()
 		setupContextualButton()
 	}
 	
 	
 	// MARK: - Private methods
-	func setupTagsIcon() {
+	func setupTheme() {
+		TitleLabel.textColor 	= theme.textColor
+		CounterLabel.textColor 	= theme.textColor
+		unitLabel.textColor 	= theme.textColor
+		stepperUI.tintColor		= theme.tintColor
+		progressBar.tintColor	= theme.tintColor
+		
+//		backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+		
+//		let smoothView = SmoothView()
+		smoothView.frame = bounds
+		smoothView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+		smoothView.flx_smoothCorners = true
+		smoothView.layer.cornerRadius = 15
+//		addSubview(smoothView)
+//		sendSubviewToBack(smoothView)
+//		smoothView.snp.makeConstraints { (make) -> Void in
+//			make.width.equalToSuperview()
+//			make.height.equalToSuperview()
+//		}
+		
 		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
-		tagIconImageView.tintColor = UIColor(named: "pastelOrange")!
+		tagIconImageView.tintColor = theme.tagsColor
 	}
 	
 	func setupContextualButton() {
+	
 		struct PlusOneTheme: MenuTheme {
 			let font 						= UIFont.systemFont(ofSize: 16, weight: .medium)
 			let textColor 					= UIColor(named: "greenPastel")!
@@ -95,7 +118,7 @@ class CounterCell: UICollectionViewCell {
 		let contextualMenu = MenuView(title: "...", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
 				ShortcutMenuItem(name: "Customize..", shortcut: nil, action: { [unowned self] in self.selectedCustomize() }),
-				ShortcutMenuItem(name: "Reset to..", shortcut: nil, action: {}),
+				ShortcutMenuItem(name: "Reset to..", shortcut: nil, action: { [unowned self] in self.selectedResetTo() }),
 				SeparatorMenuItem(),
 				ShortcutMenuItem(name: "Delete", shortcut: nil, action: { [unowned self] in self.selectedDelete() }),
 				]
@@ -103,10 +126,10 @@ class CounterCell: UICollectionViewCell {
 		
 		contextualMenu.contentAlignment = .left
 		addSubview(contextualMenu)
-		contextualMenu.tintColor = UIColor(named: "greenPastel")!
+		contextualMenu.tintColor = theme.tintColor //UIColor(named: "greenPastel")!
 		
 		contextualMenu.snp.makeConstraints { (make) -> Void in
-			make.top.equalToSuperview().offset(0)
+			make.top.equalToSuperview().offset(10)
 			make.right.equalToSuperview().offset(-10)
 			make.height.equalTo(30)
 			make.width.equalTo(55)
@@ -122,9 +145,9 @@ class CounterCell: UICollectionViewCell {
 	}
 	
 	fileprivate func selectedResetTo() {
-//		if let cellDelegate = delegate {
-//			cellDelegate.didTapCustomize(dataSource: data, id: counterItem.id)
-//		}
+		if let cellDelegate = delegate {
+			cellDelegate.didTapResetTo(id: counterItem.id)
+		}
 	}
 	
 	fileprivate func selectedDelete() {
@@ -135,3 +158,4 @@ class CounterCell: UICollectionViewCell {
 	
 	
 }
+

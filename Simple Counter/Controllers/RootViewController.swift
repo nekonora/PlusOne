@@ -17,10 +17,12 @@ class RootViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var collectionViewContainer: UIView!
+	@IBOutlet var titleLabel: UILabel!
 	
 
 	// MARK: - Properties
-	var countersCollection: CountersCVC {
+	let theme 				= ThemeManager.currentTheme()
+	var countersCollection	: CountersCVC {
 		get {
 			let ctrl = children.first(where: { $0 is CountersCVC })
 			return ctrl as! CountersCVC
@@ -29,22 +31,22 @@ class RootViewController: UIViewController {
 	
 	var smallLayout: UICollectionViewFlowLayout {
 		let _flowLayout 					= UICollectionViewFlowLayout()
-		_flowLayout.itemSize 				= CGSize(width: 176, height: 170)
+		_flowLayout.itemSize 				= CGSize(width: 176, height: 186)
 		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 5, bottom: 20, right: 5)
 		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
-		_flowLayout.minimumLineSpacing		= 30.0
+		_flowLayout.minimumLineSpacing		= 15.0
 		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
 	
 	var bigLayout: UICollectionViewFlowLayout {
 		let _flowLayout 					= UICollectionViewFlowLayout()
-		_flowLayout.itemSize 				= CGSize(width: 300, height: 175)
+		_flowLayout.itemSize 				= CGSize(width: 300, height: 186)
 		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
 		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
-		_flowLayout.minimumLineSpacing		= 30.0
+		_flowLayout.minimumLineSpacing		= 15.0
 		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
@@ -55,24 +57,30 @@ class RootViewController: UIViewController {
 	// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+//		navigationItem.title = "Counters"
 
-        setupStyle()
+		titleLabel.textColor 	= theme.textColor
+		titleLabel.text			= "Counters"
+		
+		countersCollection.dataSource.cellDelegate = self
 		setupMenuButtons()
+		setupTheme()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		cleanTags()
-		setupLayout()
+		print(theme)
+		reloadView()
 	}
+	
 
 	// MARK: - Private Methods
-	fileprivate func setupStyle() {
-		navigationController?.navigationBar.barStyle = .blackTranslucent
-		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
-		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "notQuiteWhite")!]
-		
-		navigationItem.title = "Counters"
+	func reloadView() {
+		cleanTags()
+		setupLayout()
+		setupTheme()
+		countersCollection.setupView()
 	}
 	
 	fileprivate func setupLayout() {
@@ -87,6 +95,14 @@ class RootViewController: UIViewController {
 		} else {
 			viewByCounters()
 		}
+	}
+	
+	fileprivate func setupTheme() {
+		view.backgroundColor = theme.backgroundColor
+		
+//		navigationController?.navigationBar.barStyle = .blackTranslucent
+		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
+		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
 	}
 	
 	fileprivate func setupMenuButtons() {
@@ -120,13 +136,14 @@ class RootViewController: UIViewController {
 		let countersMenu = MenuView(title: "Counters", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
 				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: { [unowned self] in self.addTapped() }),
+				ShortcutMenuItem(name: "Delete all..", shortcut: nil, action: { [unowned self] in self.deleteAllTapped() }),
 				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "Settings..", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
+				ShortcutMenuItem(name: "About..", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
 				]
 		}
 		
-		countersMenu.contentAlignment 	= .left
 		viewMenu.contentAlignment		= .center
+		countersMenu.contentAlignment 	= .left
 		
 		view.addSubview(viewMenu)
 		view.addSubview(countersMenu)
@@ -139,13 +156,13 @@ class RootViewController: UIViewController {
 			make.right.equalTo(countersMenu.snp.leftMargin).offset(-20)
 			make.height.equalTo(40)
 		}
-		
+
 		countersMenu.snp.makeConstraints { (make) -> Void in
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(10)
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.rightMargin).offset(-10)
 			make.height.equalTo(40)
-			
 		}
+		
 	}
 	
 	fileprivate func cleanTags() {
@@ -181,11 +198,51 @@ class RootViewController: UIViewController {
 		addAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
 		addAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 		addAlert.delegate = self
+		
+		addAlert.alertTitle 		= "Add Counter"
+		addAlert.alertDescription 	= "Write a name for the counter"
+		addAlert.alertOkButtonText 	= "Add"
+		addAlert.alertKeyboardType 	= .default
+		addAlert.alertPlaceholder 	= "Name"
+		addAlert.alertAction		= .addCounter
+		
 		self.present(addAlert, animated: true, completion: nil)
+	}
+	
+	@objc func deleteAllTapped() {
+		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
+		let deleteAllAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
+		deleteAllAlert.providesPresentationContextTransitionStyle 	= true
+		deleteAllAlert.definesPresentationContext 					= true
+		deleteAllAlert.modalPresentationStyle 						= UIModalPresentationStyle.overCurrentContext
+		deleteAllAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
+		deleteAllAlert.delegate = self
+		
+		deleteAllAlert.alertTitle 			= "Delete All"
+		deleteAllAlert.alertDescription 	= "Do you really want to delete all counters?"
+		deleteAllAlert.alertOkButtonText 	= "Delete"
+		deleteAllAlert.alertAction			= .deleteAll
+		
+		self.present(deleteAllAlert, animated: true, completion: nil)
 	}
 	
 	
 	// Counters menu methods
+	@objc func addCounter(name: String) {
+		countersCollection.dataSource.addCounter(with: name)
+		reloadView()
+		countersCollection.collectionView.reloadData()
+//		cleanTags()
+//		setupLayout()
+//		countersCollection.setupView()
+	}
+	
+	@objc func deleteAllCounters() {
+		countersCollection.dataSource.removeAllCounters()
+		reloadView()
+		countersCollection.collectionView.reloadData()
+	}
+	
 	@objc func settingsTapped() {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
 			navigationController?.pushViewController(vc, animated: true)
@@ -221,18 +278,25 @@ class RootViewController: UIViewController {
 		defaults.set(true, forKey: "CellLayoutIsBig")
 	}
 	
-	
 }
 
 
 extension RootViewController: CustomAlertViewDelegate {
-	func okButtonTapped(textFieldValue: String) {
-		self.countersCollection.dataSource.addCounter(with: textFieldValue)
-		self.countersCollection.collectionView.reloadData()
-		cleanTags()
-		setupLayout()
+	func okButtonTapped(counterID: UUID?, alertType: alertType, textFieldValue: String) {
+		switch alertType {
+		case .addCounter:
+			addCounter(name: textFieldValue)
+		case .resetCounter:
+			guard counterID != nil else { return }
+			let newValue = (textFieldValue as NSString).floatValue
+			resetCounter(id: counterID!, value: newValue)
+		case .deleteCounter:
+			guard counterID != nil else { return }
+			deleteCounter(id: counterID!)
+		case .deleteAll:
+			deleteAllCounters()
+		}
 	}
-	
 	
 	func cancelButtonTapped() {
 		//

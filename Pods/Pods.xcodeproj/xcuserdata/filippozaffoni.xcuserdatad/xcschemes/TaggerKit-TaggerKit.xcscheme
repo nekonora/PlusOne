@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "841537762199BA2C6653A72C1E5480E1"
+               BlueprintIdentifier = "C864765B50041CA9A92C66B394031AE7"
                BuildableName = "TaggerKit.bundle"
                BlueprintName = "TaggerKit-TaggerKit"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "841537762199BA2C6653A72C1E5480E1"
+            BlueprintIdentifier = "C864765B50041CA9A92C66B394031AE7"
             BuildableName = "TaggerKit.bundle"
             BlueprintName = "TaggerKit-TaggerKit"
             ReferencedContainer = "container:Pods.xcodeproj">
