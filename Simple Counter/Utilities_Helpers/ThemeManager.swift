@@ -140,7 +140,7 @@ class ThemeManager {
 		if let storedTheme = (UserDefaults.standard.value(forKey: SelectedThemeKey) as AnyObject).integerValue {
 			return Theme(rawValue: storedTheme)!
 		} else {
-			return .sunrise
+			return .ocean
 		}
 	}
 	

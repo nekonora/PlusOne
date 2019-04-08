@@ -31,22 +31,22 @@ class RootViewController: UIViewController {
 	
 	var smallLayout: UICollectionViewFlowLayout {
 		let _flowLayout 					= UICollectionViewFlowLayout()
-		_flowLayout.itemSize 				= CGSize(width: 176, height: 170)
+		_flowLayout.itemSize 				= CGSize(width: 176, height: 186)
 		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 5, bottom: 20, right: 5)
 		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
-		_flowLayout.minimumLineSpacing		= 30.0
+		_flowLayout.minimumLineSpacing		= 15.0
 		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
 	
 	var bigLayout: UICollectionViewFlowLayout {
 		let _flowLayout 					= UICollectionViewFlowLayout()
-		_flowLayout.itemSize 				= CGSize(width: 300, height: 175)
+		_flowLayout.itemSize 				= CGSize(width: 300, height: 186)
 		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
 		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
 		_flowLayout.minimumInteritemSpacing = 10.0
-		_flowLayout.minimumLineSpacing		= 30.0
+		_flowLayout.minimumLineSpacing		= 15.0
 		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
 		return _flowLayout
 	}
@@ -65,10 +65,12 @@ class RootViewController: UIViewController {
 		
 		countersCollection.dataSource.cellDelegate = self
 		setupMenuButtons()
+		setupTheme()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
+		print(theme)
 		reloadView()
 	}
 	
@@ -134,8 +136,9 @@ class RootViewController: UIViewController {
 		let countersMenu = MenuView(title: "Counters", theme: PlusOneTheme()) { () -> [MenuItem] in
 			return [
 				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: { [unowned self] in self.addTapped() }),
+				ShortcutMenuItem(name: "Delete all..", shortcut: nil, action: { [unowned self] in self.deleteAllTapped() }),
 				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "Settings..", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
+				ShortcutMenuItem(name: "About..", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
 				]
 		}
 		
@@ -206,20 +209,46 @@ class RootViewController: UIViewController {
 		self.present(addAlert, animated: true, completion: nil)
 	}
 	
-	
-	// Counters menu methods
-	@objc func settingsTapped() {
-		if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
-			navigationController?.pushViewController(vc, animated: true)
-		}
+	@objc func deleteAllTapped() {
+		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
+		let deleteAllAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
+		deleteAllAlert.providesPresentationContextTransitionStyle 	= true
+		deleteAllAlert.definesPresentationContext 					= true
+		deleteAllAlert.modalPresentationStyle 						= UIModalPresentationStyle.overCurrentContext
+		deleteAllAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
+		deleteAllAlert.delegate = self
+		
+		deleteAllAlert.alertTitle 			= "Delete All"
+		deleteAllAlert.alertDescription 	= "Do you really want to delete all counters?"
+		deleteAllAlert.alertOkButtonText 	= "Delete"
+		deleteAllAlert.alertAction			= .deleteAll
+		
+		self.present(deleteAllAlert, animated: true, completion: nil)
 	}
 	
+	
+	// Counters menu methods
 	@objc func addCounter(name: String) {
 		countersCollection.dataSource.addCounter(with: name)
 		countersCollection.collectionView.reloadData()
 		cleanTags()
 		setupLayout()
 		countersCollection.setupView()
+	}
+	
+	@objc func deleteAllCounters() {
+		countersCollection.dataSource.countersList.removeAll()
+		countersCollection.dataSource.saveToDefaults()
+		countersCollection.collectionView.reloadData()
+		cleanTags()
+		setupLayout()
+		countersCollection.setupView()
+	}
+	
+	@objc func settingsTapped() {
+		if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+			navigationController?.pushViewController(vc, animated: true)
+		}
 	}
 	
 	
@@ -266,6 +295,8 @@ extension RootViewController: CustomAlertViewDelegate {
 		case .deleteCounter:
 			guard counterID != nil else { return }
 			deleteCounter(id: counterID!)
+		case .deleteAll:
+			deleteAllCounters()
 		}
 	}
 	

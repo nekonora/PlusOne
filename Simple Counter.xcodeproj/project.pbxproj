@@ -25,6 +25,8 @@
 		FA48444722294D5200D4F47D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48444622294D5200D4F47D /* String+.swift */; };
 		FA5997A42244E526004FAEAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5997A32244E526004FAEAA /* SettingsViewController.swift */; };
 		FA5997AA2244E853004FAEAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5997A92244E853004FAEAA /* Settings.storyboard */; };
+		FA908FC7225B8D7D009D002F /* SmoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA908FC6225B8D7D009D002F /* SmoothView.swift */; };
+		FA908FC9225B91B1009D002F /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA908FC8225B91B1009D002F /* ScrollView+.swift */; };
 		FA91C4262251EE3500776157 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91C4252251EE3500776157 /* ThemeManager.swift */; };
 		FA9FA01E22208638003AB865 /* RootViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA01D22208638003AB865 /* RootViewController+.swift */; };
 		FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA02122208B19003AB865 /* CountersDataSource.swift */; };
@@ -56,6 +58,8 @@
 		FA48444622294D5200D4F47D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA5997A32244E526004FAEAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA5997A92244E853004FAEAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		FA908FC6225B8D7D009D002F /* SmoothView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothView.swift; sourceTree = "<group>"; };
+		FA908FC8225B91B1009D002F /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
 		FA91C4252251EE3500776157 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		FA9FA01D22208638003AB865 /* RootViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController+.swift"; sourceTree = "<group>"; };
 		FA9FA02122208B19003AB865 /* CountersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersDataSource.swift; sourceTree = "<group>"; };
@@ -132,9 +136,9 @@
 			children = (
 				FA43DFFB2208395F002F0DAD /* Counter.swift */,
 				FAA46179222C0F3C00F65AF4 /* CounterV2.swift */,
-				FA48444622294D5200D4F47D /* String+.swift */,
 				FA9FA02122208B19003AB865 /* CountersDataSource.swift */,
 				FA112D4C222D92FF00741832 /* TagsManager.swift */,
+				FA48444622294D5200D4F47D /* String+.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +156,7 @@
 		FA91C4242251EE0D00776157 /* Utilities_Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FA908FC6225B8D7D009D002F /* SmoothView.swift */,
 				FAA46177222C0D2D00F65AF4 /* Helpers.swift */,
 				FA91C4252251EE3500776157 /* ThemeManager.swift */,
 			);
@@ -164,6 +169,7 @@
 				FA43DFFF22083B2A002F0DAD /* CounterCell.swift */,
 				FA14C82A22457F4C0087D3C9 /* TagHeaderView.swift */,
 				FA0C0CB6222498EB005BF573 /* CustomButton.swift */,
+				FA908FC8225B91B1009D002F /* ScrollView+.swift */,
 				FA2F912822467D5E00D31762 /* UIButton+.swift */,
 			);
 			path = Views;
@@ -243,8 +249,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA43DFF32208381C002F0DAD /* LaunchScreen.storyboard in Resources */,
 				FA43DFF02208381C002F0DAD /* Assets.xcassets in Resources */,
+				FA43DFF32208381C002F0DAD /* LaunchScreen.storyboard in Resources */,
 				FA43DFEE2208381A002F0DAD /* Main.storyboard in Resources */,
 				FA2F912E2246825500D31762 /* ThemableAlertVC.storyboard in Resources */,
 				FA5997AA2244E853004FAEAA /* Settings.storyboard in Resources */,
@@ -312,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA14C82B22457F4C0087D3C9 /* TagHeaderView.swift in Sources */,
+				FA908FC9225B91B1009D002F /* ScrollView+.swift in Sources */,
 				FA43DFFC2208395F002F0DAD /* Counter.swift in Sources */,
 				FA48444722294D5200D4F47D /* String+.swift in Sources */,
 				FA2F912722467C0100D31762 /* ThemableAlertVC.swift in Sources */,
@@ -320,6 +327,7 @@
 				FA43DFE92208381A002F0DAD /* AppDelegate.swift in Sources */,
 				FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */,
 				FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */,
+				FA908FC7225B8D7D009D002F /* SmoothView.swift in Sources */,
 				FA9FA01E22208638003AB865 /* RootViewController+.swift in Sources */,
 				FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */,
 				FA43DFFE22083AC9002F0DAD /* CountersCVC.swift in Sources */,

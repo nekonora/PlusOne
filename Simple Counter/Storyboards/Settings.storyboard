@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--About-->
         <scene sceneID="kWp-hh-6dI">
             <objects>
-                <viewController storyboardIdentifier="Settings" title="Settings" id="egD-sv-WKY" customClass="SettingsViewController" customModule="Simple_Counter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Settings" title="About" id="egD-sv-WKY" customClass="SettingsViewController" customModule="Simple_Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dE4-kQ-MAM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,8 +49,8 @@
                                                     <action selector="twitterButtonTapped:" destination="egD-sv-WKY" eventType="touchUpInside" id="6ad-fS-7Rj"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plus1 - Version 1.1 Beta - Build 11011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys5-Wo-Q7r">
-                                                <rect key="frame" x="66.5" y="78" width="242.5" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plus1 - Version 1.1 Beta - Build 11013" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys5-Wo-Q7r">
+                                                <rect key="frame" x="65" y="78" width="245" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" name="notQuiteWhite"/>
                                                 <nil key="highlightedColor"/>

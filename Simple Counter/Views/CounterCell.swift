@@ -76,6 +76,20 @@ class CounterCell: UICollectionViewCell {
 		stepperUI.tintColor		= theme.tintColor
 		progressBar.tintColor	= theme.tintColor
 		
+//		backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+		
+		let backgroundView = SmoothView()
+		backgroundView.frame = bounds
+		backgroundView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+		backgroundView.flx_smoothCorners = true
+		backgroundView.layer.cornerRadius = 15
+		addSubview(backgroundView)
+		sendSubviewToBack(backgroundView)
+		backgroundView.snp.makeConstraints { (make) -> Void in
+			make.width.equalToSuperview()
+			make.height.equalToSuperview()
+		}
+		
 		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
 		tagIconImageView.tintColor = theme.tagsColor
 	}
@@ -114,7 +128,7 @@ class CounterCell: UICollectionViewCell {
 		contextualMenu.tintColor = theme.tintColor //UIColor(named: "greenPastel")!
 		
 		contextualMenu.snp.makeConstraints { (make) -> Void in
-			make.top.equalToSuperview().offset(0)
+			make.top.equalToSuperview().offset(10)
 			make.right.equalToSuperview().offset(-10)
 			make.height.equalTo(30)
 			make.width.equalTo(55)
@@ -143,3 +157,4 @@ class CounterCell: UICollectionViewCell {
 	
 	
 }
+

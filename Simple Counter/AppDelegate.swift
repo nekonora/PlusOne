@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 		ModelValidator.updateModel()
 		
+		ThemeManager.applyTheme(theme: .ocean)
+		
 		UINavigationBar.appearance().setBackgroundImage(
 			UIImage(),
 			for: .any,
 			barMetrics: .default)
-		
+
 		UINavigationBar.appearance().shadowImage = UIImage()
-		
-		ThemeManager.applyTheme(theme: .ocean)
 		
 		return true
 	}

@@ -20,6 +20,7 @@ enum alertType {
 	case addCounter
 	case deleteCounter
 	case resetCounter
+	case deleteAll
 }
 
 
@@ -69,7 +70,7 @@ class ThemableAlertVC: UIViewController {
 	// MARK: - Lifecylce Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		textField.becomeFirstResponder()
+		if alertAction != alertType.deleteCounter { textField.becomeFirstResponder() }
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -92,7 +93,7 @@ class ThemableAlertVC: UIViewController {
 		descriptionLabel.textColor 		= UIColor(named: "notQuiteWhite")!
 		descriptionLabel.alpha			= 0.7
 		
-		if alertAction == alertType.deleteCounter {
+		if alertAction == alertType.deleteCounter || alertAction == alertType.deleteAll {
 			textField.isHidden				= true
 			okButton.setAttributedTitle(NSAttributedString(string: alertOkButtonText ?? "",
 														   attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
