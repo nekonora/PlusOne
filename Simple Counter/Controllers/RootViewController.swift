@@ -29,39 +29,12 @@ class RootViewController: UIViewController {
 		}
 	}
 	
-	var smallLayout: UICollectionViewFlowLayout {
-		let _flowLayout 					= UICollectionViewFlowLayout()
-		_flowLayout.itemSize 				= CGSize(width: 176, height: 186)
-		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 5, bottom: 20, right: 5)
-		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
-		_flowLayout.minimumInteritemSpacing = 10.0
-		_flowLayout.minimumLineSpacing		= 15.0
-		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
-		return _flowLayout
-	}
-	
-	var bigLayout: UICollectionViewFlowLayout {
-		let _flowLayout 					= UICollectionViewFlowLayout()
-		_flowLayout.itemSize 				= CGSize(width: 300, height: 186)
-		_flowLayout.sectionInset 			= UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
-		_flowLayout.scrollDirection 		= UICollectionView.ScrollDirection.vertical
-		_flowLayout.minimumInteritemSpacing = 10.0
-		_flowLayout.minimumLineSpacing		= 15.0
-		_flowLayout.headerReferenceSize 	= CGSize(width: 100, height: 50)
-		return _flowLayout
-	}
-	
 	let defaults = UserDefaults.standard
 
 	
 	// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-//		navigationItem.title = "Counters"
-
-		titleLabel.textColor 	= theme.textColor
-		titleLabel.text			= "Counters"
 		
 		countersCollection.dataSource.cellDelegate = self
 		setupMenuButtons()
@@ -70,7 +43,7 @@ class RootViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		print(theme)
+		
 		reloadView()
 	}
 	
@@ -84,62 +57,41 @@ class RootViewController: UIViewController {
 	}
 	
 	fileprivate func setupLayout() {
-		if defaults.bool(forKey: "CellLayoutIsBig") {
-			countersCollection.collectionView.collectionViewLayout = bigLayout
-		} else {
-			countersCollection.collectionView.collectionViewLayout = smallLayout
-		}
+		let userChooseSmallLayout 	= defaults.bool(forKey: "CellLayoutIsSmall")
+		let userChooseViewByTags 	= defaults.bool(forKey: "ViewByTags")
 		
-		if defaults.bool(forKey: "ViewByTags") {
-			viewByTags()
+		_ = userChooseViewByTags ? viewByTags() : viewByCounters()
+		if userChooseSmallLayout {
+			countersCollection.collectionView.collectionViewLayout = CountersLayoutType.small
 		} else {
-			viewByCounters()
+			countersCollection.collectionView.collectionViewLayout = CountersLayoutType.big
 		}
 	}
 	
 	fileprivate func setupTheme() {
 		view.backgroundColor = theme.backgroundColor
 		
-//		navigationController?.navigationBar.barStyle = .blackTranslucent
+		titleLabel.textColor 	= theme.textColor
+		titleLabel.text			= "Counters"
+
 		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
 		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
 	}
 	
 	fileprivate func setupMenuButtons() {
-		struct PlusOneTheme: MenuTheme {
-			let font 						= UIFont.systemFont(ofSize: 16, weight: .medium)
-			let textColor 					= UIColor(named: "greenPastel")!
-			let brightTintColor 			= UIColor.black
-			let darkTintColor 				= UIColor.black
-			let highlightedTextColor 		= UIColor.white
-			let highlightedBackgroundColor 	= UIColor(named: "greenPastel")!
-			let backgroundTint 				= UIColor(red:0.18, green:0.77, blue:0.71, alpha: 0.15)
-			let gestureBarTint 				= UIColor(named: "greenPastel")!
-			let blurEffect 					= UIBlurEffect(style: .dark)
-			let shadowColor 				= UIColor.black
-			let shadowOpacity				: Float = 0.3
-			let shadowRadius				: CGFloat = 7.0
-			let separatorColor 				= UIColor(white: 1, alpha: 0.1)
-			public init() {}
+		let viewMenu = MenuView(title: "View", theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
+			[ShortcutMenuItem(name: "Orginize by Counters", shortcut: nil) { self.viewByCounters() },
+			ShortcutMenuItem(name: "Organize by Tags", shortcut: nil) { self.viewByTags() },
+			SeparatorMenuItem(),
+			ShortcutMenuItem(name: "View big cells", shortcut: nil) { self.setBigLayout() },
+			ShortcutMenuItem(name: "View small cells", shortcut: nil) { self.setSmallLayout() }]
 		}
 		
-		let viewMenu = MenuView(title: "View", theme: PlusOneTheme()) { () -> [MenuItem] in
-			return [
-				ShortcutMenuItem(name: "Orginize by Counters", shortcut: nil, action: { [unowned self] in self.viewByCounters() }),
-				ShortcutMenuItem(name: "Organize by Tags", shortcut: nil, action: { [unowned self] in self.viewByTags() }),
-				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "View big cells", shortcut: nil, action: { [unowned self] in self.setBigLayout() }),
-				ShortcutMenuItem(name: "View small cells", shortcut: nil, action: { [unowned self] in self.setSmallLayout() }),
-				]
-		}
-		
-		let countersMenu = MenuView(title: "Counters", theme: PlusOneTheme()) { () -> [MenuItem] in
-			return [
-				ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N"), action: { [unowned self] in self.addTapped() }),
-				ShortcutMenuItem(name: "Delete all..", shortcut: nil, action: { [unowned self] in self.deleteAllTapped() }),
-				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "About..", shortcut: ([.command], ","), action: { [unowned self] in self.settingsTapped() }),
-				]
+		let countersMenu = MenuView(title: "Counters", theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
+			[ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N")){ self.addTapped() },
+			ShortcutMenuItem(name: "Delete all..", shortcut: nil){ self.deleteAllTapped() },
+			SeparatorMenuItem(),
+			ShortcutMenuItem(name: "About..", shortcut: ([.command], ",")){ self.settingsTapped() }]
 		}
 		
 		viewMenu.contentAlignment		= .center
@@ -148,8 +100,8 @@ class RootViewController: UIViewController {
 		view.addSubview(viewMenu)
 		view.addSubview(countersMenu)
 		
-		viewMenu.tintColor = UIColor(named: "greenPastel")!
-		countersMenu.tintColor = UIColor(named: "greenPastel")!
+		viewMenu.tintColor = theme.tintColor
+		countersMenu.tintColor = theme.tintColor
 		
 		viewMenu.snp.makeConstraints { (make) -> Void in
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(10)
@@ -162,7 +114,6 @@ class RootViewController: UIViewController {
 			make.right.equalTo(self.view.safeAreaLayoutGuide.snp.rightMargin).offset(-10)
 			make.height.equalTo(40)
 		}
-		
 	}
 	
 	fileprivate func cleanTags() {
@@ -194,9 +145,9 @@ class RootViewController: UIViewController {
 		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
 		let addAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
 		addAlert.providesPresentationContextTransitionStyle = true
-		addAlert.definesPresentationContext = true
-		addAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-		addAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+		addAlert.definesPresentationContext 				= true
+		addAlert.modalPresentationStyle 					= UIModalPresentationStyle.overCurrentContext
+		addAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
 		addAlert.delegate = self
 		
 		addAlert.alertTitle 		= "Add Counter"
@@ -232,9 +183,6 @@ class RootViewController: UIViewController {
 		countersCollection.dataSource.addCounter(with: name)
 		reloadView()
 		countersCollection.collectionView.reloadData()
-//		cleanTags()
-//		setupLayout()
-//		countersCollection.setupView()
 	}
 	
 	@objc func deleteAllCounters() {
@@ -265,7 +213,7 @@ class RootViewController: UIViewController {
 	
 	@objc func setSmallLayout() {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
-			self.countersCollection.collectionView.collectionViewLayout = self.smallLayout
+			self.countersCollection.collectionView.collectionViewLayout = CountersLayoutType.small
 		}
 		defaults.set(false, forKey: "CellLayoutIsBig")
 	}
@@ -273,7 +221,7 @@ class RootViewController: UIViewController {
 	
 	@objc func setBigLayout() {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
-			self.countersCollection.collectionView.collectionViewLayout = self.bigLayout
+			self.countersCollection.collectionView.collectionViewLayout = CountersLayoutType.big
 		}
 		defaults.set(true, forKey: "CellLayoutIsBig")
 	}
@@ -298,7 +246,5 @@ extension RootViewController: CustomAlertViewDelegate {
 		}
 	}
 	
-	func cancelButtonTapped() {
-		//
-	}
+	func cancelButtonTapped() {}
 }

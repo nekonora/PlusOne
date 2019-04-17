@@ -77,51 +77,21 @@ class CounterCell: UICollectionViewCell {
 		stepperUI.tintColor		= theme.tintColor
 		progressBar.tintColor	= theme.tintColor
 		
-//		backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-		
-//		let smoothView = SmoothView()
 		smoothView.frame = bounds
 		smoothView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
 		smoothView.flx_smoothCorners = true
 		smoothView.layer.cornerRadius = 15
-//		addSubview(smoothView)
-//		sendSubviewToBack(smoothView)
-//		smoothView.snp.makeConstraints { (make) -> Void in
-//			make.width.equalToSuperview()
-//			make.height.equalToSuperview()
-//		}
 		
 		tagIconImageView.image = tagIconImageView.image?.withRenderingMode(.alwaysTemplate)
 		tagIconImageView.tintColor = theme.tagsColor
 	}
 	
 	func setupContextualButton() {
-	
-		struct PlusOneTheme: MenuTheme {
-			let font 						= UIFont.systemFont(ofSize: 16, weight: .medium)
-			let textColor 					= UIColor(named: "greenPastel")!
-			let brightTintColor 			= UIColor.black
-			let darkTintColor 				= UIColor.black
-			let highlightedTextColor 		= UIColor.white
-			let highlightedBackgroundColor 	= UIColor(named: "greenPastel")!
-			let backgroundTint 				= UIColor(red:0.18, green:0.77, blue:0.71, alpha: 0.15)
-			let gestureBarTint 				= UIColor(named: "greenPastel")!
-			let blurEffect 					= UIBlurEffect(style: .dark)
-			let shadowColor 				= UIColor.black
-			let shadowOpacity				: Float = 0.3
-			let shadowRadius				: CGFloat = 7.0
-			let separatorColor 				= UIColor(white: 1, alpha: 0.1)
-			public init() {}
-		}
-		
-		
-		let contextualMenu = MenuView(title: "...", theme: PlusOneTheme()) { () -> [MenuItem] in
-			return [
-				ShortcutMenuItem(name: "Customize..", shortcut: nil, action: { [unowned self] in self.selectedCustomize() }),
-				ShortcutMenuItem(name: "Reset to..", shortcut: nil, action: { [unowned self] in self.selectedResetTo() }),
-				SeparatorMenuItem(),
-				ShortcutMenuItem(name: "Delete", shortcut: nil, action: { [unowned self] in self.selectedDelete() }),
-				]
+		let contextualMenu = MenuView(title: "...", theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
+			[ShortcutMenuItem(name: "Customize..", shortcut: nil) { self.selectedCustomize() },
+			ShortcutMenuItem(name: "Reset to..", shortcut: nil) { self.selectedResetTo() },
+			SeparatorMenuItem(),
+			ShortcutMenuItem(name: "Delete", shortcut: nil) { self.selectedDelete() }]
 		}
 		
 		contextualMenu.contentAlignment = .left

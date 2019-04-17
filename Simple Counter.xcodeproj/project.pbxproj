@@ -33,6 +33,7 @@
 		FAA46178222C0D2D00F65AF4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46177222C0D2D00F65AF4 /* Helpers.swift */; };
 		FAA4617A222C0F3C00F65AF4 /* CounterV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA46179222C0F3C00F65AF4 /* CounterV2.swift */; };
 		FAB7916922269B900073732D /* CounterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7916822269B900073732D /* CounterDetailVC.swift */; };
+		FAFC1B442267BD2800E8264B /* CountersLayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC1B432267BD2800E8264B /* CountersLayoutType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		FAA46177222C0D2D00F65AF4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FAA46179222C0F3C00F65AF4 /* CounterV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterV2.swift; sourceTree = "<group>"; };
 		FAB7916822269B900073732D /* CounterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDetailVC.swift; sourceTree = "<group>"; };
+		FAFC1B432267BD2800E8264B /* CountersLayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersLayoutType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				FA43DFFB2208395F002F0DAD /* Counter.swift */,
 				FAA46179222C0F3C00F65AF4 /* CounterV2.swift */,
 				FA9FA02122208B19003AB865 /* CountersDataSource.swift */,
+				FAFC1B432267BD2800E8264B /* CountersLayoutType.swift */,
 				FA112D4C222D92FF00741832 /* TagsManager.swift */,
 				FA48444622294D5200D4F47D /* String+.swift */,
 			);
@@ -336,6 +339,7 @@
 				FA224E58223D362100594428 /* RootViewController.swift in Sources */,
 				FA0C0CB7222498EB005BF573 /* CustomButton.swift in Sources */,
 				FA43E00022083B2A002F0DAD /* CounterCell.swift in Sources */,
+				FAFC1B442267BD2800E8264B /* CountersLayoutType.swift in Sources */,
 				FA9FA02222208B19003AB865 /* CountersDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,6 @@ THEMES:
 - tags:			FAB95B
 - deletion:		F5564E
 
-
 */
 
 
@@ -127,6 +126,29 @@ enum Theme: Int {
 	}
 }
 
+enum CustomMenuTheme {
+	
+	static var dark: MenuTheme {
+		struct PlusOneTheme: MenuTheme {
+			let font 						= UIFont.systemFont(ofSize: 16, weight: .medium)
+			let textColor 					= UIColor(named: "greenPastel")!
+			let brightTintColor 			= UIColor.black
+			let darkTintColor 				= UIColor.black
+			let highlightedTextColor 		= UIColor.white
+			let highlightedBackgroundColor 	= UIColor(named: "greenPastel")!
+			let backgroundTint 				= UIColor(red:0.18, green:0.77, blue:0.71, alpha: 0.15)
+			let gestureBarTint 				= UIColor(named: "greenPastel")!
+			let blurEffect 					= UIBlurEffect(style: .dark)
+			let shadowColor 				= UIColor.black
+			let shadowOpacity				: Float = 0.3
+			let shadowRadius				: CGFloat = 7.0
+			let separatorColor 				= UIColor(white: 1, alpha: 0.1)
+			public init() {}
+		}
+		return PlusOneTheme()
+	}
+
+}
 
 // Enum declaration
 let SelectedThemeKey = "SelectedTheme"

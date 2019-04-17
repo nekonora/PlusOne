@@ -116,10 +116,10 @@ class ThemableAlertVC: UIViewController {
 	
 	fileprivate func animateView() {
 		wrapperView.alpha = 0;
-		self.wrapperView.frame.origin.y = self.wrapperView.frame.origin.y + 50
+		self.wrapperView.frame.origin.y = self.wrapperView.frame.origin.y + 30
 		UIView.animate(withDuration: 0.3, animations: { () -> Void in
 			self.wrapperView.alpha = 1.0;
-			self.wrapperView.frame.origin.y = self.wrapperView.frame.origin.y - 50
+			self.wrapperView.frame.origin.y = self.wrapperView.frame.origin.y - 30
 		})
 	}
 
