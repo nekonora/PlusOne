@@ -215,7 +215,7 @@ class RootViewController: UIViewController {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.countersCollection.collectionView.collectionViewLayout = CountersLayoutType.small
 		}
-		defaults.set(false, forKey: "CellLayoutIsBig")
+		defaults.set(true, forKey: "CellLayoutIsSmall")
 	}
 	
 	
@@ -223,7 +223,7 @@ class RootViewController: UIViewController {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.countersCollection.collectionView.collectionViewLayout = CountersLayoutType.big
 		}
-		defaults.set(true, forKey: "CellLayoutIsBig")
+		defaults.set(false, forKey: "CellLayoutIsSmall")
 	}
 	
 }
