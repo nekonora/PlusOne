@@ -64,7 +64,6 @@ class ThemableAlertVC: UIViewController {
 	
 	// MARK: - Properties
 	var delegate: CustomAlertViewDelegate?
-	let accentColor = UIColor(named: "greenPastel")?.withAlphaComponent(0.2)
 	
 	
 	// MARK: - Lifecylce Methods
@@ -77,20 +76,19 @@ class ThemableAlertVC: UIViewController {
 		super.viewWillAppear(animated)
 		setupView()
 		animateView()
-		cancelButton.addBorder(side: .Top, color: accentColor!, width: 1)
-		cancelButton.addBorder(side: .Right, color: accentColor!, width: 1)
-		okButton.addBorder(side: .Top, color: accentColor!, width: 1)
+		
 	}
 	
 	
 	// MARK: - Private Methods
 	fileprivate func setupView() {
 		wrapperView.layer.cornerRadius 	= 15
-		wrapperView.backgroundColor 	= UIColor(red:0.07, green:0.33, blue:0.30, alpha:0.6)
+		wrapperView.backgroundColor 	= theme.backgroundColor.withAlphaComponent(0.6)
 		okButton.setTitle(alertOkButtonText ?? "Add", for: .normal)
 		setBlurView(view: wrapperView)
-		titleLabel.textColor 			= UIColor(named: "notQuiteWhite")!
-		descriptionLabel.textColor 		= UIColor(named: "notQuiteWhite")!
+		okButton.setTitleColor(theme.textColor, for: .normal)
+		titleLabel.textColor 			= theme.textColor
+		descriptionLabel.textColor 		= theme.textColor
 		descriptionLabel.alpha			= 0.7
 		
 		if alertAction == alertType.deleteCounter || alertAction == alertType.deleteAll {
@@ -100,18 +98,22 @@ class ThemableAlertVC: UIViewController {
 																		NSAttributedString.Key.foregroundColor: theme.deletionColor]),
 														   for: .normal)
 		} else {
-			textField.backgroundColor		= UIColor(named: "notQuiteBlack")?.withAlphaComponent(0.5)
-			textField.textColor				= UIColor(named: "notQuiteWhite")!
+			textField.backgroundColor		= theme.backgroundColor.withAlphaComponent(0.5) //UIColor(named: "notQuiteBlack")?.withAlphaComponent(0.5)
+			textField.textColor				= theme.textColor
 			textField.keyboardAppearance 	= UIKeyboardAppearance.dark
 			textField.keyboardType			= alertKeyboardType ?? UIKeyboardType.default
 			textField.attributedPlaceholder = NSAttributedString(string: alertPlaceholder ?? "",
-																 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.6)])
+																 attributes: [NSAttributedString.Key.foregroundColor: theme.textColor.withAlphaComponent(0.6)])
 		}
 		
 		self.view.backgroundColor 		= UIColor.black.withAlphaComponent(0.8)
 		
-		titleLabel.text					= alertTitle ?? ""
-		descriptionLabel.text			= alertDescription ?? ""
+		titleLabel.text					= alertTitle
+		descriptionLabel.text			= alertDescription
+		
+		cancelButton.addBorder(side: .Top, color: theme.tintColor.withAlphaComponent(0.4), width: 1)
+		cancelButton.addBorder(side: .Right, color: theme.tintColor.withAlphaComponent(0.4), width: 1)
+		okButton.addBorder(side: .Top, color: theme.tintColor.withAlphaComponent(0.4), width: 1)
 	}
 	
 	fileprivate func animateView() {
@@ -126,7 +128,14 @@ class ThemableAlertVC: UIViewController {
 	fileprivate func setBlurView(view: UIView) {
 		let blurView = UIVisualEffectView()
 		blurView.frame = view.bounds
-		blurView.effect = UIBlurEffect(style: .dark)
+		
+		switch theme {
+		case .ocean:
+			blurView.effect = UIBlurEffect(style: .dark)
+		case .sunrise:
+			blurView.effect = UIBlurEffect(style: .light)
+		}
+		
 		blurView.layer.cornerRadius = 15
 		blurView.clipsToBounds = true
 		view.addSubview(blurView)

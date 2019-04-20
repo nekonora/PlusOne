@@ -76,24 +76,22 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		title = counter.name!
 		
 		// TaggerKit stuff
-		let allTags = tagsManager.loadFromDefaults()
+		let allTags 					= tagsManager.loadFromDefaults()
 		
-		counterTagsCollection.tags = counter.tags
+		counterTagsCollection.tags 		= counter.tags
+		allTagsCollection.tags 			= allTags
 		
-		allTagsCollection.tags = allTags
-		
-		
-		counterTagsCollection.action = .removeTag
+		counterTagsCollection.action 	= .removeTag
 
-		counterTagsCollection.delegate = self
-		allTagsCollection.delegate = self
+		counterTagsCollection.delegate 	= self
+		allTagsCollection.delegate 		= self
 		
-		allTagsCollection.receiver = counterTagsCollection
+		allTagsCollection.receiver 		= counterTagsCollection
 		
-		allTagsCollection.action = .addTag
+		allTagsCollection.action 		= .addTag
 		
-		tagsTextField.sender 	= allTagsCollection
-		tagsTextField.receiver 	= counterTagsCollection
+		tagsTextField.sender 			= allTagsCollection
+		tagsTextField.receiver 			= counterTagsCollection
 		
 		setupTags()
 		
@@ -118,15 +116,17 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	fileprivate func setupTextFields() {
 		for textField in textFieldsUI {
 
-			textField.layer.cornerRadius =  15
-			let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
-			textField.leftView = leftView
-			textField.leftViewMode = .always
+			let leftView 					= UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
+			textField.layer.cornerRadius 	=  15
+			textField.leftView 				= leftView
+			textField.leftViewMode 			= .always
 
-			textField.layer.borderWidth = 1.0
-			textField.layer.borderColor = UIColor(named: "greenPastel")!.cgColor
-			textField.keyboardAppearance = UIKeyboardAppearance.dark
-			textField.delegate = self
+			textField.layer.borderWidth 	= 1.0
+			textField.layer.borderColor 	= UIColor(named: "greenPastel")!.cgColor
+			textField.keyboardAppearance 	= UIKeyboardAppearance.dark
+			textField.delegate 				= self
+			textField.backgroundColor		= ThemeManager.currentTheme().tintColor.withAlphaComponent(0.1)
+			textField.clipsToBounds 		= true
 		}
 		
 		nameTextField.text 			= String(counter.name)
@@ -137,22 +137,23 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	
 	func setupTagsTextField() {
-		tagsTextField.layer.cornerRadius =  15
 		let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
-		tagsTextField.leftView = leftView
-		tagsTextField.leftViewMode = .always
+		tagsTextField.layer.cornerRadius 	=  15
+		tagsTextField.leftView 				= leftView
+		tagsTextField.leftViewMode 			= .always
 		
-		tagsTextField.layer.borderWidth = 1.0
-		tagsTextField.layer.borderColor = UIColor(named: "greenPastel")!.cgColor
-		tagsTextField.keyboardAppearance = UIKeyboardAppearance.dark
+		tagsTextField.layer.borderWidth 	= 1.0
+		tagsTextField.backgroundColor		= ThemeManager.currentTheme().tintColor.withAlphaComponent(0.1)
+		tagsTextField.layer.borderColor 	= UIColor(named: "greenPastel")!.cgColor
+		tagsTextField.keyboardAppearance 	= UIKeyboardAppearance.dark
 	}
 	
 	
 	func setupTags() {
-		allTagsCollection.customFont = UIFont.boldSystemFont(ofSize: 14)
+		allTagsCollection.customFont 			= UIFont.boldSystemFont(ofSize: 14)
 		allTagsCollection.customBackgroundColor = UIColor(named: "greenPastel")!
 		
-		counterTagsCollection.customFont = UIFont.boldSystemFont(ofSize: 14)
+		counterTagsCollection.customFont 			= UIFont.boldSystemFont(ofSize: 14)
 		counterTagsCollection.customBackgroundColor = UIColor(named: "pastelOrange")!
 	}
 	
