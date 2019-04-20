@@ -72,7 +72,13 @@ class RootViewController: UIViewController {
 		view.backgroundColor = theme.backgroundColor
 		
 		titleLabel.textColor 	= theme.textColor
-		titleLabel.text			= "Counters"
+		
+		switch UIDevice.modelName {
+		case "iPhone 5s", "iPhone SE", "Simulator iPhone 5s", "Simulator iPhone SE":
+			titleLabel.text	= "Plus1"
+		default:
+			titleLabel.text	= "Counters"
+		}
 
 		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
 		navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]

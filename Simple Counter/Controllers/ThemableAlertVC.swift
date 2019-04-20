@@ -83,7 +83,7 @@ class ThemableAlertVC: UIViewController {
 	// MARK: - Private Methods
 	fileprivate func setupView() {
 		wrapperView.layer.cornerRadius 	= 15
-		wrapperView.backgroundColor 	= theme.backgroundColor.withAlphaComponent(0.6)
+		wrapperView.backgroundColor 	= theme.tintColor.withAlphaComponent(0.4)
 		okButton.setTitle(alertOkButtonText ?? "Add", for: .normal)
 		setBlurView(view: wrapperView)
 		okButton.setTitleColor(theme.textColor, for: .normal)
@@ -98,7 +98,7 @@ class ThemableAlertVC: UIViewController {
 																		NSAttributedString.Key.foregroundColor: theme.deletionColor]),
 														   for: .normal)
 		} else {
-			textField.backgroundColor		= theme.backgroundColor.withAlphaComponent(0.5) //UIColor(named: "notQuiteBlack")?.withAlphaComponent(0.5)
+			textField.backgroundColor		= theme.backgroundColor.withAlphaComponent(0.5)
 			textField.textColor				= theme.textColor
 			textField.keyboardAppearance 	= UIKeyboardAppearance.dark
 			textField.keyboardType			= alertKeyboardType ?? UIKeyboardType.default

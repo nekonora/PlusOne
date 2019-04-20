@@ -54,10 +54,10 @@ extension RootViewController: CounterCellDelegate {
 		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
 		let resetToAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
 		resetToAlert.providesPresentationContextTransitionStyle = true
-		resetToAlert.definesPresentationContext = true
-		resetToAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-		resetToAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-		resetToAlert.delegate = self
+		resetToAlert.definesPresentationContext 				= true
+		resetToAlert.modalPresentationStyle 					= UIModalPresentationStyle.overCurrentContext
+		resetToAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
+		resetToAlert.delegate 									= self
 		
 		resetToAlert.alertTitle 		= "Reset Counter"
 		resetToAlert.alertDescription 	= "Write a new value for the counter"

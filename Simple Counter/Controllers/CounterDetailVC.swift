@@ -31,6 +31,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	@IBOutlet var tagsContainerView: UIView!
 	@IBOutlet var allTagsContainer: UIView!
 	
+	// MARK: - Actions
 	@IBAction func tagsTextFieldEditingBegin(_ sender: Any) {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.allTagsWrapper.isHidden 	= false
@@ -57,6 +58,9 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	let counterTagsCollection 	= TKCollectionView()
 	let allTagsCollection		= TKCollectionView()
+	
+	let theme					= ThemeManager.currentTheme()
+	let feedbackGenerator 		= UIImpactFeedbackGenerator(style: .light)
 	
 	
 	// MARK: - Lifecycle Methods
@@ -99,23 +103,39 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		add(allTagsCollection, toView: allTagsContainer)
 		
 		setupTagsTextField()
-		
+
+		feedbackGenerator.prepare()
     }
 	
 	
 	// MARK: - Setup Methods
 	fileprivate func setupSaveButton() {
-		navigationItem.rightBarButtonItem = UIBarButtonItem(
-			title: "Save",
-			style: .plain,
-			target: self,
-			action: #selector(saveTapped))
+		let saveButton = UIButton()
+		let attributes: [NSAttributedString.Key: Any] = [
+			.font 			: UIFont.boldSystemFont(ofSize: 16),
+			.foregroundColor: theme.textColor
+		]
+		let buttonTitle = NSAttributedString(string: "Save", attributes: attributes)
+		saveButton.frame = CGRect(x:0, y:0, width:70, height: 30)
+		saveButton.setAttributedTitle(buttonTitle, for: .normal)
+		
+		let backgroundForNormal			= ThemeManager.getImageWithColor(color: theme.tintColor.withAlphaComponent(0.3), size: saveButton.frame.size)
+		let backgroundForPressed		= ThemeManager.getImageWithColor(color: theme.tintColor.withAlphaComponent(0.2), size: saveButton.frame.size)
+		
+		
+		saveButton.setBackgroundImage(backgroundForNormal, for: .normal)
+		saveButton.setBackgroundImage(backgroundForPressed, for: .highlighted)
+		saveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
+		
+		saveButton.layer.cornerRadius = saveButton.frame.height / 2
+		saveButton.clipsToBounds = true
+		
+		let rightBarButton 						= UIBarButtonItem(customView: saveButton)
+		self.navigationItem.rightBarButtonItem 	= rightBarButton
 	}
-	
 	
 	fileprivate func setupTextFields() {
 		for textField in textFieldsUI {
-
 			let leftView 					= UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
 			textField.layer.cornerRadius 	=  15
 			textField.leftView 				= leftView
@@ -171,6 +191,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	// MARK: - Action methods
 	@objc fileprivate func saveTapped() {
+		feedbackGenerator.impactOccurred()
 		
 		let newName 			= nameTextField.text ?? ""
 		let newUnit 			= unitTextField.text ?? ""
