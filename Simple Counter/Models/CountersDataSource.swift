@@ -53,7 +53,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		switch grouping {
 		case .counters:
 			let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "tagHeader", for: indexPath) as! TagHeaderView
-			header.titleLabel.text = "\(countersList.count) counters"
+			header.titleLabel.text = "\(countersList.count) " + NSLocalizedString("rootControllerCollection_byCountersTitle", comment: "counters")
 			return header
 		case .tags:
 			let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "tagHeader", for: indexPath) as! TagHeaderView
@@ -139,7 +139,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			cell.tagLabel.isHidden 			= false
 			cell.tagIconImageView.isHidden 	= true
 			
-			cell.tagLabel.text				= "No tags"
+			cell.tagLabel.text				= NSLocalizedString("rootControllerCollection_noTagsTitle", comment: "No tags")
 			cell.tagLabel.textColor			= UIColor.white.withAlphaComponent(0.3)
 		case 1:
 			cell.tagLabel.isHidden 			= false
@@ -152,7 +152,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			cell.tagLabel.isHidden 			= false
 			cell.tagIconImageView.isHidden 	= false
 			
-			cell.tagLabel.text 				= "\(tags.count) tags"
+			cell.tagLabel.text 				= "\(tags.count) " + NSLocalizedString("rootControllerCollection_tagsNumber", comment: "..tags")
 			cell.tagIconImageView.image 	= UIImage(named: "multipleTags")!
 			cell.setupTheme()
 		}
@@ -239,7 +239,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		tagsList 			= tagsManager.loadFromDefaults()
 		var countersByTags 	= [[String]]()
 		var arrayByTags		= [[Int]]()
-		if let index 		= tagsList.firstIndex(of: "No Tags") { tagsList.remove(at: index) }
+		if let index 		= tagsList.firstIndex(of: NSLocalizedString("rootControllerCollection_noTagsTitle", comment: "No tags")) { tagsList.remove(at: index) }
 		
 		for counter in countersList {
 			countersByTags.append(counter.tags)
@@ -257,7 +257,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			}.map{$0.offset}
 		
 		if !indexesOfNoTag.isEmpty {
-			if !tagsList.contains("No Tags") { tagsList.append("No Tags") }
+			if !tagsList.contains(NSLocalizedString("rootControllerCollection_noTagsTitle", comment: "No tags")) { tagsList.append(NSLocalizedString("rootControllerCollection_noTagsTitle", comment: "No tags")) }
 			arrayByTags.append(indexesOfNoTag)
 		}
 		

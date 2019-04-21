@@ -88,10 +88,10 @@ class CounterCell: UICollectionViewCell {
 	
 	func setupContextualButton() {
 		let contextualMenu = MenuView(title: "...", theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
-			[ShortcutMenuItem(name: "Customize..", shortcut: nil) { self.selectedCustomize() },
-			ShortcutMenuItem(name: "Reset to..", shortcut: nil) { self.selectedResetTo() },
+			[ShortcutMenuItem(name: NSLocalizedString("counterMenuCustomize", comment: "Button: customize"), shortcut: nil) { self.selectedCustomize() },
+			ShortcutMenuItem(name: NSLocalizedString("counterMenuReset", comment: "Button: reset to"), shortcut: nil) { self.selectedResetTo() },
 			SeparatorMenuItem(),
-			ShortcutMenuItem(name: "Delete", shortcut: nil) { self.selectedDelete() }]
+			ShortcutMenuItem(name: NSLocalizedString("counterMenuDelete", comment: "Button: delete"), shortcut: nil) { self.selectedDelete() }]
 		}
 		
 		contextualMenu.contentAlignment = .left

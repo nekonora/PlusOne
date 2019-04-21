@@ -45,10 +45,10 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			self.allTagsWrapper.alpha 		= 0
 		}
 	}
-	
-	@IBAction func deleteTapped(_ sender: Any) {
-		deleteCounter(dataSource: dataSource)
-	}
+
+//	@IBAction func deleteTapped(_ sender: Any) {
+//		deleteCounter(dataSource: dataSource)
+//	}
 	
 	
 	// MARK: - Properties
@@ -161,6 +161,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		tagsTextField.layer.cornerRadius 	=  15
 		tagsTextField.leftView 				= leftView
 		tagsTextField.leftViewMode 			= .always
+		tagsTextField.attributedPlaceholder = NSAttributedString(string: "New tag", attributes: [.foregroundColor : theme.textColor.withAlphaComponent(0.5)])
 		
 		tagsTextField.layer.borderWidth 	= 1.0
 		tagsTextField.backgroundColor		= ThemeManager.currentTheme().tintColor.withAlphaComponent(0.1)
@@ -271,22 +272,22 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	}
 	
 	
-	@objc fileprivate func deleteCounter(dataSource: CountersDataSource) {
-		let alert = UIAlertController(
-			title: "Delete the counter?",
-			message: "Do you really want to delete the counter \"\(counter.name ?? "")\"?",
-			preferredStyle: .alert)
-
-		alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
-			let index = dataSource.countersList.firstIndex{$0.name == self.counter.name}
-			dataSource.countersList.remove(at: index!)
-			dataSource.saveToDefaults()
-			self.navigationController?.popViewController(animated: true)
-		}))
-		alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-
-		self.present(alert, animated: true)
-	}
+//	@objc fileprivate func deleteCounter(dataSource: CountersDataSource) {
+//		let alert = UIAlertController(
+//			title: "Delete the counter?",
+//			message: "Do you really want to delete the counter \"\(counter.name ?? "")\"?",
+//			preferredStyle: .alert)
+//
+//		alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+//			let index = dataSource.countersList.firstIndex{$0.name == self.counter.name}
+//			dataSource.countersList.remove(at: index!)
+//			dataSource.saveToDefaults()
+//			self.navigationController?.popViewController(animated: true)
+//		}))
+//		alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+//
+//		self.present(alert, animated: true)
+//	}
 
 	
 	// MARK : - UITextFieldDelegate Methods

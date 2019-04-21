@@ -31,9 +31,9 @@ extension RootViewController: CounterCellDelegate {
 		deleteAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
 		deleteAlert.delegate = self
 		
-		deleteAlert.alertTitle 			= "Delete Counter"
-		deleteAlert.alertDescription 	= "Are you sure you want to delete this counter?"
-		deleteAlert.alertOkButtonText 	= "Delete"
+		deleteAlert.alertTitle 			= NSLocalizedString("counterMenudeleteAction_title", comment: "Title: Delete")
+		deleteAlert.alertDescription 	= NSLocalizedString("counterMenudeleteAction_description", comment: "Description: Are you sure you want to delete this counter?")
+		deleteAlert.alertOkButtonText 	= NSLocalizedString("counterMenudeleteAction_button", comment: "Button: delete")
 		deleteAlert.alertAction			= .deleteCounter
 		deleteAlert.alertCounterID		= id
 		
@@ -59,9 +59,9 @@ extension RootViewController: CounterCellDelegate {
 		resetToAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
 		resetToAlert.delegate 									= self
 		
-		resetToAlert.alertTitle 		= "Reset Counter"
-		resetToAlert.alertDescription 	= "Write a new value for the counter"
-		resetToAlert.alertOkButtonText 	= "Reset"
+		resetToAlert.alertTitle 		= NSLocalizedString("counterMenuResetAction_title", comment: "Title: reset counter")
+		resetToAlert.alertDescription 	= NSLocalizedString("counterMenuResetAction_description", comment: "Description: write a new value for the counter")
+		resetToAlert.alertOkButtonText 	= NSLocalizedString("counterMenuResetAction_button", comment: "Button: reset")
 		resetToAlert.alertKeyboardType 	= .decimalPad
 		resetToAlert.alertPlaceholder 	= "0"
 		resetToAlert.alertAction		= .resetCounter

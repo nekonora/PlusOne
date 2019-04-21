@@ -75,9 +75,9 @@ class RootViewController: UIViewController {
 		
 		switch UIDevice.modelName {
 		case "iPhone 5s", "iPhone SE", "Simulator iPhone 5s", "Simulator iPhone SE":
-			titleLabel.text	= "Plus1"
+			titleLabel.text	= NSLocalizedString("rootControllerTitle_oldDevices", comment: "Plus1")
 		default:
-			titleLabel.text	= "Counters"
+			titleLabel.text	= NSLocalizedString("rootControllerTitle_newDevices", comment: "Counters")
 		}
 
 		navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
@@ -85,19 +85,19 @@ class RootViewController: UIViewController {
 	}
 	
 	fileprivate func setupMenuButtons() {
-		let viewMenu = MenuView(title: "View", theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
-			[ShortcutMenuItem(name: "Orginize by Counters", shortcut: nil) { self.viewByCounters() },
-			ShortcutMenuItem(name: "Organize by Tags", shortcut: nil) { self.viewByTags() },
+		let viewMenu = MenuView(title: NSLocalizedString("rootViewMenu_title", comment: "Title: View menu"), theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
+			[ShortcutMenuItem(name: NSLocalizedString("rootViewMenu_organizeByCounters", comment: "Action: organize counters by counters"), shortcut: nil) { self.viewByCounters() },
+			ShortcutMenuItem(name: NSLocalizedString("rootViewMenu_organizeByTags", comment: "Action: organize counters by tags"), shortcut: nil) { self.viewByTags() },
 			SeparatorMenuItem(),
-			ShortcutMenuItem(name: "View big cells", shortcut: nil) { self.setBigLayout() },
-			ShortcutMenuItem(name: "View small cells", shortcut: nil) { self.setSmallLayout() }]
+			ShortcutMenuItem(name: NSLocalizedString("rootViewMenu_viewBigCells", comment: "Action: view big cells"), shortcut: nil) { self.setBigLayout() },
+			ShortcutMenuItem(name: NSLocalizedString("rootViewMenu_viewSmallCells", comment: "Action: view small cells"), shortcut: nil) { self.setSmallLayout() }]
 		}
 		
-		let countersMenu = MenuView(title: "Counters", theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
-			[ShortcutMenuItem(name: "New Counter..", shortcut: ([.command], "N")){ self.addTapped() },
-			ShortcutMenuItem(name: "Delete all..", shortcut: nil){ self.deleteAllTapped() },
+		let countersMenu = MenuView(title: NSLocalizedString("rootCountersMenu_title", comment: "Title: Counters menu"), theme: CustomMenuTheme.dark) { [unowned self] () -> [MenuItem] in
+			[ShortcutMenuItem(name: NSLocalizedString("rootCountersMenu_newCounter", comment: "Action: new counter"), shortcut: ([.command], "N")){ self.addTapped() },
+			ShortcutMenuItem(name: NSLocalizedString("rootCountersMenu_deleteAll", comment: "Action: delete all counters"), shortcut: nil){ self.deleteAllTapped() },
 			SeparatorMenuItem(),
-			ShortcutMenuItem(name: "About..", shortcut: ([.command], ",")){ self.settingsTapped() }]
+			ShortcutMenuItem(name: NSLocalizedString("rootCountersMenu_goToSettings", comment: "Action: go to settings screen"), shortcut: ([.command], ",")){ self.settingsTapped() }]
 		}
 		
 		viewMenu.contentAlignment		= .center
@@ -156,11 +156,11 @@ class RootViewController: UIViewController {
 		addAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
 		addAlert.delegate = self
 		
-		addAlert.alertTitle 		= "Add Counter"
-		addAlert.alertDescription 	= "Write a name for the counter"
-		addAlert.alertOkButtonText 	= "Add"
+		addAlert.alertTitle 		= NSLocalizedString("rootAlertAddCounter_title", comment: "Title: add counter")
+		addAlert.alertDescription 	= NSLocalizedString("rootAlertAddCounter_description", comment: "Description: write the name of the counter")
+		addAlert.alertOkButtonText 	= NSLocalizedString("rootAlertAddCounter_addButton", comment: "Button: Add")
 		addAlert.alertKeyboardType 	= .default
-		addAlert.alertPlaceholder 	= "Name"
+		addAlert.alertPlaceholder 	= NSLocalizedString("rootAlertAddCounter_placeholder", comment: "Placeholder: Name")
 		addAlert.alertAction		= .addCounter
 		
 		self.present(addAlert, animated: true, completion: nil)
@@ -175,9 +175,9 @@ class RootViewController: UIViewController {
 		deleteAllAlert.modalTransitionStyle 						= UIModalTransitionStyle.crossDissolve
 		deleteAllAlert.delegate = self
 		
-		deleteAllAlert.alertTitle 			= "Delete All"
-		deleteAllAlert.alertDescription 	= "Do you really want to delete all counters?"
-		deleteAllAlert.alertOkButtonText 	= "Delete"
+		deleteAllAlert.alertTitle 			= NSLocalizedString("rootAlertDeleteAll_title", comment: "Title: Delete all")
+		deleteAllAlert.alertDescription 	= NSLocalizedString("rootAlertAddCounter_description", comment: "Title: do you really want to delete all counters?")
+		deleteAllAlert.alertOkButtonText 	= NSLocalizedString("rootAlertAddCounter_deleteButton", comment: "Button: delete")
 		deleteAllAlert.alertAction			= .deleteAll
 		
 		self.present(deleteAllAlert, animated: true, completion: nil)

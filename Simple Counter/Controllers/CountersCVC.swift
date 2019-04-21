@@ -70,15 +70,15 @@ class CountersCVC: UICollectionViewController {
 			noCountersView.numberOfLines	= 0
 			
 			let attributedText = NSMutableAttributedString(
-				string: "You don't have any counters at the moment.\n\nPlease tap the \"",
+				string: NSLocalizedString("rootController_noCountersPrompt1", comment: "You don't have any counters at the moment.\n\nPlease tap the \""),
 				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .semibold)])
 			
 			attributedText.append(NSAttributedString(
-				string: "Counters",
+				string: NSLocalizedString("rootCountersMenu_title", comment: "Title: Counters menu"),
 				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .heavy)]))
 			
 			attributedText.append(NSAttributedString(
-				string: "\" button to add a new counter.",
+				string: NSLocalizedString("rootController_noCountersPrompt2", comment: "\" button to add a new counter."),
 				attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .semibold)]))
 			
 			noCountersView.attributedText = attributedText
