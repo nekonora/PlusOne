@@ -46,10 +46,6 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		}
 	}
 
-//	@IBAction func deleteTapped(_ sender: Any) {
-//		deleteCounter(dataSource: dataSource)
-//	}
-	
 	
 	// MARK: - Properties
 	var counter			: CounterV2!
@@ -115,7 +111,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			.font 			: UIFont.boldSystemFont(ofSize: 16),
 			.foregroundColor: theme.textColor
 		]
-		let buttonTitle = NSAttributedString(string: "Save", attributes: attributes)
+		let buttonTitle = NSAttributedString(string: NSLocalizedString("detail_saveButton", comment: "Save"), attributes: attributes)
 		saveButton.frame = CGRect(x:0, y:0, width:70, height: 30)
 		saveButton.setAttributedTitle(buttonTitle, for: .normal)
 		
@@ -161,7 +157,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		tagsTextField.layer.cornerRadius 	=  15
 		tagsTextField.leftView 				= leftView
 		tagsTextField.leftViewMode 			= .always
-		tagsTextField.attributedPlaceholder = NSAttributedString(string: "New tag", attributes: [.foregroundColor : theme.textColor.withAlphaComponent(0.5)])
+		tagsTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("detail_tagsTextFieldPlaceholder", comment: "New tag"), attributes: [.foregroundColor : theme.textColor.withAlphaComponent(0.5)])
 		
 		tagsTextField.layer.borderWidth 	= 1.0
 		tagsTextField.backgroundColor		= ThemeManager.currentTheme().tintColor.withAlphaComponent(0.1)
@@ -270,25 +266,6 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			dataSource.saveToDefaults()
 		}
 	}
-	
-	
-//	@objc fileprivate func deleteCounter(dataSource: CountersDataSource) {
-//		let alert = UIAlertController(
-//			title: "Delete the counter?",
-//			message: "Do you really want to delete the counter \"\(counter.name ?? "")\"?",
-//			preferredStyle: .alert)
-//
-//		alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
-//			let index = dataSource.countersList.firstIndex{$0.name == self.counter.name}
-//			dataSource.countersList.remove(at: index!)
-//			dataSource.saveToDefaults()
-//			self.navigationController?.popViewController(animated: true)
-//		}))
-//		alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-//
-//		self.present(alert, animated: true)
-//	}
-
 	
 	// MARK : - UITextFieldDelegate Methods
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {

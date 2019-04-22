@@ -176,8 +176,8 @@ class RootViewController: UIViewController {
 		deleteAllAlert.delegate = self
 		
 		deleteAllAlert.alertTitle 			= NSLocalizedString("rootAlertDeleteAll_title", comment: "Title: Delete all")
-		deleteAllAlert.alertDescription 	= NSLocalizedString("rootAlertAddCounter_description", comment: "Title: do you really want to delete all counters?")
-		deleteAllAlert.alertOkButtonText 	= NSLocalizedString("rootAlertAddCounter_deleteButton", comment: "Button: delete")
+		deleteAllAlert.alertDescription 	= NSLocalizedString("rootAlertDeleteAll_description", comment: "Title: do you really want to delete all counters?")
+		deleteAllAlert.alertOkButtonText 	= NSLocalizedString("rootAlertDeleteAll_deleteButton", comment: "Button: delete")
 		deleteAllAlert.alertAction			= .deleteAll
 		
 		self.present(deleteAllAlert, animated: true, completion: nil)

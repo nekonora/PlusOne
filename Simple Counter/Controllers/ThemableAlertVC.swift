@@ -84,7 +84,7 @@ class ThemableAlertVC: UIViewController {
 	fileprivate func setupView() {
 		wrapperView.layer.cornerRadius 	= 15
 		wrapperView.backgroundColor 	= theme.tintColor.withAlphaComponent(0.4)
-		okButton.setTitle(alertOkButtonText ?? "Add", for: .normal)
+		okButton.setTitle(alertOkButtonText ?? "", for: .normal)
 		setBlurView(view: wrapperView)
 		okButton.setTitleColor(theme.textColor, for: .normal)
 		titleLabel.textColor 			= theme.textColor

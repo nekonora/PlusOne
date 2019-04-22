@@ -1,0 +1,12 @@
+
+/* Class = "UIViewController"; title = "About"; ObjectID = "egD-sv-WKY"; */
+"egD-sv-WKY.title" = "Info";
+
+/* Class = "UILabel"; text = "Get in touch on twitter:"; ObjectID = "ezw-g6-BAf"; */
+"ezw-g6-BAf.text" = "Sentiamoci su twitter!";
+
+/* Class = "UILabel"; text = "@_nknr - Filippo Zaffoni - 2019"; ObjectID = "vhk-Tg-Ehn"; */
+"vhk-Tg-Ehn.text" = "@_nknr - Filippo Zaffoni - 2019";
+
+/* Class = "UILabel"; text = "Plus1 - Version 1.1 Beta - Build 11018"; ObjectID = "ys5-Wo-Q7r"; */
+"ys5-Wo-Q7r.text" = "Plus1 - Version 1.1 Beta";
