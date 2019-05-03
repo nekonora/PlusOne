@@ -33,7 +33,7 @@ features                                  :
 
   - title                                 : Designed to be quick
     description                           : Creating a counter is really fast. Updating it takes only one tap since launching the app.
-    fontawesome_icon_name                 : space_shuttle
+    fontawesome_icon_name                 : fighter-jet
     
   - title                                 : Customize everything
     description                           : Every counter can have its own steps, its own unit, its own completion value, etc.
@@ -50,13 +50,13 @@ topbar_color                              : "#000000"
 topbar_transparency                       : 0.1
 topbar_title_color                        : "#ffffff"
 
-cover_image                               : assets/headerimage.png                    # Replace with alternative image path or image URL.
+cover_image                               : https://images.unsplash.com/photo-1513622790541-eaa84d356909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80
 cover_overlay_color                       : "#363b3d"
 cover_overlay_transparency                : 0.8
 
 device_color                              : black                                     # Set to: blue, black, yellow, coral or white.
 
-body_background_color                     : "ffffff"
+body_background_color                     : "011627"
 
 link_color                                : "#1d63ea"
 
@@ -64,10 +64,10 @@ app_title_color                           : "#ffffff"
 app_price_color                           : "#ffffff"
 app_description_color                     : "#ffffff"
 
-feature_title_color                       : "#000000"
-feature_text_color                        : "#666666"
+feature_title_color                       : "#2EC4B6"
+feature_text_color                        : "#FDFFFC"
 
-feature_icons_foreground_color            : "#1d63ea"
+feature_icons_foreground_color            : "#011627"
 feature_icons_background_color            : "#e6e6e6"
 
 social_icons_foreground_color             : "#666666"
