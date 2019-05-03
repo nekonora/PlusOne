@@ -47,16 +47,16 @@ features                                  :
 
 # Theme Settings
 topbar_color                              : "#000000"
-topbar_transparency                       : 0.1
+topbar_transparency                       : 0.0
 topbar_title_color                        : "#ffffff"
 
 cover_image                               : https://images.unsplash.com/photo-1513622790541-eaa84d356909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80
 cover_overlay_color                       : "#363b3d"
-cover_overlay_transparency                : 0.8
+cover_overlay_transparency                : 0.6
 
 device_color                              : black                                     # Set to: blue, black, yellow, coral or white.
 
-body_background_color                     : "011627"
+body_background_color                     : "#011627"
 
 link_color                                : "#1d63ea"
 
