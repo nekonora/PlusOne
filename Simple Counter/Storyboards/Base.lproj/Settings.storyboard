@@ -86,17 +86,44 @@
                                     <constraint firstItem="NLf-9k-Gzh" firstAttribute="centerX" secondItem="AYn-4m-MRR" secondAttribute="centerX" id="IYu-rg-sfx"/>
                                 </constraints>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWr-0T-6wT" userLabel="iPadTopBar">
+                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HC-dD-VUn">
+                                        <rect key="frame" x="15" y="15" width="40" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="HJa-na-WHk"/>
+                                            <constraint firstAttribute="width" constant="40" id="jHp-Rb-O8a"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="didTapiPadBack:" destination="egD-sv-WKY" eventType="touchUpInside" id="Ikh-Qk-jVn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="notQuiteBlack"/>
+                                <constraints>
+                                    <constraint firstItem="1HC-dD-VUn" firstAttribute="top" secondItem="MWr-0T-6wT" secondAttribute="top" constant="15" id="5gO-78-dhW"/>
+                                    <constraint firstAttribute="height" constant="60" id="RNo-VM-26o"/>
+                                    <constraint firstItem="1HC-dD-VUn" firstAttribute="leading" secondItem="MWr-0T-6wT" secondAttribute="leading" constant="15" id="xpr-vA-cxe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="notQuiteBlack"/>
                         <color key="tintColor" name="greenPastel"/>
                         <constraints>
                             <constraint firstItem="AYn-4m-MRR" firstAttribute="width" secondItem="arb-yt-pjv" secondAttribute="width" id="0Xh-qZ-m8B"/>
                             <constraint firstItem="AYn-4m-MRR" firstAttribute="centerX" secondItem="arb-yt-pjv" secondAttribute="centerX" id="1CA-Vj-zQd"/>
+                            <constraint firstItem="MWr-0T-6wT" firstAttribute="width" secondItem="dE4-kQ-MAM" secondAttribute="width" id="D9K-i1-Ogz"/>
+                            <constraint firstItem="MWr-0T-6wT" firstAttribute="centerX" secondItem="arb-yt-pjv" secondAttribute="centerX" id="Omf-9H-bru"/>
+                            <constraint firstItem="MWr-0T-6wT" firstAttribute="top" secondItem="arb-yt-pjv" secondAttribute="top" id="WeH-cg-dyL"/>
                             <constraint firstItem="AYn-4m-MRR" firstAttribute="centerY" secondItem="arb-yt-pjv" secondAttribute="centerY" id="yeQ-Tu-okZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="arb-yt-pjv"/>
                     </view>
                     <connections>
+                        <outlet property="iPadTopBar" destination="MWr-0T-6wT" id="u9p-aw-fp8"/>
                         <outlet property="stackView" destination="AYn-4m-MRR" id="QiR-xy-Ijp"/>
                         <outlet property="twitterButtonOutlet" destination="xF5-Ll-rUf" id="0Bd-xN-DTh"/>
                     </connections>

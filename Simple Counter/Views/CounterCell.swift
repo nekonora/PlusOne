@@ -12,8 +12,6 @@ import Menu
 
 protocol CounterCellDelegate {
 	func didTapStepper(id: UUID, newValue: Float)
-	func didTapEdit(id: UUID)
-	
 	func didTapCustomize(id: UUID)
 	func didTapDelete(id: UUID)
 	func didTapResetTo(id: UUID)
@@ -41,14 +39,6 @@ class CounterCell: UICollectionViewCell {
 			feedbackGenerator.impactOccurred()
 			feedbackGenerator.prepare()
 			cellDelegate.didTapStepper(id: counterItem.id, newValue: Float(stepperUI.value))
-		}
-	}
-	
-	
-	@IBAction func editButtonPressed(_ sender: Any) {
-		if let cellDelegate = delegate {
-			
-			cellDelegate.didTapEdit(id: counterItem.id)
 		}
 	}
 	

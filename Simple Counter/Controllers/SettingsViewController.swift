@@ -16,12 +16,17 @@ class SettingsViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var twitterButtonOutlet: UIButton!
+	@IBOutlet var iPadTopBar: UIView!
 	
 	
 	// MARK: - Actions
 	@IBAction func twitterButtonTapped(_ sender: Any) {
 		guard twitterURL != nil else { return }
 		UIApplication.shared.open(twitterURL!)
+	}
+	
+	@IBAction func didTapiPadBack(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
 	}
 	
 	
@@ -31,13 +36,15 @@ class SettingsViewController: UIViewController {
 	// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		setupLayout()
 	}
 	
 	
 	// MARK: - Private Methods
-	fileprivate func setupFooter() {
+	fileprivate func setupLayout() {
+		if UIDevice.current.userInterfaceIdiom == .pad {
+			iPadTopBar.isHidden = false
+		}
 	}
-	
 
 }

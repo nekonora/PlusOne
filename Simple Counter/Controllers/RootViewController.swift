@@ -35,7 +35,6 @@ class RootViewController: UIViewController {
 	// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		countersCollection.dataSource.cellDelegate = self
 		setupMenuButtons()
 		setupTheme()
@@ -43,12 +42,11 @@ class RootViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		
 		reloadView()
 	}
 	
 
-	// MARK: - Private Methods
+	// MARK: - Class Methods
 	func reloadView() {
 		cleanTags()
 		setupLayout()
@@ -199,7 +197,13 @@ class RootViewController: UIViewController {
 	
 	@objc func settingsTapped() {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
-			navigationController?.pushViewController(vc, animated: true)
+			if UIDevice.current.userInterfaceIdiom == .pad {
+				vc.modalPresentationStyle = .formSheet
+				vc.modalTransitionStyle = .coverVertical
+				present(vc, animated: true, completion: nil)
+			} else if UIDevice.current.userInterfaceIdiom == . phone {
+				navigationController?.pushViewController(vc, animated: true)
+			}
 		}
 	}
 	

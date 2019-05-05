@@ -17,7 +17,11 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	// MARK: - Outlets
 	@IBOutlet var scrollView: UIScrollView!
 	@IBOutlet var textFieldsUI: [UITextField]!
+	@IBOutlet var iPadTopBar: UIView!
+	@IBOutlet var iPadTopPadding: UIView!
 	
+	@IBOutlet var iPadCancelButton: UIButton!
+	@IBOutlet var iPadSaveButton: UIButton!
 	@IBOutlet var nameTextField: UITextField!
 	@IBOutlet var stepsTextField: UITextField!
 	@IBOutlet var unitTextField: UITextField!
@@ -30,6 +34,7 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	@IBOutlet var tagsContainerView: UIView!
 	@IBOutlet var allTagsContainer: UIView!
+	
 	
 	// MARK: - Actions
 	@IBAction func tagsTextFieldEditingBegin(_ sender: Any) {
@@ -45,7 +50,15 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 			self.allTagsWrapper.alpha 		= 0
 		}
 	}
-
+	
+	@IBAction func didTapiPadCancel(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
+	}
+	
+	@IBAction func didTapiPadSave(_ sender: Any) {
+		saveTapped()
+	}
+	
 	
 	// MARK: - Properties
 	var counter			: CounterV2!
@@ -57,12 +70,14 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	let theme					= ThemeManager.currentTheme()
 	let feedbackGenerator 		= UIImpactFeedbackGenerator(style: .light)
+	var iPadDismissHandler		: (() -> Void) = {}
 	
 	
 	// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		setupLayout()
 		setupTextFields()
 		setupSaveButton()
 		
@@ -105,6 +120,13 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 	
 	
 	// MARK: - Setup Methods
+	fileprivate func setupLayout() {
+		if UIDevice.current.userInterfaceIdiom == .pad {
+			iPadTopBar.isHidden 	= false
+			iPadTopPadding.isHidden = false
+		}
+	}
+	
 	fileprivate func setupSaveButton() {
 		let saveButton = UIButton()
 		let attributes: [NSAttributedString.Key: Any] = [
@@ -118,13 +140,18 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 		let backgroundForNormal			= ThemeManager.getImageWithColor(color: theme.tintColor.withAlphaComponent(0.3), size: saveButton.frame.size)
 		let backgroundForPressed		= ThemeManager.getImageWithColor(color: theme.tintColor.withAlphaComponent(0.2), size: saveButton.frame.size)
 		
-		
 		saveButton.setBackgroundImage(backgroundForNormal, for: .normal)
 		saveButton.setBackgroundImage(backgroundForPressed, for: .highlighted)
 		saveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
-		
 		saveButton.layer.cornerRadius = saveButton.frame.height / 2
 		saveButton.clipsToBounds = true
+		
+		iPadSaveButton.setAttributedTitle(buttonTitle, for: .normal)
+		iPadSaveButton.setBackgroundImage(backgroundForNormal, for: .normal)
+		iPadSaveButton.setBackgroundImage(backgroundForPressed, for: .highlighted)
+		iPadSaveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
+		iPadSaveButton.layer.cornerRadius = saveButton.frame.height / 2
+		iPadSaveButton.clipsToBounds = true
 		
 		let rightBarButton 						= UIBarButtonItem(customView: saveButton)
 		self.navigationItem.rightBarButtonItem 	= rightBarButton
@@ -223,7 +250,13 @@ class CounterDetailVC: UIViewController, UITextFieldDelegate {
 					  newCompletionValue	: newCompletion,
 					  newTags				: newTags )
 		
-		navigationController?.popViewController(animated: true)
+		if UIDevice.current.userInterfaceIdiom == .pad {
+			dismiss(animated: true) {
+				self.iPadDismissHandler()
+			}
+		} else if UIDevice.current.userInterfaceIdiom == . phone {
+			navigationController?.popViewController(animated: true)
+		}
 	}
 	
 	

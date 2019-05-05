@@ -1,13 +1,14 @@
 /* Detail controller */
-"laf-Ll-VAZ.text" = "Nome"; // Name label title
-"VI5-0o-WuL.text" = "Nome del counter"; // Name label description
-"fgX-yq-AL0.text" = "Incrementi"; // Steps label title
-"hNy-O9-GdK.text" = "Può essere impostato intero o decimale"; // Step label description
-"tuM-Oa-DM4.text" = "Unità"; // Unit label title
-"pLZ-ws-rlD.text" = "Un carattere che indica l'unità di misura"; // Unit label description
-"P5C-E3-ezH.text" = "Completamento"; // Completion label title
-"liP-Wp-U6q.text" = "Un valore (opzionale) che indica un traguardo da raggiungere"; // Completion label description
-"T0o-EM-R4o.text" = "Tag"; // Tags label title
-"4GK-kz-Cop.text" = "Aggiungi alcuni tag al counter per restare organizzato"; // Tags label description
-"oGq-IH-E2s.text" = "Tag suggeriti";
-"zjE-Dh-Mr3.text" = "Tag di questo counter";
+"laf-Ll-VAZ.text" 			= "Nome"; // Name label title
+"VI5-0o-WuL.text" 			= "Nome del counter"; // Name label description
+"fgX-yq-AL0.text" 			= "Incrementi"; // Steps label title
+"hNy-O9-GdK.text" 			= "Può essere impostato intero o decimale"; // Step label description
+"tuM-Oa-DM4.text" 			= "Unità"; // Unit label title
+"pLZ-ws-rlD.text" 			= "Un carattere che indica l'unità di misura"; // Unit label description
+"P5C-E3-ezH.text" 			= "Completamento"; // Completion label title
+"liP-Wp-U6q.text" 			= "Un valore (opzionale) che indica un traguardo da raggiungere"; // Completion label description
+"T0o-EM-R4o.text" 			= "Tag"; // Tags label title
+"4GK-kz-Cop.text" 			= "Aggiungi alcuni tag al counter per restare organizzato"; // Tags label description
+"oGq-IH-E2s.text" 			= "Tag suggeriti";
+"zjE-Dh-Mr3.text" 			= "Tag di questo counter";
+"ZNO-9O-mZo.normalTitle"	= "Annulla"

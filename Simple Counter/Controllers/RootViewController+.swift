@@ -17,7 +17,15 @@ extension RootViewController: CounterCellDelegate {
 			if let vc = storyboard?.instantiateViewController(withIdentifier: "CounterDetailVC") as? CounterDetailVC {
 				vc.counter 		= counter
 				vc.dataSource 	= countersCollection.dataSource
-				navigationController?.pushViewController(vc, animated: true)
+				
+				if UIDevice.current.userInterfaceIdiom == .pad {
+					vc.iPadDismissHandler 		= { self.reloadView() }
+					vc.modalTransitionStyle 	= .coverVertical
+					vc.modalPresentationStyle 	= .formSheet
+					present(vc, animated: true, completion: nil)
+				} else if UIDevice.current.userInterfaceIdiom == . phone {
+					navigationController?.pushViewController(vc, animated: true)
+				}
 			}
 		}
 	}
@@ -93,17 +101,5 @@ extension RootViewController: CounterCellDelegate {
 		}
 		countersCollection.collectionView.reloadData()
 	}
-	
-	
-	@objc func didTapEdit(id: UUID) {
-		if let counter = countersCollection.dataSource.countersList.filter( { $0.id == id } ).first {
-			if let vc = storyboard?.instantiateViewController(withIdentifier: "CounterDetailVC") as? CounterDetailVC {
-				vc.counter 		= counter
-				vc.dataSource 	= countersCollection.dataSource
-				navigationController?.pushViewController(vc, animated: true)
-			}
-		}
-	}
-	
 	
 }
