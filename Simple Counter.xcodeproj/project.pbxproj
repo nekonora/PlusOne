@@ -10,7 +10,7 @@
 		41227236226C82DC001AF375 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41227238226C82DC001AF375 /* Localizable.strings */; };
 		41F3B2DC226DCC5C007F204F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F3B2DE226DCC5C007F204F /* Settings.storyboard */; };
 		41F3B2E7226DCCCE007F204F /* ThemableAlertVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F3B2E9226DCCCE007F204F /* ThemableAlertVC.storyboard */; };
-		A6515A57FC60620364F207BA /* Pods_Simple_Counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648D0582FDFD4C0D898CAFEA /* Pods_Simple_Counter.framework */; };
+		D81E6309EC630A35B8AA5426 /* Pods_Simple_Counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6679BA1DCD32E8DD3E8BAF /* Pods_Simple_Counter.framework */; };
 		FA0C0CB7222498EB005BF573 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C0CB6222498EB005BF573 /* CustomButton.swift */; };
 		FA112D4D222D92FF00741832 /* TagsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA112D4C222D92FF00741832 /* TagsManager.swift */; };
 		FA14C82B22457F4C0087D3C9 /* TagHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C82A22457F4C0087D3C9 /* TagHeaderView.swift */; };
@@ -38,8 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		16A6F0698E566B003F9E8304 /* Pods-Simple Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Counter.debug.xcconfig"; path = "Target Support Files/Pods-Simple Counter/Pods-Simple Counter.debug.xcconfig"; sourceTree = "<group>"; };
-		396BCB8B72FD22DE6B631996 /* Pods-Simple Counter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Counter.release.xcconfig"; path = "Target Support Files/Pods-Simple Counter/Pods-Simple Counter.release.xcconfig"; sourceTree = "<group>"; };
 		4122722E226C8256001AF375 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		4122722F226C8256001AF375 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		41227230226C825F001AF375 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
@@ -58,7 +56,8 @@
 		41F3B2EB226DCCD5007F204F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ThemableAlertVC.strings; sourceTree = "<group>"; };
 		41F3B2ED226DCCD8007F204F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/ThemableAlertVC.strings; sourceTree = "<group>"; };
 		41F3B2EF226DCCD9007F204F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ThemableAlertVC.strings; sourceTree = "<group>"; };
-		648D0582FDFD4C0D898CAFEA /* Pods_Simple_Counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		662D1026386ADABBAE86AADB /* Pods-Simple Counter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Counter.release.xcconfig"; path = "Target Support Files/Pods-Simple Counter/Pods-Simple Counter.release.xcconfig"; sourceTree = "<group>"; };
+		BF7AC2FB267AF8827B346A84 /* Pods-Simple Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Counter.debug.xcconfig"; path = "Target Support Files/Pods-Simple Counter/Pods-Simple Counter.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0C0CB6222498EB005BF573 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FA112D4C222D92FF00741832 /* TagsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsManager.swift; sourceTree = "<group>"; };
 		FA14C82A22457F4C0087D3C9 /* TagHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagHeaderView.swift; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		FAA46179222C0F3C00F65AF4 /* CounterV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterV2.swift; sourceTree = "<group>"; };
 		FAB7916822269B900073732D /* CounterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDetailVC.swift; sourceTree = "<group>"; };
 		FAFC1B432267BD2800E8264B /* CountersLayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersLayoutType.swift; sourceTree = "<group>"; };
+		FE6679BA1DCD32E8DD3E8BAF /* Pods_Simple_Counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,17 +92,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6515A57FC60620364F207BA /* Pods_Simple_Counter.framework in Frameworks */,
+				D81E6309EC630A35B8AA5426 /* Pods_Simple_Counter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		51574A4F73309558926D0714 /* Frameworks */ = {
+		5DA95F9DE603892EF1E80183 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				648D0582FDFD4C0D898CAFEA /* Pods_Simple_Counter.framework */,
+				FE6679BA1DCD32E8DD3E8BAF /* Pods_Simple_Counter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,8 +110,8 @@
 		E9E7CA7E3F7BA749B734720A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				16A6F0698E566B003F9E8304 /* Pods-Simple Counter.debug.xcconfig */,
-				396BCB8B72FD22DE6B631996 /* Pods-Simple Counter.release.xcconfig */,
+				BF7AC2FB267AF8827B346A84 /* Pods-Simple Counter.debug.xcconfig */,
+				662D1026386ADABBAE86AADB /* Pods-Simple Counter.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 				FA43DFE72208381A002F0DAD /* Simple Counter */,
 				FA43DFE62208381A002F0DAD /* Products */,
 				E9E7CA7E3F7BA749B734720A /* Pods */,
-				51574A4F73309558926D0714 /* Frameworks */,
+				5DA95F9DE603892EF1E80183 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,11 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA43DFF72208381C002F0DAD /* Build configuration list for PBXNativeTarget "Simple Counter" */;
 			buildPhases = (
-				0ABBE642EF6F0BC767A5AC8E /* [CP] Check Pods Manifest.lock */,
+				82E3DC2F73D6297A667FAACC /* [CP] Check Pods Manifest.lock */,
 				FA43DFE12208381A002F0DAD /* Sources */,
 				FA43DFE22208381A002F0DAD /* Frameworks */,
 				FA43DFE32208381A002F0DAD /* Resources */,
-				F917D0018BB504C504F79F03 /* [CP] Embed Pods Frameworks */,
+				5A539D9C480D6BB42138F06A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,7 +285,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0ABBE642EF6F0BC767A5AC8E /* [CP] Check Pods Manifest.lock */ = {
+		5A539D9C480D6BB42138F06A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Menu/Menu.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TaggerKit/TaggerKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Menu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TaggerKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82E3DC2F73D6297A667FAACC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -305,34 +331,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F917D0018BB504C504F79F03 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Menu/Menu.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/TaggerKit/TaggerKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Menu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TaggerKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Simple Counter/Pods-Simple Counter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -547,7 +545,7 @@
 		};
 		FA43DFF82208381C002F0DAD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16A6F0698E566B003F9E8304 /* Pods-Simple Counter.debug.xcconfig */;
+			baseConfigurationReference = BF7AC2FB267AF8827B346A84 /* Pods-Simple Counter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,7 +564,7 @@
 		};
 		FA43DFF92208381C002F0DAD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 396BCB8B72FD22DE6B631996 /* Pods-Simple Counter.release.xcconfig */;
+			baseConfigurationReference = 662D1026386ADABBAE86AADB /* Pods-Simple Counter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,24 +1,33 @@
 PODS:
-  - Menu (0.0.1):
+  - Menu (0.0.2):
     - SnapKit
-  - SnapKit (4.2.0)
+  - SnapKit (5.0.0)
   - TaggerKit (0.5.0)
 
 DEPENDENCIES:
-  - Menu
+  - Menu (from `https://github.com/nekonora/Menu.git`, branch `master`)
   - TaggerKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Menu
     - SnapKit
     - TaggerKit
 
+EXTERNAL SOURCES:
+  Menu:
+    :branch: master
+    :git: https://github.com/nekonora/Menu.git
+
+CHECKOUT OPTIONS:
+  Menu:
+    :commit: 6dcacaa351b2af664535197b34ddacb61cb1bc9d
+    :git: https://github.com/nekonora/Menu.git
+
 SPEC CHECKSUMS:
-  Menu: a1e69a2e8e641192ddec0cf55cd380cde6e27b1e
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Menu: 2491337ad56a1a7281b3c38c6623439a9b064b2f
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   TaggerKit: 3404402e7ac4c73aa96949e6f10c6e066ddf792a
 
-PODFILE CHECKSUM: bb5262069833cad4223d2cbb7d08258eb6b297c2
+PODFILE CHECKSUM: bc3bd01f55cf9454d1d6ab8810bf020ab3f1db0b
 
 COCOAPODS: 1.6.1
