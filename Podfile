@@ -7,6 +7,6 @@ target 'Simple Counter' do
 
   # Pods for Simple Counter
   pod 'TaggerKit'
-  pod 'Menu'
+	pod 'Menu', :git => 'https://github.com/nekonora/Menu.git', :branch => 'master'
 
 end
