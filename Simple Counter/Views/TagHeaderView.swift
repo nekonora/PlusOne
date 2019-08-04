@@ -82,6 +82,12 @@ extension TagHeaderView : ViewSetable {
 
 extension UILabel {
 	
+	/// Initializes a custom UILabel with parameters
+	/// - Parameter title: title of the label
+	/// - Parameter font: font
+	/// - Parameter titleColor: text color
+	/// - Parameter textAlignment: text alignment
+	/// - Parameter numberOfLines: number of lines
 	func custom(title: String, font: UIFont, titleColor: UIColor, textAlignment: NSTextAlignment, numberOfLines: Int) {
 		self.text 										= title
 		self.textAlignment 								= textAlignment

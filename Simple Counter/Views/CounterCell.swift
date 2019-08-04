@@ -10,6 +10,8 @@ import UIKit
 import Menu
 
 
+
+/// Protocol conformance to CounterCellDelegate
 protocol CounterCellDelegate {
 	func didTapStepper(id: UUID, newValue: Float)
 	func didTapCustomize(id: UUID)
@@ -59,7 +61,7 @@ class CounterCell: UICollectionViewCell {
 	}
 	
 	
-	// MARK: - Private methods
+	// MARK: - Class Methods
 	func setupTheme() {
 		TitleLabel.textColor 	= theme.textColor
 		CounterLabel.textColor 	= theme.textColor

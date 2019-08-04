@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6EU-Yx-zm8">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6EU-Yx-zm8">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +22,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="Counter" id="P5q-Pp-RgY" customClass="CounterCell" customModule="Simple_Counter" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Counter" id="P5q-Pp-RgY" customClass="CounterCell" customModule="Simple_Counter" customModuleProvider="target">
                                 <rect key="frame" x="37.5" y="0.0" width="300" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -33,7 +30,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KE-KH-SFb" customClass="SmoothView" customModule="Simple_Counter" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="186"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73t-b3-TBs">
                                             <rect key="frame" x="10" y="16" width="40" height="20.5"/>
@@ -77,22 +74,26 @@
                                             <rect key="frame" x="10" y="100" width="280" height="2.5"/>
                                         </progressView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I72-Xh-s0X" userLabel="Tags">
-                                            <rect key="frame" x="214.5" y="111.5" width="75.5" height="24"/>
+                                            <rect key="frame" x="208" y="111.5" width="82" height="24"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="multipleTags" translatesAutoresizingMaskIntoConstraints="NO" id="vWN-pR-Kjk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vWN-pR-Kjk">
+                                                    <rect key="frame" x="0.0" y="2" width="24" height="21.5"/>
+                                                    <color key="tintColor" name="pastelOrange"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="9BT-kQ-SXZ"/>
                                                         <constraint firstAttribute="height" constant="24" id="avb-Ac-FyH"/>
                                                     </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small" weight="regular">
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    </preferredSymbolConfiguration>
                                                 </imageView>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 tags" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q6-2G-5AI">
-                                                    <rect key="frame" x="34" y="0.0" width="41.5" height="24"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 tags" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q6-2G-5AI">
+                                                    <rect key="frame" x="34" y="0.0" width="48" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="0se-mk-XzD"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -106,7 +107,7 @@
                                             </constraints>
                                         </view>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-9999999" maximumValue="9999999" translatesAutoresizingMaskIntoConstraints="NO" id="snE-tb-ccG">
-                                            <rect key="frame" x="196" y="145.5" width="94" height="29"/>
+                                            <rect key="frame" x="196" y="145.5" width="94" height="32"/>
                                             <connections>
                                                 <action selector="stepperChanged:" destination="P5q-Pp-RgY" eventType="valueChanged" id="JZW-K6-R67"/>
                                             </connections>
@@ -175,10 +176,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qeL-hJ-us7">
-                                <rect key="frame" x="0.0" y="124" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8Y-NU-RFh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="563"/>
                                         <connections>
                                             <segue destination="dmX-pl-vo6" kind="embed" id="n27-nW-U6W"/>
                                         </connections>
@@ -224,7 +225,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gf-h4-gkN">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ygR-Vk-Bho">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
@@ -587,7 +588,7 @@
                                 </constraints>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-gI-9kl" userLabel="iPad top bar">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhO-NF-Ffs">
                                         <rect key="frame" x="290" y="15" width="70" height="30"/>
@@ -668,7 +669,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6EU-Yx-zm8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mAc-ZM-7ta">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="greenPastel"/>
                         <textAttributes key="titleTextAttributes">
@@ -686,7 +687,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="multipleTags" width="30" height="30"/>
+        <image name="tag.fill" catalog="system" width="64" height="58"/>
         <namedColor name="greenPastel">
             <color red="0.1803921568627451" green="0.7686274509803922" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -698,6 +699,9 @@
         </namedColor>
         <namedColor name="notQuiteWhite">
             <color red="0.99215686274509807" green="1" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pastelOrange">
+            <color red="1" green="0.62352941176470589" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pastelRed">
             <color red="0.90588235294117647" green="0.11372549019607843" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

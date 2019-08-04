@@ -153,7 +153,7 @@ class CountersDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			cell.tagIconImageView.isHidden 	= false
 			
 			cell.tagLabel.text 				= "\(tags.count) " + NSLocalizedString("rootControllerCollection_tagsNumber", comment: "..tags")
-			cell.tagIconImageView.image 	= UIImage(named: "multipleTags")!
+			cell.tagIconImageView.image 	= UIImage(systemName: "tag.fill") // UIImage(named: "multipleTags")!
 			cell.setupTheme()
 		}
 		

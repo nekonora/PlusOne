@@ -6,23 +6,21 @@
 //  Copyright © 2019 Filippo Zaffoni. All rights reserved.
 //
 
-
 import UIKit
 import Menu
 
-
 class RootViewController: UIViewController {
 	
-	
 	// MARK: - Outlets
+    
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var collectionViewContainer: UIView!
 	@IBOutlet var titleLabel: UILabel!
-	
 
 	// MARK: - Properties
-	let theme 				= ThemeManager.currentTheme()
-	var countersCollection	: CountersCVC {
+    
+	let theme = ThemeManager.currentTheme()
+	var countersCollection: CountersCVC {
 		get {
 			let ctrl = children.first(where: { $0 is CountersCVC })
 			return ctrl as! CountersCVC
@@ -31,22 +29,25 @@ class RootViewController: UIViewController {
 	
 	let defaults = UserDefaults.standard
 
-	
 	// MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 		countersCollection.dataSource.cellDelegate = self
 		setupMenuButtons()
 		setupTheme()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(true)
+		super.viewWillAppear(animated)
+        
 		reloadView()
 	}
 	
 
 	// MARK: - Class Methods
+    
 	func reloadView() {
 		cleanTags()
 		setupLayout()
@@ -143,9 +144,8 @@ class RootViewController: UIViewController {
 		tagsManager.saveToDefaults(allTags: filteredTagsArray)
 	}
 	
-	
 	// UI methods
-	@objc func addTapped() {
+	@objc fileprivate func addTapped() {
 		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
 		let addAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
 		addAlert.providesPresentationContextTransitionStyle = true
@@ -164,7 +164,7 @@ class RootViewController: UIViewController {
 		self.present(addAlert, animated: true, completion: nil)
 	}
 	
-	@objc func deleteAllTapped() {
+	@objc fileprivate func deleteAllTapped() {
 		let storyboard = UIStoryboard(name: "ThemableAlertVC", bundle: nil)
 		let deleteAllAlert = storyboard.instantiateViewController(withIdentifier: "ThemableAlertVC") as! ThemableAlertVC
 		deleteAllAlert.providesPresentationContextTransitionStyle 	= true
@@ -181,21 +181,20 @@ class RootViewController: UIViewController {
 		self.present(deleteAllAlert, animated: true, completion: nil)
 	}
 	
-	
 	// Counters menu methods
-	@objc func addCounter(name: String) {
+	@objc fileprivate func addCounter(name: String) {
 		countersCollection.dataSource.addCounter(with: name)
 		reloadView()
 		countersCollection.collectionView.reloadData()
 	}
 	
-	@objc func deleteAllCounters() {
+	@objc fileprivate func deleteAllCounters() {
 		countersCollection.dataSource.removeAllCounters()
 		reloadView()
 		countersCollection.collectionView.reloadData()
 	}
 	
-	@objc func settingsTapped() {
+	@objc fileprivate func settingsTapped() {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
 			if UIDevice.current.userInterfaceIdiom == .pad {
 				vc.modalPresentationStyle = .formSheet
@@ -207,21 +206,20 @@ class RootViewController: UIViewController {
 		}
 	}
 	
-	
 	// View menu methods
-	@objc func viewByCounters() {
+	@objc fileprivate func viewByCounters() {
 		defaults.set(false, forKey: "ViewByTags")
 		countersCollection.dataSource.reorganizeBy(order: .counters)
 		countersCollection.collectionView.reloadData()
 	}
 	
-	@objc func viewByTags() {
+	@objc fileprivate func viewByTags() {
 		defaults.set(true, forKey: "ViewByTags")
 		countersCollection.dataSource.reorganizeBy(order: .tags)
 		countersCollection.collectionView.reloadData()
 	}
 	
-	@objc func setSmallLayout() {
+	@objc fileprivate func setSmallLayout() {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.countersCollection.collectionView.collectionViewLayout = CountersLayoutType.small
 		}
@@ -229,15 +227,15 @@ class RootViewController: UIViewController {
 	}
 	
 	
-	@objc func setBigLayout() {
+	@objc fileprivate func setBigLayout() {
 		UIView.animate(withDuration: 0.3){ [unowned self] in
 			self.countersCollection.collectionView.collectionViewLayout = CountersLayoutType.big
 		}
 		defaults.set(false, forKey: "CellLayoutIsSmall")
 	}
-	
 }
 
+// MARK: - Extension to CustomAlertViewDelegate
 
 extension RootViewController: CustomAlertViewDelegate {
 	func okButtonTapped(counterID: UUID?, alertType: alertType, textFieldValue: String) {
