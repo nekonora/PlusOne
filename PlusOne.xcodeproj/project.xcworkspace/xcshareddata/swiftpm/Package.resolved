@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "TaggerKit",
+        "repositoryURL": "https://github.com/nekonora/TaggerKit.git",
+        "state": {
+          "branch": null,
+          "revision": "20155fdb7331231ed5a9ed8e0704cbfcabcb6c33",
+          "version": "0.6.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
