@@ -1,6 +1,0 @@
-framework module Pods_Simple_Counter {
-  umbrella header "Pods-Simple Counter-umbrella.h"
-
-  export *
-  module * { export * }
-}
