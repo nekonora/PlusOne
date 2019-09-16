@@ -9,12 +9,23 @@
 import UIKit
 
 class RootVC: UIViewController {
+    
+    // MARK - Outlets
+    
+    @IBOutlet weak var containerView: UIView!
+    
+    // MARK - Properties
+    
+    // MARK - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if let countersListChild = Scenes.countersList.fromStoryboard() as? CountersListVC {
+            addChild(countersListChild)
+            countersListChild.view.frame = containerView.frame
+            containerView.addSubview(countersListChild.view)
+            countersListChild.didMove(toParent: self)
+        }
     }
-
-
 }
-

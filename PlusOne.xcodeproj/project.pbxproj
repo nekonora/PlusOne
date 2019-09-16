@@ -15,7 +15,17 @@
 		FA6FDADD23240161009E9603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6FDADC23240161009E9603 /* Assets.xcassets */; };
 		FA6FDAE023240161009E9603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6FDADE23240161009E9603 /* LaunchScreen.storyboard */; };
 		FA6FDAEB23240161009E9603 /* PlusOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FDAEA23240161009E9603 /* PlusOneTests.swift */; };
-		FA6FDAF823240220009E9603 /* TaggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA6FDAF723240220009E9603 /* TaggerKit */; };
+		FA90BA982330165B00EA17ED /* TaggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA90BA972330165B00EA17ED /* TaggerKit */; };
+		FA90BA9A233018E600EA17ED /* CounterCellUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BA8C233013A900EA17ED /* CounterCellUI.swift */; };
+		FA90BA9F23301ADB00EA17ED /* Counter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BA9D23301ADB00EA17ED /* Counter+CoreDataClass.swift */; };
+		FA90BAA023301ADB00EA17ED /* Counter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BA9E23301ADB00EA17ED /* Counter+CoreDataProperties.swift */; };
+		FA90BAA323301AEB00EA17ED /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA123301AEB00EA17ED /* Tag+CoreDataClass.swift */; };
+		FA90BAA423301AEB00EA17ED /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA223301AEB00EA17ED /* Tag+CoreDataProperties.swift */; };
+		FA90BAA623301CB500EA17ED /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA523301CB500EA17ED /* Scenes.swift */; };
+		FA90BAA823301DAA00EA17ED /* CountersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA723301DAA00EA17ED /* CountersListVC.swift */; };
+		FA90BAAD23301E3500EA17ED /* CountersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA90BAAC23301E3500EA17ED /* CountersList.storyboard */; };
+		FA90BAAF2330283600EA17ED /* CountersListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAAE2330283600EA17ED /* CountersListUI.swift */; };
+		FA90BAB223302FF500EA17ED /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = FA90BAB123302FF500EA17ED /* QGrid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +52,15 @@
 		FA6FDAEA23240161009E9603 /* PlusOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneTests.swift; sourceTree = "<group>"; };
 		FA6FDAEC23240161009E9603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6FDAF5232401B1009E9603 /* PlusOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlusOne.entitlements; sourceTree = "<group>"; };
+		FA90BA8C233013A900EA17ED /* CounterCellUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCellUI.swift; sourceTree = "<group>"; };
+		FA90BA9D23301ADB00EA17ED /* Counter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Counter+CoreDataClass.swift"; path = "PlusOne/Models/Counter+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FA90BA9E23301ADB00EA17ED /* Counter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Counter+CoreDataProperties.swift"; path = "PlusOne/Models/Counter+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FA90BAA123301AEB00EA17ED /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FA90BAA223301AEB00EA17ED /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FA90BAA523301CB500EA17ED /* Scenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
+		FA90BAA723301DAA00EA17ED /* CountersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersListVC.swift; sourceTree = "<group>"; };
+		FA90BAAC23301E3500EA17ED /* CountersList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountersList.storyboard; sourceTree = "<group>"; };
+		FA90BAAE2330283600EA17ED /* CountersListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersListUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6FDAF823240220009E9603 /* TaggerKit in Frameworks */,
+				FA90BAB223302FF500EA17ED /* QGrid in Frameworks */,
+				FA90BA982330165B00EA17ED /* TaggerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +108,7 @@
 				FA6FDAE123240161009E9603 /* Info.plist */,
 				FA6FDAD023240160009E9603 /* AppDelegate.swift */,
 				FA6FDAD223240160009E9603 /* SceneDelegate.swift */,
+				FAF3626E23300DBD00A1EAF3 /* Models */,
 				FA6FDAFA2324027A009E9603 /* Scenes */,
 				FA6FDADC23240161009E9603 /* Assets.xcassets */,
 				FA6FDAD923240160009E9603 /* PlusOne.xcdatamodeld */,
@@ -116,10 +137,50 @@
 		FA6FDAFB23240289009E9603 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				FA6FDAD423240160009E9603 /* RootVC.swift */,
 				FA6FDAD623240160009E9603 /* Main.storyboard */,
+				FA90BAA523301CB500EA17ED /* Scenes.swift */,
+				FA6FDAD423240160009E9603 /* RootVC.swift */,
+				FA90BAAB23301E0A00EA17ED /* CountersList */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		FA90BAAB23301E0A00EA17ED /* CountersList */ = {
+			isa = PBXGroup;
+			children = (
+				FA90BAAC23301E3500EA17ED /* CountersList.storyboard */,
+				FA90BAA723301DAA00EA17ED /* CountersListVC.swift */,
+				FA90BAAE2330283600EA17ED /* CountersListUI.swift */,
+				FA90BA8C233013A900EA17ED /* CounterCellUI.swift */,
+			);
+			path = CountersList;
+			sourceTree = "<group>";
+		};
+		FAF3626E23300DBD00A1EAF3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAF3627F23300EA100A1EAF3 /* Counter */,
+				FAF3628123300ED700A1EAF3 /* Tag */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FAF3627F23300EA100A1EAF3 /* Counter */ = {
+			isa = PBXGroup;
+			children = (
+				FA90BA9D23301ADB00EA17ED /* Counter+CoreDataClass.swift */,
+				FA90BA9E23301ADB00EA17ED /* Counter+CoreDataProperties.swift */,
+			);
+			path = Counter;
+			sourceTree = "<group>";
+		};
+		FAF3628123300ED700A1EAF3 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				FA90BAA123301AEB00EA17ED /* Tag+CoreDataClass.swift */,
+				FA90BAA223301AEB00EA17ED /* Tag+CoreDataProperties.swift */,
+			);
+			path = Tag;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +200,8 @@
 			);
 			name = PlusOne;
 			packageProductDependencies = (
-				FA6FDAF723240220009E9603 /* TaggerKit */,
+				FA90BA972330165B00EA17ED /* TaggerKit */,
+				FA90BAB123302FF500EA17ED /* QGrid */,
 			);
 			productName = PlusOne;
 			productReference = FA6FDACD23240160009E9603 /* PlusOne.app */;
@@ -192,7 +254,8 @@
 			);
 			mainGroup = FA6FDAC423240160009E9603;
 			packageReferences = (
-				FA6FDAF623240220009E9603 /* XCRemoteSwiftPackageReference "TaggerKit" */,
+				FA90BA962330165B00EA17ED /* XCRemoteSwiftPackageReference "TaggerKit" */,
+				FA90BAB023302FF500EA17ED /* XCRemoteSwiftPackageReference "QGrid" */,
 			);
 			productRefGroup = FA6FDACE23240160009E9603 /* Products */;
 			projectDirPath = "";
@@ -210,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6FDAE023240161009E9603 /* LaunchScreen.storyboard in Resources */,
+				FA90BAAD23301E3500EA17ED /* CountersList.storyboard in Resources */,
 				FA6FDADD23240161009E9603 /* Assets.xcassets in Resources */,
 				FA6FDAD823240160009E9603 /* Main.storyboard in Resources */,
 			);
@@ -229,10 +293,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA90BAA823301DAA00EA17ED /* CountersListVC.swift in Sources */,
 				FA6FDAD523240160009E9603 /* RootVC.swift in Sources */,
+				FA90BAA023301ADB00EA17ED /* Counter+CoreDataProperties.swift in Sources */,
+				FA90BAA623301CB500EA17ED /* Scenes.swift in Sources */,
+				FA90BAA323301AEB00EA17ED /* Tag+CoreDataClass.swift in Sources */,
 				FA6FDAD123240160009E9603 /* AppDelegate.swift in Sources */,
 				FA6FDADB23240160009E9603 /* PlusOne.xcdatamodeld in Sources */,
 				FA6FDAD323240160009E9603 /* SceneDelegate.swift in Sources */,
+				FA90BA9F23301ADB00EA17ED /* Counter+CoreDataClass.swift in Sources */,
+				FA90BA9A233018E600EA17ED /* CounterCellUI.swift in Sources */,
+				FA90BAA423301AEB00EA17ED /* Tag+CoreDataProperties.swift in Sources */,
+				FA90BAAF2330283600EA17ED /* CountersListUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +470,7 @@
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -421,6 +494,7 @@
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +516,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOneTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +537,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOneTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,21 +583,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA6FDAF623240220009E9603 /* XCRemoteSwiftPackageReference "TaggerKit" */ = {
+		FA90BA962330165B00EA17ED /* XCRemoteSwiftPackageReference "TaggerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nekonora/TaggerKit.git";
 			requirement = {
+				kind = exactVersion;
+				version = 0.6.1;
+			};
+		};
+		FA90BAB023302FF500EA17ED /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.1;
+				minimumVersion = 0.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA6FDAF723240220009E9603 /* TaggerKit */ = {
+		FA90BA972330165B00EA17ED /* TaggerKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA6FDAF623240220009E9603 /* XCRemoteSwiftPackageReference "TaggerKit" */;
+			package = FA90BA962330165B00EA17ED /* XCRemoteSwiftPackageReference "TaggerKit" */;
 			productName = TaggerKit;
+		};
+		FA90BAB123302FF500EA17ED /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA90BAB023302FF500EA17ED /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A546d" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Counter" representedClassName=".Counter" parentEntity="Tag" syncable="YES">
+        <attribute name="completionValue" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="currentValue" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" defaultValueString="D108E720-9782-4710-9C8B-698D7D580565" usesScalarValueType="YES"/>
+        <attribute name="increment" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="name" spotlightIndexingEnabled="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="counters" inverseEntity="Tag"/>
+    </entity>
+    <entity name="Tag" representedClassName=".Tag" syncable="YES">
+        <attribute name="title" attributeType="String" defaultValueString="defaultTag"/>
+        <relationship name="counters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Counter" inverseName="tags" inverseEntity="Counter"/>
+    </entity>
+    <elements>
+        <element name="Counter" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Tag" positionX="-54" positionY="36" width="128" height="73"/>
+    </elements>
 </model>
