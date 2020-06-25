@@ -3,77 +3,80 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA6FDAD123240160009E9603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FDAD023240160009E9603 /* AppDelegate.swift */; };
-		FA6FDAD323240160009E9603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FDAD223240160009E9603 /* SceneDelegate.swift */; };
-		FA6FDAD523240160009E9603 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FDAD423240160009E9603 /* RootVC.swift */; };
-		FA6FDAD823240160009E9603 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6FDAD623240160009E9603 /* Main.storyboard */; };
-		FA6FDADB23240160009E9603 /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA6FDAD923240160009E9603 /* PlusOne.xcdatamodeld */; };
-		FA6FDADD23240161009E9603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6FDADC23240161009E9603 /* Assets.xcassets */; };
-		FA6FDAE023240161009E9603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6FDADE23240161009E9603 /* LaunchScreen.storyboard */; };
-		FA6FDAEB23240161009E9603 /* PlusOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FDAEA23240161009E9603 /* PlusOneTests.swift */; };
-		FA90BA982330165B00EA17ED /* TaggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA90BA972330165B00EA17ED /* TaggerKit */; };
-		FA90BA9A233018E600EA17ED /* CounterCellUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BA8C233013A900EA17ED /* CounterCellUI.swift */; };
-		FA90BA9F23301ADB00EA17ED /* Counter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BA9D23301ADB00EA17ED /* Counter+CoreDataClass.swift */; };
-		FA90BAA023301ADB00EA17ED /* Counter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BA9E23301ADB00EA17ED /* Counter+CoreDataProperties.swift */; };
-		FA90BAA323301AEB00EA17ED /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA123301AEB00EA17ED /* Tag+CoreDataClass.swift */; };
-		FA90BAA423301AEB00EA17ED /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA223301AEB00EA17ED /* Tag+CoreDataProperties.swift */; };
-		FA90BAA623301CB500EA17ED /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA523301CB500EA17ED /* Scenes.swift */; };
-		FA90BAA823301DAA00EA17ED /* CountersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAA723301DAA00EA17ED /* CountersListVC.swift */; };
-		FA90BAAD23301E3500EA17ED /* CountersList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA90BAAC23301E3500EA17ED /* CountersList.storyboard */; };
-		FA90BAAF2330283600EA17ED /* CountersListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90BAAE2330283600EA17ED /* CountersListUI.swift */; };
-		FA90BAB223302FF500EA17ED /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = FA90BAB123302FF500EA17ED /* QGrid */; };
+		FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */; };
+		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
+		FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A824A3DBB400076201 /* SceneDelegate.swift */; };
+		FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AA24A3DBB400076201 /* RootVC.swift */; };
+		FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */; };
+		FAA990B324A3DBB400076201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA990B224A3DBB400076201 /* Assets.xcassets */; };
+		FAA990C124A3DBB500076201 /* PlusOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990C024A3DBB500076201 /* PlusOneTests.swift */; };
+		FAA990CC24A3DBB500076201 /* PlusOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990CB24A3DBB500076201 /* PlusOneUITests.swift */; };
+		FAA990DA24A3E27100076201 /* GeneralMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA990D924A3E27100076201 /* GeneralMedia.xcassets */; };
+		FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */; };
+		FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */; };
+		FAA990E024A3E72600076201 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DF24A3E72600076201 /* CompactVC.swift */; };
+		FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FA6FDAE723240161009E9603 /* PBXContainerItemProxy */ = {
+		FAA990BD24A3DBB500076201 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FA6FDAC523240160009E9603 /* Project object */;
+			containerPortal = FAA9909B24A3DBB400076201 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FA6FDACC23240160009E9603;
+			remoteGlobalIDString = FAA990A224A3DBB400076201;
+			remoteInfo = PlusOne;
+		};
+		FAA990C824A3DBB500076201 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA9909B24A3DBB400076201 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAA990A224A3DBB400076201;
 			remoteInfo = PlusOne;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA6FDACD23240160009E9603 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA6FDAD023240160009E9603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA6FDAD223240160009E9603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA6FDAD423240160009E9603 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
-		FA6FDAD723240160009E9603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FA6FDADA23240160009E9603 /* PlusOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlusOne.xcdatamodel; sourceTree = "<group>"; };
-		FA6FDADC23240161009E9603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA6FDADF23240161009E9603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FA6FDAE123240161009E9603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA6FDAE623240161009E9603 /* PlusOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA6FDAEA23240161009E9603 /* PlusOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneTests.swift; sourceTree = "<group>"; };
-		FA6FDAEC23240161009E9603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA6FDAF5232401B1009E9603 /* PlusOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlusOne.entitlements; sourceTree = "<group>"; };
-		FA90BA8C233013A900EA17ED /* CounterCellUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCellUI.swift; sourceTree = "<group>"; };
-		FA90BA9D23301ADB00EA17ED /* Counter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Counter+CoreDataClass.swift"; path = "PlusOne/Models/Counter+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FA90BA9E23301ADB00EA17ED /* Counter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Counter+CoreDataProperties.swift"; path = "PlusOne/Models/Counter+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		FA90BAA123301AEB00EA17ED /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FA90BAA223301AEB00EA17ED /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		FA90BAA523301CB500EA17ED /* Scenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
-		FA90BAA723301DAA00EA17ED /* CountersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersListVC.swift; sourceTree = "<group>"; };
-		FA90BAAC23301E3500EA17ED /* CountersList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountersList.storyboard; sourceTree = "<group>"; };
-		FA90BAAE2330283600EA17ED /* CountersListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersListUI.swift; sourceTree = "<group>"; };
+		FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA990A624A3DBB400076201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAA990A824A3DBB400076201 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FAA990AA24A3DBB400076201 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
+		FAA990B024A3DBB400076201 /* PlusOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlusOne.xcdatamodel; sourceTree = "<group>"; };
+		FAA990B224A3DBB400076201 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAA990B724A3DBB400076201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA990BC24A3DBB500076201 /* PlusOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA990C024A3DBB500076201 /* PlusOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneTests.swift; sourceTree = "<group>"; };
+		FAA990C224A3DBB500076201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA990C724A3DBB500076201 /* PlusOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA990CB24A3DBB500076201 /* PlusOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneUITests.swift; sourceTree = "<group>"; };
+		FAA990CD24A3DBB500076201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA990D924A3E27100076201 /* GeneralMedia.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GeneralMedia.xcassets; sourceTree = "<group>"; };
+		FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularPrimaryVC.swift; sourceTree = "<group>"; };
+		FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSecondaryVC.swift; sourceTree = "<group>"; };
+		FAA990DF24A3E72600076201 /* CompactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
+		FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FA6FDACA23240160009E9603 /* Frameworks */ = {
+		FAA990A024A3DBB400076201 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA90BAB223302FF500EA17ED /* QGrid in Frameworks */,
-				FA90BA982330165B00EA17ED /* TaggerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA6FDAE323240161009E9603 /* Frameworks */ = {
+		FAA990B924A3DBB500076201 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA990C424A3DBB500076201 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,203 +86,179 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA6FDAC423240160009E9603 = {
+		FAA9909A24A3DBB400076201 = {
 			isa = PBXGroup;
 			children = (
-				FA6FDACF23240160009E9603 /* PlusOne */,
-				FA6FDAE923240161009E9603 /* PlusOneTests */,
-				FA6FDACE23240160009E9603 /* Products */,
+				FAA990A524A3DBB400076201 /* PlusOne */,
+				FAA990BF24A3DBB500076201 /* PlusOneTests */,
+				FAA990CA24A3DBB500076201 /* PlusOneUITests */,
+				FAA990A424A3DBB400076201 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FA6FDACE23240160009E9603 /* Products */ = {
+		FAA990A424A3DBB400076201 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA6FDACD23240160009E9603 /* PlusOne.app */,
-				FA6FDAE623240161009E9603 /* PlusOneTests.xctest */,
+				FAA990A324A3DBB400076201 /* PlusOne.app */,
+				FAA990BC24A3DBB500076201 /* PlusOneTests.xctest */,
+				FAA990C724A3DBB500076201 /* PlusOneUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FA6FDACF23240160009E9603 /* PlusOne */ = {
+		FAA990A524A3DBB400076201 /* PlusOne */ = {
 			isa = PBXGroup;
 			children = (
-				FA6FDAF5232401B1009E9603 /* PlusOne.entitlements */,
-				FA6FDAE123240161009E9603 /* Info.plist */,
-				FA6FDAD023240160009E9603 /* AppDelegate.swift */,
-				FA6FDAD223240160009E9603 /* SceneDelegate.swift */,
-				FAF3626E23300DBD00A1EAF3 /* Models */,
-				FA6FDAFA2324027A009E9603 /* Scenes */,
-				FA6FDADC23240161009E9603 /* Assets.xcassets */,
-				FA6FDAD923240160009E9603 /* PlusOne.xcdatamodeld */,
+				FAA990A624A3DBB400076201 /* AppDelegate.swift */,
+				FAA990A824A3DBB400076201 /* SceneDelegate.swift */,
+				FAA990AA24A3DBB400076201 /* RootVC.swift */,
+				FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */,
+				FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */,
+				FAA990DF24A3E72600076201 /* CompactVC.swift */,
+				FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */,
+				FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */,
+				FAA990B224A3DBB400076201 /* Assets.xcassets */,
+				FAA990D924A3E27100076201 /* GeneralMedia.xcassets */,
+				FAA990B724A3DBB400076201 /* Info.plist */,
+				FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */,
 			);
 			path = PlusOne;
 			sourceTree = "<group>";
 		};
-		FA6FDAE923240161009E9603 /* PlusOneTests */ = {
+		FAA990BF24A3DBB500076201 /* PlusOneTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA6FDAEA23240161009E9603 /* PlusOneTests.swift */,
-				FA6FDAEC23240161009E9603 /* Info.plist */,
+				FAA990C024A3DBB500076201 /* PlusOneTests.swift */,
+				FAA990C224A3DBB500076201 /* Info.plist */,
 			);
 			path = PlusOneTests;
 			sourceTree = "<group>";
 		};
-		FA6FDAFA2324027A009E9603 /* Scenes */ = {
+		FAA990CA24A3DBB500076201 /* PlusOneUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FA6FDADE23240161009E9603 /* LaunchScreen.storyboard */,
-				FA6FDAFB23240289009E9603 /* Root */,
+				FAA990CB24A3DBB500076201 /* PlusOneUITests.swift */,
+				FAA990CD24A3DBB500076201 /* Info.plist */,
 			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		FA6FDAFB23240289009E9603 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				FA6FDAD623240160009E9603 /* Main.storyboard */,
-				FA90BAA523301CB500EA17ED /* Scenes.swift */,
-				FA6FDAD423240160009E9603 /* RootVC.swift */,
-				FA90BAAB23301E0A00EA17ED /* CountersList */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		FA90BAAB23301E0A00EA17ED /* CountersList */ = {
-			isa = PBXGroup;
-			children = (
-				FA90BAAC23301E3500EA17ED /* CountersList.storyboard */,
-				FA90BAA723301DAA00EA17ED /* CountersListVC.swift */,
-				FA90BAAE2330283600EA17ED /* CountersListUI.swift */,
-				FA90BA8C233013A900EA17ED /* CounterCellUI.swift */,
-			);
-			path = CountersList;
-			sourceTree = "<group>";
-		};
-		FAF3626E23300DBD00A1EAF3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				FAF3627F23300EA100A1EAF3 /* Counter */,
-				FAF3628123300ED700A1EAF3 /* Tag */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		FAF3627F23300EA100A1EAF3 /* Counter */ = {
-			isa = PBXGroup;
-			children = (
-				FA90BA9D23301ADB00EA17ED /* Counter+CoreDataClass.swift */,
-				FA90BA9E23301ADB00EA17ED /* Counter+CoreDataProperties.swift */,
-			);
-			path = Counter;
-			sourceTree = "<group>";
-		};
-		FAF3628123300ED700A1EAF3 /* Tag */ = {
-			isa = PBXGroup;
-			children = (
-				FA90BAA123301AEB00EA17ED /* Tag+CoreDataClass.swift */,
-				FA90BAA223301AEB00EA17ED /* Tag+CoreDataProperties.swift */,
-			);
-			path = Tag;
+			path = PlusOneUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA6FDACC23240160009E9603 /* PlusOne */ = {
+		FAA990A224A3DBB400076201 /* PlusOne */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA6FDAEF23240161009E9603 /* Build configuration list for PBXNativeTarget "PlusOne" */;
+			buildConfigurationList = FAA990D024A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOne" */;
 			buildPhases = (
-				FA6FDAC923240160009E9603 /* Sources */,
-				FA6FDACA23240160009E9603 /* Frameworks */,
-				FA6FDACB23240160009E9603 /* Resources */,
+				FAA9909F24A3DBB400076201 /* Sources */,
+				FAA990A024A3DBB400076201 /* Frameworks */,
+				FAA990A124A3DBB400076201 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PlusOne;
-			packageProductDependencies = (
-				FA90BA972330165B00EA17ED /* TaggerKit */,
-				FA90BAB123302FF500EA17ED /* QGrid */,
-			);
 			productName = PlusOne;
-			productReference = FA6FDACD23240160009E9603 /* PlusOne.app */;
+			productReference = FAA990A324A3DBB400076201 /* PlusOne.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FA6FDAE523240161009E9603 /* PlusOneTests */ = {
+		FAA990BB24A3DBB500076201 /* PlusOneTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA6FDAF223240161009E9603 /* Build configuration list for PBXNativeTarget "PlusOneTests" */;
+			buildConfigurationList = FAA990D324A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneTests" */;
 			buildPhases = (
-				FA6FDAE223240161009E9603 /* Sources */,
-				FA6FDAE323240161009E9603 /* Frameworks */,
-				FA6FDAE423240161009E9603 /* Resources */,
+				FAA990B824A3DBB500076201 /* Sources */,
+				FAA990B924A3DBB500076201 /* Frameworks */,
+				FAA990BA24A3DBB500076201 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FA6FDAE823240161009E9603 /* PBXTargetDependency */,
+				FAA990BE24A3DBB500076201 /* PBXTargetDependency */,
 			);
 			name = PlusOneTests;
 			productName = PlusOneTests;
-			productReference = FA6FDAE623240161009E9603 /* PlusOneTests.xctest */;
+			productReference = FAA990BC24A3DBB500076201 /* PlusOneTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAA990C624A3DBB500076201 /* PlusOneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAA990D624A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneUITests" */;
+			buildPhases = (
+				FAA990C324A3DBB500076201 /* Sources */,
+				FAA990C424A3DBB500076201 /* Frameworks */,
+				FAA990C524A3DBB500076201 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAA990C924A3DBB500076201 /* PBXTargetDependency */,
+			);
+			name = PlusOneUITests;
+			productName = PlusOneUITests;
+			productReference = FAA990C724A3DBB500076201 /* PlusOneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FA6FDAC523240160009E9603 /* Project object */ = {
+		FAA9909B24A3DBB400076201 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
-				ORGANIZATIONNAME = "Filippo Zaffoni";
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					FA6FDACC23240160009E9603 = {
-						CreatedOnToolsVersion = 11.0;
+					FAA990A224A3DBB400076201 = {
+						CreatedOnToolsVersion = 12.0;
 					};
-					FA6FDAE523240161009E9603 = {
-						CreatedOnToolsVersion = 11.0;
-						TestTargetID = FA6FDACC23240160009E9603;
+					FAA990BB24A3DBB500076201 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = FAA990A224A3DBB400076201;
+					};
+					FAA990C624A3DBB500076201 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = FAA990A224A3DBB400076201;
 					};
 				};
 			};
-			buildConfigurationList = FA6FDAC823240160009E9603 /* Build configuration list for PBXProject "PlusOne" */;
-			compatibilityVersion = "Xcode 11.0";
+			buildConfigurationList = FAA9909E24A3DBB400076201 /* Build configuration list for PBXProject "PlusOne" */;
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = FA6FDAC423240160009E9603;
-			packageReferences = (
-				FA90BA962330165B00EA17ED /* XCRemoteSwiftPackageReference "TaggerKit" */,
-				FA90BAB023302FF500EA17ED /* XCRemoteSwiftPackageReference "QGrid" */,
-			);
-			productRefGroup = FA6FDACE23240160009E9603 /* Products */;
+			mainGroup = FAA9909A24A3DBB400076201;
+			productRefGroup = FAA990A424A3DBB400076201 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA6FDACC23240160009E9603 /* PlusOne */,
-				FA6FDAE523240161009E9603 /* PlusOneTests */,
+				FAA990A224A3DBB400076201 /* PlusOne */,
+				FAA990BB24A3DBB500076201 /* PlusOneTests */,
+				FAA990C624A3DBB500076201 /* PlusOneUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FA6FDACB23240160009E9603 /* Resources */ = {
+		FAA990A124A3DBB400076201 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6FDAE023240161009E9603 /* LaunchScreen.storyboard in Resources */,
-				FA90BAAD23301E3500EA17ED /* CountersList.storyboard in Resources */,
-				FA6FDADD23240161009E9603 /* Assets.xcassets in Resources */,
-				FA6FDAD823240160009E9603 /* Main.storyboard in Resources */,
+				FAA990B324A3DBB400076201 /* Assets.xcassets in Resources */,
+				FAA990DA24A3E27100076201 /* GeneralMedia.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA6FDAE423240161009E9603 /* Resources */ = {
+		FAA990BA24A3DBB500076201 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA990C524A3DBB500076201 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,64 +268,55 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FA6FDAC923240160009E9603 /* Sources */ = {
+		FAA9909F24A3DBB400076201 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA90BAA823301DAA00EA17ED /* CountersListVC.swift in Sources */,
-				FA6FDAD523240160009E9603 /* RootVC.swift in Sources */,
-				FA90BAA023301ADB00EA17ED /* Counter+CoreDataProperties.swift in Sources */,
-				FA90BAA623301CB500EA17ED /* Scenes.swift in Sources */,
-				FA90BAA323301AEB00EA17ED /* Tag+CoreDataClass.swift in Sources */,
-				FA6FDAD123240160009E9603 /* AppDelegate.swift in Sources */,
-				FA6FDADB23240160009E9603 /* PlusOne.xcdatamodeld in Sources */,
-				FA6FDAD323240160009E9603 /* SceneDelegate.swift in Sources */,
-				FA90BA9F23301ADB00EA17ED /* Counter+CoreDataClass.swift in Sources */,
-				FA90BA9A233018E600EA17ED /* CounterCellUI.swift in Sources */,
-				FA90BAA423301AEB00EA17ED /* Tag+CoreDataProperties.swift in Sources */,
-				FA90BAAF2330283600EA17ED /* CountersListUI.swift in Sources */,
+				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
+				FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */,
+				FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */,
+				FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */,
+				FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */,
+				FAA990E024A3E72600076201 /* CompactVC.swift in Sources */,
+				FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */,
+				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,
+				FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA6FDAE223240161009E9603 /* Sources */ = {
+		FAA990B824A3DBB500076201 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6FDAEB23240161009E9603 /* PlusOneTests.swift in Sources */,
+				FAA990C124A3DBB500076201 /* PlusOneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA990C324A3DBB500076201 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA990CC24A3DBB500076201 /* PlusOneUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FA6FDAE823240161009E9603 /* PBXTargetDependency */ = {
+		FAA990BE24A3DBB500076201 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA6FDACC23240160009E9603 /* PlusOne */;
-			targetProxy = FA6FDAE723240161009E9603 /* PBXContainerItemProxy */;
+			target = FAA990A224A3DBB400076201 /* PlusOne */;
+			targetProxy = FAA990BD24A3DBB500076201 /* PBXContainerItemProxy */;
+		};
+		FAA990C924A3DBB500076201 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAA990A224A3DBB400076201 /* PlusOne */;
+			targetProxy = FAA990C824A3DBB500076201 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		FA6FDAD623240160009E9603 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA6FDAD723240160009E9603 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FA6FDADE23240161009E9603 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA6FDADF23240161009E9603 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		FA6FDAED23240161009E9603 /* Debug */ = {
+		FAA990CE24A3DBB500076201 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -372,6 +342,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -396,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -406,7 +377,7 @@
 			};
 			name = Debug;
 		};
-		FA6FDAEE23240161009E9603 /* Release */ = {
+		FAA990CF24A3DBB500076201 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -432,6 +403,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -450,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -460,55 +432,45 @@
 			};
 			name = Release;
 		};
-		FA6FDAF023240161009E9603 /* Debug */ = {
+		FAA990D124A3DBB500076201 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20000;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter.PlusOne;
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		FA6FDAF123240161009E9603 /* Release */ = {
+		FAA990D224A3DBB500076201 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20000;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter.PlusOne;
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		FA6FDAF323240161009E9603 /* Debug */ = {
+		FAA990D424A3DBB500076201 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -516,12 +478,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOneTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter.PlusOneTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,7 +492,7 @@
 			};
 			name = Debug;
 		};
-		FA6FDAF423240161009E9603 /* Release */ = {
+		FAA990D524A3DBB500076201 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -537,95 +500,113 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOneTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter.PlusOneTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlusOne.app/PlusOne";
+			};
+			name = Release;
+		};
+		FAA990D724A3DBB500076201 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55SRM36F8Y;
+				INFOPLIST_FILE = PlusOneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlusOne;
+			};
+			name = Debug;
+		};
+		FAA990D824A3DBB500076201 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55SRM36F8Y;
+				INFOPLIST_FILE = PlusOneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlusOne;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA6FDAC823240160009E9603 /* Build configuration list for PBXProject "PlusOne" */ = {
+		FAA9909E24A3DBB400076201 /* Build configuration list for PBXProject "PlusOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA6FDAED23240161009E9603 /* Debug */,
-				FA6FDAEE23240161009E9603 /* Release */,
+				FAA990CE24A3DBB500076201 /* Debug */,
+				FAA990CF24A3DBB500076201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA6FDAEF23240161009E9603 /* Build configuration list for PBXNativeTarget "PlusOne" */ = {
+		FAA990D024A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA6FDAF023240161009E9603 /* Debug */,
-				FA6FDAF123240161009E9603 /* Release */,
+				FAA990D124A3DBB500076201 /* Debug */,
+				FAA990D224A3DBB500076201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA6FDAF223240161009E9603 /* Build configuration list for PBXNativeTarget "PlusOneTests" */ = {
+		FAA990D324A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA6FDAF323240161009E9603 /* Debug */,
-				FA6FDAF423240161009E9603 /* Release */,
+				FAA990D424A3DBB500076201 /* Debug */,
+				FAA990D524A3DBB500076201 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAA990D624A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA990D724A3DBB500076201 /* Debug */,
+				FAA990D824A3DBB500076201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		FA90BA962330165B00EA17ED /* XCRemoteSwiftPackageReference "TaggerKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nekonora/TaggerKit.git";
-			requirement = {
-				kind = exactVersion;
-				version = 0.6.1;
-			};
-		};
-		FA90BAB023302FF500EA17ED /* XCRemoteSwiftPackageReference "QGrid" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Q-Mobile/QGrid";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FA90BA972330165B00EA17ED /* TaggerKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA90BA962330165B00EA17ED /* XCRemoteSwiftPackageReference "TaggerKit" */;
-			productName = TaggerKit;
-		};
-		FA90BAB123302FF500EA17ED /* QGrid */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA90BAB023302FF500EA17ED /* XCRemoteSwiftPackageReference "QGrid" */;
-			productName = QGrid;
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCVersionGroup section */
-		FA6FDAD923240160009E9603 /* PlusOne.xcdatamodeld */ = {
+		FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FA6FDADA23240160009E9603 /* PlusOne.xcdatamodel */,
+				FAA990B024A3DBB400076201 /* PlusOne.xcdatamodel */,
 			);
-			currentVersion = FA6FDADA23240160009E9603 /* PlusOne.xcdatamodel */;
+			currentVersion = FAA990B024A3DBB400076201 /* PlusOne.xcdatamodel */;
 			path = PlusOne.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = FA6FDAC523240160009E9603 /* Project object */;
+	rootObject = FAA9909B24A3DBB400076201 /* Project object */;
 }
