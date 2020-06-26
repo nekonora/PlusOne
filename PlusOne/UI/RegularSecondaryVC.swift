@@ -9,15 +9,35 @@ import UIKit
 
 class RegularSecondaryVC: UIViewController {
     
-    var collectionView: UICollectionView! = nil
-
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemBackground
-        title = "Secondary"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = UIColor.poBackground
+        setupUI()
     }
+}
 
+// MARK: - Setup
+private extension RegularSecondaryVC {
+    
+    func setupUI() {
+        navigationItem.title = "All counters"
+        view.backgroundColor = UIColor.poBackground
+        setupNavBar()
+    }
+    
+    func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddTapped))
+        ]
+    }
+}
+
+// MARK: - Actions
+private extension RegularSecondaryVC {
+    
+    @objc private func onAddTapped() {
+        
+    }
 }
