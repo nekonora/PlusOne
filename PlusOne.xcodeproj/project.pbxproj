@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */; };
+		FA18E6F824A5DDC100F31DF9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6F724A5DDC100F31DF9 /* Preferences.swift */; };
+		FA18E6FA24A5DDEF00F31DF9 /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */; };
+		FA18E6FC24A5DE0F00F31DF9 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */; };
+		FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */; };
+		FA18E70424A6105800F31DF9 /* CountersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70324A6105800F31DF9 /* CountersManager.swift */; };
+		FA18E70624A6106400F31DF9 /* CountersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70524A6106400F31DF9 /* CountersDataSource.swift */; };
+		FA18E70A24A6145200F31DF9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA18E70924A6145200F31DF9 /* CloudKit.framework */; };
+		FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70C24A6195600F31DF9 /* Tag+CoreDataClass.swift */; };
+		FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70D24A6195600F31DF9 /* Tag+CoreDataProperties.swift */; };
+		FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70E24A6195600F31DF9 /* Counter+CoreDataClass.swift */; };
+		FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70F24A6195600F31DF9 /* Counter+CoreDataProperties.swift */; };
+		FA18E71624A6195600F31DF9 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71024A6195600F31DF9 /* Group+CoreDataClass.swift */; };
+		FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71124A6195600F31DF9 /* Group+CoreDataProperties.swift */; };
+		FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */; };
+		FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */; };
+		FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71C24A61A9800F31DF9 /* Group+CD.swift */; };
 		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
 		FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A824A3DBB400076201 /* SceneDelegate.swift */; };
 		FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AA24A3DBB400076201 /* RootVC.swift */; };
@@ -41,6 +57,23 @@
 
 /* Begin PBXFileReference section */
 		FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		FA18E6F724A5DDC100F31DF9 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
+		FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
+		FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		FA18E70324A6105800F31DF9 /* CountersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersManager.swift; sourceTree = "<group>"; };
+		FA18E70524A6106400F31DF9 /* CountersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersDataSource.swift; sourceTree = "<group>"; };
+		FA18E70724A6142200F31DF9 /* PlusOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlusOne.entitlements; sourceTree = "<group>"; };
+		FA18E70924A6145200F31DF9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		FA18E70C24A6195600F31DF9 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA18E70D24A6195600F31DF9 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA18E70E24A6195600F31DF9 /* Counter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA18E70F24A6195600F31DF9 /* Counter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA18E71024A6195600F31DF9 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA18E71124A6195600F31DF9 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CD.swift"; sourceTree = "<group>"; };
+		FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CD.swift"; sourceTree = "<group>"; };
+		FA18E71C24A61A9800F31DF9 /* Group+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CD.swift"; sourceTree = "<group>"; };
 		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA990A624A3DBB400076201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA990A824A3DBB400076201 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA18E70A24A6145200F31DF9 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +120,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA18E6FF24A5DE6700F31DF9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */,
+				FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */,
+				FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */,
+				FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */,
+				FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA18E70024A5DE7D00F31DF9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAA990B224A3DBB400076201 /* Assets.xcassets */,
+				FAA990D924A3E27100076201 /* GeneralMedia.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA18E70124A5DE9100F31DF9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FA18E6F724A5DDC100F31DF9 /* Preferences.swift */,
+				FA18E70524A6106400F31DF9 /* CountersDataSource.swift */,
+				FA18E70324A6105800F31DF9 /* CountersManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FA18E70224A5DEA200F31DF9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FAA990AA24A3DBB400076201 /* RootVC.swift */,
+				FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */,
+				FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */,
+				FAA990DF24A3E72600076201 /* CompactVC.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FA18E70824A6145200F31DF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA18E70924A6145200F31DF9 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA18E70B24A618F600F31DF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA18E70C24A6195600F31DF9 /* Tag+CoreDataClass.swift */,
+				FA18E70D24A6195600F31DF9 /* Tag+CoreDataProperties.swift */,
+				FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */,
+				FA18E70E24A6195600F31DF9 /* Counter+CoreDataClass.swift */,
+				FA18E70F24A6195600F31DF9 /* Counter+CoreDataProperties.swift */,
+				FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */,
+				FA18E71024A6195600F31DF9 /* Group+CoreDataClass.swift */,
+				FA18E71124A6195600F31DF9 /* Group+CoreDataProperties.swift */,
+				FA18E71C24A61A9800F31DF9 /* Group+CD.swift */,
+				FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FAA9909A24A3DBB400076201 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +194,7 @@
 				FAA990BF24A3DBB500076201 /* PlusOneTests */,
 				FAA990CA24A3DBB500076201 /* PlusOneUITests */,
 				FAA990A424A3DBB400076201 /* Products */,
+				FA18E70824A6145200F31DF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,18 +211,15 @@
 		FAA990A524A3DBB400076201 /* PlusOne */ = {
 			isa = PBXGroup;
 			children = (
+				FA18E70724A6142200F31DF9 /* PlusOne.entitlements */,
 				FAA990A624A3DBB400076201 /* AppDelegate.swift */,
 				FAA990A824A3DBB400076201 /* SceneDelegate.swift */,
-				FAA990AA24A3DBB400076201 /* RootVC.swift */,
-				FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */,
-				FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */,
-				FAA990DF24A3E72600076201 /* CompactVC.swift */,
-				FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */,
-				FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */,
-				FAA990B224A3DBB400076201 /* Assets.xcassets */,
-				FAA990D924A3E27100076201 /* GeneralMedia.xcassets */,
+				FA18E70224A5DEA200F31DF9 /* UI */,
+				FA18E70124A5DE9100F31DF9 /* Managers */,
+				FA18E6FF24A5DE6700F31DF9 /* Extensions */,
+				FA18E70024A5DE7D00F31DF9 /* Resources */,
 				FAA990B724A3DBB400076201 /* Info.plist */,
-				FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */,
+				FA18E70B24A618F600F31DF9 /* Model */,
 			);
 			path = PlusOne;
 			sourceTree = "<group>";
@@ -272,15 +371,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */,
+				FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */,
+				FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */,
 				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
+				FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */,
+				FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */,
+				FA18E71624A6195600F31DF9 /* Group+CoreDataClass.swift in Sources */,
 				FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */,
 				FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */,
 				FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */,
+				FA18E70624A6106400F31DF9 /* CountersDataSource.swift in Sources */,
 				FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */,
+				FA18E70424A6105800F31DF9 /* CountersManager.swift in Sources */,
+				FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */,
+				FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */,
 				FAA990E024A3E72600076201 /* CompactVC.swift in Sources */,
+				FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */,
 				FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */,
+				FA18E6FA24A5DDEF00F31DF9 /* Collection+.swift in Sources */,
+				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
 				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,
+				FA18E6FC24A5DE0F00F31DF9 /* UIControl+.swift in Sources */,
 				FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */,
+				FA18E6F824A5DDC100F31DF9 /* Preferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;
@@ -456,6 +571,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;

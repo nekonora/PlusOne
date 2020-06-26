@@ -16,14 +16,14 @@ private enum Section: CaseIterable {
         case .main:
             return [
                 OutlineItem(title: "Counters", subitems: [
-                    OutlineItem(title: "All", subitems: [], viewController: nil),
-                    OutlineItem(title: "Group1", subitems: [], viewController: nil),
-                    OutlineItem(title: "Group2", subitems: [], viewController: nil)
+                    OutlineItem(title: "All", subitems: [], viewController: nil)
+//                    OutlineItem(title: "Group1", subitems: [], viewController: nil),
+//                    OutlineItem(title: "Group2", subitems: [], viewController: nil)
                 ], viewController: nil),
                 OutlineItem(title: "Tags", subitems: [
-                    OutlineItem(title: "All", subitems: [], viewController: nil),
-                    OutlineItem(title: "Tag1", subitems: [], viewController: nil),
-                    OutlineItem(title: "Tag2", subitems: [], viewController: nil)
+                    OutlineItem(title: "All", subitems: [], viewController: nil)
+//                    OutlineItem(title: "Tag1", subitems: [], viewController: nil),
+//                    OutlineItem(title: "Tag2", subitems: [], viewController: nil)
                 ], viewController: nil),
                 OutlineItem(title: "Stats", subitems: [
                 ], viewController: nil)
@@ -35,7 +35,7 @@ private enum Section: CaseIterable {
 // MARK: - Sidebar outline item
 private struct OutlineItem: Hashable {
     
-    private let identifier = UUID()
+    let identifier = UUID()
     
     let title: String
     let subitems: [OutlineItem]
