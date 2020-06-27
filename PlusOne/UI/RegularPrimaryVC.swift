@@ -46,35 +46,43 @@ private struct OutlineItem: Hashable {
     func hash(into hasher: inout Hasher) { hasher.combine(identifier) }
 }
 
+// MARK: - Controller
 class RegularPrimaryVC: UIViewController {
     
     // MARK: - Private Properties
-    private var outlineCollectionView: UICollectionView! = nil
-    private var dataSource: UICollectionViewDiffableDataSource<Section, OutlineItem>! = nil
+    private var outlineCollectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, OutlineItem>!
     
     private var selectedItem: OutlineItem?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor.poBackground2
-        navigationItem.title = "PlusOne"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        configureCollectionView()
-        configureDataSource()
+        setupUI()
     }
 }
 
 // MARK: - Setup
 private extension RegularPrimaryVC {
     
+    func setupUI() {
+        view.backgroundColor = UIColor.poBackground2
+        
+        setupNavBar()
+        configureCollectionView()
+        configureDataSource()
+    }
+    
+    func setupNavBar() {
+        navigationItem.title = "PlusOne"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     // MARK: - CollectionView
     func configureCollectionView() {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
         view.addSubview(collectionView)
-        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        collectionView.fillSuperview()
         collectionView.backgroundColor = UIColor.poBackground2
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = false

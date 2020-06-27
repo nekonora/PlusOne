@@ -2,7 +2,7 @@
 //  Counter+CoreDataProperties.swift
 //  PlusOne
 //
-//  Created by Filippo Zaffoni on 26/06/2020.
+//  Created by Filippo Zaffoni on 27/06/2020.
 //
 //
 
@@ -12,19 +12,19 @@ import CoreData
 
 extension Counter {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Counter> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<Counter> {
         return NSFetchRequest<Counter>(entityName: "Counter")
     }
 
-    @NSManaged public var identifier: UUID?
-    @NSManaged public var name: String?
-    @NSManaged public var currentValue: Float
-    @NSManaged public var increment: Float
     @NSManaged public var completionValue: Float
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var updatedAt: Date?
-    @NSManaged public var tags: NSSet?
+    @NSManaged public var createdAt: Date
+    @NSManaged public var currentValue: Float
+    @NSManaged public var identifier: UUID
+    @NSManaged public var increment: Float
+    @NSManaged public var name: String
+    @NSManaged public var updatedAt: Date
     @NSManaged public var group: Group?
+    @NSManaged public var tags: NSSet?
 
 }
 

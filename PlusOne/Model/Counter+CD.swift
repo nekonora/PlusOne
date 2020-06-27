@@ -7,14 +7,21 @@
 
 import Foundation
 
+struct CounterConfig {
+    let name: String
+    let currentValue: Float
+    let increment: Float
+    let completionValue: Float?
+    let createdAt = Date()
+    let updatedAt = Date()
+    let tags: [Tag] = []
+    let group: Group?
+}
+
 extension Counter {
     
     // MARK: - Unwrapped properties
-    var uIdentifier: UUID { identifier! }
-    var uName: String { name ?? "Invalid name" }
-    var uCreatedAt: Date { createdAt ?? Date() }
-    var uUpdatedAt: Date { updatedAt ?? Date() }
     var uTags: [Tag] {
-        Array(tags as? Set<Tag> ?? Set<Tag>()).sorted(by: { $0.uName > $1.uName })
+        Array(tags as? Set<Tag> ?? Set<Tag>()).sorted(by: { $0.name > $1.name })
     }
 }

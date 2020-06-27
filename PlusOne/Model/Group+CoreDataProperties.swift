@@ -2,7 +2,7 @@
 //  Group+CoreDataProperties.swift
 //  PlusOne
 //
-//  Created by Filippo Zaffoni on 26/06/2020.
+//  Created by Filippo Zaffoni on 27/06/2020.
 //
 //
 
@@ -12,13 +12,13 @@ import CoreData
 
 extension Group {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Group> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<Group> {
         return NSFetchRequest<Group>(entityName: "Group")
     }
 
-    @NSManaged public var identifier: UUID?
-    @NSManaged public var name: String?
-    @NSManaged public var counters: NSSet?
+    @NSManaged public var identifier: UUID
+    @NSManaged public var name: String
+    @NSManaged public var counters: NSSet
 
 }
 

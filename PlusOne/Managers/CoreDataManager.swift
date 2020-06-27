@@ -28,6 +28,30 @@ class CoreDataManager {
         context.automaticallyMergesChangesFromParent = true
     }
     
+    func newCounter(_ config: CounterConfig) {
+        let counter = Counter(context: context)
+        counter.identifier = UUID()
+        counter.name = config.name
+        counter.currentValue = config.currentValue
+        counter.increment = config.increment
+        counter.completionValue = config.completionValue ?? 0
+        counter.createdAt = config.createdAt
+        counter.updatedAt = config.updatedAt
+        saveContext()
+    }
+    
+    func createFetch<T: NSManagedObject>(for name: String?, dateSorted: Bool) -> NSFetchRequest<T> {
+        let fetchRequest = NSFetchRequest<T>(entityName: T.typeName)
+        fetchRequest.predicate = name != nil ? NSPredicate(format: "name == %@", name!) : nil
+        fetchRequest.sortDescriptors = dateSorted ? [NSSortDescriptor(key: "updatedAt", ascending: false)] : []
+        return fetchRequest
+    }
+    
+    func delete<T: NSManagedObject>(object: T) {
+        context.delete(object)
+        saveContext()
+    }
+    
     func saveContext () {
         guard context.hasChanges else { return }
         try? context.save()
@@ -36,3 +60,4 @@ class CoreDataManager {
     // MARK: - Private properties
     private var container: NSPersistentContainer!
 }
+ 

@@ -2,7 +2,7 @@
 //  Tag+CoreDataProperties.swift
 //  PlusOne
 //
-//  Created by Filippo Zaffoni on 26/06/2020.
+//  Created by Filippo Zaffoni on 27/06/2020.
 //
 //
 
@@ -12,14 +12,14 @@ import CoreData
 
 extension Tag {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Tag> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<Tag> {
         return NSFetchRequest<Tag>(entityName: "Tag")
     }
 
-    @NSManaged public var identifier: UUID?
-    @NSManaged public var name: String?
-    @NSManaged public var color: String?
-    @NSManaged public var counters: NSSet?
+    @NSManaged public var color: String
+    @NSManaged public var identifier: UUID
+    @NSManaged public var name: String
+    @NSManaged public var counters: NSSet
 
 }
 
