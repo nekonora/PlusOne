@@ -22,7 +22,7 @@
 		FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */; };
 		FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */; };
 		FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71C24A61A9800F31DF9 /* Group+CD.swift */; };
-		FA56B4A824A77817005F2B93 /* RegularSecondaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A724A77817005F2B93 /* RegularSecondaryVM.swift */; };
+		FA263C7924AA8C7200C0477D /* CounterCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCVCell.swift */; };
 		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
 		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
 		FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A824A3DBB400076201 /* SceneDelegate.swift */; };
@@ -38,6 +38,7 @@
 		FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */; };
 		FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */; };
 		FAB30C7524A69608003FD7DA /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */; };
+		FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,7 @@
 		FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CD.swift"; sourceTree = "<group>"; };
 		FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CD.swift"; sourceTree = "<group>"; };
 		FA18E71C24A61A9800F31DF9 /* Group+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CD.swift"; sourceTree = "<group>"; };
-		FA56B4A724A77817005F2B93 /* RegularSecondaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSecondaryVM.swift; sourceTree = "<group>"; };
+		FA263C7824AA8C7200C0477D /* CounterCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCVCell.swift; sourceTree = "<group>"; };
 		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA990A624A3DBB400076201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		FAA990DF24A3E72600076201 /* CompactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
 		FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +162,9 @@
 				FAA990AA24A3DBB400076201 /* RootVC.swift */,
 				FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */,
 				FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */,
-				FA56B4A724A77817005F2B93 /* RegularSecondaryVM.swift */,
 				FAA990DF24A3E72600076201 /* CompactVC.swift */,
+				FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */,
+				FA263C7824AA8C7200C0477D /* CounterCVCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -378,16 +381,17 @@
 				FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */,
 				FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */,
 				FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */,
+				FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */,
 				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
 				FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */,
 				FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */,
 				FA18E71624A6195600F31DF9 /* Group+CoreDataClass.swift in Sources */,
+				FA263C7924AA8C7200C0477D /* CounterCVCell.swift in Sources */,
 				FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */,
 				FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */,
 				FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */,
 				FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */,
 				FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */,
-				FA56B4A824A77817005F2B93 /* RegularSecondaryVM.swift in Sources */,
 				FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */,
 				FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */,
 				FAA990E024A3E72600076201 /* CompactVC.swift in Sources */,

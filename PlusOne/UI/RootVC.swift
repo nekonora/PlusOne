@@ -25,7 +25,7 @@ class RootVC: UISplitViewController {
         
         setViewController(primaryVC, for: .primary)
         setViewController(secondaryVC, for: .secondary)
-        setViewController(compactVC, for: .compact)
+        setViewController(UINavigationController(rootViewController: compactVC), for: .compact)
         
         /// macOS Sidebar styling
         primaryBackgroundStyle = .sidebar
