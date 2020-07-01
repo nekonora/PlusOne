@@ -12,4 +12,5 @@ extension UIColor {
     static let poAccent = UIColor(named: "AccentColor")
     static let poBackground = UIColor(named: "Background")
     static let poBackground2 = UIColor(named: "Background2")
+    static let poBackground3 = UIColor(named: "Background3")
 }

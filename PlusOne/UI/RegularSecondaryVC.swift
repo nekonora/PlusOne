@@ -34,8 +34,23 @@ private extension RegularSecondaryVC {
     func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "gear"), style: .done, target: self, action: nil),
+        ]
+        
+        let addCounterAction =  UIAction(title: "Add counter") { (action) in
+            let config = CounterConfig(
+                name: "Hey",
+                currentValue: 0,
+                increment: 0,
+                completionValue: nil,
+                group: nil
+            )
+            CoreDataManager.shared.newCounter(config)
+        }
+        
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddTapped))
+            UIBarButtonItem(title: "Add", image: UIImage(systemName: "plus.circle.fill"), primaryAction: addCounterAction, menu: nil)
         ]
     }
     
@@ -46,20 +61,5 @@ private extension RegularSecondaryVC {
         view.addSubview(vc.view)
         vc.view.fillSuperview()
         countersCV = vc
-    }
-}
-
-// MARK: - Actions
-private extension RegularSecondaryVC {
-    
-    @objc private func onAddTapped() {
-        let config = CounterConfig(
-            name: "Hey",
-            currentValue: 0,
-            increment: 0,
-            completionValue: nil,
-            group: nil
-        )
-        CoreDataManager.shared.newCounter(config)
     }
 }

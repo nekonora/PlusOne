@@ -49,7 +49,7 @@ private extension CountersCV {
         view.addSubview(collectionView)
         collectionView.fillSuperview()
         collectionView.backgroundColor = UIColor.poBackground
-        //        collectionView.delegate = self
+        collectionView.delegate = self
         countersCollectionView = collectionView
     }
     
@@ -130,8 +130,44 @@ private extension CountersCV {
     }
 }
 
+// MARK: - NSFetchedResultControllerDelegate
 extension CountersCV: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         updateSnapshot()
+    }
+}
+
+// MARK: - ContextMenu
+extension CountersCV: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        guard let counters = self.fetchedResultsController.fetchedObjects else { return nil }
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: {
+            return CounterPreviewVC(counter: counters[indexPath.item])
+        }, actionProvider: { suggestedActions in
+            return self.makeContextMenuFor(counter: counters[indexPath.item])
+        })
+    }
+    
+    private func makeContextMenuFor(counter: Counter) -> UIMenu {
+        let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { _ in }
+        let delete = UIAction(title: "Delete...", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
+            self.showDeleteAlert(for: counter)
+        }
+        return UIMenu(title: "", children: [edit, delete])
+    }
+    
+    private func showDeleteAlert(for counter: Counter) {
+        let ac = UIAlertController(
+            title: "Delete \(counter.name)?",
+            message: "Are you sure you want to delete this counter?",
+            preferredStyle: .alert
+        )
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+            CoreDataManager.shared.delete(object: counter)
+        }))
+        present(ac, animated: true, completion: nil)
     }
 }

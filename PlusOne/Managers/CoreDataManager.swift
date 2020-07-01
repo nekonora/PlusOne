@@ -28,18 +28,6 @@ class CoreDataManager {
         context.automaticallyMergesChangesFromParent = true
     }
     
-    func newCounter(_ config: CounterConfig) {
-        let counter = Counter(context: context)
-        counter.identifier = UUID()
-        counter.name = config.name
-        counter.currentValue = config.currentValue
-        counter.increment = config.increment
-        counter.completionValue = config.completionValue ?? 0
-        counter.createdAt = config.createdAt
-        counter.updatedAt = config.updatedAt
-        saveContext()
-    }
-    
     func createFetch<T: NSManagedObject>(for name: String?, dateSorted: Bool) -> NSFetchRequest<T> {
         let fetchRequest = NSFetchRequest<T>(entityName: T.typeName)
         fetchRequest.predicate = name != nil ? NSPredicate(format: "name == %@", name!) : nil
@@ -61,3 +49,18 @@ class CoreDataManager {
     private var container: NSPersistentContainer!
 }
  
+// MARK: - Counters storage
+extension CoreDataManager {
+    
+    func newCounter(_ config: CounterConfig) {
+        let counter = Counter(context: context)
+        counter.identifier = UUID()
+        counter.name = config.name
+        counter.currentValue = config.currentValue
+        counter.increment = config.increment
+        counter.completionValue = config.completionValue ?? 0
+        counter.createdAt = config.createdAt
+        counter.updatedAt = config.updatedAt
+        saveContext()
+    }
+}

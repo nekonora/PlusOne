@@ -37,6 +37,8 @@ private extension CounterCVCell {
     func updateContent(with counter: Counter) {
         nameLabel.text = counter.name
         valueLabel.text = "\(counter.currentValue)"
+        stepper.value = Double(counter.currentValue)
+        stepper.stepValue = 1
     }
     
     func setupContentIfNeeded() {
@@ -59,28 +61,33 @@ private extension CounterCVCell {
         
         contentView.layer.cornerCurve = .continuous
         contentView.layer.cornerRadius = 20
-        contentView.backgroundColor = UIColor.poAccent
+        contentView.backgroundColor = UIColor.poBackground3
     }
     
     func setupNameLabel() {
-        nameLabel.textColor = .systemBackground
+        nameLabel.textColor = .white
         nameLabel.font = .roundedFont(ofSize: .headline, weight: .semibold)
     }
     
     func setupValueLabel() {
-        valueLabel.textColor = .systemBackground
+        valueLabel.textColor = .white
         valueLabel.textAlignment = .right
         valueLabel.font = .roundedFont(ofSize: .largeTitle, weight: .semibold)
     }
     
     func setupStepper() {
-        stepper.tintColor = .systemBackground
+        stepper.tintColor = .white
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
+        stepper.setDecrementImage(UIImage(systemName: "minus", withConfiguration: imageConfig), for: .normal)
+        stepper.setIncrementImage(UIImage(systemName: "plus", withConfiguration: imageConfig), for: .normal)
+        stepper.subviews.forEach { $0.backgroundColor = UIColor.poAccent?.withAlphaComponent(0.5) }
         stepper.addTarget(self, action: #selector(didTapStepper(_:)), for: .primaryActionTriggered)
     }
     
     func cleanUp() {
         nameLabel.text = nil
         valueLabel.text = nil
+        stepper.value = 0
     }
 }
 
@@ -88,6 +95,7 @@ private extension CounterCVCell {
 private extension CounterCVCell {
     
     @objc func didTapStepper(_ stepper: UIStepper) {
+        valueLabel.text = "\(stepper.value)"
         onStepperTapped?(Float(stepper.value))
     }
 }
