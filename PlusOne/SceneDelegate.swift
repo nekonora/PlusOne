@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = RootVC(style: .doubleColumn)
+            configureMac(on: windowScene)
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -35,3 +36,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         CoreDataManager.shared.saveContext()
     }
 }
+
+// MARK: - Catalyst
+private extension SceneDelegate {
+    
+    func configureMac(on windowScene: UIWindowScene) {
+        #if targetEnvironment(macCatalyst)
+        if  let titlebar = windowScene.titlebar {
+            let identifier = NSToolbar.Identifier("com.plusOne.toolbar")
+            titlebar.toolbar = NSToolbar(identifier: identifier)
+            titlebar.toolbar?.delegate = self
+            titlebar.toolbarStyle = .unified
+            titlebar.autoHidesToolbarInFullScreen = false
+        }
+        #endif
+    }
+}
+
+// MARK: - NSToolBarDelegate
+#if targetEnvironment(macCatalyst)
+extension SceneDelegate: NSToolbarDelegate {
+    
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [
+//            .composeIdentifier
+        ]
+    }
+}
+#endif
