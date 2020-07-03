@@ -23,6 +23,7 @@
 		FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */; };
 		FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71C24A61A9800F31DF9 /* Group+CD.swift */; };
 		FA263C7924AA8C7200C0477D /* CounterCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCVCell.swift */; };
+		FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */; };
 		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
 		FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */; };
 		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
@@ -77,6 +78,7 @@
 		FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CD.swift"; sourceTree = "<group>"; };
 		FA18E71C24A61A9800F31DF9 /* Group+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CD.swift"; sourceTree = "<group>"; };
 		FA263C7824AA8C7200C0477D /* CounterCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCVCell.swift; sourceTree = "<group>"; };
+		FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewVC.swift; sourceTree = "<group>"; };
 		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 		FA18E70024A5DE7D00F31DF9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */,
 				FAA990B224A3DBB400076201 /* Assets.xcassets */,
 				FAA990D924A3E27100076201 /* GeneralMedia.xcassets */,
 			);
@@ -355,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */,
 				FAA990B324A3DBB400076201 /* Assets.xcassets in Resources */,
 				FAA990DA24A3E27100076201 /* GeneralMedia.xcassets in Resources */,
 			);
