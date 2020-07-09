@@ -17,15 +17,19 @@ class RootVC: UISplitViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredDisplayMode = .oneBesideSecondary
         
         primaryVC = RegularPrimaryVC()
         secondaryVC = RegularSecondaryVC()
         compactVC = CompactVC()
         
+        #if targetEnvironment(macCatalyst)
+        viewControllers = [primaryVC, secondaryVC]
+        #else
+        preferredDisplayMode = .oneBesideSecondary
         setViewController(primaryVC, for: .primary)
         setViewController(secondaryVC, for: .secondary)
         setViewController(UINavigationController(rootViewController: compactVC), for: .compact)
+        #endif
         
         /// macOS Sidebar styling
         primaryBackgroundStyle = .sidebar

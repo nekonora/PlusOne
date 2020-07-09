@@ -25,20 +25,24 @@ private extension RegularSecondaryVC {
     
     func setupUI() {
         navigationItem.title = "All"
-        view.backgroundColor = UIColor.poBackground
-        
+
+        #if targetEnvironment(macCatalyst)
+        hideNavBar()
+        #else
         setupNavBar()
+        view.backgroundColor = UIColor.poBackground
+        #endif
         addCollectionView()
+    }
+    
+    func hideNavBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        navigationItem.leftBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "gear"), style: .done, target: self, action: nil),
-        ]
-        
-        let addCounterAction =  UIAction(title: "Add counter") { (action) in
+        let addCounterAction = UIAction(title: "Add counter") { (action) in
             let config = CounterConfig(
                 name: "Hey",
                 currentValue: 0,
@@ -49,9 +53,15 @@ private extension RegularSecondaryVC {
             CoreDataManager.shared.newCounter(config)
         }
         
-        navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(title: "Add", image: UIImage(systemName: "plus.circle.fill"), primaryAction: addCounterAction, menu: nil)
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(title: "Add", image: UIImage(systemName: "plus"), primaryAction: addCounterAction, menu: nil),
+            UIBarButtonItem(image: UIImage(systemName: "gear"), style: .done, target: self, action: nil),
         ]
+        
+        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+        searchBar.placeholder = "Search"
+        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        navigationItem.rightBarButtonItem = leftNavBarButton
     }
     
     func addCollectionView() {

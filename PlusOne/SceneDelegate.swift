@@ -42,13 +42,12 @@ private extension SceneDelegate {
     
     func configureMac(on windowScene: UIWindowScene) {
         #if targetEnvironment(macCatalyst)
-        if  let titlebar = windowScene.titlebar {
-            let identifier = NSToolbar.Identifier("com.plusOne.toolbar")
-            titlebar.toolbar = NSToolbar(identifier: identifier)
-            titlebar.toolbar?.delegate = self
-            titlebar.toolbarStyle = .unified
-            titlebar.autoHidesToolbarInFullScreen = false
-        }
+        let toolbar = NSToolbar()
+        toolbar.delegate = self
+        
+        windowScene.titlebar?.toolbar = toolbar
+        windowScene.titlebar?.toolbarStyle = .unified
+        windowScene.titlebar?.titleVisibility = .hidden
         #endif
     }
 }
@@ -59,8 +58,35 @@ extension SceneDelegate: NSToolbarDelegate {
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
         [
-//            .composeIdentifier
+            .toggleSidebar,
+            .flexibleSpace,
+            NSToolbarItem.Identifier("otherButton")
         ]
+    }
+    
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [
+            .toggleSidebar,
+            .flexibleSpace,
+            NSToolbarItem.Identifier("otherButton")
+        ]
+    }
+    
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        
+        switch itemIdentifier {
+        case NSToolbarItem.Identifier("otherButton"):
+            let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(nop(_:)))
+            return NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButtonItem)
+        default:
+            break
+        }
+        
+        return NSToolbarItem(itemIdentifier: itemIdentifier)
+    }
+    
+    @objc func nop(_ sender : NSObject) {
+        
     }
 }
 #endif

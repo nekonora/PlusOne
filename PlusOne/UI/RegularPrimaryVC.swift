@@ -66,11 +66,18 @@ class RegularPrimaryVC: UIViewController {
 private extension RegularPrimaryVC {
     
     func setupUI() {
-        view.backgroundColor = UIColor.poBackground2
-        
+        #if targetEnvironment(macCatalyst)
+        hideNavBar()
+        #else
         setupNavBar()
+        #endif
+        
         configureCollectionView()
         configureDataSource()
+    }
+    
+    func hideNavBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func setupNavBar() {
@@ -83,7 +90,6 @@ private extension RegularPrimaryVC {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
         view.addSubview(collectionView)
         collectionView.fillSuperview()
-        collectionView.backgroundColor = UIColor.poBackground2
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = false
         outlineCollectionView = collectionView
@@ -94,7 +100,7 @@ private extension RegularPrimaryVC {
         let containerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, OutlineItem> { (cell, indexPath, menuItem) in
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = menuItem.title
-            contentConfiguration.textProperties.font = .preferredFont(forTextStyle: .headline)
+            contentConfiguration.textProperties.font = .preferredFont(forTextStyle: .title3)
             cell.contentConfiguration = contentConfiguration
             
             let disclosureOptions = UICellAccessory.OutlineDisclosureOptions(style: .header)
@@ -126,7 +132,11 @@ private extension RegularPrimaryVC {
     // MARK: - Layout
     func generateLayout() -> UICollectionViewLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .sidebar)
+        
+        #if !targetEnvironment(macCatalyst)
         listConfiguration.backgroundColor = UIColor.poBackground2
+        #endif
+        
         let layout = UICollectionViewCompositionalLayout.list(using: listConfiguration)
         return layout
     }

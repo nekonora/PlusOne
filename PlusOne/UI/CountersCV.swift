@@ -36,8 +36,6 @@ class CountersCV: UIViewController {
 private extension CountersCV {
     
     func setupUI() {
-        view.backgroundColor = UIColor.poBackground
-        
         setupCollectionView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { self.setupDataSource() }
     }
@@ -48,7 +46,13 @@ private extension CountersCV {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         view.addSubview(collectionView)
         collectionView.fillSuperview()
+        
+        #if targetEnvironment(macCatalyst)
+        collectionView.backgroundColor = .systemBackground
+        #else
         collectionView.backgroundColor = UIColor.poBackground
+        #endif
+        
         collectionView.delegate = self
         countersCollectionView = collectionView
     }
