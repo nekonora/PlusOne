@@ -53,8 +53,9 @@ struct NewCounterView: View {
                                     Button("Add") {
                                         let config = CounterConfig(
                                             name: self.name,
-                                            currentValue: Float(self.value) ?? 0,
+                                            currentValue: self.value.floatValue,
                                             increment: 1,
+                                            unit: nil,
                                             completionValue: nil,
                                             group: nil
                                         )

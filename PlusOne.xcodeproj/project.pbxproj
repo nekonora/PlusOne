@@ -25,6 +25,8 @@
 		FA263C7924AA8C7200C0477D /* CounterCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCVCell.swift */; };
 		FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */; };
 		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
+		FA689F0624B9059D00C25F8F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0524B9059D00C25F8F /* String+.swift */; };
+		FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0724B9061500C25F8F /* MigrationAssistant.swift */; };
 		FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */; };
 		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
 		FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A824A3DBB400076201 /* SceneDelegate.swift */; };
@@ -82,6 +84,8 @@
 		FA263C7824AA8C7200C0477D /* CounterCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCVCell.swift; sourceTree = "<group>"; };
 		FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
+		FA689F0524B9059D00C25F8F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		FA689F0724B9061500C25F8F /* MigrationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationAssistant.swift; sourceTree = "<group>"; };
 		FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewVC.swift; sourceTree = "<group>"; };
 		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA990A624A3DBB400076201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */,
 				FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */,
 				FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */,
+				FA689F0524B9059D00C25F8F /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			children = (
 				FA18E6F724A5DDC100F31DF9 /* Preferences.swift */,
 				FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */,
+				FA689F0724B9061500C25F8F /* MigrationAssistant.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -413,6 +419,7 @@
 				FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */,
 				FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */,
 				FA18E6FA24A5DDEF00F31DF9 /* Collection+.swift in Sources */,
+				FA689F0624B9059D00C25F8F /* String+.swift in Sources */,
 				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
 				FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */,
 				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,
@@ -420,6 +427,7 @@
 				FA18E6FC24A5DE0F00F31DF9 /* UIControl+.swift in Sources */,
 				FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */,
 				FA18E6F824A5DDC100F31DF9 /* Preferences.swift in Sources */,
+				FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,13 +587,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2020001;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOne;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -600,13 +610,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2020001;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				INFOPLIST_FILE = PlusOne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOne;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;

@@ -11,6 +11,7 @@ struct CounterConfig {
     let name: String
     let currentValue: Float
     let increment: Float
+    let unit: String?
     let completionValue: Float?
     let createdAt = Date()
     let updatedAt = Date()

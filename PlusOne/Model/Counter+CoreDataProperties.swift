@@ -2,7 +2,7 @@
 //  Counter+CoreDataProperties.swift
 //  PlusOne
 //
-//  Created by Filippo Zaffoni on 27/06/2020.
+//  Created by Filippo Zaffoni on 10/07/2020.
 //
 //
 
@@ -23,6 +23,7 @@ extension Counter {
     @NSManaged public var increment: Float
     @NSManaged public var name: String
     @NSManaged public var updatedAt: Date
+    @NSManaged public var unit: String?
     @NSManaged public var group: Group?
     @NSManaged public var tags: NSSet?
 

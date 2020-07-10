@@ -7,6 +7,7 @@
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="increment" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="counters" inverseEntity="Group"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="counters" inverseEntity="Tag"/>
@@ -47,7 +48,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Counter" positionX="-386.5390625" positionY="-19.27734375" width="128" height="178"/>
+        <element name="Counter" positionX="-386.5390625" positionY="-19.27734375" width="128" height="193"/>
         <element name="Group" positionX="-171.2890625" positionY="28.2421875" width="128" height="88"/>
         <element name="Tag" positionX="-168.34375" positionY="180.90625" width="128" height="103"/>
     </elements>

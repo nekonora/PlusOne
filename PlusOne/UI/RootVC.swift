@@ -28,7 +28,7 @@ class RootVC: UISplitViewController {
         preferredDisplayMode = .oneBesideSecondary
         setViewController(primaryVC, for: .primary)
         setViewController(secondaryVC, for: .secondary)
-        setViewController(UINavigationController(rootViewController: compactVC), for: .compact)
+        setViewController(compactVC, for: .compact)
         #endif
         
         /// macOS Sidebar styling

@@ -39,5 +39,9 @@ private extension AppDelegate {
         let container = NSPersistentCloudKitContainer(name: "PlusOne")
         #endif
         CoreDataManager.shared.setup(with: container)
+        
+        if !(Preferences.hasMigratedLegacyModel ?? false) {
+            MigrationAssistant.shared.migrateDataIfPresent()
+        }
     }
 }

@@ -12,15 +12,20 @@ class Preferences {
     // MARK: - Keys
     enum PreferenceKey: String {
         case selectedSectionID
+        case hasMigratedLegacyModel
     }
     
     // MARK: - Properties
     @Stored<String>(.selectedSectionID)
     static var selectedSectionID: String?
     
+    @Stored<Bool>(.hasMigratedLegacyModel)
+    static var hasMigratedLegacyModel: Bool?
+    
     // MARK: - Methods
     static func removeData(for keys: Set<PreferenceKey>) {
         if keys.contains(.selectedSectionID) { selectedSectionID = nil }
+        if keys.contains(.hasMigratedLegacyModel) { hasMigratedLegacyModel = nil }
     }
 }
 

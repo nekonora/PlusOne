@@ -7,10 +7,9 @@
 
 import UIKit
 
-class CompactVC: UIViewController {
+class CompactVC: UITabBarController {
 
     // MARK: - UI
-    private weak var countersCV: CountersCV!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -23,28 +22,36 @@ class CompactVC: UIViewController {
 private extension CompactVC {
     
     func setupUI() {
-        navigationItem.title = "All"
         view.backgroundColor = UIColor.poBackground
         
-        setupNavBar()
-        addCollectionView()
+        setupViewControllers()
     }
     
-    func setupNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        navigationItem.rightBarButtonItems = [
+    func setupViewControllers() {
+        let countersVC = CountersCV()
+        let countersNav = UINavigationController(rootViewController: countersVC)
+        countersVC.navigationItem.title = "All"
+        countersVC.navigationController?.navigationBar.prefersLargeTitles = true
+        countersVC.navigationItem.rightBarButtonItems = [
             UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddTapped))
         ]
-    }
-    
-    func addCollectionView() {
-        let vc = CountersCV()
-        addChild(vc)
-        vc.didMove(toParent: self)
-        view.addSubview(vc.view)
-        vc.view.fillSuperview()
-        countersCV = vc
+        countersVC.tabBarItem = UITabBarItem(title: "Counters", image: UIImage(systemName: "square.stack.3d.down.right"), tag: 0)
+        
+        let tagsVC = UIViewController()
+        tagsVC.tabBarItem = UITabBarItem(title: "Tags", image: UIImage(systemName: "tag"), tag: 1)
+        
+        let statsVC = UIViewController()
+        statsVC.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(systemName: "waveform.path.ecg.rectangle"), tag: 2)
+        
+        let settingsVC = UIViewController()
+        settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 3)
+        
+        viewControllers = [
+            countersNav,
+            tagsVC,
+            statsVC,
+            settingsVC
+        ]
     }
 }
 
