@@ -38,8 +38,10 @@
 		FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */; };
 		FAA990E024A3E72600076201 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DF24A3E72600076201 /* CompactVC.swift */; };
 		FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */; };
+		FAAF234E24B86D54005B8B71 /* NewCounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */; };
 		FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */; };
 		FAB30C7524A69608003FD7DA /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */; };
+		FAC69FEF24B8E7A800160539 /* NewCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC69FEE24B8E7A800160539 /* NewCounterView.swift */; };
 		FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +101,9 @@
 		FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSecondaryVC.swift; sourceTree = "<group>"; };
 		FAA990DF24A3E72600076201 /* CompactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
 		FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVC.swift; sourceTree = "<group>"; };
 		FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FAC69FEE24B8E7A800160539 /* NewCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterView.swift; sourceTree = "<group>"; };
 		FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +173,8 @@
 				FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */,
 				FAA990DF24A3E72600076201 /* CompactVC.swift */,
 				FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */,
+				FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */,
+				FAC69FEE24B8E7A800160539 /* NewCounterView.swift */,
 				FA263C7824AA8C7200C0477D /* CounterCVCell.swift */,
 				FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */,
 			);
@@ -385,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC69FEF24B8E7A800160539 /* NewCounterView.swift in Sources */,
 				FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */,
 				FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */,
 				FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */,
@@ -409,6 +416,7 @@
 				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
 				FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */,
 				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,
+				FAAF234E24B86D54005B8B71 /* NewCounterVC.swift in Sources */,
 				FA18E6FC24A5DE0F00F31DF9 /* UIControl+.swift in Sources */,
 				FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */,
 				FA18E6F824A5DDC100F31DF9 /* Preferences.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     
-    func setConstraint(_ constraintBlock: ((UIView) -> Void)) {
+    func setConstraints(_ constraintBlock: ((UIView) -> Void)) {
         translatesAutoresizingMaskIntoConstraints = false
         constraintBlock(self)
         layoutIfNeeded()
@@ -17,7 +17,7 @@ extension UIView {
     
     func fillSuperview(padding: Int? = nil) {
         guard let superview = superview else { return }
-        setConstraint() {
+        setConstraints {
             $0.top(to: superview.topAnchor, constant: padding ?? 0)
             $0.bottom(to: superview.bottomAnchor, constant: -(padding ?? 0))
             $0.leading(to: superview.leadingAnchor, constant: padding ?? 0)
@@ -27,7 +27,7 @@ extension UIView {
     
     func fillSafeArea(padding: Int? = nil) {
         guard let superview = superview?.safeAreaLayoutGuide else { return }
-        setConstraint() {
+        setConstraints {
             $0.top(to: superview.topAnchor, constant: padding ?? 0)
             $0.bottom(to: superview.bottomAnchor, constant: -(padding ?? 0))
             $0.leading(to: superview.leadingAnchor, constant: padding ?? 0)
@@ -65,5 +65,13 @@ extension UIView {
     
     func height(_ value: Int) {
         heightAnchor.constraint(equalToConstant: CGFloat(value)).isActive = true
+    }
+    
+    func width(to anchor: NSLayoutDimension, constant: Int = 0) {
+        widthAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    }
+    
+    func height(to anchor: NSLayoutDimension, constant: Int = 0) {
+        heightAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
     }
 }

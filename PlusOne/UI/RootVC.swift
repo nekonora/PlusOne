@@ -10,9 +10,9 @@ import UIKit
 class RootVC: UISplitViewController {
     
     // MARK: - Controllers
-    var primaryVC: RegularPrimaryVC! = nil
-    var secondaryVC: RegularSecondaryVC! = nil
-    var compactVC: CompactVC! = nil
+    var primaryVC: RegularPrimaryVC!
+    var secondaryVC: RegularSecondaryVC!
+    var compactVC: CompactVC!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {

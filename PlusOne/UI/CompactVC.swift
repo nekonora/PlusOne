@@ -52,13 +52,6 @@ private extension CompactVC {
 private extension CompactVC {
     
     @objc private func onAddTapped() {
-        let config = CounterConfig(
-            name: "Hey",
-            currentValue: 0,
-            increment: 0,
-            completionValue: nil,
-            group: nil
-        )
-        CoreDataManager.shared.newCounter(config)
+        present(NewCounterVC(), animated: true, completion: nil)
     }
 }

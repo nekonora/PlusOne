@@ -15,18 +15,9 @@ private enum Section: CaseIterable {
         switch self {
         case .main:
             return [
-                OutlineItem(title: "Counters", subitems: [
-                    OutlineItem(title: "All", subitems: [], viewController: nil)
-//                    OutlineItem(title: "Group1", subitems: [], viewController: nil),
-//                    OutlineItem(title: "Group2", subitems: [], viewController: nil)
-                ], viewController: nil),
-                OutlineItem(title: "Tags", subitems: [
-                    OutlineItem(title: "All", subitems: [], viewController: nil)
-//                    OutlineItem(title: "Tag1", subitems: [], viewController: nil),
-//                    OutlineItem(title: "Tag2", subitems: [], viewController: nil)
-                ], viewController: nil),
-                OutlineItem(title: "Stats", subitems: [
-                ], viewController: nil)
+                OutlineItem(title: "All counters", image: UIImage(systemName: "square.stack.3d.down.right"), subitems: [], viewController: nil),
+                OutlineItem(title: "Tags", image: UIImage(systemName: "tag"), subitems: [], viewController: nil),
+                OutlineItem(title: "Stats", image: UIImage(systemName: "waveform.path.ecg.rectangle"), subitems: [], viewController: nil)
             ]
         }
     }
@@ -38,6 +29,7 @@ private struct OutlineItem: Hashable {
     let identifier = UUID()
     
     let title: String
+    let image: UIImage?
     let subitems: [OutlineItem]
     let viewController: UIViewController.Type?
     
@@ -92,25 +84,34 @@ private extension RegularPrimaryVC {
         collectionView.fillSuperview()
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = false
+        collectionView.isScrollEnabled = false
         outlineCollectionView = collectionView
     }
     
     // MARK: - DataSource
     func configureDataSource() {
-        let containerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, OutlineItem> { (cell, indexPath, menuItem) in
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = menuItem.title
-            contentConfiguration.textProperties.font = .preferredFont(forTextStyle: .title3)
-            cell.contentConfiguration = contentConfiguration
-            
-            let disclosureOptions = UICellAccessory.OutlineDisclosureOptions(style: .header)
-            cell.accessories = [.outlineDisclosure(options:disclosureOptions)]
-            cell.backgroundConfiguration = UIBackgroundConfiguration.listSidebarHeader()
-        }
+//        let containerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, OutlineItem> { (cell, indexPath, menuItem) in
+//            var contentConfiguration = cell.defaultContentConfiguration()
+//            contentConfiguration.text = menuItem.title
+//            contentConfiguration.image = menuItem.image
+//            contentConfiguration.textProperties.font = .preferredFont(forTextStyle: .subheadline)
+//            cell.contentConfiguration = contentConfiguration
+//
+//            let disclosureOptions = UICellAccessory.OutlineDisclosureOptions(style: .header)
+//            cell.accessories = [.outlineDisclosure(options:disclosureOptions)]
+//            cell.backgroundConfiguration = UIBackgroundConfiguration.listSidebarHeader()
+//        }
         
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, OutlineItem> { cell, indexPath, menuItem in
             var contentConfiguration = cell.defaultContentConfiguration()
+            
+            if self.selectedItem == nil, menuItem.title == "All counters" {
+                self.selectedItem = menuItem
+            }
+            
             contentConfiguration.text = menuItem.title
+            contentConfiguration.image = menuItem.image
+            contentConfiguration.textProperties.font = .preferredFont(forTextStyle: .headline)
             cell.contentConfiguration = contentConfiguration
             cell.backgroundConfiguration = UIBackgroundConfiguration.listSidebarCell()
             cell.isSelected = menuItem == self.selectedItem
@@ -118,11 +119,7 @@ private extension RegularPrimaryVC {
         
         dataSource = UICollectionViewDiffableDataSource<Section, OutlineItem>(collectionView: outlineCollectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, item: OutlineItem) -> UICollectionViewCell? in
-            if item.subitems.isEmpty {
-                return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
-            } else {
-                return collectionView.dequeueConfiguredReusableCell(using: containerCellRegistration, for: indexPath, item: item)
-            }
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
         
         let snapshot = initialSnapshot()
