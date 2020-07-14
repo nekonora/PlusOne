@@ -61,6 +61,7 @@ extension CoreDataManager {
         counter.completionValue = config.completionValue ?? 0
         counter.createdAt = config.createdAt
         counter.updatedAt = config.updatedAt
+        counter.unit = config.unit
         saveContext()
     }
 }

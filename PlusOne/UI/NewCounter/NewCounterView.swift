@@ -50,7 +50,7 @@ struct NewCounterView: View {
                         Spacer()
                         TextField("1", text: $increment)
                             .keyboardType(.numberPad)
-                            .onReceive(Just(value)) { newValue in
+                            .onReceive(Just(increment)) { newValue in
                                 let filtered = newValue.filter { "0123456789".contains($0) }
                                 if filtered != newValue { self.increment = filtered }
                             }
@@ -60,14 +60,20 @@ struct NewCounterView: View {
                         Text("Unit")
                         Spacer()
                         TextField("", text: $unit)
+                            .onReceive(Just(unit)) { newValue in
+                                let filtered = String(newValue.prefix(2))
+                                if filtered != newValue { self.unit = filtered }
+                            }
                             .multilineTextAlignment(.trailing)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                     }
                     HStack {
                         Text("Completion value")
                         Spacer()
                         TextField("", text: $completionValue)
                             .keyboardType(.numberPad)
-                            .onReceive(Just(value)) { newValue in
+                            .onReceive(Just(completionValue)) { newValue in
                                 let filtered = newValue.filter { "0123456789".contains($0) }
                                 if filtered != newValue { self.completionValue = filtered }
                             }

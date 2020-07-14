@@ -13,9 +13,15 @@ class CounterCVCell: UICollectionViewCell {
     private let mainStackView = UIStackView()
     private let nameLabel = UILabel()
     private let valueLabel = UILabel()
+    private let unitLabel = UILabel()
+    private let valueStack = UIStackView()
+    private let progressView = UIProgressView()
     private let stepperStackView = UIStackView()
     private let stepper = UIStepper()
     private var onStepperTapped: ((Float) -> Void)?
+    
+    // MARK: - Properties
+    private var completionValue: Float = 0
     
     // MARK: - External methods
     func setupWith(_ counter: Counter, onStepperTapped: ((Float) -> Void)?) {
@@ -37,22 +43,40 @@ private extension CounterCVCell {
     func updateContent(with counter: Counter) {
         nameLabel.text = counter.name
         valueLabel.text = counter.currentValue.stringTruncatingZero()
+        unitLabel.text = counter.unit
         stepper.value = Double(counter.currentValue)
         stepper.stepValue = Double(counter.increment)
+        completionValue = counter.completionValue
+        if counter.completionValue > 0 {
+            progressView.progress = counter.currentValue / counter.completionValue
+        } else {
+            progressView.progress = 0
+        }
     }
     
     func setupContentIfNeeded() {
         guard contentView.subviews.isEmpty else { return }
         setupNameLabel()
         setupValueLabel()
+        setupUnitLabel()
         setupStepper()
         
         contentView.addSubview(mainStackView)
         mainStackView.axis = .vertical
         mainStackView.distribution = .equalSpacing
         mainStackView.fillSuperview(padding: 15)
+        
         mainStackView.addArrangedSubview(nameLabel)
-        mainStackView.addArrangedSubview(valueLabel)
+        
+        valueStack.axis = .horizontal
+        valueStack.spacing = 10
+        valueStack.alignment = .lastBaseline
+        valueStack.addArrangedSubview(unitLabel)
+        valueStack.addArrangedSubview(valueLabel)
+        mainStackView.addArrangedSubview(valueStack)
+        
+        progressView.tintColor = .white
+        mainStackView.addArrangedSubview(progressView)
         
         stepperStackView.axis = .horizontal
         stepperStackView.addArrangedSubview(UIView())
@@ -75,6 +99,12 @@ private extension CounterCVCell {
         valueLabel.font = .roundedFont(ofSize: .largeTitle, weight: .semibold)
     }
     
+    func setupUnitLabel() {
+        unitLabel.textColor = .white
+        unitLabel.textAlignment = .right
+        unitLabel.font = .roundedFont(ofSize: .headline, weight: .semibold)
+    }
+    
     func setupStepper() {
         stepper.tintColor = .white
         let imageConfig = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
@@ -89,7 +119,11 @@ private extension CounterCVCell {
     func cleanUp() {
         nameLabel.text = nil
         valueLabel.text = nil
+        unitLabel.text = nil
         stepper.value = 0
+        stepper.stepValue = 1
+        progressView.progress = 0
+        completionValue = 0
     }
 }
 
@@ -98,6 +132,7 @@ private extension CounterCVCell {
     
     @objc func didTapStepper(_ stepper: UIStepper) {
         valueLabel.text = Float(stepper.value).stringTruncatingZero()
+        progressView.progress = Float(stepper.value) / completionValue
         onStepperTapped?(Float(stepper.value))
     }
 }
