@@ -49,8 +49,17 @@ private extension CountersCV {
         emptyStateLabel.textColor = UIColor.poAccent
         emptyStateLabel.numberOfLines = 0
         emptyStateLabel.textAlignment = .center
-        emptyStateLabel.alpha = 0.6
-        emptyStateLabel.text = "You have no counters at the moment,\nuse the \"+\" button to add one!"
+        emptyStateLabel.alpha = 0.5
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "plus")
+        
+        let fullString = NSMutableAttributedString(string: "You have no counters at the moment,\nuse the ")
+        fullString.append(NSAttributedString(attachment: imageAttachment))
+        fullString.append(NSAttributedString(string: " button to add one!"))
+        
+        emptyStateLabel.attributedText = fullString
+        
         emptyStateLabel.font = .roundedFont(ofSize: .callout, weight: .medium)
         view.addSubview(emptyStateLabel)
         emptyStateLabel.setConstraints {
