@@ -10,8 +10,11 @@ import UIKit
 
 class CountersCV: UIViewController {
     
-    // MARK: - Private Properties
+    // MARK: - UI
     private var countersCollectionView: UICollectionView!
+    private var emptyStateLabel = UILabel()
+    
+    // MARK: - Private Properties
     private var dataSource: UICollectionViewDiffableDataSource<Int, Counter>!
     private var fetchedResultsController: NSFetchedResultsController<Counter>!
     
@@ -36,8 +39,25 @@ class CountersCV: UIViewController {
 private extension CountersCV {
     
     func setupUI() {
+        setupEmptyStateLabel()
         setupCollectionView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { self.setupDataSource() }
+    }
+    
+    // MARK: - Empty state label
+    func setupEmptyStateLabel() {
+        emptyStateLabel.textColor = UIColor.poAccent
+        emptyStateLabel.numberOfLines = 0
+        emptyStateLabel.textAlignment = .center
+        emptyStateLabel.alpha = 0.6
+        emptyStateLabel.text = "You have no counters at the moment,\nuse the \"+\" button to add one!"
+        emptyStateLabel.font = .roundedFont(ofSize: .callout, weight: .medium)
+        view.addSubview(emptyStateLabel)
+        emptyStateLabel.setConstraints {
+            $0.centerX(to: view.centerXAnchor)
+            $0.centerY(to: view.centerYAnchor)
+        }
+        emptyStateLabel.isHidden = true
     }
     
     // MARK: - CollectionView
@@ -118,10 +138,12 @@ private extension CountersCV {
     }
     
     func updateSnapshot() {
+        let newData = fetchedResultsController.fetchedObjects ?? []
         var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Int, Counter>()
         diffableDataSourceSnapshot.appendSections([0])
-        diffableDataSourceSnapshot.appendItems(fetchedResultsController.fetchedObjects ?? [])
+        diffableDataSourceSnapshot.appendItems(newData)
         dataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
+        toggleEmptyState(newData.isEmpty)
     }
     
     func resetSnapshot() {
@@ -132,6 +154,11 @@ private extension CountersCV {
         countersCollectionView.setCollectionViewLayout(generateLayout(), animated: true) { _ in
             self.updateSnapshot()
         }
+    }
+    
+    func toggleEmptyState(_ toggle: Bool) {
+        emptyStateLabel.isHidden = !toggle
+        countersCollectionView.isHidden = toggle
     }
 }
 
