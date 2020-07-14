@@ -12,7 +12,7 @@ extension String {
     
     static let numberFormatter = NumberFormatter()
     
-    var floatValue: Float {
+    var floatValue: Float? {
         String.numberFormatter.decimalSeparator = "."
         if let result =  String.numberFormatter.number(from: self) {
             return result.floatValue
@@ -22,6 +22,14 @@ extension String {
                 return result.floatValue
             }
         }
-        return 0
+        return nil
+    }
+    
+    var nilIfEmpty: String? {
+        if self.isEmpty {
+            return nil
+        } else {
+            return self
+        }
     }
 }

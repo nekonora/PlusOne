@@ -13,6 +13,9 @@ struct NewCounterView: View {
     // MARK: - Properties
     @State var name: String = ""
     @State var value: String = ""
+    @State var increment: String = ""
+    @State var unit: String = ""
+    @State var completionValue: String = ""
     
     var dismiss: (() -> Void)?
     
@@ -34,13 +37,41 @@ struct NewCounterView: View {
                             .keyboardType(.numberPad)
                             .onReceive(Just(value)) { newValue in
                                 let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue {
-                                    self.value = filtered
-                                }
+                                if filtered != newValue { self.value = filtered }
                             }
                             .multilineTextAlignment(.trailing)
                     }
-    
+                }
+                
+                Section(header: Text("Other")) {
+                    HStack {
+                        Text("Increment")
+                        Spacer()
+                        TextField("1", text: $increment)
+                            .keyboardType(.numberPad)
+                            .onReceive(Just(value)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue { self.increment = filtered }
+                            }
+                            .multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text("Unit")
+                        Spacer()
+                        TextField("", text: $unit)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text("Completion value")
+                        Spacer()
+                        TextField("", text: $completionValue)
+                            .keyboardType(.numberPad)
+                            .onReceive(Just(value)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue { self.completionValue = filtered }
+                            }
+                            .multilineTextAlignment(.trailing)
+                    }
                 }
             }
             .navigationBarTitle("New counter", displayMode: .inline)
@@ -53,10 +84,10 @@ struct NewCounterView: View {
                                     Button("Add") {
                                         let config = CounterConfig(
                                             name: self.name,
-                                            currentValue: self.value.floatValue,
-                                            increment: 1,
-                                            unit: nil,
-                                            completionValue: nil,
+                                            currentValue: self.value.floatValue ?? 0,
+                                            increment: self.increment.floatValue ?? 1,
+                                            unit: self.unit.nilIfEmpty,
+                                            completionValue: self.completionValue.floatValue,
                                             group: nil
                                         )
                                         CoreDataManager.shared.newCounter(config)
