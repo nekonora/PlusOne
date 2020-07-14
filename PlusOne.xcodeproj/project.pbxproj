@@ -27,6 +27,7 @@
 		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
 		FA689F0624B9059D00C25F8F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0524B9059D00C25F8F /* String+.swift */; };
 		FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0724B9061500C25F8F /* MigrationAssistant.swift */; };
+		FA8FF38F24BE3C04001A5303 /* Float+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FF38E24BE3C04001A5303 /* Float+.swift */; };
 		FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */; };
 		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
 		FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A824A3DBB400076201 /* SceneDelegate.swift */; };
@@ -86,6 +87,7 @@
 		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		FA689F0524B9059D00C25F8F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA689F0724B9061500C25F8F /* MigrationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationAssistant.swift; sourceTree = "<group>"; };
+		FA8FF38E24BE3C04001A5303 /* Float+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+.swift"; sourceTree = "<group>"; };
 		FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewVC.swift; sourceTree = "<group>"; };
 		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA990A624A3DBB400076201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */,
+				FA8FF38E24BE3C04001A5303 /* Float+.swift */,
 				FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */,
 				FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */,
 				FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */,
@@ -178,7 +181,7 @@
 				FA689F0924B9135C00C25F8F /* Regular */,
 				FA689F0A24B9137700C25F8F /* Compact */,
 				FA689F0B24B9138500C25F8F /* NewCounter */,
-				FA689F0C24B9139000C25F8F /* CountesCollection */,
+				FA689F0C24B9139000C25F8F /* CountersCollection */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -234,14 +237,14 @@
 			path = NewCounter;
 			sourceTree = "<group>";
 		};
-		FA689F0C24B9139000C25F8F /* CountesCollection */ = {
+		FA689F0C24B9139000C25F8F /* CountersCollection */ = {
 			isa = PBXGroup;
 			children = (
 				FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */,
 				FA263C7824AA8C7200C0477D /* CounterCVCell.swift */,
 				FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */,
 			);
-			path = CountesCollection;
+			path = CountersCollection;
 			sourceTree = "<group>";
 		};
 		FAA9909A24A3DBB400076201 = {
@@ -455,6 +458,7 @@
 				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
 				FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */,
 				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,
+				FA8FF38F24BE3C04001A5303 /* Float+.swift in Sources */,
 				FAAF234E24B86D54005B8B71 /* NewCounterVC.swift in Sources */,
 				FA18E6FC24A5DE0F00F31DF9 /* UIControl+.swift in Sources */,
 				FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */,

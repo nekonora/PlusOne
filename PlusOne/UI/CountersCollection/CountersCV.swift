@@ -69,7 +69,8 @@ private extension CountersCV {
         
         let cellRegistration = UICollectionView.CellRegistration<CounterCVCell, Counter> { cell, indexPath, counter in
             cell.setupWith(counter) {
-                print(counter.identifier, $0)
+                counter.currentValue = $0
+                CoreDataManager.shared.saveContext()
             }
         }
         

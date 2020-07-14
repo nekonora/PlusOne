@@ -40,7 +40,7 @@ class CoreDataManager {
         saveContext()
     }
     
-    func saveContext () {
+    func saveContext() {
         guard context.hasChanges else { return }
         try? context.save()
     }

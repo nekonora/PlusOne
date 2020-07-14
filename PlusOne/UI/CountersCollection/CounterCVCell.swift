@@ -36,9 +36,9 @@ private extension CounterCVCell {
     
     func updateContent(with counter: Counter) {
         nameLabel.text = counter.name
-        valueLabel.text = "\(counter.currentValue)"
+        valueLabel.text = counter.currentValue.stringTruncatingZero()
         stepper.value = Double(counter.currentValue)
-        stepper.stepValue = 1
+        stepper.stepValue = Double(counter.increment)
     }
     
     func setupContentIfNeeded() {
@@ -82,6 +82,8 @@ private extension CounterCVCell {
         stepper.setIncrementImage(UIImage(systemName: "plus", withConfiguration: imageConfig), for: .normal)
         stepper.subviews.forEach { $0.backgroundColor = UIColor.poAccent?.withAlphaComponent(0.5) }
         stepper.addTarget(self, action: #selector(didTapStepper(_:)), for: .primaryActionTriggered)
+        stepper.maximumValue = 999_999_999_999
+        stepper.minimumValue = -999_999_999_999
     }
     
     func cleanUp() {
@@ -95,7 +97,7 @@ private extension CounterCVCell {
 private extension CounterCVCell {
     
     @objc func didTapStepper(_ stepper: UIStepper) {
-        valueLabel.text = "\(stepper.value)"
+        valueLabel.text = Float(stepper.value).stringTruncatingZero()
         onStepperTapped?(Float(stepper.value))
     }
 }

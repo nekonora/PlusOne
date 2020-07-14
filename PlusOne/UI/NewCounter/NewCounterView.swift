@@ -28,6 +28,7 @@ struct NewCounterView: View {
                         Spacer()
                         TextField("New counter", text: $name)
                             .multilineTextAlignment(.trailing)
+                            .disableAutocorrection(true)
                     }
     
                     HStack {
