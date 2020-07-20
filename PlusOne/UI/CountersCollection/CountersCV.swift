@@ -54,12 +54,7 @@ private extension CountersCV {
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(systemName: "plus")
         
-        let fullString = NSMutableAttributedString(string: "You have no counters at the moment,\nuse the ")
-        fullString.append(NSAttributedString(attachment: imageAttachment))
-        fullString.append(NSAttributedString(string: " button to add one!"))
-        
-        emptyStateLabel.attributedText = fullString
-        
+        emptyStateLabel.text = "You have no counters at the moment,\nuse the + button to add one!"
         emptyStateLabel.font = .roundedFont(ofSize: .callout, weight: .medium)
         view.addSubview(emptyStateLabel)
         emptyStateLabel.setConstraints {
@@ -74,7 +69,12 @@ private extension CountersCV {
         let layout = generateLayout()
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         view.addSubview(collectionView)
-        collectionView.fillSuperview()
+        collectionView.setConstraints {
+            $0.top(to: view.safeAreaLayoutGuide.topAnchor)
+            $0.leading(to: view.leadingAnchor)
+            $0.trailing(to: view.trailingAnchor)
+            $0.bottom(to: view.bottomAnchor)
+        }
         
         #if targetEnvironment(macCatalyst)
         collectionView.backgroundColor = .systemBackground
