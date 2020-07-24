@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RootVC: UISplitViewController {
+final class RootVC: UISplitViewController {
     
     // MARK: - Controllers
     var primaryVC: RegularPrimaryVC!

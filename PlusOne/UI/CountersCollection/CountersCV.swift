@@ -8,7 +8,7 @@
 import CoreData
 import UIKit
 
-class CountersCV: UIViewController {
+final class CountersCV: UIViewController {
     
     // MARK: - UI
     private var countersCollectionView: UICollectionView!
@@ -173,6 +173,7 @@ private extension CountersCV {
 
 // MARK: - NSFetchedResultControllerDelegate
 extension CountersCV: NSFetchedResultsControllerDelegate {
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         updateSnapshot()
     }
@@ -192,11 +193,14 @@ extension CountersCV: UICollectionViewDelegate {
     }
     
     private func makeContextMenuFor(counter: Counter) -> UIMenu {
-        let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { _ in }
+        let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { _ in
+            self.showEditCounter(for: counter)
+        }
+        let history = UIAction(title: "History", image: UIImage(systemName: "clock")) { _ in }
         let delete = UIAction(title: "Delete...", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
             self.showDeleteAlert(for: counter)
         }
-        return UIMenu(title: "", children: [edit, delete])
+        return UIMenu(title: "", children: [edit, history, delete])
     }
     
     private func showDeleteAlert(for counter: Counter) {
@@ -210,5 +214,11 @@ extension CountersCV: UICollectionViewDelegate {
             CoreDataManager.shared.delete(object: counter)
         }))
         present(ac, animated: true, completion: nil)
+    }
+    
+    private func showEditCounter(for counter: Counter) {
+        let editCounterVC = NewCounterVC(editingCounter: counter)
+        editCounterVC.modalPresentationStyle = .formSheet
+        present(editCounterVC, animated: true, completion: nil)
     }
 }

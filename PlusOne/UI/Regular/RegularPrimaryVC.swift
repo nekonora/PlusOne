@@ -39,7 +39,7 @@ private struct OutlineItem: Hashable {
 }
 
 // MARK: - Controller
-class RegularPrimaryVC: UIViewController {
+final class RegularPrimaryVC: UIViewController {
     
     // MARK: - Private Properties
     private var outlineCollectionView: UICollectionView!

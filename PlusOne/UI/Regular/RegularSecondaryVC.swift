@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - Controller
-class RegularSecondaryVC: UIViewController {
+final class RegularSecondaryVC: UIViewController {
     
     // MARK: - UI
     private weak var countersCV: CountersCV!
@@ -45,7 +45,7 @@ private extension RegularSecondaryVC {
         let addButton = UIBarButtonItem()
         
         addButton.primaryAction = UIAction(title: "", image: UIImage(systemName: "plus")) { [weak self] action in
-            let newCounterVC = NewCounterVC()
+            let newCounterVC = NewCounterVC(editingCounter: nil)
             newCounterVC.modalPresentationStyle = .popover
             newCounterVC.popoverPresentationController?.barButtonItem = addButton
             self?.present(newCounterVC, animated: true, completion: nil)

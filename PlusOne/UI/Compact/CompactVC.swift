@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompactVC: UITabBarController {
+final class CompactVC: UITabBarController {
 
     // MARK: - UI
     

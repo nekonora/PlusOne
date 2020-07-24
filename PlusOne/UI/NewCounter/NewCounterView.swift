@@ -10,15 +10,10 @@ import Combine
 
 struct NewCounterView: View {
     
-    // MARK: - Properties
-    @State var name: String = ""
-    @State var value: String = ""
-    @State var increment: String = ""
-    @State var unit: String = ""
-    @State var completionValue: String = ""
+    // MARK: - ViewModel
+    @ObservedObject var viewModel: NewCounterVM
     
-    var dismiss: (() -> Void)?
-    
+    // MARK: - Body
     var body: some View {
         NavigationView {
             Form {
@@ -26,7 +21,7 @@ struct NewCounterView: View {
                     HStack {
                         Text("Name")
                         Spacer()
-                        TextField("New counter", text: $name)
+                        TextField("New counter", text: $viewModel.name)
                             .multilineTextAlignment(.trailing)
                             .disableAutocorrection(true)
                     }
@@ -34,11 +29,11 @@ struct NewCounterView: View {
                     HStack {
                         Text("Initial value")
                         Spacer()
-                        TextField("0", text: $value)
+                        TextField("0", text: $viewModel.value)
                             .keyboardType(.numberPad)
-                            .onReceive(Just(value)) { newValue in
+                            .onReceive(Just(viewModel.value)) { newValue in
                                 let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue { self.value = filtered }
+                                if filtered != newValue { self.viewModel.value = filtered }
                             }
                             .multilineTextAlignment(.trailing)
                     }
@@ -48,21 +43,21 @@ struct NewCounterView: View {
                     HStack {
                         Text("Increment")
                         Spacer()
-                        TextField("1", text: $increment)
+                        TextField("1", text: $viewModel.increment)
                             .keyboardType(.numberPad)
-                            .onReceive(Just(increment)) { newValue in
+                            .onReceive(Just(viewModel.increment)) { newValue in
                                 let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue { self.increment = filtered }
+                                if filtered != newValue { self.viewModel.increment = filtered }
                             }
                             .multilineTextAlignment(.trailing)
                     }
                     HStack {
                         Text("Unit")
                         Spacer()
-                        TextField("", text: $unit)
-                            .onReceive(Just(unit)) { newValue in
+                        TextField("", text: $viewModel.unit)
+                            .onReceive(Just(viewModel.unit)) { newValue in
                                 let filtered = String(newValue.prefix(2))
-                                if filtered != newValue { self.unit = filtered }
+                                if filtered != newValue { self.viewModel.unit = filtered }
                             }
                             .multilineTextAlignment(.trailing)
                             .disableAutocorrection(true)
@@ -71,45 +66,27 @@ struct NewCounterView: View {
                     HStack {
                         Text("Completion value")
                         Spacer()
-                        TextField("", text: $completionValue)
+                        TextField("", text: $viewModel.completionValue)
                             .keyboardType(.numberPad)
-                            .onReceive(Just(completionValue)) { newValue in
+                            .onReceive(Just(viewModel.completionValue)) { newValue in
                                 let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue { self.completionValue = filtered }
+                                if filtered != newValue { self.viewModel.completionValue = filtered }
                             }
                             .multilineTextAlignment(.trailing)
                     }
                 }
             }
-            .navigationBarTitle("New counter", displayMode: .inline)
+            .navigationBarTitle(viewModel.editingCounter == nil ? "New Counter" : "Edit Counter", displayMode: .inline)
             .navigationBarItems(leading:
                                     Button("Cancel") {
-                                        self.dismiss?()
+                                        self.viewModel.dismiss?()
                                     }
                                 ,
                                 trailing:
-                                    Button("Add") {
-                                        let config = CounterConfig(
-                                            name: self.name,
-                                            currentValue: self.value.floatValue ?? 0,
-                                            increment: self.increment.floatValue ?? 1,
-                                            unit: self.unit.nilIfEmpty,
-                                            completionValue: self.completionValue.floatValue,
-                                            group: nil
-                                        )
-                                        CoreDataManager.shared.newCounter(config)
-                                        self.dismiss?()
-                                    }.disabled(name.isEmpty)
+                                    Button(viewModel.editingCounter == nil ? "Add" : "Save") {
+                                        viewModel.saveCounter()
+                                    }.disabled(viewModel.name.isEmpty)
             )
         }
-    }
-}
-
-struct NewCounterView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewCounterView()
-            .previewDevice("iPhone 8")
-            .previewLayout(.device)
-            
     }
 }

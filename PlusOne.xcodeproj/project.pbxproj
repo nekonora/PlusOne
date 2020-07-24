@@ -45,6 +45,8 @@
 		FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */; };
 		FAB30C7524A69608003FD7DA /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */; };
 		FAC69FEF24B8E7A800160539 /* NewCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC69FEE24B8E7A800160539 /* NewCounterView.swift */; };
+		FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */; };
+		FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */; };
 		FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +112,8 @@
 		FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVC.swift; sourceTree = "<group>"; };
 		FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FAC69FEE24B8E7A800160539 /* NewCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterView.swift; sourceTree = "<group>"; };
+		FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewView.swift; sourceTree = "<group>"; };
+		FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVM.swift; sourceTree = "<group>"; };
 		FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +237,7 @@
 			children = (
 				FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */,
 				FAC69FEE24B8E7A800160539 /* NewCounterView.swift */,
+				FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */,
 			);
 			path = NewCounter;
 			sourceTree = "<group>";
@@ -242,7 +247,7 @@
 			children = (
 				FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */,
 				FA263C7824AA8C7200C0477D /* CounterCVCell.swift */,
-				FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */,
+				FAF2C2C724CB430100784445 /* Preview */,
 			);
 			path = CountersCollection;
 			sourceTree = "<group>";
@@ -300,6 +305,15 @@
 				FAA990CD24A3DBB500076201 /* Info.plist */,
 			);
 			path = PlusOneUITests;
+			sourceTree = "<group>";
+		};
+		FAF2C2C724CB430100784445 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */,
+				FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +459,7 @@
 				FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */,
 				FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */,
 				FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */,
+				FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */,
 				FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */,
 				FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */,
 				FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */,
@@ -455,6 +470,7 @@
 				FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */,
 				FA18E6FA24A5DDEF00F31DF9 /* Collection+.swift in Sources */,
 				FA689F0624B9059D00C25F8F /* String+.swift in Sources */,
+				FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */,
 				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
 				FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */,
 				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,

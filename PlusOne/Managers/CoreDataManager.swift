@@ -19,12 +19,12 @@ class CoreDataManager {
     // MARK: - Public methods
     func setup(with persistentContainer: NSPersistentContainer) {
         container = persistentContainer
-        container.viewContext.automaticallyMergesChangesFromParent = true
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            self.container.viewContext.automaticallyMergesChangesFromParent = true
+            self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         })
     }
     
@@ -62,6 +62,17 @@ extension CoreDataManager {
         counter.createdAt = config.createdAt
         counter.updatedAt = config.updatedAt
         counter.unit = config.unit
+        saveContext()
+    }
+    
+    func editCounter(_ counter: Counter, with newConfig: CounterConfig) {
+        counter.name = newConfig.name
+        counter.currentValue = newConfig.currentValue
+        counter.increment = newConfig.increment
+        counter.completionValue = newConfig.completionValue ?? 0
+        counter.createdAt = newConfig.createdAt
+        counter.updatedAt = newConfig.updatedAt
+        counter.unit = newConfig.unit
         saveContext()
     }
 }
