@@ -37,12 +37,18 @@ class CoreDataManager {
     
     func delete<T: NSManagedObject>(object: T) {
         context.delete(object)
+        DevLogger.shared.logMessage(.coreData(message: "Deleting \(String(describing: type(of: T.self)))"))
         saveContext()
     }
     
     func saveContext() {
         guard context.hasChanges else { return }
-        try? context.save()
+        do {
+            try context.save()
+            DevLogger.shared.logMessage(.coreData(message: "Context successfully saved!"))
+        } catch {
+            DevLogger.shared.logMessage(.coreData(message: error.localizedDescription))
+        }
     }
     
     // MARK: - Private properties
@@ -62,6 +68,7 @@ extension CoreDataManager {
         counter.createdAt = config.createdAt
         counter.updatedAt = config.updatedAt
         counter.unit = config.unit
+        DevLogger.shared.logMessage(.coreData(message: "Saving new counter \(counter.name)"))
         saveContext()
     }
     
@@ -73,6 +80,7 @@ extension CoreDataManager {
         counter.createdAt = newConfig.createdAt
         counter.updatedAt = newConfig.updatedAt
         counter.unit = newConfig.unit
+        DevLogger.shared.logMessage(.coreData(message: "Updating counter \(counter.name)"))
         saveContext()
     }
 }

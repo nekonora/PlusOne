@@ -142,7 +142,7 @@ private extension CountersCV {
             try fetchedResultsController.performFetch()
             updateSnapshot()
         } catch {
-            print("Error retrieving counters")
+            DevLogger.shared.logMessage(.coreData(message: "CountersCV - Error retrieving counters"))
         }
     }
     
@@ -153,6 +153,10 @@ private extension CountersCV {
         diffableDataSourceSnapshot.appendItems(newData)
         dataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
         toggleEmptyState(newData.isEmpty)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.countersCollectionView.reloadData()
+        }
     }
     
     func resetSnapshot() {
