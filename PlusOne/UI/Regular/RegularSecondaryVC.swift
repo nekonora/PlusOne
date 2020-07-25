@@ -45,7 +45,7 @@ private extension RegularSecondaryVC {
         let addButton = UIBarButtonItem()
         
         addButton.primaryAction = UIAction(title: "", image: UIImage(systemName: "plus")) { [weak self] action in
-            let newCounterVC = NewCounterVC(editingCounter: nil)
+            let newCounterVC = NewCounterVC()
             newCounterVC.modalPresentationStyle = .popover
             newCounterVC.popoverPresentationController?.barButtonItem = addButton
             self?.present(newCounterVC, animated: true, completion: nil)

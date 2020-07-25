@@ -59,6 +59,7 @@ private extension CompactVC {
 private extension CompactVC {
     
     @objc private func onAddTapped() {
-        present(NewCounterVC(), animated: true, completion: nil)
+        let newCounterVC = NewCounterVC()
+        present(newCounterVC, animated: true, completion: nil)
     }
 }

@@ -19,6 +19,12 @@ final class NewCounterVC: UIHostingController<NewCounterView> {
         self.onDismiss = onDismiss
     }
     
+    private override init(rootView: NewCounterView) { super.init(rootView: rootView) }
+    
+    @objc required dynamic init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func dismiss() {
         onDismiss?()
         dismiss(animated: true, completion: nil)
