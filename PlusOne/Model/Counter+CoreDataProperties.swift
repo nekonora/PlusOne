@@ -13,7 +13,7 @@ import CoreData
 extension Counter {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<Counter> {
-        return NSFetchRequest<Counter>(entityName: "Counter")
+        NSFetchRequest<Counter>(entityName: "Counter")
     }
 
     @NSManaged public var completionValue: Float
@@ -26,7 +26,6 @@ extension Counter {
     @NSManaged public var unit: String?
     @NSManaged public var group: Group?
     @NSManaged public var tags: NSSet?
-
 }
 
 // MARK: Generated accessors for tags

@@ -25,6 +25,8 @@
 		FA263C7924AA8C7200C0477D /* CounterCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCVCell.swift */; };
 		FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */; };
 		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
+		FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */; };
+		FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */; };
 		FA689F0624B9059D00C25F8F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0524B9059D00C25F8F /* String+.swift */; };
 		FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0724B9061500C25F8F /* MigrationAssistant.swift */; };
 		FA8FF38F24BE3C04001A5303 /* Float+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FF38E24BE3C04001A5303 /* Float+.swift */; };
@@ -88,6 +90,8 @@
 		FA263C7824AA8C7200C0477D /* CounterCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCVCell.swift; sourceTree = "<group>"; };
 		FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
+		FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA689F0524B9059D00C25F8F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA689F0724B9061500C25F8F /* MigrationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationAssistant.swift; sourceTree = "<group>"; };
 		FA8FF38E24BE3C04001A5303 /* Float+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+.swift"; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 		FA18E70B24A618F600F31DF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */,
+				FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */,
 				FA18E70C24A6195600F31DF9 /* Tag+CoreDataClass.swift */,
 				FA18E70D24A6195600F31DF9 /* Tag+CoreDataProperties.swift */,
 				FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */,
@@ -453,6 +459,7 @@
 				FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */,
 				FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */,
 				FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */,
+				FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */,
 				FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */,
 				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
 				FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */,
@@ -468,6 +475,7 @@
 				FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */,
 				FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */,
 				FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */,
+				FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */,
 				FAA990E024A3E72600076201 /* CompactVC.swift in Sources */,
 				FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */,
 				FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */,

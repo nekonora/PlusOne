@@ -13,7 +13,7 @@ import CoreData
 extension Tag {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<Tag> {
-        return NSFetchRequest<Tag>(entityName: "Tag")
+        NSFetchRequest<Tag>(entityName: "Tag")
     }
 
     @NSManaged public var color: String

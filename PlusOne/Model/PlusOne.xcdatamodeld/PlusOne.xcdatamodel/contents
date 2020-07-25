@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17162" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17175" systemVersion="20A5323l" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ChangeRecord" representedClassName="ChangeRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <attribute name="newValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="oldValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="counter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Counter" inverseName="changes" inverseEntity="Counter"/>
+    </entity>
     <entity name="Counter" representedClassName="Counter" syncable="YES">
         <attribute name="completionValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -9,6 +16,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="changes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChangeRecord" inverseName="counter" inverseEntity="ChangeRecord"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="counters" inverseEntity="Group"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="counters" inverseEntity="Tag"/>
         <fetchIndex name="byName">
@@ -48,8 +56,9 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Counter" positionX="-386.5390625" positionY="-19.27734375" width="128" height="193"/>
+        <element name="Counter" positionX="-386.5390625" positionY="-19.27734375" width="128" height="194"/>
         <element name="Group" positionX="-171.2890625" positionY="28.2421875" width="128" height="88"/>
         <element name="Tag" positionX="-168.34375" positionY="180.90625" width="128" height="103"/>
+        <element name="ChangeRecord" positionX="-279" positionY="117" width="128" height="104"/>
     </elements>
 </model>
