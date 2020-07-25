@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17175" systemVersion="20A5323l" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="ChangeRecord" representedClassName="ChangeRecord" syncable="YES" codeGenerationType="class">
+    <entity name="ChangeRecord" representedClassName="ChangeRecord" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="key" optional="YES" attributeType="String"/>
         <attribute name="newValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -56,9 +56,9 @@
         </uniquenessConstraints>
     </entity>
     <elements>
+        <element name="ChangeRecord" positionX="-279" positionY="117" width="128" height="104"/>
         <element name="Counter" positionX="-386.5390625" positionY="-19.27734375" width="128" height="194"/>
         <element name="Group" positionX="-171.2890625" positionY="28.2421875" width="128" height="88"/>
         <element name="Tag" positionX="-168.34375" positionY="180.90625" width="128" height="103"/>
-        <element name="ChangeRecord" positionX="-279" positionY="117" width="128" height="104"/>
     </elements>
 </model>
