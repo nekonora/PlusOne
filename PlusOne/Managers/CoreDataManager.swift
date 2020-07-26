@@ -35,7 +35,17 @@ class CoreDataManager {
         return fetchRequest
     }
     
+    func createGenericFetch<T: NSManagedObject>(predicate: NSPredicate, dateSorted: Bool) -> NSFetchRequest<T> {
+        let fetchRequest = NSFetchRequest<T>(entityName: T.typeName)
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = dateSorted ? [NSSortDescriptor(key: "date", ascending: false)] : []
+        return fetchRequest
+    }
+    
     func delete<T: NSManagedObject>(object: T) {
+        if let counter = object as? Counter, let changes = counter.changes?.allObjects as? [ChangeRecord] {
+            changes.forEach { context.delete($0) }
+        }
         context.delete(object)
         DevLogger.shared.logMessage(.coreData(message: "Deleting \(String(describing: type(of: T.self)))"))
         saveContext()
@@ -81,6 +91,19 @@ extension CoreDataManager {
         counter.updatedAt = newConfig.updatedAt
         counter.unit = newConfig.unit
         DevLogger.shared.logMessage(.coreData(message: "Updating counter \(counter.name)"))
+        saveContext()
+    }
+    
+    func updateCounterValue(_ counter: Counter, to newValue: Float) {
+        let changeRecord = ChangeRecord(context: context)
+        changeRecord.key = "currentValue"
+        changeRecord.newValue = newValue
+        changeRecord.oldValue = counter.currentValue
+        changeRecord.date = Date()
+        
+        counter.currentValue = newValue
+        counter.addToChanges(changeRecord)
+        DevLogger.shared.logMessage(.coreData(message: "Updating counter \(counter.name) value to \(newValue)"))
         saveContext()
     }
 }

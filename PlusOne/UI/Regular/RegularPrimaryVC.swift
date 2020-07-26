@@ -41,10 +41,11 @@ private struct OutlineItem: Hashable {
 // MARK: - Controller
 final class RegularPrimaryVC: UIViewController {
     
-    // MARK: - Private Properties
+    // MARK: - UI
     private var outlineCollectionView: UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<Section, OutlineItem>!
     
+    // MARK: - Properties
+    private var dataSource: UICollectionViewDiffableDataSource<Section, OutlineItem>!
     private var selectedItem: OutlineItem?
     
     // MARK: - Lifecycle

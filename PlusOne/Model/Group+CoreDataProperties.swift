@@ -13,13 +13,12 @@ import CoreData
 extension Group {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<Group> {
-        return NSFetchRequest<Group>(entityName: "Group")
+        NSFetchRequest<Group>(entityName: "Group")
     }
 
     @NSManaged public var identifier: UUID
     @NSManaged public var name: String
     @NSManaged public var counters: NSSet
-
 }
 
 // MARK: Generated accessors for counters

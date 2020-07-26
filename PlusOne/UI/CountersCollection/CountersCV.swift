@@ -14,7 +14,7 @@ final class CountersCV: UIViewController {
     private var countersCollectionView: UICollectionView!
     private var emptyStateLabel = UILabel()
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     private var dataSource: UICollectionViewDiffableDataSource<Int, Counter>!
     private var fetchedResultsController: NSFetchedResultsController<Counter>!
     
@@ -98,8 +98,7 @@ private extension CountersCV {
         
         let cellRegistration = UICollectionView.CellRegistration<CounterCVCell, Counter> { cell, indexPath, counter in
             cell.setupWith(counter) {
-                counter.currentValue = $0
-                CoreDataManager.shared.saveContext()
+                CoreDataManager.shared.updateCounterValue(counter, to: $0)
             }
         }
         
@@ -200,7 +199,10 @@ extension CountersCV: UICollectionViewDelegate {
         let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { _ in
             self.showEditCounter(for: counter)
         }
-        let history = UIAction(title: "History", image: UIImage(systemName: "clock")) { _ in }
+        let history = UIAction(title: "History", image: UIImage(systemName: "clock")) { _ in
+            let vc = CounterHistoryVC.instance(for: counter)
+            self.present(vc, animated: true, completion: nil)
+        }
         let delete = UIAction(title: "Delete...", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
             self.showDeleteAlert(for: counter)
         }
