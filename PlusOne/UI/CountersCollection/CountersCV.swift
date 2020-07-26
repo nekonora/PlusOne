@@ -14,7 +14,7 @@ final class CountersCV: UIViewController {
     private var countersCollectionView: UICollectionView!
     private var emptyStateLabel = UILabel()
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     private var dataSource: UICollectionViewDiffableDataSource<Int, Counter>!
     private var fetchedResultsController: NSFetchedResultsController<Counter>!
     
@@ -200,9 +200,8 @@ extension CountersCV: UICollectionViewDelegate {
             self.showEditCounter(for: counter)
         }
         let history = UIAction(title: "History", image: UIImage(systemName: "clock")) { _ in
-            for change in counter.changes?.allObjects as [ChangeRecord] {
-                print(change.oldValue, change.newValue)
-            }
+            let vc = CounterHistoryVC.instance(for: counter)
+            self.present(vc, animated: true, completion: nil)
         }
         let delete = UIAction(title: "Delete...", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
             self.showDeleteAlert(for: counter)

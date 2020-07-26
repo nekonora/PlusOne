@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CounterCVCell: UICollectionViewCell {
+final class CounterCVCell: UICollectionViewCell {
     
     // MARK: - UI
     private let mainStackView = UIStackView()

@@ -35,6 +35,13 @@ class CoreDataManager {
         return fetchRequest
     }
     
+    func createGenericFetch<T: NSManagedObject>(predicate: NSPredicate, dateSorted: Bool) -> NSFetchRequest<T> {
+        let fetchRequest = NSFetchRequest<T>(entityName: T.typeName)
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = dateSorted ? [NSSortDescriptor(key: "date", ascending: false)] : []
+        return fetchRequest
+    }
+    
     func delete<T: NSManagedObject>(object: T) {
         if let counter = object as? Counter, let changes = counter.changes?.allObjects as? [ChangeRecord] {
             changes.forEach { context.delete($0) }
