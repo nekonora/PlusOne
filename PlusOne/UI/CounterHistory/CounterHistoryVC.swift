@@ -11,6 +11,20 @@ import UIKit
 final class CounterHistoryVC: UIViewController {
     
     // MARK: - UI
+    lazy private var mainStack: UIStackView = {
+        let stack = UIStackView()
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.axis = .vertical
+        return stack
+    }()
+    lazy private var historyTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .roundedFont(ofSize: .largeTitle, weight: .bold)
+        label.text = "History"
+        return label
+    }()
     private var collectionView: UICollectionView!
     private var emptyStateLabel = UILabel()
     
@@ -31,28 +45,28 @@ final class CounterHistoryVC: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//        guard
-//            traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass
-//                || traitCollection.verticalSizeClass != previousTraitCollection?.verticalSizeClass
-//        else { return }
-//
-//        resetSnapshot()
-//    }
 }
 
 // MARK: - Setup
 private extension CounterHistoryVC {
     
     func setupUI() {
+        view.addSubview(mainStack)
+        mainStack.setConstraints {
+            $0.top(to: view.safeAreaLayoutGuide.topAnchor)
+            $0.leading(to: view.leadingAnchor)
+            $0.trailing(to: view.trailingAnchor)
+            $0.bottom(to: view.bottomAnchor)
+        }
+        
         setupEmptyStateLabel()
         setupCollectionView()
-        title = "\(counter.name) hystory"
+        title = counter.name
         view.backgroundColor = .systemBackground
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { self.setupDataSource() }
     }
+    
+    // MARK: - Infoheader
     
     // MARK: - Empty state label
     func setupEmptyStateLabel() {
@@ -75,13 +89,8 @@ private extension CounterHistoryVC {
     func setupCollectionView() {
         let layout = generateLayout()
         let historyCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        view.addSubview(historyCollectionView)
-        historyCollectionView.setConstraints {
-            $0.top(to: view.safeAreaLayoutGuide.topAnchor)
-            $0.leading(to: view.leadingAnchor)
-            $0.trailing(to: view.trailingAnchor)
-            $0.bottom(to: view.bottomAnchor)
-        }
+        mainStack.addArrangedSubview(historyTitleLabel)
+        mainStack.addArrangedSubview(historyCollectionView)
         
         #if targetEnvironment(macCatalyst)
         historyCollectionView.backgroundColor = .systemBackground
@@ -105,6 +114,7 @@ private extension CounterHistoryVC {
         
         let cellRegistration = UICollectionView.CellRegistration<ChangeRecordCVCell, ChangeRecord> { cell, indexPath, changeRecord in
             cell.setupWith(changeRecord)
+            cell.contentView.backgroundColor = indexPath.item.isMultiple(of: 2) ? .systemBackground : UIColor.poBackgroundAltList
         }
         
         dataSource = UICollectionViewDiffableDataSource<Int, ChangeRecord>(collectionView: collectionView) {
@@ -120,12 +130,10 @@ private extension CounterHistoryVC {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                               heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .absolute(100))
+                                               heightDimension: .absolute(70))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
         
         let section = NSCollectionLayoutSection(group: group)
         let layout = UICollectionViewCompositionalLayout(section: section)
@@ -155,66 +163,13 @@ private extension CounterHistoryVC {
         }
     }
     
-//    func resetSnapshot() {
-//        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Int, ChangeRecord>()
-//        diffableDataSourceSnapshot.appendSections([0])
-//        diffableDataSourceSnapshot.appendItems([])
-//        dataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
-//        countersCollectionView.setCollectionViewLayout(generateLayout(), animated: true) { _ in
-//            self.updateSnapshot()
-//        }
-//    }
-    
     func toggleEmptyState(_ toggle: Bool) {
         emptyStateLabel.isHidden = !toggle
-        collectionView.isHidden = toggle
+        mainStack.isHidden = toggle
     }
 }
 
 // MARK: - ContextMenu
 extension CounterHistoryVC: UICollectionViewDelegate {
     
-//    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-//        guard let counters = self.fetchedResultsController.fetchedObjects else { return nil }
-//
-//        return UIContextMenuConfiguration(identifier: nil, previewProvider: {
-//            return CounterPreviewVC(counter: counters[indexPath.item])
-//        }, actionProvider: { suggestedActions in
-//            return self.makeContextMenuFor(counter: counters[indexPath.item])
-//        })
-//    }
-//
-//    private func makeContextMenuFor(counter: Counter) -> UIMenu {
-//        let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { _ in
-//            self.showEditCounter(for: counter)
-//        }
-//        let history = UIAction(title: "History", image: UIImage(systemName: "clock")) { _ in
-//            for change in counter.changes?.allObjects as [ChangeRecord] {
-//                print(change.oldValue, change.newValue)
-//            }
-//        }
-//        let delete = UIAction(title: "Delete...", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
-//            self.showDeleteAlert(for: counter)
-//        }
-//        return UIMenu(title: "", children: [edit, history, delete])
-//    }
-//
-//    private func showDeleteAlert(for counter: Counter) {
-//        let ac = UIAlertController(
-//            title: "Delete \(counter.name)?",
-//            message: "Are you sure you want to delete this counter?",
-//            preferredStyle: .alert
-//        )
-//        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        ac.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
-//            CoreDataManager.shared.delete(object: counter)
-//        }))
-//        present(ac, animated: true, completion: nil)
-//    }
-//
-//    private func showEditCounter(for counter: Counter) {
-//        let editCounterVC = NewCounterVC(editingCounter: counter)
-//        editCounterVC.modalPresentationStyle = .formSheet
-//        present(editCounterVC, animated: true, completion: nil)
-//    }
 }

@@ -17,7 +17,7 @@ class Utils {
     
     // MARK: - Methods
     func formatDateToShort(_ date: Date) -> String {
-        formatter.dateStyle = .full
+        formatter.dateStyle = .short
         formatter.timeStyle = .short
         return formatter.string(from: date)
     }

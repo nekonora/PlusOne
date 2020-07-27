@@ -83,6 +83,15 @@ extension CoreDataManager {
     }
     
     func editCounter(_ counter: Counter, with newConfig: CounterConfig) {
+        if counter.currentValue != newConfig.currentValue {
+            let changeRecord = ChangeRecord(context: context)
+            changeRecord.key = "currentValue"
+            changeRecord.newValue = newConfig.currentValue
+            changeRecord.oldValue = counter.currentValue
+            changeRecord.date = Date()
+            counter.addToChanges(changeRecord)
+        }
+        
         counter.name = newConfig.name
         counter.currentValue = newConfig.currentValue
         counter.increment = newConfig.increment
@@ -90,6 +99,7 @@ extension CoreDataManager {
         counter.createdAt = newConfig.createdAt
         counter.updatedAt = newConfig.updatedAt
         counter.unit = newConfig.unit
+        
         DevLogger.shared.logMessage(.coreData(message: "Updating counter \(counter.name)"))
         saveContext()
     }

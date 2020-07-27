@@ -131,8 +131,6 @@ private extension CounterCVCell {
 private extension CounterCVCell {
     
     @objc func didTapStepper(_ stepper: UIStepper) {
-        valueLabel.text = Float(stepper.value).stringTruncatingZero()
-        progressView.progress = Float(stepper.value) / completionValue
         onStepperTapped?(Float(stepper.value))
     }
 }

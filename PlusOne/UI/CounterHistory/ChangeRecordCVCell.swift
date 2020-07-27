@@ -16,20 +16,20 @@ final class ChangeRecordCVCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .secondaryLabel
         label.numberOfLines = 2
-        label.font = .roundedFont(ofSize: .headline, weight: .regular)
+        label.font = .roundedFont(ofSize: .subheadline, weight: .regular)
         return label
     }()
     private let oldValueLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .roundedFont(ofSize: .headline, weight: .semibold)
+        label.font = .roundedFont(ofSize: .subheadline, weight: .semibold)
         return label
     }()
     private let incrementLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .center
-        label.font = .roundedFont(ofSize: .headline, weight: .semibold)
+        label.font = .roundedFont(ofSize: .subheadline, weight: .semibold)
         return label
     }()
     private let arrowImage: UIImageView = {
@@ -43,7 +43,7 @@ final class ChangeRecordCVCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .right
-        label.font = .roundedFont(ofSize: .headline, weight: .semibold)
+        label.font = .roundedFont(ofSize: .subheadline, weight: .semibold)
         return label
     }()
     
@@ -85,44 +85,50 @@ private extension ChangeRecordCVCell {
         mainStackView.axis = .horizontal
         mainStackView.distribution = .fill
         mainStackView.alignment = .center
-        mainStackView.spacing = 15
-        mainStackView.fillSuperview(padding: 0)
+        mainStackView.setConstraints {
+            $0.leading(to: contentView.leadingAnchor, constant: 20)
+            $0.trailing(to: contentView.trailingAnchor, constant: -20)
+            $0.top(to: contentView.topAnchor)
+            $0.bottom(to: contentView.bottomAnchor)
+        }
 
         mainStackView.addArrangedSubview(dateLabel)
         
         mainStackView.addArrangedSubview(oldValueLabel)
         oldValueLabel.setConstraints { $0.width(50) }
         
-        let stackView: UIStackView = {
-            let stack = UIStackView()
-            stack.alignment = .center
-            stack.axis = .horizontal
-            stack.spacing = -6
-            return stack
-        }()
+        let incrementContainer = UIView()
         
-        let container: UIView = {
+        let incrementBox: UIView = {
             let view = UIView()
             view.layer.cornerCurve = .continuous
             view.layer.cornerRadius = 15
             view.backgroundColor = UIColor.poBackground3
             return view
         }()
-        container.addSubview(incrementLabel)
+        incrementBox.addSubview(incrementLabel)
         incrementLabel.fillSuperview()
-        container.setConstraints {
+        
+        incrementContainer.addSubview(incrementBox)
+        incrementContainer.addSubview(arrowImage)
+        
+        incrementBox.setConstraints {
             $0.width(50)
             $0.height(30)
+            $0.centerY(to: incrementContainer.centerYAnchor)
+            $0.leading(to: incrementContainer.leadingAnchor)
         }
         
-        stackView.addArrangedSubview(container)
-        stackView.addArrangedSubview(arrowImage)
         arrowImage.setConstraints {
             $0.width(25)
             $0.height(25)
+            $0.centerY(to: incrementContainer.centerYAnchor)
+            $0.trailing(to: incrementContainer.trailingAnchor)
         }
         
-        mainStackView.addArrangedSubview(stackView)
+        incrementContainer.setConstraints { $0.width(67) }
+        
+        mainStackView.addArrangedSubview(incrementContainer)
         
         mainStackView.addArrangedSubview(newValueLabel)
         newValueLabel.setConstraints { $0.width(50) }

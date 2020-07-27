@@ -13,4 +13,5 @@ extension UIColor {
     static let poBackground = UIColor(named: "Background")
     static let poBackground2 = UIColor(named: "Background2")
     static let poBackground3 = UIColor(named: "Background3")
+    static let poBackgroundAltList = UIColor(named: "BackgroundAltList")
 }

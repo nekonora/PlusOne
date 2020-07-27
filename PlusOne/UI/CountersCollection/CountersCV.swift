@@ -196,17 +196,17 @@ extension CountersCV: UICollectionViewDelegate {
     }
     
     private func makeContextMenuFor(counter: Counter) -> UIMenu {
-        let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { _ in
-            self.showEditCounter(for: counter)
-        }
-        let history = UIAction(title: "History", image: UIImage(systemName: "clock")) { _ in
+        let info = UIAction(title: "Info", image: UIImage(systemName: "scroll")) { _ in
             let vc = CounterHistoryVC.instance(for: counter)
             self.present(vc, animated: true, completion: nil)
+        }
+        let edit = UIAction(title: "Edit", image: UIImage(systemName: "rectangle.and.pencil.and.ellipsis")) { _ in
+            self.showEditCounter(for: counter)
         }
         let delete = UIAction(title: "Delete...", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
             self.showDeleteAlert(for: counter)
         }
-        return UIMenu(title: "", children: [edit, history, delete])
+        return UIMenu(title: "", children: [info, edit, delete])
     }
     
     private func showDeleteAlert(for counter: Counter) {
