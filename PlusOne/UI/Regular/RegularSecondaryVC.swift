@@ -5,10 +5,14 @@
 //  Created by Filippo Zaffoni on 24/06/2020.
 //
 
+import Combine
 import UIKit
 
 // MARK: - Controller
 final class RegularSecondaryVC: UIViewController {
+    
+    // MARK: - Properties
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - UI
     private weak var countersCV: CountersCV!
@@ -17,6 +21,7 @@ final class RegularSecondaryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupObservables()
     }
 }
 
@@ -44,7 +49,7 @@ private extension RegularSecondaryVC {
         
         let addButton = UIBarButtonItem()
         
-        addButton.primaryAction = UIAction(title: "", image: UIImage(systemName: "plus")) { [weak self] action in
+        addButton.primaryAction = UIAction(title: "", image: UIImage(systemName: "plus")) { [weak self] _ in
             let newCounterVC = NewCounterVC()
             newCounterVC.modalPresentationStyle = .popover
             newCounterVC.popoverPresentationController?.barButtonItem = addButton
@@ -68,5 +73,21 @@ private extension RegularSecondaryVC {
         view.addSubview(vc.view)
         vc.view.fillSuperview()
         countersCV = vc
+    }
+    
+    func setupObservables() {
+        NotificationCenter.default.publisher(for: .addCounter)
+            .receive(on: RunLoop.main)
+            .sink { _ in self.onAddTapped() }
+            .store(in: &cancellables)
+    }
+}
+
+// MARK: - Actions
+private extension RegularSecondaryVC {
+    
+    @objc private func onAddTapped() {
+        let newCounterVC = NewCounterVC()
+        present(newCounterVC, animated: true, completion: nil)
     }
 }

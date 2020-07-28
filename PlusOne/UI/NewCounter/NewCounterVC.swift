@@ -10,8 +10,10 @@ import SwiftUI
 
 final class NewCounterVC: UIHostingController<NewCounterView> {
     
+    // MARK: - Properties
     private var onDismiss: (() -> Void)?
 
+    // MARK: - Lifecycle
     convenience init(editingCounter: Counter? = nil, onDismiss: (() -> Void)? = nil) {
         let viewModel = NewCounterVM(counterToEdit: editingCounter)
         self.init(rootView: NewCounterView(viewModel: viewModel))
@@ -25,6 +27,7 @@ final class NewCounterVC: UIHostingController<NewCounterView> {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Actins
     func dismiss() {
         onDismiss?()
         dismiss(animated: true, completion: nil)

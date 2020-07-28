@@ -63,6 +63,13 @@ private extension CounterHistoryVC {
         setupCollectionView()
         title = counter.name
         view.backgroundColor = .systemBackground
+        
+        let closeAction = UIAction(title: "") { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let closeButton = UIBarButtonItem(systemItem: .done, primaryAction: closeAction, menu: nil)
+        navigationItem.rightBarButtonItem = closeButton
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { self.setupDataSource() }
     }
     

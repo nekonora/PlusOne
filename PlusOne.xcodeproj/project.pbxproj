@@ -50,6 +50,8 @@
 		FAB3717D24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3717C24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift */; };
 		FAB3717F24CE3AA700F98EE9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3717E24CE3AA700F98EE9 /* Utils.swift */; };
 		FAC69FEF24B8E7A800160539 /* NewCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC69FEE24B8E7A800160539 /* NewCounterView.swift */; };
+		FAD9AD5424D0BA70004C57B8 /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9AD5324D0BA70004C57B8 /* ToolbarDelegate.swift */; };
+		FAD9AD5624D0BE8E004C57B8 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9AD5524D0BE8E004C57B8 /* Notification+.swift */; };
 		FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */; };
 		FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */; };
 		FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CF24CB66F300784445 /* DevLogger.swift */; };
@@ -123,6 +125,8 @@
 		FAB3717C24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRecordCVCell.swift; sourceTree = "<group>"; };
 		FAB3717E24CE3AA700F98EE9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FAC69FEE24B8E7A800160539 /* NewCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterView.swift; sourceTree = "<group>"; };
+		FAD9AD5324D0BA70004C57B8 /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
+		FAD9AD5524D0BE8E004C57B8 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewView.swift; sourceTree = "<group>"; };
 		FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVM.swift; sourceTree = "<group>"; };
 		FAF2C2CF24CB66F300784445 /* DevLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevLogger.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */,
+				FAD9AD5524D0BE8E004C57B8 /* Notification+.swift */,
 				FA8FF38E24BE3C04001A5303 /* Float+.swift */,
 				FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */,
 				FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */,
@@ -198,6 +203,7 @@
 				FAA990AA24A3DBB400076201 /* RootVC.swift */,
 				FA689F0924B9135C00C25F8F /* Regular */,
 				FA689F0A24B9137700C25F8F /* Compact */,
+				FAD9AD5224D0BA26004C57B8 /* Toolbar */,
 				FA689F0B24B9138500C25F8F /* NewCounter */,
 				FAB3717B24CE2B0300F98EE9 /* CounterHistory */,
 				FA689F0C24B9139000C25F8F /* CountersCollection */,
@@ -331,6 +337,14 @@
 				FAB3717C24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift */,
 			);
 			path = CounterHistory;
+			sourceTree = "<group>";
+		};
+		FAD9AD5224D0BA26004C57B8 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9AD5324D0BA70004C57B8 /* ToolbarDelegate.swift */,
+			);
+			path = Toolbar;
 			sourceTree = "<group>";
 		};
 		FAF2C2C724CB430100784445 /* Preview */ = {
@@ -492,6 +506,7 @@
 				FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */,
 				FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */,
 				FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */,
+				FAD9AD5624D0BE8E004C57B8 /* Notification+.swift in Sources */,
 				FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */,
 				FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */,
 				FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */,
@@ -505,6 +520,7 @@
 				FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */,
 				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
 				FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */,
+				FAD9AD5424D0BA70004C57B8 /* ToolbarDelegate.swift in Sources */,
 				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,
 				FA8FF38F24BE3C04001A5303 /* Float+.swift in Sources */,
 				FAAF234E24B86D54005B8B71 /* NewCounterVC.swift in Sources */,

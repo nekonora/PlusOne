@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // MARK: - Properties
     var window: UIWindow?
+    private var toolbarDelegate = ToolbarDelegate()
 
     // MARK: - Scene lifecycle
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -42,51 +43,13 @@ private extension SceneDelegate {
     
     func configureMac(on windowScene: UIWindowScene) {
         #if targetEnvironment(macCatalyst)
-        let toolbar = NSToolbar()
-        toolbar.delegate = self
+        let toolbar = NSToolbar(identifier: "main")
+        toolbar.delegate = toolbarDelegate
+        toolbar.displayMode = .iconOnly
         
         windowScene.titlebar?.toolbar = toolbar
-        windowScene.titlebar?.toolbarStyle = .unified
-        windowScene.titlebar?.titleVisibility = .hidden
+        windowScene.titlebar?.toolbarStyle = .automatic
+//        windowScene.titlebar?.titleVisibility = .hidden
         #endif
     }
 }
-
-// MARK: - NSToolBarDelegate
-#if targetEnvironment(macCatalyst)
-extension SceneDelegate: NSToolbarDelegate {
-    
-    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [
-            .toggleSidebar,
-            .flexibleSpace,
-            NSToolbarItem.Identifier("otherButton")
-        ]
-    }
-    
-    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [
-            .toggleSidebar,
-            .flexibleSpace,
-            NSToolbarItem.Identifier("otherButton")
-        ]
-    }
-    
-    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
-        
-        switch itemIdentifier {
-        case NSToolbarItem.Identifier("otherButton"):
-            let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(nop(_:)))
-            return NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButtonItem)
-        default:
-            break
-        }
-        
-        return NSToolbarItem(itemIdentifier: itemIdentifier)
-    }
-    
-    @objc func nop(_ sender : NSObject) {
-        
-    }
-}
-#endif
