@@ -96,7 +96,12 @@ private extension CounterHistoryVC {
     func setupCollectionView() {
         let layout = generateLayout()
         let historyCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        mainStack.addArrangedSubview(historyTitleLabel)
+        
+        let titleContainer = UIView()
+        titleContainer.backgroundColor = UIColor.poBackgroundAltList
+        titleContainer.addSubview(historyTitleLabel)
+        historyTitleLabel.fillSuperview(padding: 10)
+        mainStack.addArrangedSubview(titleContainer)
         mainStack.addArrangedSubview(historyCollectionView)
         
         #if targetEnvironment(macCatalyst)

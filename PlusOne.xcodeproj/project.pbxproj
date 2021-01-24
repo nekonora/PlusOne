@@ -43,6 +43,7 @@
 		FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */; };
 		FAA990E024A3E72600076201 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DF24A3E72600076201 /* CompactVC.swift */; };
 		FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */; };
+		FAAC234525BD90CE00BEAA38 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC234425BD90CE00BEAA38 /* SettingsVC.swift */; };
 		FAAF234E24B86D54005B8B71 /* NewCounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */; };
 		FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */; };
 		FAB30C7524A69608003FD7DA /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */; };
@@ -119,6 +120,7 @@
 		FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSecondaryVC.swift; sourceTree = "<group>"; };
 		FAA990DF24A3E72600076201 /* CompactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
 		FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		FAAC234425BD90CE00BEAA38 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVC.swift; sourceTree = "<group>"; };
 		FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FAB3717924CE2AFF00F98EE9 /* CounterHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterHistoryVC.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				FA689F0B24B9138500C25F8F /* NewCounter */,
 				FAB3717B24CE2B0300F98EE9 /* CounterHistory */,
 				FA689F0C24B9139000C25F8F /* CountersCollection */,
+				FAAC234325BD90BB00BEAA38 /* Settings */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -328,6 +331,14 @@
 				FAA990CD24A3DBB500076201 /* Info.plist */,
 			);
 			path = PlusOneUITests;
+			sourceTree = "<group>";
+		};
+		FAAC234325BD90BB00BEAA38 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC234425BD90CE00BEAA38 /* SettingsVC.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		FAB3717B24CE2B0300F98EE9 /* CounterHistory */ = {
@@ -493,6 +504,7 @@
 				FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */,
 				FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */,
 				FAB3717A24CE2AFF00F98EE9 /* CounterHistoryVC.swift in Sources */,
+				FAAC234525BD90CE00BEAA38 /* SettingsVC.swift in Sources */,
 				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
 				FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */,
 				FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */,
@@ -697,9 +709,9 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -720,9 +732,9 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

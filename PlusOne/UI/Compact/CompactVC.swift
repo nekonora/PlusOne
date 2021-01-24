@@ -43,7 +43,7 @@ private extension CompactVC {
         let statsVC = UIViewController()
         statsVC.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(systemName: "waveform.path.ecg.rectangle"), tag: 2)
         
-        let settingsVC = UIViewController()
+        let settingsVC = SettingsVC()
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 3)
         
         viewControllers = [

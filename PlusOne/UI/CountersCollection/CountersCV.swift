@@ -196,7 +196,7 @@ extension CountersCV: UICollectionViewDelegate {
     }
     
     private func makeContextMenuFor(counter: Counter) -> UIMenu {
-        let info = UIAction(title: "Info", image: UIImage(systemName: "scroll")) { _ in
+        let info = UIAction(title: "History", image: UIImage(systemName: "scroll")) { _ in
             let vc = CounterHistoryVC.instance(for: counter)
             self.present(vc, animated: true, completion: nil)
         }

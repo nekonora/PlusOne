@@ -14,10 +14,18 @@ struct CounterPreviewView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 10) {
-                Text(counter.name)
-                    .foregroundColor(.white)
-                    .font(.title)
-                    .fontWeight(.semibold)
+                
+                HStack {
+                    Text(counter.name)
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .fontWeight(.semibold)
+                    
+                    Text(counter.uTags.first?.name ?? "")
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .fontWeight(.semibold)
+                }
                 
                 Spacer()
                 
