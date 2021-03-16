@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct SettingsStrings {
+    let title = "Settings"
+}
+
 final class SettingsVC: UIViewController {
     
     // MARK: - Types
@@ -27,6 +31,7 @@ final class SettingsVC: UIViewController {
     
     // MARK: - Properties
     private var dataSource: UICollectionViewDiffableDataSource<Int, SettingsCell>!
+    let strings = SettingsStrings()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -59,12 +64,7 @@ private extension SettingsVC {
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         view.addSubview(collectionView)
-        collectionView.setConstraints {
-            $0.top(to: view.safeAreaLayoutGuide.topAnchor)
-            $0.leading(to: view.leadingAnchor)
-            $0.trailing(to: view.trailingAnchor)
-            $0.bottom(to: view.bottomAnchor)
-        }
+        collectionView.fillSafeArea()
         
         #if targetEnvironment(macCatalyst)
         collectionView.backgroundColor = .systemBackground

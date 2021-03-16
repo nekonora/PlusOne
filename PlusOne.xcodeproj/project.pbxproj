@@ -22,13 +22,15 @@
 		FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */; };
 		FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */; };
 		FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71C24A61A9800F31DF9 /* Group+CD.swift */; };
-		FA263C7924AA8C7200C0477D /* CounterCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCVCell.swift */; };
+		FA263C7924AA8C7200C0477D /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCell.swift */; };
 		FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */; };
 		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
 		FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */; };
 		FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */; };
 		FA689F0624B9059D00C25F8F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0524B9059D00C25F8F /* String+.swift */; };
 		FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0724B9061500C25F8F /* MigrationAssistant.swift */; };
+		FA833ED6260121E200E5103F /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA833ED5260121E200E5103F /* NavigationVC.swift */; };
+		FA833ED82601310C00E5103F /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA833ED72601310C00E5103F /* GroupCell.swift */; };
 		FA8FF38F24BE3C04001A5303 /* Float+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FF38E24BE3C04001A5303 /* Float+.swift */; };
 		FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */; };
 		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
@@ -56,7 +58,7 @@
 		FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */; };
 		FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */; };
 		FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CF24CB66F300784445 /* DevLogger.swift */; };
-		FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */; };
+		FAF55ACE24ABD93F00FC8EF9 /* CountersCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,13 +95,15 @@
 		FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CD.swift"; sourceTree = "<group>"; };
 		FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CD.swift"; sourceTree = "<group>"; };
 		FA18E71C24A61A9800F31DF9 /* Group+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CD.swift"; sourceTree = "<group>"; };
-		FA263C7824AA8C7200C0477D /* CounterCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCVCell.swift; sourceTree = "<group>"; };
+		FA263C7824AA8C7200C0477D /* CounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
 		FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA689F0524B9059D00C25F8F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA689F0724B9061500C25F8F /* MigrationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationAssistant.swift; sourceTree = "<group>"; };
+		FA833ED5260121E200E5103F /* NavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
+		FA833ED72601310C00E5103F /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		FA8FF38E24BE3C04001A5303 /* Float+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+.swift"; sourceTree = "<group>"; };
 		FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewVC.swift; sourceTree = "<group>"; };
 		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +136,7 @@
 		FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewView.swift; sourceTree = "<group>"; };
 		FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVM.swift; sourceTree = "<group>"; };
 		FAF2C2CF24CB66F300784445 /* DevLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevLogger.swift; sourceTree = "<group>"; };
-		FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCV.swift; sourceTree = "<group>"; };
+		FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCollectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,11 +275,20 @@
 		FA689F0C24B9139000C25F8F /* CountersCollection */ = {
 			isa = PBXGroup;
 			children = (
-				FAF55ACD24ABD93F00FC8EF9 /* CountersCV.swift */,
-				FA263C7824AA8C7200C0477D /* CounterCVCell.swift */,
+				FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */,
+				FA263C7824AA8C7200C0477D /* CounterCell.swift */,
+				FA833ED72601310C00E5103F /* GroupCell.swift */,
 				FAF2C2C724CB430100784445 /* Preview */,
 			);
 			path = CountersCollection;
+			sourceTree = "<group>";
+		};
+		FA833ED4260121BF00E5103F /* CustomTypes */ = {
+			isa = PBXGroup;
+			children = (
+				FA833ED5260121E200E5103F /* NavigationVC.swift */,
+			);
+			path = CustomTypes;
 			sourceTree = "<group>";
 		};
 		FAA9909A24A3DBB400076201 = {
@@ -309,6 +322,7 @@
 				FA18E70224A5DEA200F31DF9 /* UI */,
 				FA18E70124A5DE9100F31DF9 /* Managers */,
 				FA18E6FF24A5DE6700F31DF9 /* Extensions */,
+				FA833ED4260121BF00E5103F /* CustomTypes */,
 				FA18E70024A5DE7D00F31DF9 /* Resources */,
 				FA18E70B24A618F600F31DF9 /* Model */,
 			);
@@ -383,6 +397,8 @@
 			dependencies = (
 			);
 			name = PlusOne;
+			packageProductDependencies = (
+			);
 			productName = PlusOne;
 			productReference = FAA990A324A3DBB400076201 /* PlusOne.app */;
 			productType = "com.apple.product-type.application";
@@ -454,6 +470,8 @@
 				Base,
 			);
 			mainGroup = FAA9909A24A3DBB400076201;
+			packageReferences = (
+			);
 			productRefGroup = FAA990A424A3DBB400076201 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -497,12 +515,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA833ED82601310C00E5103F /* GroupCell.swift in Sources */,
 				FAC69FEF24B8E7A800160539 /* NewCounterView.swift in Sources */,
 				FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */,
 				FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */,
 				FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */,
 				FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */,
-				FAF55ACE24ABD93F00FC8EF9 /* CountersCV.swift in Sources */,
+				FAF55ACE24ABD93F00FC8EF9 /* CountersCollectionVC.swift in Sources */,
 				FAB3717A24CE2AFF00F98EE9 /* CounterHistoryVC.swift in Sources */,
 				FAAC234525BD90CE00BEAA38 /* SettingsVC.swift in Sources */,
 				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
@@ -510,7 +529,7 @@
 				FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */,
 				FA18E71624A6195600F31DF9 /* Group+CoreDataClass.swift in Sources */,
 				FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */,
-				FA263C7924AA8C7200C0477D /* CounterCVCell.swift in Sources */,
+				FA263C7924AA8C7200C0477D /* CounterCell.swift in Sources */,
 				FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */,
 				FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */,
 				FAB3717F24CE3AA700F98EE9 /* Utils.swift in Sources */,
@@ -531,6 +550,7 @@
 				FA689F0624B9059D00C25F8F /* String+.swift in Sources */,
 				FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */,
 				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
+				FA833ED6260121E200E5103F /* NavigationVC.swift in Sources */,
 				FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */,
 				FAD9AD5424D0BA70004C57B8 /* ToolbarDelegate.swift in Sources */,
 				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,

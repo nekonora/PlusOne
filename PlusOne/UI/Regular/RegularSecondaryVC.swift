@@ -15,7 +15,7 @@ final class RegularSecondaryVC: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - UI
-    private weak var countersCV: CountersCV!
+    private weak var countersCV: CountersCollectionVC!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ private extension RegularSecondaryVC {
     }
     
     func addCollectionView() {
-        let vc = CountersCV()
+        let vc = CountersCollectionVC()
         addChild(vc)
         vc.didMove(toParent: self)
         view.addSubview(vc.view)

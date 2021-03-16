@@ -158,7 +158,7 @@ private extension CounterHistoryVC {
             try fetchedResultsController.performFetch()
             updateSnapshot()
         } catch {
-            DevLogger.shared.logMessage(.coreData(message: "CountersCV - Error retrieving counters"))
+            DevLogger.shared.logMessage(.coreData(message: "CountersCollectionVC - Error retrieving counters"))
         }
     }
     

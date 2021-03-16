@@ -7,20 +7,21 @@
 
 import UIKit
 
-final class CounterCVCell: UICollectionViewCell {
+final class CounterCell: UICollectionViewCell {
     
     // MARK: - UI
-    private let mainStackView = UIStackView()
-    private let nameLabel = UILabel()
-    private let valueLabel = UILabel()
-    private let unitLabel = UILabel()
-    private let valueStack = UIStackView()
-    private let progressView = UIProgressView()
-    private let stepperStackView = UIStackView()
-    private let stepper = UIStepper()
-    private var onStepperTapped: ((Float) -> Void)?
+    private lazy var mainStackView = UIStackView()
+    private lazy var nameLabel = UILabel()
+    private lazy var valueLabel = UILabel()
+    private lazy var unitLabel = UILabel()
+    private lazy var valueStack = UIStackView()
+    private lazy var progressView = UIProgressView()
+    private lazy var stepperStackView = UIStackView()
+    private lazy var stepper = UIStepper()
     
     // MARK: - Properties
+    private var onStepperTapped: ((Float) -> Void)?
+    
     private var completionValue: Float = 0
     
     // MARK: - External methods
@@ -38,7 +39,7 @@ final class CounterCVCell: UICollectionViewCell {
 }
 
 // MARK: - Setup
-private extension CounterCVCell {
+private extension CounterCell {
     
     func updateContent(with counter: Counter) {
         nameLabel.text = counter.name
@@ -128,7 +129,7 @@ private extension CounterCVCell {
 }
 
 // MARK: - Actions
-private extension CounterCVCell {
+private extension CounterCell {
     
     @objc func didTapStepper(_ stepper: UIStepper) {
         onStepperTapped?(Float(stepper.value))

@@ -8,15 +8,32 @@
 import CoreData
 import UIKit
 
-final class CountersCV: UIViewController {
+struct CountersCollectionStrings {
+    let title = "Counters"
+    let emptyLabel = "You have no counters at the moment,\nuse the + button to add one!"
+}
+
+final class CountersCollectionVC: UIViewController {
+    
+    // MARK: - Types
+    private enum Section: Hashable, CaseIterable {
+        case groups
+        case counters
+    }
+    
+    private enum CellType: Hashable {
+        case group(name: String)
+        case counter(counter: Counter)
+    }
     
     // MARK: - UI
     private var countersCollectionView: UICollectionView!
     private var emptyStateLabel = UILabel()
     
     // MARK: - Properties
-    private var dataSource: UICollectionViewDiffableDataSource<Int, Counter>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, CellType>!
     private var fetchedResultsController: NSFetchedResultsController<Counter>!
+    let strings = CountersCollectionStrings()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,11 +53,12 @@ final class CountersCV: UIViewController {
 }
 
 // MARK: - Setup
-private extension CountersCV {
+private extension CountersCollectionVC {
     
     func setupUI() {
-        setupEmptyStateLabel()
         setupCollectionView()
+        setupEmptyStateLabel()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { self.setupDataSource() }
     }
     
@@ -53,13 +71,13 @@ private extension CountersCV {
         
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(systemName: "plus")
-        
-        emptyStateLabel.text = "You have no counters at the moment,\nuse the + button to add one!"
+
+        emptyStateLabel.text = strings.emptyLabel
         emptyStateLabel.font = .roundedFont(ofSize: .callout, weight: .medium)
-        view.addSubview(emptyStateLabel)
+        countersCollectionView.addSubview(emptyStateLabel)
         emptyStateLabel.setConstraints {
-            $0.centerX(to: view.centerXAnchor)
-            $0.centerY(to: view.centerYAnchor)
+            $0.centerX(to: view.safeAreaLayoutGuide.centerXAnchor)
+            $0.centerY(to: view.safeAreaLayoutGuide.centerYAnchor)
         }
         emptyStateLabel.isHidden = true
     }
@@ -69,17 +87,12 @@ private extension CountersCV {
         let layout = generateLayout()
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         view.addSubview(collectionView)
-        collectionView.setConstraints {
-            $0.top(to: view.safeAreaLayoutGuide.topAnchor)
-            $0.leading(to: view.leadingAnchor)
-            $0.trailing(to: view.trailingAnchor)
-            $0.bottom(to: view.bottomAnchor)
-        }
+        collectionView.fillSafeArea()
         
         #if targetEnvironment(macCatalyst)
         collectionView.backgroundColor = .systemBackground
         #else
-        collectionView.backgroundColor = UIColor.poBackground
+        collectionView.backgroundColor = .secondarySystemBackground
         #endif
         
         collectionView.delegate = self
@@ -96,15 +109,23 @@ private extension CountersCV {
         )
         fetchedResultsController.delegate = self
         
-        let cellRegistration = UICollectionView.CellRegistration<CounterCVCell, Counter> { cell, indexPath, counter in
+        let groupCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, String> { cell, indexPath, group in
+            cell.contentConfiguration = GroupCellConfiguration(name: group)
+        }
+        
+        let counterCellRegistration = UICollectionView.CellRegistration<CounterCell, Counter> { cell, indexPath, counter in
             cell.setupWith(counter) {
                 CoreDataManager.shared.updateCounterValue(counter, to: $0)
             }
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Int, Counter>(collectionView: countersCollectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, item: Counter) -> UICollectionViewCell? in
-            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
+        dataSource = UICollectionViewDiffableDataSource<Section, CellType>(collectionView: countersCollectionView) { (collectionView, indexPath, data) -> UICollectionViewCell? in
+            switch data {
+            case .group(let name):
+                return collectionView.dequeueConfiguredReusableCell(using: groupCellRegistration, for: indexPath, item: name)
+            case .counter(let counter):
+                return collectionView.dequeueConfiguredReusableCell(using: counterCellRegistration, for: indexPath, item: counter)
+            }
         }
         
         initialSnapshot()
@@ -112,7 +133,26 @@ private extension CountersCV {
     
     // MARK: - Layout
     func generateLayout() -> UICollectionViewLayout {
-        let sizeClass = traitCollection.horizontalSizeClass
+        UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            sectionIndex == 0 ? self.setupGroupsSection() : self.setupCountersSection()
+        }
+    }
+    
+    private func setupGroupsSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(50), heightDimension: .estimated(50))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.interItemSpacing = .fixed(6)
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 6
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 18, bottom: 10, trailing: 18)
+        section.orthogonalScrollingBehavior = .continuous
+        return section
+    }
+    
+    private func setupCountersSection() -> NSCollectionLayoutSection {
+        let sizeClass = self.traitCollection.horizontalSizeClass
         let value: CGFloat = {
             if sizeClass == .compact {
                 return 0.5
@@ -120,19 +160,15 @@ private extension CountersCV {
                 return 0.25
             }
         }()
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(value),
-                                              heightDimension: .fractionalHeight(1.0))
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(value), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalWidth(value))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitems: [item])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(value))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
-        
         let section = NSCollectionLayoutSection(group: group)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
+        return section
     }
     
     // MARK: - Snapshot
@@ -141,15 +177,21 @@ private extension CountersCV {
             try fetchedResultsController.performFetch()
             updateSnapshot()
         } catch {
-            DevLogger.shared.logMessage(.coreData(message: "CountersCV - Error retrieving counters"))
+            DevLogger.shared.logMessage(.coreData(message: "CountersCollectionVC - Error retrieving counters"))
         }
     }
     
     func updateSnapshot() {
         let newData = fetchedResultsController.fetchedObjects ?? []
-        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Int, Counter>()
-        diffableDataSourceSnapshot.appendSections([0])
-        diffableDataSourceSnapshot.appendItems(newData)
+        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, CellType>()
+        diffableDataSourceSnapshot.appendSections(Section.allCases)
+        
+        let groups = ["new", "updated", "old", "another one", "other", "maybe that", "hehe"].map(CellType.group(name: ))
+        diffableDataSourceSnapshot.appendItems(groups, toSection: .groups)
+        
+        let counters = newData.map(CellType.counter(counter: ))
+        diffableDataSourceSnapshot.appendItems(counters, toSection: .counters)
+        
         dataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
         toggleEmptyState(newData.isEmpty)
         
@@ -159,9 +201,10 @@ private extension CountersCV {
     }
     
     func resetSnapshot() {
-        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Int, Counter>()
-        diffableDataSourceSnapshot.appendSections([0])
-        diffableDataSourceSnapshot.appendItems([])
+        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, CellType>()
+        diffableDataSourceSnapshot.appendSections(Section.allCases)
+        diffableDataSourceSnapshot.appendItems([], toSection: .groups)
+        diffableDataSourceSnapshot.appendItems([], toSection: .counters)
         dataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
         countersCollectionView.setCollectionViewLayout(generateLayout(), animated: true) { _ in
             self.updateSnapshot()
@@ -170,12 +213,11 @@ private extension CountersCV {
     
     func toggleEmptyState(_ toggle: Bool) {
         emptyStateLabel.isHidden = !toggle
-        countersCollectionView.isHidden = toggle
     }
 }
 
 // MARK: - NSFetchedResultControllerDelegate
-extension CountersCV: NSFetchedResultsControllerDelegate {
+extension CountersCollectionVC: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         updateSnapshot()
@@ -183,7 +225,7 @@ extension CountersCV: NSFetchedResultsControllerDelegate {
 }
 
 // MARK: - ContextMenu
-extension CountersCV: UICollectionViewDelegate {
+extension CountersCollectionVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         guard let counters = self.fetchedResultsController.fetchedObjects else { return nil }
