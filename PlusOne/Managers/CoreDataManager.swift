@@ -8,13 +8,15 @@
 import CoreData
 import Foundation
 
-class CoreDataManager {
+final class CoreDataManager {
     
     // MARK: - Instance
     static let shared = CoreDataManager()
     
-    // MARK: - Public properties
+    // MARK: - Properties
     var context: NSManagedObjectContext { container.viewContext }
+    
+    private var container: NSPersistentContainer!
     
     // MARK: - Public methods
     func setup(with persistentContainer: NSPersistentContainer) {
@@ -60,9 +62,6 @@ class CoreDataManager {
             DevLogger.shared.logMessage(.coreData(message: error.localizedDescription))
         }
     }
-    
-    // MARK: - Private properties
-    private var container: NSPersistentContainer!
 }
  
 // MARK: - Counters storage

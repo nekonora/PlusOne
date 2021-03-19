@@ -18,11 +18,11 @@ struct NewCounterView: View {
         #if targetEnvironment(macCatalyst)
         CounterForm(viewModel: viewModel)
         HStack {
-            Button("Cancel") {
+            Button(R.string.localizable.alertCancel()) {
                 self.viewModel.dismiss?()
             }
             Spacer()
-            Button(viewModel.editingCounter == nil ? "Add" : "Save") {
+            Button(viewModel.editingCounter == nil ? R.string.localizable.newCounterAdd() : R.string.localizable.newCounterSave()) {
                 viewModel.saveCounter()
             }.disabled(viewModel.name.isEmpty)
         }.padding()
@@ -42,19 +42,19 @@ private struct CounterForm: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Main info")) {
+            Section(header: Text(R.string.localizable.newCounterMainInfoSectionTitle())) {
                 HStack {
-                    Text("Name")
+                    Text(R.string.localizable.newCounterMainInfoNameLabel())
                     Spacer()
-                    TextField("New counter", text: $viewModel.name)
+                    TextField(R.string.localizable.newCounterMainInfoNamePlaceholder(), text: $viewModel.name)
                         .multilineTextAlignment(.trailing)
                         .disableAutocorrection(true)
                 }
                 
                 HStack {
-                    Text("Initial value")
+                    Text(R.string.localizable.newCounterMainInfoInitialValueLabel())
                     Spacer()
-                    TextField("0", text: $viewModel.value)
+                    TextField(R.string.localizable.newCounterMainInfoInitialValuePlaceholder(), text: $viewModel.value)
                         .keyboardType(.numberPad)
                         .onReceive(Just(viewModel.value)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }

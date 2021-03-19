@@ -22,8 +22,14 @@
 		FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */; };
 		FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */; };
 		FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71C24A61A9800F31DF9 /* Group+CD.swift */; };
+		FA1B6F5F2604B80B00427E94 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1B6F5E2604B80B00427E94 /* Rswift */; };
+		FA1B6F612604B88D00427E94 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B6F602604B88D00427E94 /* R.generated.swift */; };
+		FA1B6F652604B8FD00427E94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1B6F672604B8FD00427E94 /* Localizable.strings */; };
+		FA1B6F6C2604BC3300427E94 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = FA1B6F6B2604BC3300427E94 /* SFSafeSymbols */; };
 		FA263C7924AA8C7200C0477D /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCell.swift */; };
 		FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */; };
+		FA5147502603A2F600855E99 /* CountersCollectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51474F2603A2F600855E99 /* CountersCollectionVM.swift */; };
+		FA5147522603A68500855E99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5147512603A68500855E99 /* ViewController.swift */; };
 		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
 		FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */; };
 		FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */; };
@@ -59,6 +65,7 @@
 		FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */; };
 		FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CF24CB66F300784445 /* DevLogger.swift */; };
 		FAF55ACE24ABD93F00FC8EF9 /* CountersCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */; };
+		FAFF2D002604C36700D918E9 /* TypesafeResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +102,12 @@
 		FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CD.swift"; sourceTree = "<group>"; };
 		FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CD.swift"; sourceTree = "<group>"; };
 		FA18E71C24A61A9800F31DF9 /* Group+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CD.swift"; sourceTree = "<group>"; };
+		FA1B6F602604B88D00427E94 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		FA1B6F662604B8FD00427E94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA263C7824AA8C7200C0477D /* CounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
 		FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
+		FA51474F2603A2F600855E99 /* CountersCollectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCollectionVM.swift; sourceTree = "<group>"; };
+		FA5147512603A68500855E99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -137,6 +148,7 @@
 		FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVM.swift; sourceTree = "<group>"; };
 		FAF2C2CF24CB66F300784445 /* DevLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevLogger.swift; sourceTree = "<group>"; };
 		FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCollectionVC.swift; sourceTree = "<group>"; };
+		FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesafeResources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +156,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1B6F6C2604BC3300427E94 /* SFSafeSymbols in Frameworks */,
 				FA18E70A24A6145200F31DF9 /* CloudKit.framework in Frameworks */,
+				FA1B6F5F2604B80B00427E94 /* Rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +198,8 @@
 		FA18E70024A5DE7D00F31DF9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA1B6F602604B88D00427E94 /* R.generated.swift */,
+				FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */,
 				FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */,
 				FAA990B224A3DBB400076201 /* Assets.xcassets */,
 				FAA990D924A3E27100076201 /* GeneralMedia.xcassets */,
@@ -213,6 +229,7 @@
 				FA689F0B24B9138500C25F8F /* NewCounter */,
 				FAB3717B24CE2B0300F98EE9 /* CounterHistory */,
 				FA689F0C24B9139000C25F8F /* CountersCollection */,
+				FA51474E2603A2B600855E99 /* Tags */,
 				FAAC234325BD90BB00BEAA38 /* Settings */,
 			);
 			path = UI;
@@ -243,6 +260,21 @@
 				FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FA1B6F642604B8D400427E94 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B6F672604B8FD00427E94 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		FA51474E2603A2B600855E99 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tags;
 			sourceTree = "<group>";
 		};
 		FA689F0924B9135C00C25F8F /* Regular */ = {
@@ -276,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */,
+				FA51474F2603A2F600855E99 /* CountersCollectionVM.swift */,
 				FA263C7824AA8C7200C0477D /* CounterCell.swift */,
 				FA833ED72601310C00E5103F /* GroupCell.swift */,
 				FAF2C2C724CB430100784445 /* Preview */,
@@ -287,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				FA833ED5260121E200E5103F /* NavigationVC.swift */,
+				FA5147512603A68500855E99 /* ViewController.swift */,
 			);
 			path = CustomTypes;
 			sourceTree = "<group>";
@@ -325,6 +359,7 @@
 				FA833ED4260121BF00E5103F /* CustomTypes */,
 				FA18E70024A5DE7D00F31DF9 /* Resources */,
 				FA18E70B24A618F600F31DF9 /* Model */,
+				FA1B6F642604B8D400427E94 /* Localizable */,
 			);
 			path = PlusOne;
 			sourceTree = "<group>";
@@ -388,6 +423,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA990D024A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOne" */;
 			buildPhases = (
+				FA1B6F5C2604B76D00427E94 /* R.swift */,
 				FAA9909F24A3DBB400076201 /* Sources */,
 				FAA990A024A3DBB400076201 /* Frameworks */,
 				FAA990A124A3DBB400076201 /* Resources */,
@@ -398,6 +434,8 @@
 			);
 			name = PlusOne;
 			packageProductDependencies = (
+				FA1B6F5E2604B80B00427E94 /* Rswift */,
+				FA1B6F6B2604BC3300427E94 /* SFSafeSymbols */,
 			);
 			productName = PlusOne;
 			productReference = FAA990A324A3DBB400076201 /* PlusOne.app */;
@@ -471,6 +509,8 @@
 			);
 			mainGroup = FAA9909A24A3DBB400076201;
 			packageReferences = (
+				FA1B6F5D2604B80B00427E94 /* XCRemoteSwiftPackageReference "R.swift" */,
+				FA1B6F6A2604BC3300427E94 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = FAA990A424A3DBB400076201 /* Products */;
 			projectDirPath = "";
@@ -489,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */,
+				FA1B6F652604B8FD00427E94 /* Localizable.strings in Resources */,
 				FAA990B324A3DBB400076201 /* Assets.xcassets in Resources */,
 				FAA990DA24A3E27100076201 /* GeneralMedia.xcassets in Resources */,
 			);
@@ -510,6 +551,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FA1B6F5C2604B76D00427E94 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/PlusOne/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=macosx\nswift run -c release rswift generate \"$SRCROOT/PlusOne/Resources/R.generated.swift\" --generators image,string,color\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FAA9909F24A3DBB400076201 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -526,6 +591,7 @@
 				FAAC234525BD90CE00BEAA38 /* SettingsVC.swift in Sources */,
 				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
 				FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */,
+				FA1B6F612604B88D00427E94 /* R.generated.swift in Sources */,
 				FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */,
 				FA18E71624A6195600F31DF9 /* Group+CoreDataClass.swift in Sources */,
 				FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */,
@@ -540,11 +606,13 @@
 				FAD9AD5624D0BE8E004C57B8 /* Notification+.swift in Sources */,
 				FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */,
 				FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */,
+				FA5147502603A2F600855E99 /* CountersCollectionVM.swift in Sources */,
 				FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */,
 				FAA990E024A3E72600076201 /* CompactVC.swift in Sources */,
 				FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */,
 				FAB3717D24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift in Sources */,
 				FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */,
+				FA5147522603A68500855E99 /* ViewController.swift in Sources */,
 				FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */,
 				FA18E6FA24A5DDEF00F31DF9 /* Collection+.swift in Sources */,
 				FA689F0624B9059D00C25F8F /* String+.swift in Sources */,
@@ -560,6 +628,7 @@
 				FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */,
 				FA18E6F824A5DDC100F31DF9 /* Preferences.swift in Sources */,
 				FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */,
+				FAFF2D002604C36700D918E9 /* TypesafeResources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +663,17 @@
 			targetProxy = FAA990C824A3DBB500076201 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA1B6F672604B8FD00427E94 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA1B6F662604B8FD00427E94 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FAA990CE24A3DBB500076201 /* Debug */ = {
@@ -882,6 +962,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA1B6F5D2604B80B00427E94 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
+			requirement = {
+				kind = exactVersion;
+				version = 5.4.0;
+			};
+		};
+		FA1B6F6A2604BC3300427E94 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/piknotech/SFSafeSymbols.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA1B6F5E2604B80B00427E94 /* Rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1B6F5D2604B80B00427E94 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = Rswift;
+		};
+		FA1B6F6B2604BC3300427E94 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1B6F6A2604BC3300427E94 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */ = {

@@ -29,7 +29,7 @@ final class RegularSecondaryVC: UIViewController {
 private extension RegularSecondaryVC {
     
     func setupUI() {
-        navigationItem.title = "All"
+        navigationItem.title = R.string.localizable.sidebarSectionAllCounters()
 
         #if targetEnvironment(macCatalyst)
         hideNavBar()
@@ -49,7 +49,7 @@ private extension RegularSecondaryVC {
         
         let addButton = UIBarButtonItem()
         
-        addButton.primaryAction = UIAction(title: "", image: UIImage(systemName: "plus")) { [weak self] _ in
+        addButton.primaryAction = UIAction(title: "", image: UIImage(systemSymbol: .plus)) { [weak self] _ in
             let newCounterVC = NewCounterVC()
             newCounterVC.modalPresentationStyle = .popover
             newCounterVC.popoverPresentationController?.barButtonItem = addButton
@@ -61,13 +61,13 @@ private extension RegularSecondaryVC {
         ]
         
         let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
-        searchBar.placeholder = "Search"
+        searchBar.placeholder = R.string.localizable.search()
         let leftNavBarButton = UIBarButtonItem(customView:searchBar)
         navigationItem.rightBarButtonItem = leftNavBarButton
     }
     
     func addCollectionView() {
-        let vc = CountersCollectionVC()
+        let vc = CountersCollectionVC(viewModel: CountersCollectionVM())
         addChild(vc)
         vc.didMove(toParent: self)
         view.addSubview(vc.view)

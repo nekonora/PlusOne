@@ -8,37 +8,33 @@
 import CoreData
 import UIKit
 
-struct CountersCollectionStrings {
-    let title = "Counters"
-    let emptyLabel = "You have no counters at the moment,\nuse the + button to add one!"
-}
-
-final class CountersCollectionVC: UIViewController {
-    
-    // MARK: - Types
-    private enum Section: Hashable, CaseIterable {
-        case groups
-        case counters
-    }
-    
-    private enum CellType: Hashable {
-        case group(name: String)
-        case counter(counter: Counter)
-    }
+final class CountersCollectionVC: ViewController<CountersCollectionViewModel> {
     
     // MARK: - UI
     private var countersCollectionView: UICollectionView!
     private var emptyStateLabel = UILabel()
     
     // MARK: - Properties
-    private var dataSource: UICollectionViewDiffableDataSource<Section, CellType>!
-    private var fetchedResultsController: NSFetchedResultsController<Counter>!
-    let strings = CountersCollectionStrings()
+    private var dataSource: UICollectionViewDiffableDataSource<CountersCollectionSection, CountersCollectionCellType>!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        viewModel.viewDidLoad()
+    }
+    
+    override func bind() {
+        viewModel.onViewDidLoad = { [weak self] in
+            self?.setupUI()
+        }
+        
+        viewModel.onSnapshotUpdated = { [weak self] in
+            self?.applySnaphot($0)
+        }
+        
+        viewModel.onNeedsToShowEmptyState = { [weak self] in
+            self?.toggleEmptyState($0)
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -48,7 +44,9 @@ final class CountersCollectionVC: UIViewController {
             || traitCollection.verticalSizeClass != previousTraitCollection?.verticalSizeClass
             else { return }
         
-        resetSnapshot()
+        countersCollectionView.setCollectionViewLayout(generateLayout(), animated: true) { [weak self] _ in
+            self?.viewModel.fetchData()
+        }
     }
 }
 
@@ -72,7 +70,7 @@ private extension CountersCollectionVC {
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(systemName: "plus")
 
-        emptyStateLabel.text = strings.emptyLabel
+        emptyStateLabel.text = R.string.localizable.countersCollectionEmptyLabelMessage()
         emptyStateLabel.font = .roundedFont(ofSize: .callout, weight: .medium)
         countersCollectionView.addSubview(emptyStateLabel)
         emptyStateLabel.setConstraints {
@@ -101,25 +99,17 @@ private extension CountersCollectionVC {
     
     // MARK: - DataSource
     func setupDataSource() {
-        fetchedResultsController = NSFetchedResultsController(
-            fetchRequest: CoreDataManager.shared.createFetch(for: nil, dateSorted: true) as NSFetchRequest<Counter>,
-            managedObjectContext: CoreDataManager.shared.context,
-            sectionNameKeyPath: nil,
-            cacheName: nil
-        )
-        fetchedResultsController.delegate = self
-        
         let groupCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, String> { cell, indexPath, group in
             cell.contentConfiguration = GroupCellConfiguration(name: group)
         }
         
         let counterCellRegistration = UICollectionView.CellRegistration<CounterCell, Counter> { cell, indexPath, counter in
-            cell.setupWith(counter) {
-                CoreDataManager.shared.updateCounterValue(counter, to: $0)
+            cell.setupWith(counter) { [weak self] in
+                self?.viewModel.updateCounterValue(counter, to: $0)
             }
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, CellType>(collectionView: countersCollectionView) { (collectionView, indexPath, data) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<CountersCollectionSection, CountersCollectionCellType>(collectionView: countersCollectionView) { (collectionView, indexPath, data) -> UICollectionViewCell? in
             switch data {
             case .group(let name):
                 return collectionView.dequeueConfiguredReusableCell(using: groupCellRegistration, for: indexPath, item: name)
@@ -128,7 +118,7 @@ private extension CountersCollectionVC {
             }
         }
         
-        initialSnapshot()
+        viewModel.fetchData()
     }
     
     // MARK: - Layout
@@ -138,7 +128,7 @@ private extension CountersCollectionVC {
         }
     }
     
-    private func setupGroupsSection() -> NSCollectionLayoutSection {
+    func setupGroupsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(50), heightDimension: .estimated(50))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
@@ -151,7 +141,7 @@ private extension CountersCollectionVC {
         return section
     }
     
-    private func setupCountersSection() -> NSCollectionLayoutSection {
+    func setupCountersSection() -> NSCollectionLayoutSection {
         let sizeClass = self.traitCollection.horizontalSizeClass
         let value: CGFloat = {
             if sizeClass == .compact {
@@ -172,42 +162,11 @@ private extension CountersCollectionVC {
     }
     
     // MARK: - Snapshot
-    func initialSnapshot() {
-        do {
-            try fetchedResultsController.performFetch()
-            updateSnapshot()
-        } catch {
-            DevLogger.shared.logMessage(.coreData(message: "CountersCollectionVC - Error retrieving counters"))
-        }
-    }
-    
-    func updateSnapshot() {
-        let newData = fetchedResultsController.fetchedObjects ?? []
-        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, CellType>()
-        diffableDataSourceSnapshot.appendSections(Section.allCases)
-        
-        let groups = ["new", "updated", "old", "another one", "other", "maybe that", "hehe"].map(CellType.group(name: ))
-        diffableDataSourceSnapshot.appendItems(groups, toSection: .groups)
-        
-        let counters = newData.map(CellType.counter(counter: ))
-        diffableDataSourceSnapshot.appendItems(counters, toSection: .counters)
-        
-        dataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
-        toggleEmptyState(newData.isEmpty)
+    func applySnaphot(_ snapshot: NSDiffableDataSourceSnapshot<CountersCollectionSection, CountersCollectionCellType>) {
+        dataSource.apply(snapshot, animatingDifferences: true)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.countersCollectionView.reloadData()
-        }
-    }
-    
-    func resetSnapshot() {
-        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, CellType>()
-        diffableDataSourceSnapshot.appendSections(Section.allCases)
-        diffableDataSourceSnapshot.appendItems([], toSection: .groups)
-        diffableDataSourceSnapshot.appendItems([], toSection: .counters)
-        dataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
-        countersCollectionView.setCollectionViewLayout(generateLayout(), animated: true) { _ in
-            self.updateSnapshot()
         }
     }
     
@@ -220,7 +179,7 @@ private extension CountersCollectionVC {
 extension CountersCollectionVC: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-        updateSnapshot()
+        viewModel.fetchData()
     }
 }
 
@@ -228,7 +187,7 @@ extension CountersCollectionVC: NSFetchedResultsControllerDelegate {
 extension CountersCollectionVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        guard let counters = self.fetchedResultsController.fetchedObjects else { return nil }
+        guard let counters = viewModel.fetchedResultsController.fetchedObjects else { return nil }
         
         return UIContextMenuConfiguration(identifier: nil, previewProvider: {
             return CounterPreviewVC(counter: counters[indexPath.item])
@@ -238,14 +197,14 @@ extension CountersCollectionVC: UICollectionViewDelegate {
     }
     
     private func makeContextMenuFor(counter: Counter) -> UIMenu {
-        let info = UIAction(title: "History", image: UIImage(systemName: "scroll")) { _ in
+        let info = UIAction(title: R.string.localizable.counterCellOptionsHistory(), image: UIImage(systemSymbol: .scroll)) { _ in
             let vc = CounterHistoryVC.instance(for: counter)
             self.present(vc, animated: true, completion: nil)
         }
-        let edit = UIAction(title: "Edit", image: UIImage(systemName: "rectangle.and.pencil.and.ellipsis")) { _ in
+        let edit = UIAction(title: R.string.localizable.counterCellOptionsEdit(), image: UIImage(systemSymbol: .rectangleAndPencilAndEllipsis)) { _ in
             self.showEditCounter(for: counter)
         }
-        let delete = UIAction(title: "Delete...", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
+        let delete = UIAction(title: R.string.localizable.counterCellOptionsDelete(), image: UIImage(systemSymbol: .trash), attributes: .destructive) { _ in
             self.showDeleteAlert(for: counter)
         }
         return UIMenu(title: "", children: [info, edit, delete])
@@ -253,12 +212,12 @@ extension CountersCollectionVC: UICollectionViewDelegate {
     
     private func showDeleteAlert(for counter: Counter) {
         let ac = UIAlertController(
-            title: "Delete \(counter.name)?",
-            message: "Are you sure you want to delete this counter?",
+            title: R.string.localizable.counterCellDeleteAlertTitle(counter.name),
+            message: R.string.localizable.counterCellDeleteAlertMessage(),
             preferredStyle: .alert
         )
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        ac.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+        ac.addAction(UIAlertAction(title: R.string.localizable.alertCancel(), style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: R.string.localizable.alertYes(), style: .destructive, handler: { _ in
             CoreDataManager.shared.delete(object: counter)
         }))
         present(ac, animated: true, completion: nil)

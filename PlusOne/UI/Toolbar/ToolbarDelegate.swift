@@ -14,7 +14,6 @@ class ToolbarDelegate: NSObject { }
 // MARK: - Toolbar Itentifiers
 extension NSToolbarItem.Identifier {
     static let addCounter = NSToolbarItem.Identifier("NknrDev.QuickCounter.addCounter")
-//    NSToolbarItem.Identifier("com.example.apple-samplecode.Recipes.editRecipe")
 }
 
 // MARK: - Actions
@@ -49,8 +48,8 @@ extension ToolbarDelegate: NSToolbarDelegate {
             toolbarItem = NSToolbarItem(itemIdentifier: itemIdentifier)
         case .addCounter:
             let item = NSToolbarItem(itemIdentifier: itemIdentifier)
-            item.image = UIImage(systemName: "plus")
-            item.label = "Add counter"
+            item.image = UIImage(systemSymbol: .plus)
+            item.label = R.string.localizable.macToolbarAddCounter()
             item.action = #selector(addCounter(_:))
             item.target = self
             toolbarItem = item

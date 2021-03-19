@@ -11,36 +11,36 @@ final class CompactVC: UITabBarController {
     
     // MARK: - UI
     private lazy var countersNav: UINavigationController = {
-        let countersVC = CountersCollectionVC()
+        let countersVC = CountersCollectionVC(viewModel: CountersCollectionVM())
         let countersNav = NavigationVC(rootViewController: countersVC)
-        countersVC.navigationItem.title = countersVC.strings.title
+        countersVC.navigationItem.title = R.string.localizable.tabBarCounters()
         countersVC.navigationItem.rightBarButtonItems = [
             UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddTapped))
         ]
-        countersVC.tabBarItem = UITabBarItem(title: countersVC.strings.title, image: UIImage(systemName: "square.stack.3d.down.right"), tag: 0)
+        countersVC.tabBarItem = UITabBarItem(title: R.string.localizable.tabBarCounters(), image: UIImage(systemSymbol: .squareStack3dDownRight), tag: 0)
         return countersNav
     }()
     
     private lazy var tagsNav: UINavigationController = {
         let tagsVC = UIViewController()
         let tagsNav = NavigationVC(rootViewController: tagsVC)
-        tagsVC.navigationItem.title = "Tags"
-        tagsVC.tabBarItem = UITabBarItem(title: "Tags", image: UIImage(systemName: "tag"), tag: 1)
+        tagsVC.navigationItem.title = R.string.localizable.tabBarTags()
+        tagsVC.tabBarItem = UITabBarItem(title: R.string.localizable.tabBarTags(), image: UIImage(systemSymbol: .tag), tag: 1)
         return tagsNav
     }()
     
     private lazy var automationNav: UINavigationController = {
         let statsVC = UIViewController()
         let automationNav = NavigationVC(rootViewController: statsVC)
-        statsVC.navigationItem.title = "Automation"
-        statsVC.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(systemName: "waveform.path.ecg.rectangle"), tag: 2)
+        statsVC.navigationItem.title = R.string.localizable.tabBarAutomation()
+        statsVC.tabBarItem = UITabBarItem(title: R.string.localizable.tabBarAutomation(), image: UIImage(systemSymbol: .waveformPathEcgRectangle), tag: 2)
     }()
     
     private lazy var settingsNav: UINavigationController = {
         let settingsVC = SettingsVC()
         let settingsNav = NavigationVC(rootViewController: settingsVC)
-        settingsVC.navigationItem.title = settingsVC.strings.title
-        settingsVC.tabBarItem = UITabBarItem(title: settingsVC.strings.title, image: UIImage(systemName: "gear"), tag: 3)
+        settingsVC.navigationItem.title = R.string.localizable.tabBarSettings()
+        settingsVC.tabBarItem = UITabBarItem(title: R.string.localizable.tabBarSettings(), image: UIImage(systemSymbol: .gear), tag: 3)
         return settingsNav
     }()
     

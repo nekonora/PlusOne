@@ -15,9 +15,8 @@ private enum Section: CaseIterable {
         switch self {
         case .main:
             return [
-                OutlineItem(title: "All counters", image: UIImage(systemName: "square.stack.3d.down.right"), subitems: [], viewController: nil),
-                OutlineItem(title: "Tags", image: UIImage(systemName: "tag"), subitems: [], viewController: nil),
-                OutlineItem(title: "Stats", image: UIImage(systemName: "waveform.path.ecg.rectangle"), subitems: [], viewController: nil)
+                OutlineItem(title: R.string.localizable.sidebarSectionAllCounters(), image: UIImage(systemSymbol: .squareStack3dDownRight), subitems: [], viewController: nil),
+                OutlineItem(title: R.string.localizable.sidebarSectionTags(), image: UIImage(systemSymbol: .tag), subitems: [], viewController: nil)
             ]
         }
     }
@@ -74,7 +73,7 @@ private extension RegularPrimaryVC {
     }
     
     func setupNavBar() {
-        navigationItem.title = "PlusOne"
+        navigationItem.title = R.string.localizable.appTitle()
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -106,7 +105,7 @@ private extension RegularPrimaryVC {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, OutlineItem> { cell, indexPath, menuItem in
             var contentConfiguration = cell.defaultContentConfiguration()
             
-            if self.selectedItem == nil, menuItem.title == "All counters" {
+            if self.selectedItem == nil, menuItem.title == R.string.localizable.sidebarSectionAllCounters() {
                 self.selectedItem = menuItem
             }
             
