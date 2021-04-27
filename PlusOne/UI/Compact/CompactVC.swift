@@ -21,13 +21,13 @@ final class CompactVC: UITabBarController {
         return countersNav
     }()
     
-    private lazy var tagsNav: UINavigationController = {
-        let tagsVC = UIViewController()
-        let tagsNav = NavigationVC(rootViewController: tagsVC)
-        tagsVC.navigationItem.title = R.string.localizable.tabBarTags()
-        tagsVC.tabBarItem = UITabBarItem(title: R.string.localizable.tabBarTags(), image: UIImage(systemSymbol: .tag), tag: 1)
-        return tagsNav
-    }()
+//    private lazy var tagsNav: UINavigationController = {
+//        let tagsVC = UIViewController()
+//        let tagsNav = NavigationVC(rootViewController: tagsVC)
+//        tagsVC.navigationItem.title = R.string.localizable.tabBarTags()
+//        tagsVC.tabBarItem = UITabBarItem(title: R.string.localizable.tabBarTags(), image: UIImage(systemSymbol: .tag), tag: 1)
+//        return tagsNav
+//    }()
     
     private lazy var automationNav: UINavigationController = {
         let statsVC = UIViewController()
@@ -59,7 +59,7 @@ private extension CompactVC {
         
         viewControllers = [
             countersNav,
-            tagsNav,
+//            tagsNav,
             settingsNav
         ]
     }

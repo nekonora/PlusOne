@@ -35,43 +35,63 @@ extension UIView {
         }
     }
     
-    func top(to anchor: NSLayoutYAxisAnchor, constant: Int = 0) {
-        topAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func top(to anchor: NSLayoutYAxisAnchor, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = topAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func bottom(to anchor: NSLayoutYAxisAnchor, constant: Int = 0) {
-        bottomAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func bottom(to anchor: NSLayoutYAxisAnchor, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = bottomAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func leading(to anchor: NSLayoutXAxisAnchor, constant: Int = 0) {
-        leadingAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func leading(to anchor: NSLayoutXAxisAnchor, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = leadingAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func trailing(to anchor: NSLayoutXAxisAnchor, constant: Int = 0) {
-        trailingAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func trailing(to anchor: NSLayoutXAxisAnchor, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = trailingAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func centerX(to anchor: NSLayoutXAxisAnchor, constant: Int = 0) {
-        centerXAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func centerX(to anchor: NSLayoutXAxisAnchor, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = centerXAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func centerY(to anchor: NSLayoutYAxisAnchor, constant: Int = 0) {
-        centerYAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func centerY(to anchor: NSLayoutYAxisAnchor, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = centerYAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func width(_ value: Int) {
-        widthAnchor.constraint(equalToConstant: CGFloat(value)).isActive = true
+    func width(_ value: Int, priority: UILayoutPriority = .required) {
+        let constraint = widthAnchor.constraint(equalToConstant: CGFloat(value))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func height(_ value: Int) {
-        heightAnchor.constraint(equalToConstant: CGFloat(value)).isActive = true
+    func height(_ value: Int, priority: UILayoutPriority = .required) {
+        let constraint = heightAnchor.constraint(equalToConstant: CGFloat(value))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func width(to anchor: NSLayoutDimension, constant: Int = 0) {
-        widthAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func width(to anchor: NSLayoutDimension, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = widthAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func height(to anchor: NSLayoutDimension, constant: Int = 0) {
-        heightAnchor.constraint(equalTo: anchor, constant: CGFloat(constant)).isActive = true
+    func height(to anchor: NSLayoutDimension, constant: Int = 0, priority: UILayoutPriority = .required) {
+        let constraint = heightAnchor.constraint(equalTo: anchor, constant: CGFloat(constant))
+        constraint.priority = priority
+        constraint.isActive = true
     }
 }

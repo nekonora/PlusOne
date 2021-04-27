@@ -55,7 +55,12 @@ private final class GroupCellContent: UIView, UIContentView {
     
     private func setupUI() {
         addSubview(nameLabel)
-        nameLabel.fillSuperview(padding: 10)
+        nameLabel.setConstraints {
+            $0.top(to: self.topAnchor)
+            $0.bottom(to: self.bottomAnchor)
+            $0.leading(to: self.leadingAnchor, constant: 10)
+            $0.trailing(to: self.trailingAnchor, constant: -10, priority: .defaultHigh)
+        }
         
         layer.cornerRadius = 6
         layer.cornerCurve = .continuous

@@ -229,7 +229,6 @@
 				FA689F0B24B9138500C25F8F /* NewCounter */,
 				FAB3717B24CE2B0300F98EE9 /* CounterHistory */,
 				FA689F0C24B9139000C25F8F /* CountersCollection */,
-				FA51474E2603A2B600855E99 /* Tags */,
 				FAAC234325BD90BB00BEAA38 /* Settings */,
 			);
 			path = UI;
@@ -268,13 +267,6 @@
 				FA1B6F672604B8FD00427E94 /* Localizable.strings */,
 			);
 			path = Localizable;
-			sourceTree = "<group>";
-		};
-		FA51474E2603A2B600855E99 /* Tags */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tags;
 			sourceTree = "<group>";
 		};
 		FA689F0924B9135C00C25F8F /* Regular */ = {
