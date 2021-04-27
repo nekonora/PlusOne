@@ -189,11 +189,16 @@ extension CountersCollectionVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         guard let counters = viewModel.fetchedResultsController.fetchedObjects else { return nil }
         
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: {
-            return CounterPreviewVC(counter: counters[indexPath.item])
-        }, actionProvider: { suggestedActions in
-            return self.makeContextMenuFor(counter: counters[indexPath.item])
-        })
+        switch indexPath.section {
+        case 0:
+            return nil
+        default:
+            return UIContextMenuConfiguration(identifier: nil) {
+                CounterPreviewVC(counter: counters[indexPath.item])
+            } actionProvider: { _ in
+                self.makeContextMenuFor(counter: counters[indexPath.item])
+            }
+        }
     }
     
     private func makeContextMenuFor(counter: Counter) -> UIMenu {

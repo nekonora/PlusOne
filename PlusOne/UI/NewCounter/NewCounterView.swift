@@ -100,17 +100,45 @@ private struct CounterForm: View {
                         .multilineTextAlignment(.trailing)
                 }
             }
+            
+            Section(header: Text("Tags")) {
+                TagsContainer(viewModel: viewModel)
+            }
         }
         .navigationBarTitle(viewModel.editingCounter == nil ? "New Counter" : "Edit Counter", displayMode: .inline)
-        .navigationBarItems(leading:
-                                Button("Cancel") {
-                                    self.viewModel.dismiss?()
-                                }
-                            ,
-                            trailing:
-                                Button(viewModel.editingCounter == nil ? "Add" : "Save") {
-                                    viewModel.saveCounter()
-                                }.disabled(viewModel.name.isEmpty)
+        .navigationBarItems(
+            leading:
+                Button("Cancel") {
+                    self.viewModel.dismiss?()
+                }
+            ,
+            trailing:
+                Button(viewModel.editingCounter == nil ? "Add" : "Save") {
+                    viewModel.saveCounter()
+                }
+                .disabled(viewModel.name.isEmpty)
         )
+    }
+}
+
+private struct TagsContainer: View {
+    
+    // MARK: - ViewModel
+    @ObservedObject var viewModel: NewCounterVM
+    
+    var body: some View {
+        if viewModel.tags.isEmpty {
+            Button("Add Tags") {
+                viewModel.tags = askForTags()
+            }
+        } else {
+            Button("Edit Tags") {
+                
+            }
+        }
+    }
+    
+    func askForTags() -> [Tag] {
+        []
     }
 }

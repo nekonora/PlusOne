@@ -16,6 +16,7 @@ class NewCounterVM: ObservableObject {
     @Published var increment: String
     @Published var unit: String
     @Published var completionValue: String
+    @Published var tags: [Tag]
     
     let editingCounter: Counter?
     var dismiss: (() -> Void)?
@@ -29,6 +30,7 @@ class NewCounterVM: ObservableObject {
         self.increment = counterToEdit?.increment.stringTruncatingZero() ?? ""
         self.unit = counterToEdit?.unit ?? ""
         self.completionValue = counterToEdit?.completionValue.stringTruncatingZero() ?? ""
+        self.tags = Array(counterToEdit?.tags ?? [])
     }
     
     // MARK: - Methods

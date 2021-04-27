@@ -25,7 +25,7 @@ extension Counter {
     @NSManaged public var changes: NSSet?
     @NSManaged public var unit: String?
     @NSManaged public var group: Group?
-    @NSManaged public var tags: NSSet?
+    @NSManaged public var tags: Set<Tag>
 }
 
 // MARK: Generated accessors for changes
