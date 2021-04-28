@@ -10,7 +10,7 @@ import Combine
 
 struct NewCounterView: View {
     
-    // MARK: - ViewModel
+    // MARK: - Properties
     @ObservedObject var viewModel: NewCounterVM
     
     // MARK: - Body
@@ -37,9 +37,19 @@ struct NewCounterView: View {
 // MARK: - Subviews
 private struct CounterForm: View {
     
-    // MARK: - ViewModel
+    // MARK: - Properties
     @ObservedObject var viewModel: NewCounterVM
+    @State private var isShowingTagsSelection = false
     
+    let tags: Set<String> = [
+        "my",
+        "tag",
+        "another",
+        "blue",
+        "long tag long"
+    ]
+    
+    // MARK: - Body
     var body: some View {
         Form {
             Section(header: Text(R.string.localizable.newCounterMainInfoSectionTitle())) {
@@ -102,7 +112,12 @@ private struct CounterForm: View {
             }
             
             Section(header: Text("Tags")) {
-                TagsContainer(viewModel: viewModel)
+                Button("Add Tags") {
+                    isShowingTagsSelection.toggle()
+                }
+                .sheet(isPresented: $isShowingTagsSelection) {
+                    TagsView(allTags: tags, selectedTags: tags)
+                }
             }
         }
         .navigationBarTitle(viewModel.editingCounter == nil ? "New Counter" : "Edit Counter", displayMode: .inline)
@@ -121,24 +136,37 @@ private struct CounterForm: View {
     }
 }
 
-private struct TagsContainer: View {
+private struct TagsView: View {
     
-    // MARK: - ViewModel
-    @ObservedObject var viewModel: NewCounterVM
+    // MARK: - Properties
+    @Environment(\.presentationMode) var presentationMode
+    @State var newTag: String = ""
     
+    @State var allTags: Set<String>
+    @State var selectedTags: Set<String>
+    
+    // MARK: - Body
     var body: some View {
-        if viewModel.tags.isEmpty {
-            Button("Add Tags") {
-                viewModel.tags = askForTags()
+        NavigationView {
+            Form {
+                Section(header: Text("Tags")) {
+                    HStack {
+                        TextField("Create new tag", text: $newTag)
+                            .multilineTextAlignment(.leading)
+                            .disableAutocorrection(true)
+                    }
+                    
+                    TagsList(allTags: $allTags, selectedTags: $selectedTags)
+                }
             }
-        } else {
-            Button("Edit Tags") {
-                
-            }
+            .navigationBarTitle("Edit tags", displayMode: .inline)
         }
-    }
-    
-    func askForTags() -> [Tag] {
-        []
+        
+//        Button("Press to dismiss") {
+//            presentationMode.wrappedValue.dismiss()
+//        }
+//        .font(.title)
+//        .padding()
+        
     }
 }
