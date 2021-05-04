@@ -65,6 +65,7 @@ final class CountersCollectionVM: NSObject, CountersCollectionViewModel {
     // MARK: - Methods
     func viewDidLoad() {
         countersFetchedResultsController.delegate = self
+        tagsFetchedResultsController.delegate = self
         onViewDidLoad?()
     }
     
@@ -111,7 +112,10 @@ private extension CountersCollectionVM {
     }
 }
 
-// MARK: - NSFetchedResultsControllerDelegate
+// MARK: - NSFetchedResultControllerDelegate
 extension CountersCollectionVM: NSFetchedResultsControllerDelegate {
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
+        getUpdatedSnapshot()
+    }
 }

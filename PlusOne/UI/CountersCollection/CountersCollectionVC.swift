@@ -175,14 +175,6 @@ private extension CountersCollectionVC {
     }
 }
 
-// MARK: - NSFetchedResultControllerDelegate
-extension CountersCollectionVC: NSFetchedResultsControllerDelegate {
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-        viewModel.fetchData()
-    }
-}
-
 // MARK: - ContextMenu
 extension CountersCollectionVC: UICollectionViewDelegate {
     
