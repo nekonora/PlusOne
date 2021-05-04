@@ -33,6 +33,7 @@ class MigrationAssistant {
                 increment: $0.steps,
                 unit: $0.unit,
                 completionValue: $0.completionValue,
+                tags: [],
                 group: nil
             )
             CoreDataManager.shared.newCounter(config)

@@ -15,7 +15,7 @@ struct CounterConfig {
     let completionValue: Float?
     let createdAt = Date()
     let updatedAt = Date()
-    let tags: [Tag] = []
+    let tags: Set<Tag>
     let group: Group?
 }
 

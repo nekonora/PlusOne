@@ -8,10 +8,24 @@
 import CoreData
 import Foundation
 
+enum CoreDataError: LocalizedError {
+    case creatingDuplicate
+    case cannotFetch(type: String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .creatingDuplicate: return "Creating duplicate tag"
+        case .cannotFetch(let type): return "Cannot fetch: \(type)"
+        }
+    }
+}
+
 final class CoreDataManager {
     
     // MARK: - Instance
     static let shared = CoreDataManager()
+    
+    private init() { }
     
     // MARK: - Properties
     var context: NSManagedObjectContext { container.viewContext }
@@ -77,6 +91,7 @@ extension CoreDataManager {
         counter.createdAt = config.createdAt
         counter.updatedAt = config.updatedAt
         counter.unit = config.unit
+        counter.tags = config.tags
         DevLogger.shared.logMessage(.coreData(message: "Saving new counter \(counter.name)"))
         saveContext()
     }
@@ -98,6 +113,7 @@ extension CoreDataManager {
         counter.createdAt = newConfig.createdAt
         counter.updatedAt = newConfig.updatedAt
         counter.unit = newConfig.unit
+        counter.tags = newConfig.tags
         
         DevLogger.shared.logMessage(.coreData(message: "Updating counter \(counter.name)"))
         saveContext()
@@ -114,5 +130,37 @@ extension CoreDataManager {
         counter.addToChanges(changeRecord)
         DevLogger.shared.logMessage(.coreData(message: "Updating counter \(counter.name) value to \(newValue)"))
         saveContext()
+    }
+}
+
+// MARK: - TagsStorage
+extension CoreDataManager {
+    
+    func newTag(named name: String) throws {
+        do {
+            let allTags = try getAllTags()
+            if allTags.contains(where: { $0.name == name }) {
+                throw CoreDataError.creatingDuplicate
+            }
+        } catch {
+            throw error
+        }
+        
+        let tag = Tag(context: context)
+        tag.identifier = UUID()
+        tag.name = name
+//        tag.color = 
+        DevLogger.shared.logMessage(.coreData(message: "Saving new tag \(name)"))
+        saveContext()
+    }
+    
+    func getAllTags() throws -> Set<Tag> {
+        do {
+            let tagFetch = createFetch(for: nil, dateSorted: false) as NSFetchRequest<Tag>
+            let tags = try context.fetch(tagFetch) as [Tag]
+            return Set(tags)
+        } catch {
+            throw CoreDataError.cannotFetch(type: "tags")
+        }
     }
 }

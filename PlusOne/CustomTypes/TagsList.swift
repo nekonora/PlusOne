@@ -9,20 +9,26 @@ import SwiftUI
 
 struct TagsList: View {
     
-    // MARK: - Properties
-    @Binding var allTags: Set<String>
-    @Binding var selectedTags: Set<String>
+    @Binding var selectedTags: Set<Tag>
     
-    private var orderedTags: [String] { allTags.sorted() }
+    @Environment(\.managedObjectContext) var managedObjectContext
     
-    // MARK: - Body
+    @FetchRequest(
+        entity: Tag.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Tag.name, ascending: false)
+        ]
+    ) var allTags: FetchedResults<Tag>
+    
+    private var orderedTags: [Tag] { Array(allTags).sorted() }
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
                 ForEach(0 ..< self.rowCounts(geometry).count, id: \.self) { rowIndex in
                     HStack {
                         ForEach(0 ..< self.rowCounts(geometry)[rowIndex], id: \.self) { itemIndex in
-                            TagButton(title: self.tag(rowCounts: self.rowCounts(geometry), rowIndex: rowIndex, itemIndex: itemIndex), selectedTags: self.$selectedTags)
+                            TagButton(tag: self.tag(rowCounts: self.rowCounts(geometry), rowIndex: rowIndex, itemIndex: itemIndex), selectedTags: self.$selectedTags)
                         }
                         Spacer()
                     }.padding(.vertical, 4)
@@ -37,7 +43,7 @@ struct TagsList: View {
         TagsList.rowCounts(tags: orderedTags, padding: 26, parentWidth: geometry.size.width)
     }
     
-    private func tag(rowCounts: [Int], rowIndex: Int, itemIndex: Int) -> String {
+    private func tag(rowCounts: [Int], rowIndex: Int, itemIndex: Int) -> Tag {
         let sumOfPreviousRows = rowCounts.enumerated().reduce(0) { total, next in
             if next.offset < rowIndex {
                 return total + next.element
@@ -46,7 +52,7 @@ struct TagsList: View {
             }
         }
         let orderedTagsIndex = sumOfPreviousRows + itemIndex
-        guard orderedTags.count > orderedTagsIndex else { return "[Unknown]" }
+        guard orderedTags.count > orderedTagsIndex else { return Tag() }
         return orderedTags[orderedTagsIndex]
     }
 }
@@ -54,8 +60,8 @@ struct TagsList: View {
 private struct TagButton: View {
     
     // MARK: - Properties
-    let title: String
-    @Binding var selectedTags: Set<String>
+    let tag: Tag
+    @Binding var selectedTags: Set<Tag>
     
     private let vPad: CGFloat = 13
     private let hPad: CGFloat = 22
@@ -64,15 +70,15 @@ private struct TagButton: View {
     // MARK: - Body
     var body: some View {
         Button(action: {
-            if self.selectedTags.contains(self.title) {
-                self.selectedTags.remove(self.title)
+            if self.selectedTags.contains(tag) {
+                self.selectedTags.remove(tag)
             } else {
-                self.selectedTags.insert(self.title)
+                self.selectedTags.insert(tag)
             }
         }) {
-            if self.selectedTags.contains(self.title) {
+            if self.selectedTags.contains(tag) {
                 HStack {
-                    Text(title)
+                    Text(tag.name)
                         .font(.headline)
                 }
                 .padding(.vertical, vPad)
@@ -87,7 +93,7 @@ private struct TagButton: View {
                 
             } else {
                 HStack {
-                    Text(title)
+                    Text(tag.name)
                         .font(.headline)
                         .fontWeight(.light)
                 }
@@ -114,8 +120,8 @@ private extension String {
 
 private extension TagsList {
     
-    static func rowCounts(tags: [String], padding: CGFloat, parentWidth: CGFloat) -> [Int] {
-        let tagWidths = tags.map{$0.widthOfString(usingFont: UIFont.preferredFont(forTextStyle: .headline))}
+    static func rowCounts(tags: [Tag], padding: CGFloat, parentWidth: CGFloat) -> [Int] {
+        let tagWidths = tags.map{$0.name.widthOfString(usingFont: UIFont.preferredFont(forTextStyle: .headline))}
         
         var currentLineTotal: CGFloat = 0
         var currentRowCount: Int = 0

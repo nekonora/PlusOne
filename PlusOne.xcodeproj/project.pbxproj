@@ -66,6 +66,7 @@
 		FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CF24CB66F300784445 /* DevLogger.swift */; };
 		FAF55ACE24ABD93F00FC8EF9 /* CountersCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */; };
 		FAFD2A302639EC15009363F7 /* TagsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD2A2F2639EC15009363F7 /* TagsList.swift */; };
+		FAFD2A322641BA70009363F7 /* Rswift+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD2A312641BA70009363F7 /* Rswift+.swift */; };
 		FAFF2D002604C36700D918E9 /* TypesafeResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +151,7 @@
 		FAF2C2CF24CB66F300784445 /* DevLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevLogger.swift; sourceTree = "<group>"; };
 		FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCollectionVC.swift; sourceTree = "<group>"; };
 		FAFD2A2F2639EC15009363F7 /* TagsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsList.swift; sourceTree = "<group>"; };
+		FAFD2A312641BA70009363F7 /* Rswift+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rswift+.swift"; sourceTree = "<group>"; };
 		FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesafeResources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 				FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */,
 				FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */,
 				FA689F0524B9059D00C25F8F /* String+.swift */,
+				FAFD2A312641BA70009363F7 /* Rswift+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */,
 				FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */,
 				FAB3717F24CE3AA700F98EE9 /* Utils.swift in Sources */,
+				FAFD2A322641BA70009363F7 /* Rswift+.swift in Sources */,
 				FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */,
 				FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */,
 				FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */,

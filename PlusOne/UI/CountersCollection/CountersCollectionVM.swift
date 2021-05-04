@@ -11,7 +11,7 @@ import UIKit.NSDiffableDataSourceSectionSnapshot
 import UIKit.UIDiffableDataSource
 
 protocol CountersCollectionViewModel: AnyObject {
-    var fetchedResultsController: NSFetchedResultsController<Counter> { get }
+    var countersFetchedResultsController: NSFetchedResultsController<Counter> { get }
     
     var onViewDidLoad: (() -> Void)? { get set }
     var onSnapshotUpdated: ((NSDiffableDataSourceSnapshot<CountersCollectionSection, CountersCollectionCellType>) -> Void)? { get set }
@@ -36,7 +36,8 @@ final class CountersCollectionVM: NSObject, CountersCollectionViewModel {
     
     // MARK: - Properties
     private let coreDataManager: CoreDataManager
-    let fetchedResultsController: NSFetchedResultsController<Counter>
+    let countersFetchedResultsController: NSFetchedResultsController<Counter>
+    let tagsFetchedResultsController: NSFetchedResultsController<Tag>
     
     var onViewDidLoad: (() -> Void)?
     var onSnapshotUpdated: ((NSDiffableDataSourceSnapshot<CountersCollectionSection, CountersCollectionCellType>) -> Void)?
@@ -46,8 +47,15 @@ final class CountersCollectionVM: NSObject, CountersCollectionViewModel {
     init(coreDataManager: CoreDataManager = CoreDataManager.shared) {
         self.coreDataManager = coreDataManager
         
-        fetchedResultsController = NSFetchedResultsController(
+        countersFetchedResultsController = NSFetchedResultsController(
             fetchRequest: coreDataManager.createFetch(for: nil, dateSorted: true) as NSFetchRequest<Counter>,
+            managedObjectContext: coreDataManager.context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        
+        tagsFetchedResultsController = NSFetchedResultsController(
+            fetchRequest: coreDataManager.createFetch(for: nil, dateSorted: false) as NSFetchRequest<Tag>,
             managedObjectContext: coreDataManager.context,
             sectionNameKeyPath: nil,
             cacheName: nil
@@ -56,13 +64,14 @@ final class CountersCollectionVM: NSObject, CountersCollectionViewModel {
     
     // MARK: - Methods
     func viewDidLoad() {
-        fetchedResultsController.delegate = self
+        countersFetchedResultsController.delegate = self
         onViewDidLoad?()
     }
     
     func fetchData() {
         do {
-            try fetchedResultsController.performFetch()
+            try countersFetchedResultsController.performFetch()
+            try tagsFetchedResultsController.performFetch()
             getUpdatedSnapshot()
         } catch {
             DevLogger.shared.logMessage(.coreData(message: "CountersCollectionVC - Error retrieving counters"))
@@ -78,18 +87,19 @@ final class CountersCollectionVM: NSObject, CountersCollectionViewModel {
 private extension CountersCollectionVM {
     
     func getUpdatedSnapshot() {
-        let newData = fetchedResultsController.fetchedObjects ?? []
+        let newCounterData = countersFetchedResultsController.fetchedObjects ?? []
         var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<CountersCollectionSection, CountersCollectionCellType>()
         diffableDataSourceSnapshot.appendSections(CountersCollectionSection.allCases)
         
-        let groups = ["new", "updated", "old", "another one", "other", "maybe that", "hehe"].map(CountersCollectionCellType.group(name: ))
-        diffableDataSourceSnapshot.appendItems(groups, toSection: .groups)
+        let newTagsData = tagsFetchedResultsController.fetchedObjects ?? []
+        let tagsCells = newTagsData.map { CountersCollectionCellType.group(name: $0.name) }
+        diffableDataSourceSnapshot.appendItems(tagsCells, toSection: .groups)
         
-        let counters = newData.map(CountersCollectionCellType.counter(counter: ))
+        let counters = newCounterData.map(CountersCollectionCellType.counter(counter: ))
         diffableDataSourceSnapshot.appendItems(counters, toSection: .counters)
         
         onSnapshotUpdated?(diffableDataSourceSnapshot)
-        onNeedsToShowEmptyState?(newData.isEmpty)
+        onNeedsToShowEmptyState?(newCounterData.isEmpty)
     }
     
     func resetSnapshot() {

@@ -8,12 +8,11 @@
 import SwiftUI
 import Combine
 
+// MARK: - NewCounterView
 struct NewCounterView: View {
     
-    // MARK: - Properties
     @ObservedObject var viewModel: NewCounterVM
     
-    // MARK: - Body
     var body: some View {
         #if targetEnvironment(macCatalyst)
         CounterForm(viewModel: viewModel)
@@ -34,22 +33,12 @@ struct NewCounterView: View {
     }
 }
 
-// MARK: - Subviews
+// MARK: - CounterForm
 private struct CounterForm: View {
     
-    // MARK: - Properties
     @ObservedObject var viewModel: NewCounterVM
     @State private var isShowingTagsSelection = false
     
-    let tags: Set<String> = [
-        "my",
-        "tag",
-        "another",
-        "blue",
-        "long tag long"
-    ]
-    
-    // MARK: - Body
     var body: some View {
         Form {
             Section(header: Text(R.string.localizable.newCounterMainInfoSectionTitle())) {
@@ -112,11 +101,27 @@ private struct CounterForm: View {
             }
             
             Section(header: Text("Tags")) {
-                Button("Add Tags") {
+                if !viewModel.tags.isEmpty {
+                    ScrollView(.horizontal) {
+                        LazyHStack {
+                            ForEach(Array(viewModel.tags), id: \.identifier) { tag in
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .fill(R.color.accentColor.color)
+                                    Text(tag.name)
+                                        .foregroundColor(.white)
+                                        .padding(8)
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                Button(viewModel.tags.isEmpty ? "Add Tags" : "Edit tags") {
                     isShowingTagsSelection.toggle()
                 }
                 .sheet(isPresented: $isShowingTagsSelection) {
-                    TagsView(allTags: tags, selectedTags: tags)
+                    TagsView(viewModel: viewModel, selectedTags: viewModel.tags, initiallySelectedTags: viewModel.tags)
                 }
             }
         }
@@ -136,16 +141,18 @@ private struct CounterForm: View {
     }
 }
 
+// MARK: - TagsView
 private struct TagsView: View {
     
-    // MARK: - Properties
+    @ObservedObject var viewModel: NewCounterVM
+    
     @Environment(\.presentationMode) var presentationMode
+    
     @State var newTag: String = ""
+    @State var selectedTags: Set<Tag>
     
-    @State var allTags: Set<String>
-    @State var selectedTags: Set<String>
+    var initiallySelectedTags: Set<Tag>
     
-    // MARK: - Body
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -153,25 +160,41 @@ private struct TagsView: View {
                     TextField("Create new tag", text: $newTag)
                         .multilineTextAlignment(.leading)
                         .disableAutocorrection(true)
+                    
+                    Button("Create") {
+                        do {
+                            try CoreDataManager.shared.newTag(named: newTag)
+                        } catch {
+                            
+                        }
+                    }
+                    .disabled(newTag.isEmpty)
                 }
                 .padding()
                 
-                TagsList(allTags: $allTags, selectedTags: $selectedTags)
+                TagsList(selectedTags: $selectedTags)
                     .padding()
                     .background(Color(.secondarySystemBackground))
+                    .environment(\.managedObjectContext, CoreDataManager.shared.context)
                     
                 Spacer()
             }
             .padding(.top, 20)
             .background(Color(.secondarySystemBackground))
-            .navigationBarTitle("Edit tags", displayMode: .inline)
+            .navigationBarTitle("Select tags", displayMode: .inline)
+            .navigationBarItems(
+                leading:
+                    Button("Cancel") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                ,
+                trailing:
+                    Button("Done") {
+                        viewModel.tags = selectedTags
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .disabled(selectedTags == initiallySelectedTags)
+            )
         }
-        
-//        Button("Press to dismiss") {
-//            presentationMode.wrappedValue.dismiss()
-//        }
-//        .font(.title)
-//        .padding()
-        
     }
 }

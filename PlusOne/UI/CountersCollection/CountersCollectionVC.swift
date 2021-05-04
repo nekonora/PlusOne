@@ -124,11 +124,11 @@ private extension CountersCollectionVC {
     // MARK: - Layout
     func generateLayout() -> UICollectionViewLayout {
         UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            sectionIndex == 0 ? self.setupGroupsSection() : self.setupCountersSection()
+            sectionIndex == 0 ? self.setupTagsSection() : self.setupCountersSection()
         }
     }
     
-    func setupGroupsSection() -> NSCollectionLayoutSection {
+    func setupTagsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(80), heightDimension: .absolute(40))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(80), heightDimension: .absolute(40))
@@ -187,7 +187,7 @@ extension CountersCollectionVC: NSFetchedResultsControllerDelegate {
 extension CountersCollectionVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        guard let counters = viewModel.fetchedResultsController.fetchedObjects else { return nil }
+        guard let counters = viewModel.countersFetchedResultsController.fetchedObjects else { return nil }
         
         switch indexPath.section {
         case 0:

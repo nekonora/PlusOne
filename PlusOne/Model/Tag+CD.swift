@@ -14,3 +14,10 @@ extension Tag {
         Array(counters as? Set<Counter> ?? Set<Counter>()).sorted(by: { $0.updatedAt > $1.updatedAt })
     }
 }
+
+extension Tag: Comparable {
+    
+    public static func < (lhs: Tag, rhs: Tag) -> Bool {
+        lhs.name < rhs.name
+    }
+}

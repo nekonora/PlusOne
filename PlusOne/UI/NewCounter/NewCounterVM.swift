@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class NewCounterVM: ObservableObject {
+final class NewCounterVM: ObservableObject {
     
     // MARK: - Properties
     @Published var name: String
@@ -16,7 +16,7 @@ class NewCounterVM: ObservableObject {
     @Published var increment: String
     @Published var unit: String
     @Published var completionValue: String
-    @Published var tags: [Tag]
+    @Published var tags: Set<Tag>
     
     let editingCounter: Counter?
     var dismiss: (() -> Void)?
@@ -30,7 +30,7 @@ class NewCounterVM: ObservableObject {
         self.increment = counterToEdit?.increment.stringTruncatingZero() ?? ""
         self.unit = counterToEdit?.unit ?? ""
         self.completionValue = counterToEdit?.completionValue.stringTruncatingZero() ?? ""
-        self.tags = Array(counterToEdit?.tags ?? [])
+        self.tags = counterToEdit?.tags ?? []
     }
     
     // MARK: - Methods
@@ -41,6 +41,7 @@ class NewCounterVM: ObservableObject {
             increment: self.increment.floatValue ?? 1,
             unit: self.unit.nilIfEmpty,
             completionValue: self.completionValue.floatValue,
+            tags: tags,
             group: nil
         )
         
@@ -50,5 +51,14 @@ class NewCounterVM: ObservableObject {
             CoreDataManager.shared.newCounter(config)
         }
         self.dismiss?()
+    }
+    
+    func getAllTags() -> Set<Tag> {
+        do {
+            return try CoreDataManager.shared.getAllTags()
+        } catch {
+            DevLogger.shared.logMessage(.coreData(message: error.localizedDescription))
+            return []
+        }
     }
 }
