@@ -23,6 +23,6 @@ extension Counter {
     
     // MARK: - Unwrapped properties
     var uTags: [Tag] {
-        Array(tags as? Set<Tag> ?? Set<Tag>()).sorted(by: { $0.name > $1.name })
+        Array(tags).sorted(by: { $0.name > $1.name })
     }
 }

@@ -148,17 +148,22 @@ private struct TagsView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Tags")) {
-                    HStack {
-                        TextField("Create new tag", text: $newTag)
-                            .multilineTextAlignment(.leading)
-                            .disableAutocorrection(true)
-                    }
-                    
-                    TagsList(allTags: $allTags, selectedTags: $selectedTags)
+            VStack(spacing: 0) {
+                HStack {
+                    TextField("Create new tag", text: $newTag)
+                        .multilineTextAlignment(.leading)
+                        .disableAutocorrection(true)
                 }
+                .padding()
+                
+                TagsList(allTags: $allTags, selectedTags: $selectedTags)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    
+                Spacer()
             }
+            .padding(.top, 20)
+            .background(Color(.secondarySystemBackground))
             .navigationBarTitle("Edit tags", displayMode: .inline)
         }
         
