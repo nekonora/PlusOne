@@ -3,177 +3,69 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */; };
-		FA18E6F824A5DDC100F31DF9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6F724A5DDC100F31DF9 /* Preferences.swift */; };
-		FA18E6FA24A5DDEF00F31DF9 /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */; };
-		FA18E6FC24A5DE0F00F31DF9 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */; };
-		FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */; };
-		FA18E70A24A6145200F31DF9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA18E70924A6145200F31DF9 /* CloudKit.framework */; };
-		FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70C24A6195600F31DF9 /* Tag+CoreDataClass.swift */; };
-		FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70D24A6195600F31DF9 /* Tag+CoreDataProperties.swift */; };
-		FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70E24A6195600F31DF9 /* Counter+CoreDataClass.swift */; };
-		FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E70F24A6195600F31DF9 /* Counter+CoreDataProperties.swift */; };
-		FA18E71624A6195600F31DF9 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71024A6195600F31DF9 /* Group+CoreDataClass.swift */; };
-		FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71124A6195600F31DF9 /* Group+CoreDataProperties.swift */; };
-		FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */; };
-		FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */; };
-		FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18E71C24A61A9800F31DF9 /* Group+CD.swift */; };
-		FA1B6F5F2604B80B00427E94 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1B6F5E2604B80B00427E94 /* Rswift */; };
-		FA1B6F612604B88D00427E94 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B6F602604B88D00427E94 /* R.generated.swift */; };
-		FA1B6F652604B8FD00427E94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1B6F672604B8FD00427E94 /* Localizable.strings */; };
-		FA1B6F6C2604BC3300427E94 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = FA1B6F6B2604BC3300427E94 /* SFSafeSymbols */; };
-		FA263C7924AA8C7200C0477D /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA263C7824AA8C7200C0477D /* CounterCell.swift */; };
-		FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */; };
-		FA5147502603A2F600855E99 /* CountersCollectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51474F2603A2F600855E99 /* CountersCollectionVM.swift */; };
-		FA5147522603A68500855E99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5147512603A68500855E99 /* ViewController.swift */; };
-		FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */; };
-		FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */; };
-		FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */; };
-		FA689F0624B9059D00C25F8F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0524B9059D00C25F8F /* String+.swift */; };
-		FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA689F0724B9061500C25F8F /* MigrationAssistant.swift */; };
-		FA833ED6260121E200E5103F /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA833ED5260121E200E5103F /* NavigationVC.swift */; };
-		FA833ED82601310C00E5103F /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA833ED72601310C00E5103F /* GroupCell.swift */; };
-		FA8FF38F24BE3C04001A5303 /* Float+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FF38E24BE3C04001A5303 /* Float+.swift */; };
-		FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */; };
-		FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A624A3DBB400076201 /* AppDelegate.swift */; };
-		FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990A824A3DBB400076201 /* SceneDelegate.swift */; };
-		FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AA24A3DBB400076201 /* RootVC.swift */; };
-		FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */; };
-		FAA990B324A3DBB400076201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA990B224A3DBB400076201 /* Assets.xcassets */; };
-		FAA990C124A3DBB500076201 /* PlusOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990C024A3DBB500076201 /* PlusOneTests.swift */; };
-		FAA990CC24A3DBB500076201 /* PlusOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990CB24A3DBB500076201 /* PlusOneUITests.swift */; };
-		FAA990DA24A3E27100076201 /* GeneralMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA990D924A3E27100076201 /* GeneralMedia.xcassets */; };
-		FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */; };
-		FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */; };
-		FAA990E024A3E72600076201 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990DF24A3E72600076201 /* CompactVC.swift */; };
-		FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */; };
-		FAAC234525BD90CE00BEAA38 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC234425BD90CE00BEAA38 /* SettingsVC.swift */; };
-		FAAF234E24B86D54005B8B71 /* NewCounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */; };
-		FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */; };
-		FAB30C7524A69608003FD7DA /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */; };
-		FAB3717A24CE2AFF00F98EE9 /* CounterHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3717924CE2AFF00F98EE9 /* CounterHistoryVC.swift */; };
-		FAB3717D24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3717C24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift */; };
-		FAB3717F24CE3AA700F98EE9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3717E24CE3AA700F98EE9 /* Utils.swift */; };
-		FAC69FEF24B8E7A800160539 /* NewCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC69FEE24B8E7A800160539 /* NewCounterView.swift */; };
-		FAD9AD5424D0BA70004C57B8 /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9AD5324D0BA70004C57B8 /* ToolbarDelegate.swift */; };
-		FAD9AD5624D0BE8E004C57B8 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9AD5524D0BE8E004C57B8 /* Notification+.swift */; };
-		FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */; };
-		FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */; };
-		FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C2CF24CB66F300784445 /* DevLogger.swift */; };
-		FAF55ACE24ABD93F00FC8EF9 /* CountersCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */; };
-		FAFD2A302639EC15009363F7 /* TagsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD2A2F2639EC15009363F7 /* TagsList.swift */; };
-		FAFD2A322641BA70009363F7 /* Rswift+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD2A312641BA70009363F7 /* Rswift+.swift */; };
-		FAFF2D002604C36700D918E9 /* TypesafeResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */; };
+		FAB3E48D2847D4CA0029B12D /* PlusOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E48C2847D4CA0029B12D /* PlusOneApp.swift */; };
+		FAB3E48F2847D4CA0029B12D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E48E2847D4CA0029B12D /* ContentView.swift */; };
+		FAB3E4912847D4CA0029B12D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB3E4902847D4CA0029B12D /* Assets.xcassets */; };
+		FAB3E4942847D4CA0029B12D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB3E4932847D4CA0029B12D /* Preview Assets.xcassets */; };
+		FAB3E4962847D4CA0029B12D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4952847D4CA0029B12D /* Persistence.swift */; };
+		FAB3E4992847D4CA0029B12D /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4972847D4CA0029B12D /* PlusOne.xcdatamodeld */; };
+		FAB3E4A32847D4CA0029B12D /* PlusOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4A22847D4CA0029B12D /* PlusOneTests.swift */; };
+		FAB3E4AD2847D4CA0029B12D /* PlusOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4AC2847D4CA0029B12D /* PlusOneUITests.swift */; };
+		FAB3E4AF2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4AE2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FAA990BD24A3DBB500076201 /* PBXContainerItemProxy */ = {
+		FAB3E49F2847D4CA0029B12D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAA9909B24A3DBB400076201 /* Project object */;
+			containerPortal = FAB3E4812847D4CA0029B12D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FAA990A224A3DBB400076201;
+			remoteGlobalIDString = FAB3E4882847D4CA0029B12D;
 			remoteInfo = PlusOne;
 		};
-		FAA990C824A3DBB500076201 /* PBXContainerItemProxy */ = {
+		FAB3E4A92847D4CA0029B12D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAA9909B24A3DBB400076201 /* Project object */;
+			containerPortal = FAB3E4812847D4CA0029B12D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FAA990A224A3DBB400076201;
+			remoteGlobalIDString = FAB3E4882847D4CA0029B12D;
 			remoteInfo = PlusOne;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		FA18E6F724A5DDC100F31DF9 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
-		FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
-		FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		FA18E70724A6142200F31DF9 /* PlusOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlusOne.entitlements; sourceTree = "<group>"; };
-		FA18E70924A6145200F31DF9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		FA18E70C24A6195600F31DF9 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FA18E70D24A6195600F31DF9 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FA18E70E24A6195600F31DF9 /* Counter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FA18E70F24A6195600F31DF9 /* Counter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FA18E71024A6195600F31DF9 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FA18E71124A6195600F31DF9 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CD.swift"; sourceTree = "<group>"; };
-		FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CD.swift"; sourceTree = "<group>"; };
-		FA18E71C24A61A9800F31DF9 /* Group+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CD.swift"; sourceTree = "<group>"; };
-		FA1B6F602604B88D00427E94 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		FA1B6F662604B8FD00427E94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		FA263C7824AA8C7200C0477D /* CounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
-		FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
-		FA51474F2603A2F600855E99 /* CountersCollectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCollectionVM.swift; sourceTree = "<group>"; };
-		FA5147512603A68500855E99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
-		FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FA689F0524B9059D00C25F8F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		FA689F0724B9061500C25F8F /* MigrationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationAssistant.swift; sourceTree = "<group>"; };
-		FA833ED5260121E200E5103F /* NavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
-		FA833ED72601310C00E5103F /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
-		FA8FF38E24BE3C04001A5303 /* Float+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+.swift"; sourceTree = "<group>"; };
-		FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewVC.swift; sourceTree = "<group>"; };
-		FAA990A324A3DBB400076201 /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAA990A624A3DBB400076201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAA990A824A3DBB400076201 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAA990AA24A3DBB400076201 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
-		FAA990B024A3DBB400076201 /* PlusOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlusOne.xcdatamodel; sourceTree = "<group>"; };
-		FAA990B224A3DBB400076201 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAA990B724A3DBB400076201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAA990BC24A3DBB500076201 /* PlusOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAA990C024A3DBB500076201 /* PlusOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneTests.swift; sourceTree = "<group>"; };
-		FAA990C224A3DBB500076201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAA990C724A3DBB500076201 /* PlusOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAA990CB24A3DBB500076201 /* PlusOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneUITests.swift; sourceTree = "<group>"; };
-		FAA990CD24A3DBB500076201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAA990D924A3E27100076201 /* GeneralMedia.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GeneralMedia.xcassets; sourceTree = "<group>"; };
-		FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularPrimaryVC.swift; sourceTree = "<group>"; };
-		FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSecondaryVC.swift; sourceTree = "<group>"; };
-		FAA990DF24A3E72600076201 /* CompactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
-		FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		FAAC234425BD90CE00BEAA38 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVC.swift; sourceTree = "<group>"; };
-		FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		FAB3717924CE2AFF00F98EE9 /* CounterHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterHistoryVC.swift; sourceTree = "<group>"; };
-		FAB3717C24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRecordCVCell.swift; sourceTree = "<group>"; };
-		FAB3717E24CE3AA700F98EE9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		FAC69FEE24B8E7A800160539 /* NewCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterView.swift; sourceTree = "<group>"; };
-		FAD9AD5324D0BA70004C57B8 /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
-		FAD9AD5524D0BE8E004C57B8 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
-		FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterPreviewView.swift; sourceTree = "<group>"; };
-		FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCounterVM.swift; sourceTree = "<group>"; };
-		FAF2C2CF24CB66F300784445 /* DevLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevLogger.swift; sourceTree = "<group>"; };
-		FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersCollectionVC.swift; sourceTree = "<group>"; };
-		FAFD2A2F2639EC15009363F7 /* TagsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsList.swift; sourceTree = "<group>"; };
-		FAFD2A312641BA70009363F7 /* Rswift+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rswift+.swift"; sourceTree = "<group>"; };
-		FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesafeResources.swift; sourceTree = "<group>"; };
+		FAB3E4892847D4CA0029B12D /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB3E48C2847D4CA0029B12D /* PlusOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneApp.swift; sourceTree = "<group>"; };
+		FAB3E48E2847D4CA0029B12D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAB3E4902847D4CA0029B12D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAB3E4932847D4CA0029B12D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAB3E4952847D4CA0029B12D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		FAB3E4982847D4CA0029B12D /* PlusOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlusOne.xcdatamodel; sourceTree = "<group>"; };
+		FAB3E49E2847D4CA0029B12D /* PlusOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB3E4A22847D4CA0029B12D /* PlusOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneTests.swift; sourceTree = "<group>"; };
+		FAB3E4A82847D4CA0029B12D /* PlusOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB3E4AC2847D4CA0029B12D /* PlusOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneUITests.swift; sourceTree = "<group>"; };
+		FAB3E4AE2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FAA990A024A3DBB400076201 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA1B6F6C2604BC3300427E94 /* SFSafeSymbols in Frameworks */,
-				FA18E70A24A6145200F31DF9 /* CloudKit.framework in Frameworks */,
-				FA1B6F5F2604B80B00427E94 /* Rswift in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAA990B924A3DBB500076201 /* Frameworks */ = {
+		FAB3E4862847D4CA0029B12D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAA990C424A3DBB500076201 /* Frameworks */ = {
+		FAB3E49B2847D4CA0029B12D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB3E4A52847D4CA0029B12D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -183,364 +75,181 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA18E6FF24A5DE6700F31DF9 /* Extensions */ = {
+		FAB3E4802847D4CA0029B12D = {
 			isa = PBXGroup;
 			children = (
-				FAA990E124A3E9AB00076201 /* UIView+Constraints.swift */,
-				FAD9AD5524D0BE8E004C57B8 /* Notification+.swift */,
-				FA8FF38E24BE3C04001A5303 /* Float+.swift */,
-				FA0DC78B24A50F0100AF23C6 /* UIColor+.swift */,
-				FA18E6F924A5DDEF00F31DF9 /* Collection+.swift */,
-				FA56B4A924A781EC005F2B93 /* NSManagedObject+.swift */,
-				FA18E6FB24A5DE0F00F31DF9 /* UIControl+.swift */,
-				FA18E6FD24A5DE2E00F31DF9 /* UIFont+.swift */,
-				FA689F0524B9059D00C25F8F /* String+.swift */,
-				FAFD2A312641BA70009363F7 /* Rswift+.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FA18E70024A5DE7D00F31DF9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FA1B6F602604B88D00427E94 /* R.generated.swift */,
-				FAFF2CFF2604C36700D918E9 /* TypesafeResources.swift */,
-				FA38D42E24AFAA7E00092F7D /* Launchscreen.storyboard */,
-				FAA990B224A3DBB400076201 /* Assets.xcassets */,
-				FAA990D924A3E27100076201 /* GeneralMedia.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		FA18E70124A5DE9100F31DF9 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				FA18E6F724A5DDC100F31DF9 /* Preferences.swift */,
-				FAB30C7324A688C0003FD7DA /* CoreDataManager.swift */,
-				FAF2C2CF24CB66F300784445 /* DevLogger.swift */,
-				FA689F0724B9061500C25F8F /* MigrationAssistant.swift */,
-				FAB3717E24CE3AA700F98EE9 /* Utils.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		FA18E70224A5DEA200F31DF9 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				FAA990AA24A3DBB400076201 /* RootVC.swift */,
-				FA689F0924B9135C00C25F8F /* Regular */,
-				FA689F0A24B9137700C25F8F /* Compact */,
-				FAD9AD5224D0BA26004C57B8 /* Toolbar */,
-				FA689F0B24B9138500C25F8F /* NewCounter */,
-				FAB3717B24CE2B0300F98EE9 /* CounterHistory */,
-				FA689F0C24B9139000C25F8F /* CountersCollection */,
-				FAAC234325BD90BB00BEAA38 /* Settings */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		FA18E70824A6145200F31DF9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FA18E70924A6145200F31DF9 /* CloudKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FA18E70B24A618F600F31DF9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				FA63634324CC9BF200175577 /* ChangeRecord+CoreDataClass.swift */,
-				FA63634424CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift */,
-				FA18E70C24A6195600F31DF9 /* Tag+CoreDataClass.swift */,
-				FA18E70D24A6195600F31DF9 /* Tag+CoreDataProperties.swift */,
-				FA18E71824A61A7D00F31DF9 /* Tag+CD.swift */,
-				FA18E70E24A6195600F31DF9 /* Counter+CoreDataClass.swift */,
-				FA18E70F24A6195600F31DF9 /* Counter+CoreDataProperties.swift */,
-				FA18E71A24A61A8B00F31DF9 /* Counter+CD.swift */,
-				FA18E71024A6195600F31DF9 /* Group+CoreDataClass.swift */,
-				FA18E71124A6195600F31DF9 /* Group+CoreDataProperties.swift */,
-				FA18E71C24A61A9800F31DF9 /* Group+CD.swift */,
-				FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		FA1B6F642604B8D400427E94 /* Localizable */ = {
-			isa = PBXGroup;
-			children = (
-				FA1B6F672604B8FD00427E94 /* Localizable.strings */,
-			);
-			path = Localizable;
-			sourceTree = "<group>";
-		};
-		FA689F0924B9135C00C25F8F /* Regular */ = {
-			isa = PBXGroup;
-			children = (
-				FAA990DB24A3E63500076201 /* RegularPrimaryVC.swift */,
-				FAA990DD24A3E64F00076201 /* RegularSecondaryVC.swift */,
-			);
-			path = Regular;
-			sourceTree = "<group>";
-		};
-		FA689F0A24B9137700C25F8F /* Compact */ = {
-			isa = PBXGroup;
-			children = (
-				FAA990DF24A3E72600076201 /* CompactVC.swift */,
-			);
-			path = Compact;
-			sourceTree = "<group>";
-		};
-		FA689F0B24B9138500C25F8F /* NewCounter */ = {
-			isa = PBXGroup;
-			children = (
-				FAAF234D24B86D54005B8B71 /* NewCounterVC.swift */,
-				FAC69FEE24B8E7A800160539 /* NewCounterView.swift */,
-				FAF2C2CD24CB541E00784445 /* NewCounterVM.swift */,
-			);
-			path = NewCounter;
-			sourceTree = "<group>";
-		};
-		FA689F0C24B9139000C25F8F /* CountersCollection */ = {
-			isa = PBXGroup;
-			children = (
-				FAF55ACD24ABD93F00FC8EF9 /* CountersCollectionVC.swift */,
-				FA51474F2603A2F600855E99 /* CountersCollectionVM.swift */,
-				FA263C7824AA8C7200C0477D /* CounterCell.swift */,
-				FA833ED72601310C00E5103F /* GroupCell.swift */,
-				FAF2C2C724CB430100784445 /* Preview */,
-			);
-			path = CountersCollection;
-			sourceTree = "<group>";
-		};
-		FA833ED4260121BF00E5103F /* CustomTypes */ = {
-			isa = PBXGroup;
-			children = (
-				FA833ED5260121E200E5103F /* NavigationVC.swift */,
-				FA5147512603A68500855E99 /* ViewController.swift */,
-				FAFD2A2F2639EC15009363F7 /* TagsList.swift */,
-			);
-			path = CustomTypes;
-			sourceTree = "<group>";
-		};
-		FAA9909A24A3DBB400076201 = {
-			isa = PBXGroup;
-			children = (
-				FAA990A524A3DBB400076201 /* PlusOne */,
-				FAA990BF24A3DBB500076201 /* PlusOneTests */,
-				FAA990CA24A3DBB500076201 /* PlusOneUITests */,
-				FAA990A424A3DBB400076201 /* Products */,
-				FA18E70824A6145200F31DF9 /* Frameworks */,
+				FAB3E48B2847D4CA0029B12D /* PlusOne */,
+				FAB3E4A12847D4CA0029B12D /* PlusOneTests */,
+				FAB3E4AB2847D4CA0029B12D /* PlusOneUITests */,
+				FAB3E48A2847D4CA0029B12D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FAA990A424A3DBB400076201 /* Products */ = {
+		FAB3E48A2847D4CA0029B12D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAA990A324A3DBB400076201 /* PlusOne.app */,
-				FAA990BC24A3DBB500076201 /* PlusOneTests.xctest */,
-				FAA990C724A3DBB500076201 /* PlusOneUITests.xctest */,
+				FAB3E4892847D4CA0029B12D /* PlusOne.app */,
+				FAB3E49E2847D4CA0029B12D /* PlusOneTests.xctest */,
+				FAB3E4A82847D4CA0029B12D /* PlusOneUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FAA990A524A3DBB400076201 /* PlusOne */ = {
+		FAB3E48B2847D4CA0029B12D /* PlusOne */ = {
 			isa = PBXGroup;
 			children = (
-				FA18E70724A6142200F31DF9 /* PlusOne.entitlements */,
-				FAA990B724A3DBB400076201 /* Info.plist */,
-				FAA990A624A3DBB400076201 /* AppDelegate.swift */,
-				FAA990A824A3DBB400076201 /* SceneDelegate.swift */,
-				FA18E70224A5DEA200F31DF9 /* UI */,
-				FA18E70124A5DE9100F31DF9 /* Managers */,
-				FA18E6FF24A5DE6700F31DF9 /* Extensions */,
-				FA833ED4260121BF00E5103F /* CustomTypes */,
-				FA18E70024A5DE7D00F31DF9 /* Resources */,
-				FA18E70B24A618F600F31DF9 /* Model */,
-				FA1B6F642604B8D400427E94 /* Localizable */,
+				FAB3E48C2847D4CA0029B12D /* PlusOneApp.swift */,
+				FAB3E48E2847D4CA0029B12D /* ContentView.swift */,
+				FAB3E4952847D4CA0029B12D /* Persistence.swift */,
+				FAB3E4902847D4CA0029B12D /* Assets.xcassets */,
+				FAB3E4972847D4CA0029B12D /* PlusOne.xcdatamodeld */,
+				FAB3E4922847D4CA0029B12D /* Preview Content */,
 			);
 			path = PlusOne;
 			sourceTree = "<group>";
 		};
-		FAA990BF24A3DBB500076201 /* PlusOneTests */ = {
+		FAB3E4922847D4CA0029B12D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				FAA990C024A3DBB500076201 /* PlusOneTests.swift */,
-				FAA990C224A3DBB500076201 /* Info.plist */,
+				FAB3E4932847D4CA0029B12D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FAB3E4A12847D4CA0029B12D /* PlusOneTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3E4A22847D4CA0029B12D /* PlusOneTests.swift */,
 			);
 			path = PlusOneTests;
 			sourceTree = "<group>";
 		};
-		FAA990CA24A3DBB500076201 /* PlusOneUITests */ = {
+		FAB3E4AB2847D4CA0029B12D /* PlusOneUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FAA990CB24A3DBB500076201 /* PlusOneUITests.swift */,
-				FAA990CD24A3DBB500076201 /* Info.plist */,
+				FAB3E4AC2847D4CA0029B12D /* PlusOneUITests.swift */,
+				FAB3E4AE2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift */,
 			);
 			path = PlusOneUITests;
-			sourceTree = "<group>";
-		};
-		FAAC234325BD90BB00BEAA38 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				FAAC234425BD90CE00BEAA38 /* SettingsVC.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		FAB3717B24CE2B0300F98EE9 /* CounterHistory */ = {
-			isa = PBXGroup;
-			children = (
-				FAB3717924CE2AFF00F98EE9 /* CounterHistoryVC.swift */,
-				FAB3717C24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift */,
-			);
-			path = CounterHistory;
-			sourceTree = "<group>";
-		};
-		FAD9AD5224D0BA26004C57B8 /* Toolbar */ = {
-			isa = PBXGroup;
-			children = (
-				FAD9AD5324D0BA70004C57B8 /* ToolbarDelegate.swift */,
-			);
-			path = Toolbar;
-			sourceTree = "<group>";
-		};
-		FAF2C2C724CB430100784445 /* Preview */ = {
-			isa = PBXGroup;
-			children = (
-				FAA1BC4224ACF5A30036B4BF /* CounterPreviewVC.swift */,
-				FAF2C2C824CB431C00784445 /* CounterPreviewView.swift */,
-			);
-			path = Preview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FAA990A224A3DBB400076201 /* PlusOne */ = {
+		FAB3E4882847D4CA0029B12D /* PlusOne */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAA990D024A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOne" */;
+			buildConfigurationList = FAB3E4B22847D4CA0029B12D /* Build configuration list for PBXNativeTarget "PlusOne" */;
 			buildPhases = (
-				FA1B6F5C2604B76D00427E94 /* R.swift */,
-				FAA9909F24A3DBB400076201 /* Sources */,
-				FAA990A024A3DBB400076201 /* Frameworks */,
-				FAA990A124A3DBB400076201 /* Resources */,
+				FAB3E4852847D4CA0029B12D /* Sources */,
+				FAB3E4862847D4CA0029B12D /* Frameworks */,
+				FAB3E4872847D4CA0029B12D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PlusOne;
-			packageProductDependencies = (
-				FA1B6F5E2604B80B00427E94 /* Rswift */,
-				FA1B6F6B2604BC3300427E94 /* SFSafeSymbols */,
-			);
 			productName = PlusOne;
-			productReference = FAA990A324A3DBB400076201 /* PlusOne.app */;
+			productReference = FAB3E4892847D4CA0029B12D /* PlusOne.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAA990BB24A3DBB500076201 /* PlusOneTests */ = {
+		FAB3E49D2847D4CA0029B12D /* PlusOneTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAA990D324A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneTests" */;
+			buildConfigurationList = FAB3E4B52847D4CA0029B12D /* Build configuration list for PBXNativeTarget "PlusOneTests" */;
 			buildPhases = (
-				FAA990B824A3DBB500076201 /* Sources */,
-				FAA990B924A3DBB500076201 /* Frameworks */,
-				FAA990BA24A3DBB500076201 /* Resources */,
+				FAB3E49A2847D4CA0029B12D /* Sources */,
+				FAB3E49B2847D4CA0029B12D /* Frameworks */,
+				FAB3E49C2847D4CA0029B12D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FAA990BE24A3DBB500076201 /* PBXTargetDependency */,
+				FAB3E4A02847D4CA0029B12D /* PBXTargetDependency */,
 			);
 			name = PlusOneTests;
 			productName = PlusOneTests;
-			productReference = FAA990BC24A3DBB500076201 /* PlusOneTests.xctest */;
+			productReference = FAB3E49E2847D4CA0029B12D /* PlusOneTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FAA990C624A3DBB500076201 /* PlusOneUITests */ = {
+		FAB3E4A72847D4CA0029B12D /* PlusOneUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAA990D624A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneUITests" */;
+			buildConfigurationList = FAB3E4B82847D4CA0029B12D /* Build configuration list for PBXNativeTarget "PlusOneUITests" */;
 			buildPhases = (
-				FAA990C324A3DBB500076201 /* Sources */,
-				FAA990C424A3DBB500076201 /* Frameworks */,
-				FAA990C524A3DBB500076201 /* Resources */,
+				FAB3E4A42847D4CA0029B12D /* Sources */,
+				FAB3E4A52847D4CA0029B12D /* Frameworks */,
+				FAB3E4A62847D4CA0029B12D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FAA990C924A3DBB500076201 /* PBXTargetDependency */,
+				FAB3E4AA2847D4CA0029B12D /* PBXTargetDependency */,
 			);
 			name = PlusOneUITests;
 			productName = PlusOneUITests;
-			productReference = FAA990C724A3DBB500076201 /* PlusOneUITests.xctest */;
+			productReference = FAB3E4A82847D4CA0029B12D /* PlusOneUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FAA9909B24A3DBB400076201 /* Project object */ = {
+		FAB3E4812847D4CA0029B12D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					FAA990A224A3DBB400076201 = {
-						CreatedOnToolsVersion = 12.0;
+					FAB3E4882847D4CA0029B12D = {
+						CreatedOnToolsVersion = 13.4;
 					};
-					FAA990BB24A3DBB500076201 = {
-						CreatedOnToolsVersion = 12.0;
-						TestTargetID = FAA990A224A3DBB400076201;
+					FAB3E49D2847D4CA0029B12D = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = FAB3E4882847D4CA0029B12D;
 					};
-					FAA990C624A3DBB500076201 = {
-						CreatedOnToolsVersion = 12.0;
-						TestTargetID = FAA990A224A3DBB400076201;
+					FAB3E4A72847D4CA0029B12D = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = FAB3E4882847D4CA0029B12D;
 					};
 				};
 			};
-			buildConfigurationList = FAA9909E24A3DBB400076201 /* Build configuration list for PBXProject "PlusOne" */;
-			compatibilityVersion = "Xcode 12.0";
+			buildConfigurationList = FAB3E4842847D4CA0029B12D /* Build configuration list for PBXProject "PlusOne" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = FAA9909A24A3DBB400076201;
-			packageReferences = (
-				FA1B6F5D2604B80B00427E94 /* XCRemoteSwiftPackageReference "R.swift" */,
-				FA1B6F6A2604BC3300427E94 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
-			);
-			productRefGroup = FAA990A424A3DBB400076201 /* Products */;
+			mainGroup = FAB3E4802847D4CA0029B12D;
+			productRefGroup = FAB3E48A2847D4CA0029B12D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FAA990A224A3DBB400076201 /* PlusOne */,
-				FAA990BB24A3DBB500076201 /* PlusOneTests */,
-				FAA990C624A3DBB500076201 /* PlusOneUITests */,
+				FAB3E4882847D4CA0029B12D /* PlusOne */,
+				FAB3E49D2847D4CA0029B12D /* PlusOneTests */,
+				FAB3E4A72847D4CA0029B12D /* PlusOneUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FAA990A124A3DBB400076201 /* Resources */ = {
+		FAB3E4872847D4CA0029B12D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA38D42F24AFAA7F00092F7D /* Launchscreen.storyboard in Resources */,
-				FA1B6F652604B8FD00427E94 /* Localizable.strings in Resources */,
-				FAA990B324A3DBB400076201 /* Assets.xcassets in Resources */,
-				FAA990DA24A3E27100076201 /* GeneralMedia.xcassets in Resources */,
+				FAB3E4942847D4CA0029B12D /* Preview Assets.xcassets in Resources */,
+				FAB3E4912847D4CA0029B12D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAA990BA24A3DBB500076201 /* Resources */ = {
+		FAB3E49C2847D4CA0029B12D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAA990C524A3DBB500076201 /* Resources */ = {
+		FAB3E4A62847D4CA0029B12D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -549,141 +258,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		FA1B6F5C2604B76D00427E94 /* R.swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
-			);
-			name = R.swift;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/PlusOne/Resources/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=macosx\nswift run -c release rswift generate \"$SRCROOT/PlusOne/Resources/R.generated.swift\" --generators image,string,color\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		FAA9909F24A3DBB400076201 /* Sources */ = {
+		FAB3E4852847D4CA0029B12D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA833ED82601310C00E5103F /* GroupCell.swift in Sources */,
-				FAC69FEF24B8E7A800160539 /* NewCounterView.swift in Sources */,
-				FA18E71D24A61A9800F31DF9 /* Group+CD.swift in Sources */,
-				FA18E6FE24A5DE2E00F31DF9 /* UIFont+.swift in Sources */,
-				FA18E71324A6195600F31DF9 /* Tag+CoreDataProperties.swift in Sources */,
-				FAFD2A302639EC15009363F7 /* TagsList.swift in Sources */,
-				FA63634524CC9BF200175577 /* ChangeRecord+CoreDataClass.swift in Sources */,
-				FAF55ACE24ABD93F00FC8EF9 /* CountersCollectionVC.swift in Sources */,
-				FAB3717A24CE2AFF00F98EE9 /* CounterHistoryVC.swift in Sources */,
-				FAAC234525BD90CE00BEAA38 /* SettingsVC.swift in Sources */,
-				FAA990AB24A3DBB400076201 /* RootVC.swift in Sources */,
-				FA18E71224A6195600F31DF9 /* Tag+CoreDataClass.swift in Sources */,
-				FA1B6F612604B88D00427E94 /* R.generated.swift in Sources */,
-				FA18E71424A6195600F31DF9 /* Counter+CoreDataClass.swift in Sources */,
-				FA18E71624A6195600F31DF9 /* Group+CoreDataClass.swift in Sources */,
-				FAF2C2D024CB66F300784445 /* DevLogger.swift in Sources */,
-				FA263C7924AA8C7200C0477D /* CounterCell.swift in Sources */,
-				FAA990DC24A3E63600076201 /* RegularPrimaryVC.swift in Sources */,
-				FAA990DE24A3E64F00076201 /* RegularSecondaryVC.swift in Sources */,
-				FAB3717F24CE3AA700F98EE9 /* Utils.swift in Sources */,
-				FAFD2A322641BA70009363F7 /* Rswift+.swift in Sources */,
-				FAA990A724A3DBB400076201 /* AppDelegate.swift in Sources */,
-				FAF2C2C924CB431C00784445 /* CounterPreviewView.swift in Sources */,
-				FAA990B124A3DBB400076201 /* PlusOne.xcdatamodeld in Sources */,
-				FA56B4AA24A781EC005F2B93 /* NSManagedObject+.swift in Sources */,
-				FAD9AD5624D0BE8E004C57B8 /* Notification+.swift in Sources */,
-				FA18E71524A6195600F31DF9 /* Counter+CoreDataProperties.swift in Sources */,
-				FA18E71724A6195600F31DF9 /* Group+CoreDataProperties.swift in Sources */,
-				FA5147502603A2F600855E99 /* CountersCollectionVM.swift in Sources */,
-				FA63634624CC9BF200175577 /* ChangeRecord+CoreDataProperties.swift in Sources */,
-				FAA990E024A3E72600076201 /* CompactVC.swift in Sources */,
-				FA18E71924A61A7D00F31DF9 /* Tag+CD.swift in Sources */,
-				FAB3717D24CE2D4D00F98EE9 /* ChangeRecordCVCell.swift in Sources */,
-				FAA990A924A3DBB400076201 /* SceneDelegate.swift in Sources */,
-				FA5147522603A68500855E99 /* ViewController.swift in Sources */,
-				FAB30C7424A688C0003FD7DA /* CoreDataManager.swift in Sources */,
-				FA18E6FA24A5DDEF00F31DF9 /* Collection+.swift in Sources */,
-				FA689F0624B9059D00C25F8F /* String+.swift in Sources */,
-				FAF2C2CE24CB541E00784445 /* NewCounterVM.swift in Sources */,
-				FA18E71B24A61A8B00F31DF9 /* Counter+CD.swift in Sources */,
-				FA833ED6260121E200E5103F /* NavigationVC.swift in Sources */,
-				FAA1BC4324ACF5A30036B4BF /* CounterPreviewVC.swift in Sources */,
-				FAD9AD5424D0BA70004C57B8 /* ToolbarDelegate.swift in Sources */,
-				FAA990E224A3E9AB00076201 /* UIView+Constraints.swift in Sources */,
-				FA8FF38F24BE3C04001A5303 /* Float+.swift in Sources */,
-				FAAF234E24B86D54005B8B71 /* NewCounterVC.swift in Sources */,
-				FA18E6FC24A5DE0F00F31DF9 /* UIControl+.swift in Sources */,
-				FA0DC78C24A50F0100AF23C6 /* UIColor+.swift in Sources */,
-				FA18E6F824A5DDC100F31DF9 /* Preferences.swift in Sources */,
-				FA689F0824B9061500C25F8F /* MigrationAssistant.swift in Sources */,
-				FAFF2D002604C36700D918E9 /* TypesafeResources.swift in Sources */,
+				FAB3E4962847D4CA0029B12D /* Persistence.swift in Sources */,
+				FAB3E48F2847D4CA0029B12D /* ContentView.swift in Sources */,
+				FAB3E4992847D4CA0029B12D /* PlusOne.xcdatamodeld in Sources */,
+				FAB3E48D2847D4CA0029B12D /* PlusOneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAA990B824A3DBB500076201 /* Sources */ = {
+		FAB3E49A2847D4CA0029B12D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB30C7524A69608003FD7DA /* PlusOne.xcdatamodeld in Sources */,
-				FAA990C124A3DBB500076201 /* PlusOneTests.swift in Sources */,
+				FAB3E4A32847D4CA0029B12D /* PlusOneTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAA990C324A3DBB500076201 /* Sources */ = {
+		FAB3E4A42847D4CA0029B12D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA990CC24A3DBB500076201 /* PlusOneUITests.swift in Sources */,
+				FAB3E4AD2847D4CA0029B12D /* PlusOneUITests.swift in Sources */,
+				FAB3E4AF2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FAA990BE24A3DBB500076201 /* PBXTargetDependency */ = {
+		FAB3E4A02847D4CA0029B12D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAA990A224A3DBB400076201 /* PlusOne */;
-			targetProxy = FAA990BD24A3DBB500076201 /* PBXContainerItemProxy */;
+			target = FAB3E4882847D4CA0029B12D /* PlusOne */;
+			targetProxy = FAB3E49F2847D4CA0029B12D /* PBXContainerItemProxy */;
 		};
-		FAA990C924A3DBB500076201 /* PBXTargetDependency */ = {
+		FAB3E4AA2847D4CA0029B12D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAA990A224A3DBB400076201 /* PlusOne */;
-			targetProxy = FAA990C824A3DBB500076201 /* PBXContainerItemProxy */;
+			target = FAB3E4882847D4CA0029B12D /* PlusOne */;
+			targetProxy = FAB3E4A92847D4CA0029B12D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		FA1B6F672604B8FD00427E94 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA1B6F662604B8FD00427E94 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		FAA990CE24A3DBB500076201 /* Debug */ = {
+		FAB3E4B02847D4CA0029B12D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -727,7 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -737,14 +363,13 @@
 			};
 			name = Debug;
 		};
-		FAA990CF24A3DBB500076201 /* Release */ = {
+		FAB3E4B12847D4CA0029B12D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -782,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -792,130 +417,134 @@
 			};
 			name = Release;
 		};
-		FAA990D124A3DBB500076201 /* Debug */ = {
+		FAB3E4B32847D4CA0029B12D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlusOne/Preview Content\"";
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
-				INFOPLIST_FILE = PlusOne/Info.plist;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		FAA990D224A3DBB500076201 /* Release */ = {
+		FAB3E4B42847D4CA0029B12D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlusOne/Preview Content\"";
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
-				INFOPLIST_FILE = PlusOne/Info.plist;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		FAA990D424A3DBB500076201 /* Debug */ = {
+		FAB3E4B62847D4CA0029B12D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
-				INFOPLIST_FILE = PlusOneTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneTests;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlusOne.app/PlusOne";
 			};
 			name = Debug;
 		};
-		FAA990D524A3DBB500076201 /* Release */ = {
+		FAB3E4B72847D4CA0029B12D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
-				INFOPLIST_FILE = PlusOneTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneTests;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlusOne.app/PlusOne";
 			};
 			name = Release;
 		};
-		FAA990D724A3DBB500076201 /* Debug */ = {
+		FAB3E4B92847D4CA0029B12D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
-				INFOPLIST_FILE = PlusOneUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneUITests;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PlusOne;
 			};
 			name = Debug;
 		};
-		FAA990D824A3DBB500076201 /* Release */ = {
+		FAB3E4BA2847D4CA0029B12D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
-				INFOPLIST_FILE = PlusOneUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.PlusOneUITests;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PlusOne;
@@ -925,88 +554,56 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAA9909E24A3DBB400076201 /* Build configuration list for PBXProject "PlusOne" */ = {
+		FAB3E4842847D4CA0029B12D /* Build configuration list for PBXProject "PlusOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAA990CE24A3DBB500076201 /* Debug */,
-				FAA990CF24A3DBB500076201 /* Release */,
+				FAB3E4B02847D4CA0029B12D /* Debug */,
+				FAB3E4B12847D4CA0029B12D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAA990D024A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOne" */ = {
+		FAB3E4B22847D4CA0029B12D /* Build configuration list for PBXNativeTarget "PlusOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAA990D124A3DBB500076201 /* Debug */,
-				FAA990D224A3DBB500076201 /* Release */,
+				FAB3E4B32847D4CA0029B12D /* Debug */,
+				FAB3E4B42847D4CA0029B12D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAA990D324A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneTests" */ = {
+		FAB3E4B52847D4CA0029B12D /* Build configuration list for PBXNativeTarget "PlusOneTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAA990D424A3DBB500076201 /* Debug */,
-				FAA990D524A3DBB500076201 /* Release */,
+				FAB3E4B62847D4CA0029B12D /* Debug */,
+				FAB3E4B72847D4CA0029B12D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAA990D624A3DBB500076201 /* Build configuration list for PBXNativeTarget "PlusOneUITests" */ = {
+		FAB3E4B82847D4CA0029B12D /* Build configuration list for PBXNativeTarget "PlusOneUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAA990D724A3DBB500076201 /* Debug */,
-				FAA990D824A3DBB500076201 /* Release */,
+				FAB3E4B92847D4CA0029B12D /* Debug */,
+				FAB3E4BA2847D4CA0029B12D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		FA1B6F5D2604B80B00427E94 /* XCRemoteSwiftPackageReference "R.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
-			requirement = {
-				kind = exactVersion;
-				version = 5.4.0;
-			};
-		};
-		FA1B6F6A2604BC3300427E94 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/piknotech/SFSafeSymbols.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FA1B6F5E2604B80B00427E94 /* Rswift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA1B6F5D2604B80B00427E94 /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = Rswift;
-		};
-		FA1B6F6B2604BC3300427E94 /* SFSafeSymbols */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA1B6F6A2604BC3300427E94 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
-			productName = SFSafeSymbols;
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCVersionGroup section */
-		FAA990AF24A3DBB400076201 /* PlusOne.xcdatamodeld */ = {
+		FAB3E4972847D4CA0029B12D /* PlusOne.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FAA990B024A3DBB400076201 /* PlusOne.xcdatamodel */,
+				FAB3E4982847D4CA0029B12D /* PlusOne.xcdatamodel */,
 			);
-			currentVersion = FAA990B024A3DBB400076201 /* PlusOne.xcdatamodel */;
+			currentVersion = FAB3E4982847D4CA0029B12D /* PlusOne.xcdatamodel */;
 			path = PlusOne.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = FAA9909B24A3DBB400076201 /* Project object */;
+	rootObject = FAB3E4812847D4CA0029B12D /* Project object */;
 }
