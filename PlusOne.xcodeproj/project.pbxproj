@@ -11,11 +11,13 @@
 		FAB3E48F2847D4CA0029B12D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E48E2847D4CA0029B12D /* ContentView.swift */; };
 		FAB3E4912847D4CA0029B12D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB3E4902847D4CA0029B12D /* Assets.xcassets */; };
 		FAB3E4942847D4CA0029B12D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB3E4932847D4CA0029B12D /* Preview Assets.xcassets */; };
-		FAB3E4962847D4CA0029B12D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4952847D4CA0029B12D /* Persistence.swift */; };
+		FAB3E4962847D4CA0029B12D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4952847D4CA0029B12D /* PersistenceController.swift */; };
 		FAB3E4992847D4CA0029B12D /* PlusOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4972847D4CA0029B12D /* PlusOne.xcdatamodeld */; };
 		FAB3E4A32847D4CA0029B12D /* PlusOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4A22847D4CA0029B12D /* PlusOneTests.swift */; };
 		FAB3E4AD2847D4CA0029B12D /* PlusOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4AC2847D4CA0029B12D /* PlusOneUITests.swift */; };
 		FAB3E4AF2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4AE2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift */; };
+		FAB3E4BE2847D60F0029B12D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4BD2847D60F0029B12D /* Config.swift */; };
+		FAB3E4C42847D8E70029B12D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3E4C32847D8E70029B12D /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,13 +43,16 @@
 		FAB3E48E2847D4CA0029B12D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FAB3E4902847D4CA0029B12D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAB3E4932847D4CA0029B12D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FAB3E4952847D4CA0029B12D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		FAB3E4952847D4CA0029B12D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		FAB3E4982847D4CA0029B12D /* PlusOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlusOne.xcdatamodel; sourceTree = "<group>"; };
 		FAB3E49E2847D4CA0029B12D /* PlusOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB3E4A22847D4CA0029B12D /* PlusOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneTests.swift; sourceTree = "<group>"; };
 		FAB3E4A82847D4CA0029B12D /* PlusOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlusOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB3E4AC2847D4CA0029B12D /* PlusOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneUITests.swift; sourceTree = "<group>"; };
 		FAB3E4AE2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAB3E4BB2847D53C0029B12D /* PlusOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlusOne.entitlements; sourceTree = "<group>"; };
+		FAB3E4BD2847D60F0029B12D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		FAB3E4C32847D8E70029B12D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB3E4C42847D8E70029B12D /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +88,7 @@
 				FAB3E4A12847D4CA0029B12D /* PlusOneTests */,
 				FAB3E4AB2847D4CA0029B12D /* PlusOneUITests */,
 				FAB3E48A2847D4CA0029B12D /* Products */,
+				FAB3E4C22847D8E70029B12D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +105,10 @@
 		FAB3E48B2847D4CA0029B12D /* PlusOne */ = {
 			isa = PBXGroup;
 			children = (
-				FAB3E48C2847D4CA0029B12D /* PlusOneApp.swift */,
-				FAB3E48E2847D4CA0029B12D /* ContentView.swift */,
-				FAB3E4952847D4CA0029B12D /* Persistence.swift */,
-				FAB3E4902847D4CA0029B12D /* Assets.xcassets */,
-				FAB3E4972847D4CA0029B12D /* PlusOne.xcdatamodeld */,
+				FAB3E4C12847D65C0029B12D /* UI */,
+				FAB3E4C02847D6530029B12D /* Models */,
+				FAB3E4BF2847D6470029B12D /* Resources */,
+				FAB3E4BC2847D6050029B12D /* App */,
 				FAB3E4922847D4CA0029B12D /* Preview Content */,
 			);
 			path = PlusOne;
@@ -131,6 +137,49 @@
 				FAB3E4AE2847D4CA0029B12D /* PlusOneUITestsLaunchTests.swift */,
 			);
 			path = PlusOneUITests;
+			sourceTree = "<group>";
+		};
+		FAB3E4BC2847D6050029B12D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3E4BB2847D53C0029B12D /* PlusOne.entitlements */,
+				FAB3E4BD2847D60F0029B12D /* Config.swift */,
+				FAB3E48C2847D4CA0029B12D /* PlusOneApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FAB3E4BF2847D6470029B12D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3E4902847D4CA0029B12D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAB3E4C02847D6530029B12D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3E4952847D4CA0029B12D /* PersistenceController.swift */,
+				FAB3E4972847D4CA0029B12D /* PlusOne.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FAB3E4C12847D65C0029B12D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3E48E2847D4CA0029B12D /* ContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FAB3E4C22847D8E70029B12D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3E4C32847D8E70029B12D /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +312,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB3E4962847D4CA0029B12D /* Persistence.swift in Sources */,
+				FAB3E4962847D4CA0029B12D /* PersistenceController.swift in Sources */,
 				FAB3E48F2847D4CA0029B12D /* ContentView.swift in Sources */,
+				FAB3E4BE2847D60F0029B12D /* Config.swift in Sources */,
 				FAB3E4992847D4CA0029B12D /* PlusOne.xcdatamodeld in Sources */,
 				FAB3E48D2847D4CA0029B12D /* PlusOneApp.swift in Sources */,
 			);
@@ -422,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlusOne/Preview Content\"";
@@ -433,16 +484,18 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOne;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -451,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlusOne/PlusOne.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlusOne/Preview Content\"";
@@ -462,16 +516,18 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.PlusOne;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
