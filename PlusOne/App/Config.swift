@@ -5,5 +5,5 @@
 
 enum Config {
     
-    static let containerIdentifier = "iCloud.PlusOne"
+    static let containerIdentifier = "PlusOne"
 }

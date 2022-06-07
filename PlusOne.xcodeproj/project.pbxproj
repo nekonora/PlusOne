@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA8A252D2848BDBE001ABA5B /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A252C2848BDBE001ABA5B /* CounterView.swift */; };
+		FA8A252F2848BDDE001ABA5B /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A252E2848BDDE001ABA5B /* CounterViewModel.swift */; };
+		FA8A25322848BEBF001ABA5B /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A25302848BEBF001ABA5B /* Counter.swift */; };
+		FA8A25352848C291001ABA5B /* CountersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A25342848C291001ABA5B /* CountersManager.swift */; };
+		FA8A253A2848C48E001ABA5B /* NSManagedObjectContext+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A25392848C48E001ABA5B /* NSManagedObjectContext+Async.swift */; };
+		FA9CDC6D284FE30100017666 /* CountersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CDC6C284FE30100017666 /* CountersProvider.swift */; };
+		FA9CDC72284FEF2E00017666 /* CountersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CDC71284FEF2E00017666 /* CountersListViewModel.swift */; };
+		FA9CDC74284FF8D200017666 /* CDPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CDC73284FF8D200017666 /* CDPublisher.swift */; };
+		FA9CDC772850017100017666 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CDC762850017100017666 /* AsyncButton.swift */; };
 		FAB3E48D2847D4CA0029B12D /* PlusOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E48C2847D4CA0029B12D /* PlusOneApp.swift */; };
-		FAB3E48F2847D4CA0029B12D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E48E2847D4CA0029B12D /* ContentView.swift */; };
+		FAB3E48F2847D4CA0029B12D /* CountersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E48E2847D4CA0029B12D /* CountersListView.swift */; };
 		FAB3E4912847D4CA0029B12D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB3E4902847D4CA0029B12D /* Assets.xcassets */; };
 		FAB3E4942847D4CA0029B12D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB3E4932847D4CA0029B12D /* Preview Assets.xcassets */; };
 		FAB3E4962847D4CA0029B12D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3E4952847D4CA0029B12D /* PersistenceController.swift */; };
@@ -38,9 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA8A252C2848BDBE001ABA5B /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		FA8A252E2848BDDE001ABA5B /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
+		FA8A25302848BEBF001ABA5B /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		FA8A25342848C291001ABA5B /* CountersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersManager.swift; sourceTree = "<group>"; };
+		FA8A25392848C48E001ABA5B /* NSManagedObjectContext+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Async.swift"; sourceTree = "<group>"; };
+		FA9CDC6C284FE30100017666 /* CountersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersProvider.swift; sourceTree = "<group>"; };
+		FA9CDC71284FEF2E00017666 /* CountersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersListViewModel.swift; sourceTree = "<group>"; };
+		FA9CDC73284FF8D200017666 /* CDPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDPublisher.swift; sourceTree = "<group>"; };
+		FA9CDC762850017100017666 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		FAB3E4892847D4CA0029B12D /* PlusOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlusOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB3E48C2847D4CA0029B12D /* PlusOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOneApp.swift; sourceTree = "<group>"; };
-		FAB3E48E2847D4CA0029B12D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAB3E48E2847D4CA0029B12D /* CountersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersListView.swift; sourceTree = "<group>"; };
 		FAB3E4902847D4CA0029B12D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAB3E4932847D4CA0029B12D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAB3E4952847D4CA0029B12D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -81,6 +99,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA8A25382848C487001ABA5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A25392848C48E001ABA5B /* NSManagedObjectContext+Async.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA9CDC6E284FEC3800017666 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FA9CDC73284FF8D200017666 /* CDPublisher.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FA9CDC752850016800017666 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA9CDC762850017100017666 /* AsyncButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		FAB3E4802847D4CA0029B12D = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +147,8 @@
 		FAB3E48B2847D4CA0029B12D /* PlusOne */ = {
 			isa = PBXGroup;
 			children = (
+				FA9CDC6E284FEC3800017666 /* Utilities */,
+				FA8A25382848C487001ABA5B /* Extensions */,
 				FAB3E4C12847D65C0029B12D /* UI */,
 				FAB3E4C02847D6530029B12D /* Models */,
 				FAB3E4BF2847D6470029B12D /* Resources */,
@@ -160,7 +204,10 @@
 		FAB3E4C02847D6530029B12D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA8A25302848BEBF001ABA5B /* Counter.swift */,
 				FAB3E4952847D4CA0029B12D /* PersistenceController.swift */,
+				FA9CDC6C284FE30100017666 /* CountersProvider.swift */,
+				FA8A25342848C291001ABA5B /* CountersManager.swift */,
 				FAB3E4972847D4CA0029B12D /* PlusOne.xcdatamodeld */,
 			);
 			path = Models;
@@ -169,7 +216,11 @@
 		FAB3E4C12847D65C0029B12D /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				FAB3E48E2847D4CA0029B12D /* ContentView.swift */,
+				FA9CDC752850016800017666 /* Components */,
+				FAB3E48E2847D4CA0029B12D /* CountersListView.swift */,
+				FA9CDC71284FEF2E00017666 /* CountersListViewModel.swift */,
+				FA8A252C2848BDBE001ABA5B /* CounterView.swift */,
+				FA8A252E2848BDDE001ABA5B /* CounterViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -313,10 +364,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB3E4962847D4CA0029B12D /* PersistenceController.swift in Sources */,
-				FAB3E48F2847D4CA0029B12D /* ContentView.swift in Sources */,
+				FA9CDC72284FEF2E00017666 /* CountersListViewModel.swift in Sources */,
+				FAB3E48F2847D4CA0029B12D /* CountersListView.swift in Sources */,
+				FA8A25322848BEBF001ABA5B /* Counter.swift in Sources */,
 				FAB3E4BE2847D60F0029B12D /* Config.swift in Sources */,
+				FA8A252F2848BDDE001ABA5B /* CounterViewModel.swift in Sources */,
+				FA9CDC74284FF8D200017666 /* CDPublisher.swift in Sources */,
+				FA9CDC6D284FE30100017666 /* CountersProvider.swift in Sources */,
+				FA9CDC772850017100017666 /* AsyncButton.swift in Sources */,
+				FA8A25352848C291001ABA5B /* CountersManager.swift in Sources */,
 				FAB3E4992847D4CA0029B12D /* PlusOne.xcdatamodeld in Sources */,
+				FA8A253A2848C48E001ABA5B /* NSManagedObjectContext+Async.swift in Sources */,
 				FAB3E48D2847D4CA0029B12D /* PlusOneApp.swift in Sources */,
+				FA8A252D2848BDBE001ABA5B /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,12 +539,13 @@
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,7 +553,9 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
@@ -511,12 +574,13 @@
 				DEVELOPMENT_TEAM = 55SRM36F8Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,7 +588,9 @@
 				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NknrDev.QuickCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
