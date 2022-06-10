@@ -11,8 +11,10 @@ import SwiftUI
 
 struct AsyncButton<Label: View>: View {
     
+    var role: ButtonRole?
     var action: () async -> Void
     var actionOptions = Set(ActionOption.allCases)
+    
     @ViewBuilder var label: () -> Label
 
     @State private var isDisabled = false
@@ -20,6 +22,7 @@ struct AsyncButton<Label: View>: View {
 
     var body: some View {
         Button(
+            role: role,
             action: {
                 if actionOptions.contains(.disableButton) {
                     isDisabled = true

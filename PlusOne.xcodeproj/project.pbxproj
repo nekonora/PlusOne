@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		FA0EAF9C2852A22E001A1845 /* DefaultsWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = FA0EAF9B2852A22E001A1845 /* DefaultsWrapper */; };
+		FA24D2462853DBF90040AAEA /* Counter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24D2422853DBF90040AAEA /* Counter+CoreDataClass.swift */; };
+		FA24D2472853DBF90040AAEA /* Counter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24D2432853DBF90040AAEA /* Counter+CoreDataProperties.swift */; };
+		FA24D2482853DBF90040AAEA /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24D2442853DBF90040AAEA /* Tag+CoreDataClass.swift */; };
+		FA24D2492853DBF90040AAEA /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24D2452853DBF90040AAEA /* Tag+CoreDataProperties.swift */; };
+		FA24D24B2853E2F80040AAEA /* TagData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24D24A2853E2F80040AAEA /* TagData.swift */; };
 		FA4DAABD2852884F001B201D /* MigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4DAABC2852884F001B201D /* MigrationManager.swift */; };
 		FA6A87C62850D69F0044347D /* MainSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A87C52850D69F0044347D /* MainSplitView.swift */; };
 		FA6A87CB2850ECDA0044347D /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A87CA2850ECDA0044347D /* Mocks.swift */; };
@@ -17,7 +22,7 @@
 		FA6A87D32850FBD40044347D /* EditCounterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A87D22850FBD40044347D /* EditCounterForm.swift */; };
 		FA8A252D2848BDBE001ABA5B /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A252C2848BDBE001ABA5B /* CounterView.swift */; };
 		FA8A252F2848BDDE001ABA5B /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A252E2848BDDE001ABA5B /* CounterViewModel.swift */; };
-		FA8A25322848BEBF001ABA5B /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A25302848BEBF001ABA5B /* Counter.swift */; };
+		FA8A25322848BEBF001ABA5B /* CounterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A25302848BEBF001ABA5B /* CounterData.swift */; };
 		FA8A25352848C291001ABA5B /* CountersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A25342848C291001ABA5B /* CountersManager.swift */; };
 		FA8A253A2848C48E001ABA5B /* NSManagedObjectContext+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A25392848C48E001ABA5B /* NSManagedObjectContext+Async.swift */; };
 		FA9CDC6D284FE30100017666 /* CountersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CDC6C284FE30100017666 /* CountersProvider.swift */; };
@@ -57,6 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA24D2422853DBF90040AAEA /* Counter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA24D2432853DBF90040AAEA /* Counter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counter+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA24D2442853DBF90040AAEA /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA24D2452853DBF90040AAEA /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA24D24A2853E2F80040AAEA /* TagData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagData.swift; sourceTree = "<group>"; };
 		FA4DAABC2852884F001B201D /* MigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationManager.swift; sourceTree = "<group>"; };
 		FA6A87C52850D69F0044347D /* MainSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitView.swift; sourceTree = "<group>"; };
 		FA6A87CA2850ECDA0044347D /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
@@ -66,7 +76,7 @@
 		FA6A87D22850FBD40044347D /* EditCounterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCounterForm.swift; sourceTree = "<group>"; };
 		FA8A252C2848BDBE001ABA5B /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		FA8A252E2848BDDE001ABA5B /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
-		FA8A25302848BEBF001ABA5B /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		FA8A25302848BEBF001ABA5B /* CounterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterData.swift; sourceTree = "<group>"; };
 		FA8A25342848C291001ABA5B /* CountersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersManager.swift; sourceTree = "<group>"; };
 		FA8A25392848C48E001ABA5B /* NSManagedObjectContext+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Async.swift"; sourceTree = "<group>"; };
 		FA9CDC6C284FE30100017666 /* CountersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersProvider.swift; sourceTree = "<group>"; };
@@ -119,6 +129,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA24D2412853DB510040AAEA /* CDGenerated */ = {
+			isa = PBXGroup;
+			children = (
+				FA24D2422853DBF90040AAEA /* Counter+CoreDataClass.swift */,
+				FA24D2432853DBF90040AAEA /* Counter+CoreDataProperties.swift */,
+				FA24D2442853DBF90040AAEA /* Tag+CoreDataClass.swift */,
+				FA24D2452853DBF90040AAEA /* Tag+CoreDataProperties.swift */,
+			);
+			path = CDGenerated;
+			sourceTree = "<group>";
+		};
 		FA8A25382848C487001ABA5B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +252,9 @@
 		FAB3E4C02847D6530029B12D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA8A25302848BEBF001ABA5B /* Counter.swift */,
+				FA24D2412853DB510040AAEA /* CDGenerated */,
+				FA8A25302848BEBF001ABA5B /* CounterData.swift */,
+				FA24D24A2853E2F80040AAEA /* TagData.swift */,
 				FAB3E4952847D4CA0029B12D /* PersistenceController.swift */,
 				FA9CDC6C284FE30100017666 /* CountersProvider.swift */,
 				FA8A25342848C291001ABA5B /* CountersManager.swift */,
@@ -399,21 +422,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA24D2492853DBF90040AAEA /* Tag+CoreDataProperties.swift in Sources */,
+				FA24D2482853DBF90040AAEA /* Tag+CoreDataClass.swift in Sources */,
 				FA6A87D12850FAAC0044347D /* TagView.swift in Sources */,
 				FAB3E4962847D4CA0029B12D /* PersistenceController.swift in Sources */,
 				FA6A87CD2850F8580044347D /* Numeric+.swift in Sources */,
 				FA9CDC72284FEF2E00017666 /* CountersGridViewModel.swift in Sources */,
 				FAB3E48F2847D4CA0029B12D /* CountersGridView.swift in Sources */,
-				FA8A25322848BEBF001ABA5B /* Counter.swift in Sources */,
+				FA24D24B2853E2F80040AAEA /* TagData.swift in Sources */,
+				FA8A25322848BEBF001ABA5B /* CounterData.swift in Sources */,
 				FAB3E4BE2847D60F0029B12D /* Config.swift in Sources */,
 				FA8A252F2848BDDE001ABA5B /* CounterViewModel.swift in Sources */,
 				FA9CDC74284FF8D200017666 /* CDPublisher.swift in Sources */,
 				FA6A87CB2850ECDA0044347D /* Mocks.swift in Sources */,
 				FA9CDC6D284FE30100017666 /* CountersProvider.swift in Sources */,
 				FA6A87CF2850F8C00044347D /* Collection+.swift in Sources */,
+				FA24D2472853DBF90040AAEA /* Counter+CoreDataProperties.swift in Sources */,
 				FA9CDC772850017100017666 /* AsyncButton.swift in Sources */,
 				FA8A25352848C291001ABA5B /* CountersManager.swift in Sources */,
 				FAB3E4992847D4CA0029B12D /* PlusOne.xcdatamodeld in Sources */,
+				FA24D2462853DBF90040AAEA /* Counter+CoreDataClass.swift in Sources */,
 				FA8A253A2848C48E001ABA5B /* NSManagedObjectContext+Async.swift in Sources */,
 				FAB3E48D2847D4CA0029B12D /* PlusOneApp.swift in Sources */,
 				FA8A252D2848BDBE001ABA5B /* CounterView.swift in Sources */,

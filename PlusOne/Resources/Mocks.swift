@@ -12,6 +12,7 @@ enum Mocks {
     static let counterSimple: CounterData = CounterData(
         id: UUID(),
         createdAt: Date(),
+        modifiedAt: Date(),
         name: "Simple Counter",
         value: 23,
         steps: nil,

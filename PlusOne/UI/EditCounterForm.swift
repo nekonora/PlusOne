@@ -76,6 +76,7 @@ struct EditCounterForm: View {
         let data = CounterData(
             id: UUID(),
             createdAt: Date(),
+            modifiedAt: Date(),
             name: name,
             value: value ?? 0,
             steps: steps,

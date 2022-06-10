@@ -13,16 +13,12 @@ extension Preferences {
     struct App {
         
         enum Keys: String, CaseIterable {
-            case userCounters = "UserCounters"
-            case alreadyCheckedForMigration
+            case oldModelDefaults = "UserCounters"
         }
         
         // MARK: - Properties
-        @OptionalStorage<Data>(key: Keys.userCounters.rawValue)
+        @OptionalStorage<Data>(key: Keys.oldModelDefaults.rawValue)
         static var oldModelDefaults: Data?
-        
-        @Storage<Bool>(key: Keys.alreadyCheckedForMigration.rawValue, defaultValue: false)
-        static var alreadyCheckedForMigration: Bool
         
         // MARK: - Utilities
         static func resetKeys(for keys: Set<Keys>) {

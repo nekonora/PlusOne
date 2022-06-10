@@ -19,12 +19,21 @@ struct MigrationManager {
         let completionValue: Float
     }
     
-    func getOldDataFromDefaults() -> [CounterData] {
+    #warning("TODO: put this in an initial loader or something")
+    func handlePossibleMigration() async throws {
+        guard Preferences.App.oldModelDefaults != nil else { return }
+        let data = getOldDataFromDefaults()
+        try await CountersManager.shared.saveCounters(data)
+        Preferences.App.resetKeys(for: [.oldModelDefaults])
+    }
+    
+    private func getOldDataFromDefaults() -> [CounterData] {
         let oldData = getOldData()
         return oldData.map {
             CounterData(
                 id: $0.id,
                 createdAt: Date(),
+                modifiedAt: Date(),
                 name: $0.name,
                 value: Double($0.value),
                 steps: Double($0.steps).nilIfZero,

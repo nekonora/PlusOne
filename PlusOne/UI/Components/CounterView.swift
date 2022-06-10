@@ -10,7 +10,6 @@ import SwiftUI
 struct CounterView: View {
     
     let counter: CounterData
-    @State private var value: Double = 0
     
     var body: some View {
         ZStack {
@@ -34,12 +33,39 @@ struct CounterView: View {
                 
                 HStack {
                     Text("\(counter.value)")
-                    Stepper(value: $value) {
+                    Stepper(onIncrement: increaseCounter, onDecrement: decreaseCounter) {
                         Text("")
                     }
                 }
             }
             .padding(20)
+        }
+        .contextMenu {
+                Button {
+                    #warning("TODO: handle edit")
+                } label: {
+                    Label("Edit", systemImage: "slider.horizontal.3")
+                }
+
+            AsyncButton(role: .destructive, action: deleteCounter) {
+                Label("Delete", systemImage: "trash")
+            }
+        }
+    }
+    
+    private func increaseCounter() {
+        CountersManager.shared.updateCounterValue(id: counter.id, opearation: .increase)
+    }
+    
+    private func decreaseCounter() {
+        CountersManager.shared.updateCounterValue(id: counter.id, opearation: .decrease)
+    }
+    
+    private func deleteCounter() async {
+        do {
+            try await CountersManager.shared.deleteCounter(counter.id)
+        } catch {
+            #warning("TODO: handle error")
         }
     }
 }

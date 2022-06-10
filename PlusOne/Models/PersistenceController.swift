@@ -7,6 +7,16 @@
 
 import CoreData
 
+enum PersistenceError: LocalizedError {
+    case objectNotFound
+    
+    var errorDescription: String? {
+        switch self {
+        case .objectNotFound: return "Object does not exist in database"
+        }
+    }
+}
+
 struct PersistenceController {
     
     static let shared = PersistenceController()

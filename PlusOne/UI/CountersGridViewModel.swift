@@ -36,20 +36,4 @@ final class CountersGridViewModel: ObservableObject {
     }
     
     // MARK: - Methods
-    func addCounter() async {
-        let new = CounterData(
-            id: UUID(),
-            createdAt: Date(),
-            name: "Gino bino",
-            value: 23,
-            steps: nil,
-            unit: nil,
-            completionValue: nil
-        )
-        do {
-            try await countersProvider.saveCounter(new)
-        } catch {
-            
-        }
-    }
 }
