@@ -10,6 +10,8 @@ import CoreData
 
 struct CountersManager: CountersProvider {
     
+    static let shared = CountersManager()
+
     private let persistence: PersistenceController
     private var context: NSManagedObjectContext {
         persistence.container.viewContext

@@ -14,7 +14,8 @@ struct PlusOneApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CountersListView(viewModel: CountersListViewModel())
+            MainSplitView()
+//            CountersGridView(viewModel: CountersGridViewModel())
         }
     }
 }

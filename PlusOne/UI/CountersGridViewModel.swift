@@ -1,5 +1,5 @@
 //
-//  CountersListViewModel.swift
+//  CountersGridViewModel.swift
 //  PlusOne
 //
 //  Created by Filippo Zaffoni on 07/06/22.
@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class CountersListViewModel: ObservableObject {
+final class CountersGridViewModel: ObservableObject {
     
     // MARK: - Properties
     private let countersProvider: CountersProvider
@@ -20,7 +20,11 @@ final class CountersListViewModel: ObservableObject {
     // MARK: - Init
     init(countersProvider: CountersProvider = CountersManager()) {
         self.countersProvider = countersProvider
-        CDPublisher(request: Counter.fetchRequest(), context: PersistenceController.shared.container.viewContext)
+        let fetchRequest = Counter.fetchRequest()
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Counter.createdAt, ascending: false)
+        ]
+        CDPublisher(request: fetchRequest, context: PersistenceController.shared.container.viewContext)
             .map { objs in
                 objs.compactMap { $0.getSafeObject() }
             }

@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "defaultswrappers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nekonora/DefaultsWrappers.git",
+      "state" : {
+        "revision" : "a509d9f5f5f6dd1f47ed15f54c0d77011afe23fb",
+        "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "logmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:nekonora/LogManager.git",
+      "state" : {
+        "revision" : "f6eba4bc17a8b0fb2cd5f62de7b449ba070318b2",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}

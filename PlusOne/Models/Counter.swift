@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-struct CounterData: Identifiable {
+struct CounterData: Identifiable, Hashable {
     let id: UUID
     let createdAt: Date
     let name: String
@@ -49,9 +49,9 @@ extension Counter: ThreadSafeable {
             createdAt: createdAt,
             name: name,
             value: value,
-            steps: steps,
-            unit: unit,
-            completionValue: completionValue
+            steps: steps.nilIfZero,
+            unit: unit?.nilIfEmpty,
+            completionValue: completionValue.nilIfZero
         )
     }
 }
